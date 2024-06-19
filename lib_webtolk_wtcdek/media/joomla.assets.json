@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "cdekwidget",
+  "version": "3.10.2",
+  "description": "Map widget for CDEK",
+  "license": "GPL-3.0-or-later",
+  "assets": [
+    {
+      "name": "cdek-widget-ts",
+      "type": "script",
+      "uri": "lib_wtcdek/cdek-widget.es.d.ts",
+      "attributes": {
+        "defer": true
+      },
+      "package": "cdekwidget",
+      "version": "3.10.2"
+    },
+    {
+      "name": "cdek-widget-es",
+      "type": "script",
+      "uri": "lib_wtcdek/cdek-widget.es.js",
+      "attributes": {
+        "defer": true
+      },
+      "package": "cdekwidget",
+      "version": "3.10.2"
+    },
+    {
+      "name": "cdek-widget-umd",
+      "type": "script",
+      "uri": "lib_wtcdek/cdek-widget.umd.js",
+      "attributes": {
+        "defer": true
+      },
+      "package": "cdekwidget",
+      "version": "3.10.2"
+    }
+  ]
+}

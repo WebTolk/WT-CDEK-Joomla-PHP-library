@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" method="upgrade">
+	<name>WT Cdek library package</name>
+	<author>Sergey Tolkachyov</author>
+	<creationDate>June 2024</creationDate>
+	<packagename>lib_wtcdek</packagename>
+	<version>1.0.0</version>
+	<url>https://web-tolk.ru</url>
+	<packager>Sergey Tolkachyov</packager>
+	<description>CDEK API library with plugin for library settings. For Joomla 4.2.7 and higher.</description>
+	<license>GNU GPL 3.0</license>
+	<scriptfile>script.php</scriptfile>
+	<languages>
+		<language tag="ru-RU">language/ru-RU/pkg_lib_wtcdek.sys.ini</language>
+		<language tag="en-GB">language/en-GB/pkg_lib_wtcdek.sys.ini</language>
+	</languages>
+	<files>
+	   <folder type="library" id="Webtolk/Cdekapi">lib_webtolk_wtcdek</folder>
+	   <folder type="plugin" id="wtcdek" group="system">plg_system_wtcdek</folder>
+	</files>
+	<updateservers>
+			<server type="extension" name="WT Cdek library updates">https://web-tolk.ru/component/swjprojects/jupdate?element=pkg_lib_wtcdek</server>
+	</updateservers>
+	<changelogurl>https://web-tolk.ru/jchangelog?element=pkg_lib_wtcdek</changelogurl>
+</extension>

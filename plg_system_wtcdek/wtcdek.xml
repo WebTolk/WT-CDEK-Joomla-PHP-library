@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.0" type="plugin" group="system" method="upgrade">
+	<name>System - WT CDEK</name>
+	<author>Sergey Tolkachyov</author>
+	<creationDate>23/05/2022</creationDate>
+	<copyright>Copyright (C) 2022 Sergey Tolkachyov. All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<authorEmail>info@web-tolk.ru</authorEmail>
+	<authorUrl>https://web-tolk.ru</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_WTCDEK_DESC</description>
+	<namespace path="src">Joomla\Plugin\System\Wtcdek</namespace>
+	<files>
+		<filename plugin="wtcdek">wtcdek.xml</filename>
+		<folder>services</folder>
+		<folder>src</folder>
+	</files>
+	<languages folder="language" client="administrator">
+		<language tag="en-GB">en-GB/plg_system_wtcdek.ini</language>
+		<language tag="en-GB">en-GB/plg_system_wtcdek.sys.ini</language>
+		<language tag="ru-RU">ru-RU/plg_system_wtcdek.ini</language>
+		<language tag="ru-RU">ru-RU/plg_system_wtcdek.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field addfieldprefix="Joomla\Plugin\System\Wtcdek\Field" type="plugininfo" name="plugininfo"/>
+				<field addfieldprefix="Joomla\Plugin\System\Wtcdek\Field" type="accountinfo" name="accountinfo"/>
+				<field type="text" name="client_id" label="Account"/>
+				<field type="password" name="client_secret" label="Secure"/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
