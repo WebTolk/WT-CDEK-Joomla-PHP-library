@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="task" method="upgrade">
+	<name>PLG_UPDATEWTCDEKDATA</name>
+	<author>Sergey Tolkacyov</author>
+	<creationDate>14.11.2024</creationDate>
+	<copyright>(C) Sergey Tolkachyov</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>info@web-tolk.ru</authorEmail>
+	<authorUrl>https://web-tolk.ru</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_UPDATEWTCDEKDATA_DESC</description>
+	<namespace path="src">Joomla\Plugin\Task\Updatewtcdekdata</namespace>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<files>
+		<folder>forms</folder>
+		<folder>services</folder>
+		<folder plugin="updatewtcdekdata">src</folder>
+		<folder>sql</folder>
+		<filename>updatewtcdekdata.xml</filename>
+	</files>
+	<languages folder="language" client="administrator">
+		<language tag="en-GB">en-GB/plg_task_updatewtcdekdata.ini</language>
+		<language tag="ru-RU">ru-RU/plg_task_updatewtcdekdata.ini</language>
+		<language tag="en-GB">en-GB/plg_task_updatewtcdekdata.sys.ini</language>
+		<language tag="ru-RU">ru-RU/plg_task_updatewtcdekdata.sys.ini</language>
+	</languages>
+</extension>

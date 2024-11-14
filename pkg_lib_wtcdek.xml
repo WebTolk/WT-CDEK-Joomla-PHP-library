@@ -17,6 +17,7 @@
 	<files>
 	   <folder type="library" id="Webtolk/Cdekapi">lib_webtolk_wtcdek</folder>
 	   <folder type="plugin" id="wtcdek" group="system">plg_system_wtcdek</folder>
+	   <folder type="plugin" id="updatewtcdekdata" group="task">plg_task_updatewtcdekdata</folder>
 	</files>
 	<updateservers>
 			<server type="extension" name="WT Cdek library updates">https://web-tolk.ru/component/swjprojects/jupdate?element=pkg_lib_wtcdek</server>

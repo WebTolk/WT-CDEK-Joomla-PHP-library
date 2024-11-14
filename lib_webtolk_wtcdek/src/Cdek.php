@@ -750,6 +750,10 @@ final class Cdek
 			'lang'          => 'rus'
 		];
 		$options = array_filter(array_merge($options, $request_options));
+		if(array_key_exists('city', $options) && !empty($options['city']))
+		{
+			$options['city'] = urlencode($options['city']);
+		}
 		return $this->getResponse('/location/cities', $options, 'GET');
 	}
 
