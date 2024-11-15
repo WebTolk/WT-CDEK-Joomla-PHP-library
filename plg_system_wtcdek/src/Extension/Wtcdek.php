@@ -1,12 +1,12 @@
 <?php
 /**
  * Library to connect to CDEK service.
- * @package     Webtolk\Cdek
- * @author      Sergey Tolkachyov
+ * @package    WT Cdek library package
+ * @author     Sergey Tolkachyov
  * @copyright   Copyright (C) Sergey Tolkachyov, 2024. All rights reserved.
- * @version     1.0.0
+ * @version     1.1.0-alpha1
  * @license     GNU General Public License version 3 or later. Only for *.php files!
- * @link        https://api-docs.cdek.ru/29923741.html
+ * @link       https://web-tolk.ru
  */
 
 namespace Joomla\Plugin\System\Wtcdek\Extension;

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Joomla.Plugin
+ * @package    WT Cdek library package
  * @subpackage  Task.deletelogs
  *
  * @copyright   (C) 2023 Open Source Matters, Inc. <https://www.joomla.org>

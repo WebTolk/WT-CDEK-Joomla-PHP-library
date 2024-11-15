@@ -2,10 +2,10 @@
 <extension type="library" method="upgrade">
 	<name>WebTolk Cdekapi library</name>
 	<libraryname>Webtolk/Cdekapi</libraryname>
-	<version>1.0.0</version>
+	<version>1.1.0-alpha1</version>
 	<description>Cdek REST API methods for Joomla. Connection library</description>
-	<creationDate>June 2024</creationDate>
-	<copyright>2024 Sergey Tolkachyov</copyright>
+	<creationDate>15.11.2024</creationDate>
+	<copyright>Copyright (c) 2022 - 2024 Sergey Tolkachyov. All rights reserved.</copyright>
 	<license>GNU/GPL 3.0</license>
 	<author>Sergey Tolkachyov</author>
 	<authorEmail>info@web-tolk.ru</authorEmail>

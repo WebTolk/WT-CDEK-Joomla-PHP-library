@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package         Joomla.Plugin
+ * @package    WT Cdek library package
  * @subpackage      Task.deleteactionlogs
  *
  * @copyright   (C) 2023 Open Source Matters, Inc. <https://www.joomla.org>
@@ -140,13 +140,22 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
     private function updateLocationRegions($cdek, $task_params): bool
     {
         $size   = $task_params->get('request_data_size', 1000);
+	    $countries = $task_params->get('countries_for_update', ['RU']);
         $page   = 0;
         $result = false;
+	    $nowDate = (new Date('now'))->toSql();
+
+	    $request_options = ['size' => $size];
+	    if (!\in_array('--', $countries))
+	    {
+		    $request_options['country_codes'] = $countries;
+	    }
 
         $this->clearTable('#__lib_wtcdek_location_regions');
         do
         {
-            $regions = $cdek->getLocationRegions(['size' => $size, 'page' => $page]);
+            $request_options['page'] = $page;
+			$regions = $cdek->getLocationRegions($request_options);
             $page++;
 
             $db = $this->getDatabase();
@@ -159,7 +168,7 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
                 $db->quoteName('date_modified'),
             ];
 
-            $nowDate = (new Date('now'))->toSql();
+
 
             $values = [];
 
@@ -245,6 +254,7 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
         $countries = $task_params->get('countries_for_update', ['RU']);
         $page      = 0;
         $result    = false;
+	    $nowDate = (new Date('now'))->toSql();
 
         $request_options = ['size' => $size];
         if (!\in_array('--', $countries))
@@ -252,10 +262,10 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
             $request_options['country_codes'] = $countries;
         }
         $this->clearTable('#__lib_wtcdek_location_cities');
+
         do
         {
             $request_options['page'] = $page;
-
             $cities                  = $cdek->getLocationCities($request_options);
             $page++;
 
@@ -269,82 +279,152 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
                 $db->quoteName('country'),
                 $db->quoteName('region'),
                 $db->quoteName('region_code'),
+                $db->quoteName('postal_codes'),
                 $db->quoteName('sub_region'),
                 $db->quoteName('longitude'),
                 $db->quoteName('latitude'),
                 $db->quoteName('date_modified'),
             ];
 
-            $nowDate = (new Date('now'))->toSql();
-
-            $values = [];
-
+	        $values = [];
             foreach ($cities as $city)
             {
-                $cityData = [
-                    'code'          => ((array_key_exists(
-                            'code',
-                            $city
-                        ) && !empty($city['code'])) ? $city['code'] : null),
-                    'city_uuid'     => ((array_key_exists(
-                            'city_uuid',
-                            $city
-                        ) && !empty($city['city_uuid'])) ? $city['city_uuid'] : null),
-                    'city'          => ((array_key_exists(
-                            'city',
-                            $city
-                        ) && !empty($city['city'])) ? $city['city'] : null),
-                    'country_code'  => ((array_key_exists(
-                            'country_code',
-                            $city
-                        ) && !empty($city['country_code'])) ? $city['country_code'] : null),
-                    'country'       => ((array_key_exists(
-                            'country',
-                            $city
-                        ) && !empty($city['country'])) ? $city['country'] : null),
-                    'region'  => ((array_key_exists(
-                            'region',
-                            $city
-                        ) && !empty($city['region'])) ? $city['region'] : null),
-                    'region_code'  => ((array_key_exists(
-                            'region_code',
-                            $city
-                        ) && !empty($city['region_code'])) ? $city['region_code'] : 0),
-                    'sub_region'  => ((array_key_exists(
-                            'sub_region',
-                            $city
-                        ) && !empty($city['sub_region'])) ? $city['sub_region'] : null),
-                    'longitude'  => ((array_key_exists(
-                            'longitude',
-                            $city
-                        ) && !empty($city['longitude'])) ? $city['longitude'] : 0),
-                    'latitude'  => ((array_key_exists(
-                            'latitude',
-                            $city
-                        ) && !empty($city['latitude'])) ? $city['latitude'] : 0),
-                    'date_modified' => $nowDate,
-                ];
 
-                $values[] = '(' . implode(',', $db->quote($cityData)) . ')';
+	            $cityData = [
+		            'code'          => ((array_key_exists('code', $city) && !empty($city['code'])) ? $city['code'] : null),
+		            'city_uuid'     => ((array_key_exists('city_uuid', $city) && !empty($city['city_uuid'])) ? $city['city_uuid'] : null),
+		            'city'          => ((array_key_exists('city', $city) && !empty($city['city'])) ? $city['city'] : null),
+		            'country_code'  => ((array_key_exists('country_code', $city) && !empty($city['country_code'])) ? $city['country_code'] : null),
+		            'country'       => ((array_key_exists('country', $city) && !empty($city['country'])) ? $city['country'] : null),
+		            'region'        => ((array_key_exists('region', $city) && !empty($city['region'])) ? $city['region'] : null),
+		            'region_code'   => ((array_key_exists('region_code', $city) && !empty($city['region_code'])) ? $city['region_code'] : null),
+		            'postal_codes'  => null, // очень медленно работает получение индексов для каждого города
+		            'sub_region'    => ((array_key_exists('sub_region', $city) && !empty($city['sub_region'])) ? $city['sub_region'] : null),
+		            'longitude'     => ((array_key_exists('longitude', $city) && !empty($city['longitude'])) ? $city['longitude'] : null),
+		            'latitude'      => ((array_key_exists('latitude', $city) && !empty($city['latitude'])) ? $city['latitude'] : null),
+		            'date_modified' => $nowDate,
+	            ];
+	            $values[] = '(' . implode(',', $db->quote($cityData)) . ')';
+
             }
 
-            $query = 'INSERT INTO ' . $db->quoteName('#__lib_wtcdek_location_cities') . ' (' . implode(
-                    ', ',
-                    $columns
-                ) . ') VALUES ' . implode(',', $values);
+	        $query = 'INSERT INTO ' . $db->quoteName('#__lib_wtcdek_location_cities') . ' (' . implode(
+			        ', ',
+			        $columns
+		        ) . ') VALUES ' . implode(',', $values);
 
-            $db->setQuery($query);
-            try
-            {
-                $result = $db->execute();
-            }
-            catch (\RuntimeException $e)
-            {
-                $this->logTask($e->getMessage(), 'error');
-                $result = false;
-            }
+	        $db->setQuery($query);
+
+	        try
+	        {
+		        $result = $db->execute();
+	        }
+	        catch (\RuntimeException $e)
+	        {
+		        $this->logTask($e->getMessage(), 'error');
+		        $result = false;
+	        }
+
+
         }
         while (\count($cities) == $size);
+
+        return $result;
+    }
+
+
+	/**
+     * Обновляем страны и области доставки
+     *
+     * @param   Cdek      $cdek
+     * @param   Registry  $task_params  параметры задачи
+     *
+     * @return bool
+     *
+     * @since 1.1.0
+	 * @link https://api-docs.cdek.ru/36982648.html
+     */
+
+    private function updateDeliverypoints($cdek, $task_params): bool
+    {
+        $size      = $task_params->get('request_data_size', 1000);
+        $countries = $task_params->get('countries_for_update', ['RU']);
+        $page      = 0;
+        $result    = false;
+	    $nowDate = (new Date('now'))->toSql();
+
+        $request_options = ['size' => $size];
+        if (!\in_array('--', $countries))
+        {
+            $request_options['country_codes'] = $countries;
+        }
+        $this->clearTable('#__lib_wtcdek_location_cities');
+
+//        do
+//        {
+//            $request_options['page'] = $page;
+//            $cities                  = $cdek->getLocationCities($request_options);
+//            $page++;
+//
+//            $db = $this->getDatabase();
+//
+//            $columns = [
+//                $db->quoteName('code'),
+//                $db->quoteName('city_uuid'),
+//                $db->quoteName('city'),
+//                $db->quoteName('country_code'),
+//                $db->quoteName('country'),
+//                $db->quoteName('region'),
+//                $db->quoteName('region_code'),
+//                $db->quoteName('postal_codes'),
+//                $db->quoteName('sub_region'),
+//                $db->quoteName('longitude'),
+//                $db->quoteName('latitude'),
+//                $db->quoteName('date_modified'),
+//            ];
+//
+//	        $values = [];
+//            foreach ($cities as $city)
+//            {
+//
+//	            $cityData = [
+//		            'code'          => ((array_key_exists('code', $city) && !empty($city['code'])) ? $city['code'] : null),
+//		            'city_uuid'     => ((array_key_exists('city_uuid', $city) && !empty($city['city_uuid'])) ? $city['city_uuid'] : null),
+//		            'city'          => ((array_key_exists('city', $city) && !empty($city['city'])) ? $city['city'] : null),
+//		            'country_code'  => ((array_key_exists('country_code', $city) && !empty($city['country_code'])) ? $city['country_code'] : null),
+//		            'country'       => ((array_key_exists('country', $city) && !empty($city['country'])) ? $city['country'] : null),
+//		            'region'        => ((array_key_exists('region', $city) && !empty($city['region'])) ? $city['region'] : null),
+//		            'region_code'   => ((array_key_exists('region_code', $city) && !empty($city['region_code'])) ? $city['region_code'] : null),
+//		            'postal_codes'  => null, // очень медленно работает получение индексов для каждого города
+//		            'sub_region'    => ((array_key_exists('sub_region', $city) && !empty($city['sub_region'])) ? $city['sub_region'] : null),
+//		            'longitude'     => ((array_key_exists('longitude', $city) && !empty($city['longitude'])) ? $city['longitude'] : null),
+//		            'latitude'      => ((array_key_exists('latitude', $city) && !empty($city['latitude'])) ? $city['latitude'] : null),
+//		            'date_modified' => $nowDate,
+//	            ];
+//	            $values[] = '(' . implode(',', $db->quote($cityData)) . ')';
+//
+//            }
+//
+//	        $query = 'INSERT INTO ' . $db->quoteName('#__lib_wtcdek_location_cities') . ' (' . implode(
+//			        ', ',
+//			        $columns
+//		        ) . ') VALUES ' . implode(',', $values);
+//
+//	        $db->setQuery($query);
+//
+//	        try
+//	        {
+//		        $result = $db->execute();
+//	        }
+//	        catch (\RuntimeException $e)
+//	        {
+//		        $this->logTask($e->getMessage(), 'error');
+//		        $result = false;
+//	        }
+//
+//
+//        }
+//        while (\count($cities) == $size);
 
         return $result;
     }

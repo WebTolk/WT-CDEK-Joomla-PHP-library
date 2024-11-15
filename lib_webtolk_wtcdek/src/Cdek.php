@@ -1,12 +1,12 @@
 <?php
 /**
  * Library to connect to CDEK service.
- * @package     Webtolk\Cdek
- * @author      Sergey Tolkachyov
+ * @package    WT Cdek library package
+ * @author     Sergey Tolkachyov
  * @copyright   Copyright (C) Sergey Tolkachyov, 2024. All rights reserved.
- * @version     1.0.0
+ * @version     1.1.0-alpha1
  * @license     GNU General Public License version 3 or later. Only for *.php files!
- * @link        https://api-docs.cdek.ru/29923741.html
+ * @link       https://web-tolk.ru
  */
 
 declare(strict_types = 1);
@@ -226,7 +226,7 @@ final class Cdek
 	 * @return array
 	 *
 	 * @since 1.0.0
-	 * @link  https://api-docs.cdek.ru/63344418.html
+	 * @link       https://web-tolk.ru
 	 */
 	private  function responseHandler(Response $response, $method_name = ''): array
 	{
@@ -379,7 +379,7 @@ final class Cdek
 	 *
 	 * @return mixed
 	 * @since 1.0.0
-	 * @link  https://api-docs.cdek.ru/29923918.html
+	 * @link       https://web-tolk.ru
 	 *
 	 */
 	private  function authorize(): array
@@ -626,7 +626,7 @@ final class Cdek
 	 *                                          </ul>
 	 *
 	 * @return array|object
-	 * @link  https://api-docs.cdek.ru/36982648.html
+	 * @link       https://web-tolk.ru
 	 * @since 1.0.0
 	 */
 	public function getDeliveryPoints(array $request_options = []) : array
@@ -700,7 +700,7 @@ final class Cdek
 	 *                                   - string|null  $lang             Локализация. По умолчанию "rus"
 	 *
 	 * @return array|object
-	 * @link  https://api-docs.cdek.ru/36982648.html
+	 * @link       https://web-tolk.ru
 	 * @since 1.0.0
 	 */
 	public function getLocationRegions(array $request_options = []) : array
@@ -712,8 +712,11 @@ final class Cdek
 			'page'          => 0,
 			'lang'          => 'rus'
 		];
-
 		$options = array_filter(array_merge($options, $request_options));
+		if(!empty($options['country_codes']))
+		{
+			$options['country_codes'] = \implode(',', $options['country_codes']);
+		}
 		return $this->getResponse('/location/regions', $options, 'GET');
 	}
 
@@ -738,7 +741,7 @@ final class Cdek
 	 *  </ul>
 	 *
 	 * @return array
-	 * @link  https://api-docs.cdek.ru/33829437.html
+	 * @link       https://web-tolk.ru
 	 * @since 1.0.0
 	 */
 	public function getLocationCities(array $request_options = []) : array
@@ -754,7 +757,33 @@ final class Cdek
 		{
 			$options['city'] = urlencode($options['city']);
 		}
+		if(!empty($options['country_codes']))
+		{
+			$options['country_codes'] = \implode(',', $options['country_codes']);
+		}
 		return $this->getResponse('/location/cities', $options, 'GET');
+	}
+
+
+	/**
+	 * Метод предназначен для получения списка почтовых индексов.
+	 * (используется вместо метода "Список населённых пунктов")
+	 *
+	 * Запрос на получение списка населенных пунктов
+	 *
+	 * @param   int  $city_code Код города CDEK
+	 *
+	 * @return array|string[]
+	 *
+	 * @since 1.1.0
+	 * @link https://api-docs.cdek.ru/133171036.html
+	 */
+	public function getLocationPostalCodes(int $city_code) : array
+	{
+		$options = [
+			'code' => $city_code
+		];
+		return $this->getResponse('/location/postalcodes', $options, 'GET');
 	}
 
 	/**
@@ -849,7 +878,7 @@ final class Cdek
 	 *                                                                  - int           $packages['height']         Габариты упаковки. Высота (в сантиметрах)
 	 *
 	 * @return array
-	 * @link  https://api-docs.cdek.ru/63345430.html
+	 * @link       https://web-tolk.ru
 	 * @since 1.0.0
 	 */
 	public function getCalculatorTariff(array $request_options = []) : array
@@ -1032,7 +1061,7 @@ final class Cdek
 	 *                                                                  - int           $packages['height']         Габариты упаковки. Высота (в сантиметрах)
 	 *
 	 * @return array|object
-	 * @link  https://api-docs.cdek.ru/63345519.html
+	 * @link       https://web-tolk.ru
 	 * @since 1.0.0
 	 */
 	public function getCalculatorTarifflist(array $request_options = []):array
@@ -1147,7 +1176,7 @@ final class Cdek
 	 *                         - DOWNLOAD_PHOTO  - получение фото документов по заказам
 	 *
 	 * @return array|object
-	 * @link  https://api-docs.cdek.ru/29934408.html
+	 * @link       https://web-tolk.ru
 	 * @since 1.0.0
 	 */
 	public function subscribeToWebhook(string $url, string $type):array
@@ -1297,7 +1326,7 @@ final class Cdek
 	 * @param   array  $request_options  Массив параметров, описанных ниже
 	 *
 	 * @return array|object
-	 * @link  https://api-docs.cdek.ru/29923926.html
+	 * @link       https://web-tolk.ru
 	 * @since 1.0.0
 	 */
 	public function createOrder(array $request_options) : array
@@ -2097,7 +2126,7 @@ final class Cdek
 	 * @return mixed|object
 	 *
 	 * @since 1.0.0
-	 * @link  https://api-docs.cdek.ru/29923975.html
+	 * @link       https://web-tolk.ru
 	 */
 	public function getOrderInfo(?string $uuid = '', ?string $cdek_number = '', ?string $im_number = ''):array
 	{
