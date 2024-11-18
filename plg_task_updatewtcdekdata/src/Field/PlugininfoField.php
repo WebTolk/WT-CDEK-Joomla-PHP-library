@@ -7,7 +7,7 @@
  * @license         GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Joomla\Plugin\System\Updatewtcdekdata\Field;
+namespace Joomla\Plugin\Task\Updatewtcdekdata\Field;
 
 defined('_JEXEC') or die;
 
