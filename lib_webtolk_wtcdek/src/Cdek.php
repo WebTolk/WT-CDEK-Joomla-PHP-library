@@ -285,9 +285,9 @@ final class Cdek
 		elseif ($response->code >= 500)
 		{
 			// API не работает, сервер лёг. В $response->body отдаётся HTML
-			$this->saveToLog('Error while trying to calculate delivery cost via Cdek. Cdek API response: ' . $body, 'ERROR');
+			$this->saveToLog('Error while trying to calculate delivery cost via Cdek. Cdek API response: ' . print_r($body, true), 'ERROR');
 			$error_array['error_code']    = $response->code;
-			$error_array['error_message'] = 'Error while trying to calculate delivery cost via Cdek. Cdek API response: ' . $body;
+			$error_array['error_message'] = 'Error while trying to calculate delivery cost via Cdek. Cdek API response: ' . print_r($body, true);
 			return  $error_array;
 		}
 
@@ -556,7 +556,6 @@ final class Cdek
 		 */
 		$date                        = Date::getInstance('now +' . $options['lifetime'] . ' minutes')->toUnix();
 		$tokenData['token_end_time'] = $date;
-//		$cache                       = Factory::getContainer()->get(CacheControllerFactoryInterface::class)->createCacheController('output', $options);
 		$cache                       = $this->getCache($options);
 		$cache->store(json_encode($tokenData), 'wt_cdek');
 
@@ -2132,19 +2131,19 @@ final class Cdek
 		}
 		if (!empty($uuid))
 		{
-			return $this->getResponse('/orders/'.$uuid, [], 'GET');
+			$result = $this->getResponse('/orders/'.$uuid, [], 'GET');
 		}
 
 		if (!empty($cdek_number))
 		{
-			return $this->getResponse('/orders', ['cdek_number' => $cdek_number], 'GET');
+			$result = $this->getResponse('/orders', ['cdek_number' => $cdek_number], 'GET');
 		}
 
 		if (!empty($im_number))
 		{
-			return $this->getResponse('/orders', ['im_number' => $im_number], 'GET');
+			$result = $this->getResponse('/orders', ['im_number' => $im_number], 'GET');
 		}
-
+		return $result;
 	}
 
 }
