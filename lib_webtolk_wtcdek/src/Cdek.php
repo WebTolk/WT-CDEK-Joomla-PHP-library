@@ -18,6 +18,7 @@ use Joomla\CMS\Cache\Cache;
 use Joomla\CMS\Cache\CacheControllerFactoryInterface;
 use Joomla\CMS\Cache\Controller\OutputController;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\CMS\Http\HttpFactory;
 use Joomla\Http\Response;
@@ -99,6 +100,11 @@ final class Cdek
 		self::$client_id     = $client_id ?? $client_id;
 		self::$client_secret = $client_secret ?? $client_secret;
 		self::$test_mode     = $test_mode ?? $test_mode;
+
+		$lang         = Factory::getApplication()->getLanguage();
+		$extension    = 'lib_webtolk_cdekapi';
+		$base_dir     = JPATH_SITE;
+		$lang->load($extension, $base_dir);
 	}
 
 
@@ -123,7 +129,7 @@ final class Cdek
 		{
 			return [
 				'error_code'    => 400,
-				'error_message' => 'WT Cdek library can\'t do request. See logs for more details.'
+				'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_GETRESPONSE_CANT_DO_REQUEST')
 			];
 		}
 
@@ -232,8 +238,8 @@ final class Cdek
 	{
 
 		$error_array   = [
-			'error_code'    => 'no code',
-			'error_message' => 'no error description'
+			'error_code'    => Text::_('PKG_LIB_WTCDEK_ERROR_RESPONSEHANDLER_NO_CODE'),
+			'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_RESPONSEHANDLER_NO_ERROR_DESC')
 		];
 		$error_message = '';
 
@@ -273,7 +279,10 @@ final class Cdek
 				$error_message = (string) $response->body;
 			}
 
-			$error_message = 'WT Cdek library. ' . (!empty($method_name) ? 'REST API method: '.$method_name.'.' . ':' : '') . ' Error: '.$error_message;
+			$error_message = Text::sprintf(Text::_('PKG_LIB_WTCDEK_ERROR_RESPONSEHANDLER_ERROR_400'),
+				(!empty($method_name) ? 'REST API method: '.$method_name.'.' . ':' : ''),
+				$error_message
+			);
 			Factory::getApplication()->enqueueMessage($error_message,'error');
 			$this->saveToLog($error_message, 'ERROR');
 
@@ -287,7 +296,7 @@ final class Cdek
 			// API не работает, сервер лёг. В $response->body отдаётся HTML
 			$this->saveToLog('Error while trying to calculate delivery cost via Cdek. Cdek API response: ' . print_r($body, true), 'ERROR');
 			$error_array['error_code']    = $response->code;
-			$error_array['error_message'] = 'Error while trying to calculate delivery cost via Cdek. Cdek API response: ' . print_r($body, true);
+			$error_array['error_message'] = Text::_('PKG_LIB_WTCDEK_ERROR_RESPONSEHANDLER_ERROR_500', print_r($body, true));
 			return  $error_array;
 		}
 
@@ -387,11 +396,11 @@ final class Cdek
 				$response      = $this->getResponse('/oauth/token', $authorize_data,'POST');
 				if(!array_key_exists('access_token',$response))
 				{
-					$this->saveToLog('Cdek response doesn\'t contain token.','ERROR');
+					$this->saveToLog(Text::_('PKG_LIB_WTCDEK_ERROR_AUTHORIZE_NO_TOKEN'),'ERROR');
 
 					$error_array = [
 						'error_code'    => 401,
-						'error_message' => 'Cdek response doesn\'t contain token.'
+						'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_AUTHORIZE_NO_TOKEN')
 					];
 
 					return $error_array;
@@ -433,7 +442,7 @@ final class Cdek
 			}
 			catch (CdekClientException $e)
 			{
-				throw new CdekClientException('Error while trying to authorize to CDEK API', 500, $e);
+				throw new CdekClientException(Text::_('PKG_LIB_WTCDEK_ERROR_AUTHORIZE'), 500, $e);
 			}
 
 	}
@@ -617,7 +626,7 @@ final class Cdek
 	 *                                          </ul>
 	 *
 	 * @return array|object
-	 * @link       https://web-tolk.ru
+	 * @see       https://api-docs.cdek.ru/36982648.html
 	 * @since 1.0.0
 	 */
 	public function getDeliveryPoints(array $request_options = []) : array
@@ -691,7 +700,7 @@ final class Cdek
 	 *                                   - string|null  $lang             Локализация. По умолчанию "rus"
 	 *
 	 * @return array|object
-	 * @link       https://web-tolk.ru
+	 * @see       https://api-docs.cdek.ru/33829418.html
 	 * @since 1.0.0
 	 */
 	public function getLocationRegions(array $request_options = []) : array
@@ -732,7 +741,7 @@ final class Cdek
 	 *  </ul>
 	 *
 	 * @return array
-	 * @link       https://web-tolk.ru
+	 * @see       https://api-docs.cdek.ru/33829437.html
 	 * @since 1.0.0
 	 */
 	public function getLocationCities(array $request_options = []) : array
@@ -767,7 +776,7 @@ final class Cdek
 	 * @return array|string[]
 	 *
 	 * @since 1.1.0
-	 * @link https://api-docs.cdek.ru/133171036.html
+	 * @see https://api-docs.cdek.ru/133171036.html
 	 */
 	public function getLocationPostalCodes(int $city_code) : array
 	{
@@ -869,7 +878,7 @@ final class Cdek
 	 *                                                                  - int           $packages['height']         Габариты упаковки. Высота (в сантиметрах)
 	 *
 	 * @return array
-	 * @link       https://web-tolk.ru
+	 * @see      https://api-docs.cdek.ru/63345430.html
 	 * @since 1.0.0
 	 */
 	public function getCalculatorTariff(array $request_options = []) : array
@@ -879,10 +888,10 @@ final class Cdek
 		// tariff_code - обязательный параметр
 		if (!$request_options['tariff_code'] || empty($request_options['tariff_code']))
 		{
-			$this->saveToLog('Cdek::getCalculatorTariff. There is no tariff code. Specify it, please.', 'ERROR');
+			$this->saveToLog(Text::_('PKG_LIB_WTCDEK_ERROR_GETCALCULATORTARIFF_NO_TARIFF_CODE'), 'ERROR');
 			$error_array = array(
 				'error_code'    => '500',
-				'error_message' => 'Cdek::getCalculatorTariff. There is no tariff code. Specify it, please.'
+				'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_GETCALCULATORTARIFF_NO_TARIFF_CODE')
 			);
 
 			return $error_array;
@@ -899,10 +908,10 @@ final class Cdek
 			)
 		)
 		{
-			$this->saveToLog('Cdek::getCalculatorTariff. There is no from_location. Specify it, please.', 'ERROR');
+			$this->saveToLog(Text::_('PKG_LIB_WTCDEK_ERROR_GETCALCULATORTARIFF_FROM_LOCATION'), 'ERROR');
 			$error_array = array(
 				'error_code'    => '500',
-				'error_message' => 'Cdek::getCalculatorTariff. There is no from_location. Specify it, please.'
+				'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_GETCALCULATORTARIFF_FROM_LOCATION')
 			);
 
 			return $error_array;
@@ -919,10 +928,10 @@ final class Cdek
 			)
 		)
 		{
-			$this->saveToLog('Cdek::getCalculatorTariff. There is no to_location. Specify it, please.', 'ERROR');
+			$this->saveToLog(Text::_('PKG_LIB_WTCDEK_ERROR_GETCALCULATORTARIFF_TO_LOCATION'), 'ERROR');
 			$error_array = [
 				'error_code'    => '500',
-				'error_message' => 'Cdek::getCalculatorTariff. There is no to_location. Specify it, please.'
+				'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_GETCALCULATORTARIFF_TO_LOCATION')
 			];
 
 			return $error_array;
@@ -931,10 +940,10 @@ final class Cdek
 		// packages - обязательный параметр
 		if (!$request_options['packages'] || empty($request_options['packages']))
 		{
-			$this->saveToLog('Cdek::getCalculatorTarifflist. There is no packages array in request options array. Specify it, please.', 'ERROR');
+			$this->saveToLog(Text::_('PKG_LIB_WTCDEK_ERROR_GETCALCULATORTARIFF_NO_PACKAGES'), 'ERROR');
 			$error_array = [
 				'error_code'    => '500',
-				'error_message' => 'Cdek::getCalculatorTarifflist. There is no packages array in request options array. Specify it, please.'
+				'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_GETCALCULATORTARIFF_NO_PACKAGES')
 			];
 
 			return $error_array;
@@ -945,10 +954,10 @@ final class Cdek
 			{
 				if (!$package['weight'] || empty($package['weight']))
 				{
-					$this->saveToLog('Cdek::getCalculatorTariff. There is no weight specified in one of your packages in request options array. Specify it, please.', 'ERROR');
+					$this->saveToLog(Text::_('PKG_LIB_WTCDEK_ERROR_GETCALCULATORTARIFF_NO_PACKAGES_WEIGHT'), 'ERROR');
 					$error_array = [
 						'error_code'    => '500',
-						'error_message' => 'Cdek::getCalculatorTariff. There is no weight specified in one of your packages in request options array. Specify it, please.'
+						'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_GETCALCULATORTARIFF_NO_PACKAGES_WEIGHT')
 					];
 
 					return $error_array;
@@ -1052,7 +1061,7 @@ final class Cdek
 	 *                                                                  - int           $packages['height']         Габариты упаковки. Высота (в сантиметрах)
 	 *
 	 * @return array|object
-	 * @link       https://web-tolk.ru
+	 * @see       https://api-docs.cdek.ru/63345519.html
 	 * @since 1.0.0
 	 */
 	public function getCalculatorTarifflist(array $request_options = []):array
@@ -1167,7 +1176,7 @@ final class Cdek
 	 *                         - DOWNLOAD_PHOTO  - получение фото документов по заказам
 	 *
 	 * @return array|object
-	 * @link       https://web-tolk.ru
+	 * @see       https://api-docs.cdek.ru/29934408.html
 	 * @since 1.0.0
 	 */
 	public function subscribeToWebhook(string $url, string $type):array
@@ -1317,7 +1326,7 @@ final class Cdek
 	 * @param   array  $request_options  Массив параметров, описанных ниже
 	 *
 	 * @return array|object
-	 * @link       https://web-tolk.ru
+	 * @see       https://api-docs.cdek.ru/29923926.html
 	 * @since 1.0.0
 	 */
 	public function createOrder(array $request_options) : array
@@ -2117,7 +2126,7 @@ final class Cdek
 	 * @return mixed|object
 	 *
 	 * @since 1.0.0
-	 * @link       https://web-tolk.ru
+	 * @see       https://api-docs.cdek.ru/29923975.html
 	 */
 	public function getOrderInfo(?string $uuid = '', ?string $cdek_number = '', ?string $im_number = ''):array
 	{
@@ -2126,7 +2135,7 @@ final class Cdek
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'There is no ordre UUID or Cdek order number or Joomla side order id specified'
+				'error_message' => 'There is no order UUID or Cdek order number or Joomla side order id specified'
 			];
 		}
 		if (!empty($uuid))
