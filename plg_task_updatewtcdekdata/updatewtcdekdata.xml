@@ -14,12 +14,30 @@
 		<folder>forms</folder>
 		<folder>services</folder>
 		<folder plugin="updatewtcdekdata">src</folder>
+		<folder>sql</folder>
 		<filename>updatewtcdekdata.xml</filename>
 	</files>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
 	<languages folder="language" client="administrator">
 		<language tag="en-GB">en-GB/plg_task_updatewtcdekdata.ini</language>
 		<language tag="ru-RU">ru-RU/plg_task_updatewtcdekdata.ini</language>
 		<language tag="en-GB">en-GB/plg_task_updatewtcdekdata.sys.ini</language>
 		<language tag="ru-RU">ru-RU/plg_task_updatewtcdekdata.sys.ini</language>
 	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field addfieldprefix="Joomla\Plugin\Task\Updatewtcdekdata\Field" type="plugininfo" name="plugininfo"/>
+			</fieldset>
+		</fields>
+	</config>
 </extension>

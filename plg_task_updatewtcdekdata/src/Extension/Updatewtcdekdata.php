@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @package    WT Cdek library package
  * @subpackage      Task.deleteactionlogs

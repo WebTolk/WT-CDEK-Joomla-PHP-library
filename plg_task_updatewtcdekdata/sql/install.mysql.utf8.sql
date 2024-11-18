@@ -74,7 +74,10 @@ CREATE TABLE IF NOT EXISTS `#__lib_wtcdek_delivery_points`
     `weight_min`               FLOAT        NULL DEFAULT NULL,
     `weight_max`               FLOAT        NULL DEFAULT NULL,
     `dimensions`               TEXT         NULL DEFAULT NULL,
-    `date_modified`            DATETIME          DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE = InnoDB
+    `date_modified`            DATETIME          DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE `code` (`code`),
+    UNIQUE `uuid` (`uuid`)
+)
+  ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   DEFAULT COLLATE = utf8mb4_unicode_ci;
