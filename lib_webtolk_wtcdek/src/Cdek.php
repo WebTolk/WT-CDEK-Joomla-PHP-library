@@ -307,15 +307,7 @@ final class Cdek
 			return;
 		}
 
-//		$jconfig = Factory::getContainer()->get('config');
-//		$options = [
-//			'defaultgroup' => 'wt_cdek',
-//			'caching'      => true,
-//			'cachebase'    => $jconfig->get('cache_path'),
-//			'storage'      => $jconfig->get('cache_handler'),
-//		];
 		$cache   = $this->getCache();
-
 		$token_data = $cache->get('wt_cdek');
 
 		/**
@@ -587,7 +579,7 @@ final class Cdek
 			'storage'      => $jconfig->get('cache_handler'),
 		];
 		$options = array_merge($options, $cache_options);
-		return $cache   = Factory::getContainer()->get(CacheControllerFactoryInterface::class)->createCacheController('output', $options);
+		return Factory::getContainer()->get(CacheControllerFactoryInterface::class)->createCacheController('output', $options);
 	}
 
 
