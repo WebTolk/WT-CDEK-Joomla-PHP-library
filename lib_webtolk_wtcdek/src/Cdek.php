@@ -934,7 +934,7 @@ final class Cdek
 				'error_message' => 'Cdek::getCalculatorTariff. There is no to_location. Specify it, please.'
 			];
 
-			return (object) $error_array;
+			return $error_array;
 		}
 
 		// packages - обязательный параметр
