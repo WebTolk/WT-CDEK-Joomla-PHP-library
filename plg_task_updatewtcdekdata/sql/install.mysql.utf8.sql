@@ -34,7 +34,6 @@ CREATE TABLE IF NOT EXISTS `#__lib_wtcdek_location_cities`
     KEY `idx_city` (`city`),
     KEY `idx_region` (`region`),
     KEY `idx_region_code` (`region_code`),
-    KEY `idx_postal_codes` (`postal_codes`),
     KEY `idx_country` (`country`),
     KEY `idx_date_modified` (`date_modified`)
 )
