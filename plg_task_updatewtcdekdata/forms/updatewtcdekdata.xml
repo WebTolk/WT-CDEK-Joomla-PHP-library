@@ -33,8 +33,7 @@
 				   multiple="true"
 				   layout="joomla.form.field.list-fancy-select"
 				   validate="options"
-				   default="RU"
-				   showon="update_cities:1">
+				   default="RU">
 				<option value="--">JALL</option>
 				<option value="PS">PLG_TASK_UPDATEWTCDEKDATA_TASK_PARAMS_COUNTRIES_FOR_UPDATE_COUNTRY_PS</option>
 				<option value="RU">PLG_TASK_UPDATEWTCDEKDATA_TASK_PARAMS_COUNTRIES_FOR_UPDATE_COUNTRY_RU</option>

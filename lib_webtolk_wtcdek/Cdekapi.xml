@@ -2,16 +2,27 @@
 <extension type="library" method="upgrade">
 	<name>WebTolk Cdekapi library</name>
 	<libraryname>Webtolk/Cdekapi</libraryname>
-	<version>1.1.0-alpha1</version>
+	<version>1.1.0</version>
 	<description>Cdek REST API methods for Joomla. Connection library</description>
-	<creationDate>15.11.2024</creationDate>
+	<creationDate>18.11.2024</creationDate>
 	<copyright>Copyright (c) 2022 - 2024 Sergey Tolkachyov. All rights reserved.</copyright>
 	<license>GNU/GPL 3.0</license>
 	<author>Sergey Tolkachyov</author>
 	<authorEmail>info@web-tolk.ru</authorEmail>
 	<authorUrl>https://web-tolk.ru</authorUrl>
 	<namespace path="src">Webtolk\Cdekapi</namespace>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
 	<languages>
+		<language tag="ru-RU">language/ru-RU/lib_webtolk_cdekapi.ini</language>
 		<language tag="ru-RU">language/ru-RU/lib_webtolk_cdekapi.ini</language>
 	</languages>
 	<media folder="media" destination="lib_wtcdek">

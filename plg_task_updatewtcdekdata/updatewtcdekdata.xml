@@ -2,29 +2,18 @@
 <extension type="plugin" group="task" method="upgrade">
 	<name>PLG_UPDATEWTCDEKDATA</name>
 	<author>Sergey Tolkachyov</author>
-	<creationDate>15.11.2024</creationDate>
+	<creationDate>18.11.2024</creationDate>
 	<copyright>Copyright (c) 2022 - 2024 Sergey Tolkachyov. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>info@web-tolk.ru</authorEmail>
 	<authorUrl>https://web-tolk.ru</authorUrl>
-	<version>1.1.0-alpha1</version>
+	<version>1.1.0</version>
 	<description>PLG_UPDATEWTCDEKDATA_DESC</description>
 	<namespace path="src">Joomla\Plugin\Task\Updatewtcdekdata</namespace>
-	<install>
-		<sql>
-			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
-		</sql>
-	</install>
-	<uninstall>
-		<sql>
-			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
-		</sql>
-	</uninstall>
 	<files>
 		<folder>forms</folder>
 		<folder>services</folder>
 		<folder plugin="updatewtcdekdata">src</folder>
-		<folder>sql</folder>
 		<filename>updatewtcdekdata.xml</filename>
 	</files>
 	<languages folder="language" client="administrator">
