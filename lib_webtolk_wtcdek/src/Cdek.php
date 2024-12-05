@@ -283,7 +283,7 @@ final class Cdek
 				(!empty($method_name) ? 'REST API method: '.$method_name.'.' . ':' : ''),
 				$error_message
 			);
-			Factory::getApplication()->enqueueMessage($error_message,'error');
+
 			$this->saveToLog($error_message, 'ERROR');
 
 			return [
@@ -468,7 +468,11 @@ final class Cdek
 			Log::ALL & ~Log::DEBUG,
 			['lib_webtolk_cdekapi_cdek']
 		);
-		Factory::getApplication()->enqueueMessage($data, $priority);
+		$plugin_params = $this->getPluginParams();
+		if($plugin_params->get('show_library_errors', 0) == 1)
+		{
+			Factory::getApplication()->enqueueMessage($data, $priority);
+		}
 		$priority = 'Log::' . $priority;
 		Log::add($data, $priority, 'lib_webtolk_cdekapi_cdek');
 
