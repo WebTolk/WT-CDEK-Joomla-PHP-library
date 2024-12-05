@@ -24,34 +24,34 @@ class TarifflistField extends ListField
 
 	protected function getInput()
 	{
-        $tariff_shop_options = [];
-        $tariff_dostavka_options = [];
-        $cdek = new Cdek();
-        $tariff_shop = $cdek->getTariffListShop();
-        foreach ($tariff_shop as $tariff)
-        {
-            $tariff_shop_options[] = HTMLHelper::_('select.option', $tariff['code'], $tariff['name'] . ' (code: ' . $tariff['code'] . ')');
-        }
-        $tariff_dostavka = $cdek->getTariffListDostavka();
+		$tariff_shop_options = [];
+		$tariff_dostavka_options = [];
+		$cdek = new Cdek();
+		$tariff_shop = $cdek->getTariffListShop();
+		foreach ($tariff_shop as $tariff)
+		{
+			$tariff_shop_options[] = HTMLHelper::_('select.option', $tariff['code'], $tariff['name'] . ' (code: ' . $tariff['code'] . ')');
+		}
+		$tariff_dostavka = $cdek->getTariffListDostavka();
 
-        foreach ($tariff_dostavka as $tariff)
-        {
-            $tariff_dostavka_options[] = HTMLHelper::_('select.option', $tariff['code'],     $tariff['name'] . ' (code: ' . $tariff['code'] . ')');
-        }
+		foreach ($tariff_dostavka as $tariff)
+		{
+			$tariff_dostavka_options[] = HTMLHelper::_('select.option', $tariff['code'],     $tariff['name'] . ' (code: ' . $tariff['code'] . ')');
+		}
 
-        $groups = [
-            'shop' => [
-                'id' => 'shop',
-                'text' => 'Интернет-магазин',
-                'items' => $tariff_shop_options
-            ],
-            'dostavka' => [
-                'id' => 'dostavka',
-                'text' => 'Доставка',
-                'items' => $tariff_dostavka_options
-            ]
-        ];
+		$groups = [
+			'shop' => [
+				'id' => 'shop',
+				'text' => 'Интернет-магазин',
+				'items' => $tariff_shop_options
+			],
+			'dostavka' => [
+				'id' => 'dostavka',
+				'text' => 'Доставка',
+				'items' => $tariff_dostavka_options
+			]
+		];
 
-        return HTMLHelper::_('select.groupedlist', $groups, 'field_name', ['id' => 'field_id_attr', 'group.id' => 'id', 'list.attr' => ['class' => 'form-select']]);
-    }
+		return HTMLHelper::_('select.groupedlist', $groups, $this->name, ['id' => $this->id, 'group.id' => 'id', 'list.attr' => ['class' => 'form-select '.($this->class ? $this->class : '' )]]);
+	}
 }
