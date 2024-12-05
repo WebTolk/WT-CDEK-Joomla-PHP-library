@@ -19,7 +19,13 @@ use Webtolk\Cdekapi\Cdek;
 
 defined('_JEXEC') or die('Restricted access');
 
+// Значения из настроек плагина
 $cdek = new Cdek();
+// или 
+$test_mode = true;
+$client_id = 'adkjhakjaukajds';
+$client_secret = 'adkjhakjaukajds';
+$cdek = new Cdek($test_mode, $client_id, $client_secret);
 
 // Индекс получателя
 $index_to = 410012;
