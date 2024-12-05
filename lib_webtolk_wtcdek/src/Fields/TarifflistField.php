@@ -51,7 +51,17 @@ class TarifflistField extends ListField
 				'items' => $tariff_dostavka_options
 			]
 		];
+		$selected = $this->value ?? '';
+		return HTMLHelper::_('select.groupedlist',
+			$groups,
+			$this->name,
+			[
+				'id' => $this->id,
+				'group.id' => 'id',
+				'list.attr' => ['class' => 'form-select '.($this->class ? $this->class : '' )],
 
-		return HTMLHelper::_('select.groupedlist', $groups, $this->name, ['id' => $this->id, 'group.id' => 'id', 'list.attr' => ['class' => 'form-select '.($this->class ? $this->class : '' )]]);
+				'list.select' => $selected
+			]
+		);
 	}
 }
