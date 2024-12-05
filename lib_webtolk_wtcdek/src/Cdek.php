@@ -4,7 +4,7 @@
  * @package    WT Cdek library package
  * @author     Sergey Tolkachyov
  * @copyright   Copyright (C) Sergey Tolkachyov, 2024. All rights reserved.
- * @version     1.1.0
+ * @version     1.2.0
  * @license     GNU General Public License version 3 or later. Only for *.php files!
  * @link       https://web-tolk.ru
  */
@@ -1588,6 +1588,38 @@ final class Cdek
 				'tariff_weight_limit_max' => 50,
 				'tariff_service'          => 'E-com Standard',
 				'tariff_description'      => 'Стандартная экспресс-доставка. Сервис по доставке товаров из-за рубежа с услугами по таможенному оформлению (услуги для компаний дистанционной торговли). Тариф доступен только для клиентов с типом Юридическое лицо.Доступно для заказов с типом "ИМ" и "Доставка".',
+			],[
+				'code'                    => 19,
+				'name'                    => 'Экономичный экспресс дверь-дверь',
+				'mode'                    => 'Дверь-дверь (Д-Д)',
+				'tariff_weight_limit_min' => 0,
+				'tariff_weight_limit_max' => 0,
+				'tariff_service'          => 'Экономичный экспресс',
+				'tariff_description'      => 'Индивидуальные ограничения в зависимости от направления.  Максимальные габариты одной стороны - 300 см. Экономичная доставка шин. Необходимо передавать дополнительный тип заказа "10" в поле additional_order_types.',
+			],[
+				'code'                    => 2321,
+				'name'                    => 'Экономичный экспресс дверь-склад',
+				'mode'                    => 'Дверь-склад (Д-С)',
+				'tariff_weight_limit_min' => 0,
+				'tariff_weight_limit_max' => 0,
+				'tariff_service'          => 'Экономичный экспресс',
+				'tariff_description'      => 'Индивидуальные ограничения в зависимости от направления.  Максимальные габариты одной стороны - 300 см. Экономичная доставка шин. Необходимо передавать дополнительный тип заказа "10" в поле additional_order_types.',
+			],[
+				'code'                    => 2322,
+				'name'                    => 'Экономичный экспресс склад-дверь',
+				'mode'                    => 'Склад-дверь (С-Д)',
+				'tariff_weight_limit_min' => 0,
+				'tariff_weight_limit_max' => 0,
+				'tariff_service'          => 'Экономичный экспресс',
+				'tariff_description'      => 'Индивидуальные ограничения в зависимости от направления.  Максимальные габариты одной стороны - 300 см. Экономичная доставка шин. Необходимо передавать дополнительный тип заказа "10" в поле additional_order_types.',
+			],[
+				'code'                    => 2323,
+				'name'                    => 'Экономичный экспресс склад-склад',
+				'mode'                    => 'Склад-склад (С-С)',
+				'tariff_weight_limit_min' => 0,
+				'tariff_weight_limit_max' => 0,
+				'tariff_service'          => 'Экономичный экспресс',
+				'tariff_description'      => 'Индивидуальные ограничения в зависимости от направления.  Максимальные габариты одной стороны - 300 см. Экономичная доставка шин. Необходимо передавать дополнительный тип заказа "10" в поле additional_order_types.',
 			]
 		];
 	}
