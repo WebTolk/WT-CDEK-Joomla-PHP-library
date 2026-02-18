@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `#__lib_jmoodle_users_sync`;

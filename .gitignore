@@ -1,3 +1,7 @@
 .idea
 .phing
 .packages
+.apidoc.cdek.ru
+.codex
+tools
+test-results
