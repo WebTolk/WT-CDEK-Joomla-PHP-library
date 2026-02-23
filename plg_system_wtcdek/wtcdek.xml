@@ -2,12 +2,12 @@
 <extension version="4.0" type="plugin" group="system" method="upgrade">
     <name>System - WT CDEK</name>
     <author>Sergey Tolkachyov</author>
-    <creationDate>05.12.2024</creationDate>
-    <copyright>Copyright (c) 2022 - 2024 Sergey Tolkachyov. All rights reserved.</copyright>
+    <creationDate>23.02.2026</creationDate>
+    <copyright>Copyright (c) 2022 - 2026 Sergey Tolkachyov. All rights reserved.</copyright>
     <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
     <authorEmail>info@web-tolk.ru</authorEmail>
     <authorUrl>https://web-tolk.ru</authorUrl>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     <description>PLG_WTCDEK_DESC</description>
     <namespace path="src">Joomla\Plugin\System\Wtcdek</namespace>
     <files>

@@ -20,11 +20,20 @@ defined('_JEXEC') or die;
 final class LocationEntity extends AbstractEntity
 {
 	/**
-	 * Legacy-compatible method for regions list.
+	 * GET /v2/location/regions
 	 *
-	 * @param   array  $request_options  Request options.
+	 * Получение списка регионов
 	 *
-	 * @return  array
+	 * **Описание:**
+	 * Метод предназначен для получения детальной информации о регионах.
+	 *
+	 * Список регионов может быть ограничен характеристиками, задаваемыми пользователем.
+	 *
+	 * Source: https://apidoc.cdek.ru/#tag/location/operation/regions
+	 *
+	 * @param   array  $request_options  Request data.
+	 *
+	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
@@ -47,11 +56,20 @@ final class LocationEntity extends AbstractEntity
 	}
 
 	/**
-	 * Legacy-compatible method for cities list.
+	 * GET /v2/location/cities
 	 *
-	 * @param   array  $request_options  Request options.
+	 * Получение списка населенных пунктов
 	 *
-	 * @return  array
+	 * **Описание:**
+	 * Метод предназначен для получения детальной информации о населенных пунктах.
+	 *
+	 * Список населенных пунктов может быть ограничен характеристиками, задаваемыми пользователем.
+	 *
+	 * Source: https://apidoc.cdek.ru/#tag/location/operation/cities
+	 *
+	 * @param   string  $city_name  City name to use for suggestions.
+	 *
+	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
@@ -74,11 +92,18 @@ final class LocationEntity extends AbstractEntity
 	}
 
 	/**
-	 * Legacy-compatible method for postal codes by city code.
+	 * GET /v2/location/postalcodes
 	 *
-	 * @param   int  $city_code  CDEK city code.
+	 * Получение почтовых индексов города
 	 *
-	 * @return  array
+	 * **Описание:**
+	 * Метод предназначен для получения списка почтовых индексов.
+	 *
+	 * Source: https://apidoc.cdek.ru/#tag/location/operation/postalcodes
+	 *
+	 * @param   int  $city_code  Request data.
+	 *
+	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
@@ -96,29 +121,6 @@ final class LocationEntity extends AbstractEntity
 	}
 
 	/**
-	 * GET /v2/location/cities
-	 *
-	 * Получение списка населенных пунктов
-	 *
-	 * **Описание:**
-	 * Метод предназначен для получения детальной информации о населенных пунктах.
-	 *
-	 * Список населенных пунктов может быть ограничен характеристиками, задаваемыми пользователем.
-	 *
-	 * Source: https://apidoc.cdek.ru/#tag/location/operation/cities
-	 *
-	 * @param   array  $data  Request data.
-	 *
-	 * @return  array  API response.
-	 *
-	 * @since  1.3.0
-	 */
-	public function cities(array $data = []): array
-	{
-		return $this->request->getResponse('/location/cities', $data, 'GET');
-	}
-
-	/**
 	 * GET /v2/location/coordinates
 	 *
 	 * Получение локации по координатам
@@ -128,7 +130,8 @@ final class LocationEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/location/operation/getCityByCoordinates
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array  $data  Request data. Supported coordinate keys:
+	 *                        `latitude` (or `lat`) and `longitude` (or `lng`/`lon`).
 	 *
 	 * @return  array  API response.
 	 *
@@ -162,57 +165,6 @@ final class LocationEntity extends AbstractEntity
 		return $this->request->getResponse('/location/coordinates', $data, 'GET');
 	}
 
-	/**
-	 * GET /v2/location/postalcodes
-	 *
-	 * Получение почтовых индексов города
-	 *
-	 * **Описание:**
-	 * Метод предназначен для получения списка почтовых индексов.
-	 *
-	 * Source: https://apidoc.cdek.ru/#tag/location/operation/postalcodes
-	 *
-	 * @param   array  $data  Request data.
-	 *
-	 * @return  array  API response.
-	 *
-	 * @since  1.3.0
-	 */
-	public function postalcodes(array $data = []): array
-	{
-		if (empty($data['city_code']))
-		{
-			return [
-				'error_code'    => '500',
-				'error_message' => 'Required option: city_code',
-			];
-		}
-
-		return $this->request->getResponse('/location/postalcodes', $data, 'GET');
-	}
-
-	/**
-	 * GET /v2/location/regions
-	 *
-	 * Получение списка регионов
-	 *
-	 * **Описание:**
-	 * Метод предназначен для получения детальной информации о регионах.
-	 *
-	 * Список регионов может быть ограничен характеристиками, задаваемыми пользователем.
-	 *
-	 * Source: https://apidoc.cdek.ru/#tag/location/operation/regions
-	 *
-	 * @param   array  $data  Request data.
-	 *
-	 * @return  array  API response.
-	 *
-	 * @since  1.3.0
-	 */
-	public function regions(array $data = []): array
-	{
-		return $this->request->getResponse('/location/regions', $data, 'GET');
-	}
 
 	/**
 	 * GET /v2/location/suggest/cities
@@ -226,23 +178,23 @@ final class LocationEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/location/operation/suggestCities
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   string  $city_name  City name to use for suggestions.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function suggestCities(array $data = []): array
+	public function suggestCities(string $city_name): array
 	{
-		if (empty($data['name']))
+		if (empty($city_name))
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Required option: name',
+				'error_message' => 'Required option: city_name',
 			];
 		}
 
-		return $this->request->getResponse('/location/suggest/cities', $data, 'GET');
+		return $this->request->getResponse('/location/suggest/cities', ['name' => $city_name], 'GET');
 	}
 
 }

@@ -1,10 +1,10 @@
 <?php
 /**
  * Library to connect to CDEK service.
- * @package     WT Cdek library package
- * @author      Sergey Tolkachyov
+ * @package    WT Cdek library package
+ * @author     Sergey Tolkachyov
  * @copyright   Copyright (C) Sergey Tolkachyov, 2024. All rights reserved.
- * @version     1.2.0
+ * @version     1.3.0
  * @license     GNU General Public License version 3 or later. Only for *.php files!
  * @link        https://web-tolk.ru
  */
@@ -31,7 +31,28 @@ use function str_replace;
 use function strtolower;
 use function trim;
 
-
+/**
+ * Main CDEK API facade with magic accessors to entity handlers.
+ *
+ * @method  \Webtolk\Cdekapi\Entities\CalculatorEntity     calculator()     Returns calculator entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\CheckEntity          check()          Returns check entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\DeliveryEntity       delivery()       Returns delivery entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\DeliverypointsEntity deliverypoints() Returns delivery points entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\IntakesEntity        intakes()        Returns intakes entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\InternationalEntity  international()  Returns international entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\LocationEntity       location()       Returns location entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\OauthEntity          oauth()          Returns oauth entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\OrdersEntity         orders()         Returns orders entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\PassportEntity       passport()       Returns passport entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\PaymentEntity        payment()        Returns payment entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\PhotoDocumentEntity  photoDocument()  Returns photo document entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\PrealertEntity       prealert()       Returns prealert entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\PrintEntity          print()          Returns print entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\ReverseEntity        reverse()        Returns reverse entity handler.
+ * @method  \Webtolk\Cdekapi\Entities\WebhooksEntity       webhooks()       Returns webhooks entity handler.
+ *
+ * @since   1.3.1
+ */
 final class Cdek
 {
 	/**
@@ -150,18 +171,7 @@ final class Cdek
 	 */
 	public function canDoRequest(): bool
 	{
-		if (!$this->request->canDoRequest())
-		{
-			$this->saveToLog('There is no credentials found. Check theirs in plugin System - WT Cdek', 'WARNING');
-
-			return false;
-		}
-
-		self::$client_id     = $this->request->getClientId();
-		self::$client_secret = $this->request->getClientSecret();
-		self::$test_mode     = $this->request->isTestMode();
-
-		return true;
+		return $this->request->canDoRequest();
 	}
 
 	/**
