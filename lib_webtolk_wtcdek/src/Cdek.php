@@ -297,42 +297,31 @@ final class Cdek
 	}
 
 	/**
-	 * Метод предназначен для получения списка действующих офисов СДЭК.
-	 * Если одновреенно указаны параетры city_code, postal_code, fias_guid, то для определения города всех стран присутствия СДЭК приоритет отдается city_code, зате fias_guid.
+	 * Returns list of active CDEK delivery points.
 	 *
-	 * @param   array  $request_options         Массив с описанныи ниже опцияи. Все необязтальные.
-	 *                                          <ul>
-	 *                                          <li>int|null     $postal_code       Почтовый индекс города, для которого необходи список офисов</li>
-	 *                                          <li>int|null     $city_code         Код населенного пункта СДЭК (етод "Список населенных пунктов")</li>
-	 *                                          <li>string|null  $type              Тип офиса, ожет приниать значения:
-	 *                                          <ul>
-	 *                                          <li>"PVZ" - для отображения складов СДЭК;</li>
-	 *                                          <li>"POSTAMAT" - для отображения постаатов СДЭК;</li>
-	 *                                          <li>"ALL" - для отображения всех ПВЗ независио от их типа.</li>
-	 *                                          <li>При отсутствии параетра приниается значение по уолчанию "ALL".</li>
-	 *                                          </ul>
-	 *                                          </li>
-	 *                                          <li>string|null  $country_code      Код страны в форате ISO_3166-1_alpha-2 (с. “Общероссийский классификатор стран ира”)</li>
-	 *                                          <li>int|null     $region_code       Код региона по базе СДЭК</li>
-	 *                                          <li>bool|null    $have_cashless     Наличие теринала оплаты, ожет приниать значения: «1», «true» - есть; «0», «false» - нет.</li>
-	 *                                          <li>bool|null    $have_cash         Есть прие наличных, ожет приниать значения: «1», «true» - есть;  «0», «false» - нет.</li>
-	 *                                          <li>bool|null    $allowed_cod       Разрешен наложенный платеж, ожет приниать значения: «1», «true» - да;  «0», «false» - нет.</li>
-	 *                                          <li>bool|null    $is_dressing_room  Наличие приерочной, ожет приниать значения: «1», «true» - есть;  «0», «false» - нет.</li>
-	 *                                          <li>int|null     $weight_max        Максиальный вес в кг, который ожет принять офис</li>
-	 *                                          (значения больше 0 - передаются офисы, которые приниают этот вес;
-	 *                                          0 - офисы с нулевы весо не передаются;
-	 *                                          значение не указано - все офисы).
-	 *                                          <li>int|null     $weight_min        Миниальный вес в кг, который приниает офис (при переданно значении будут выводиться офисы с иниальны весо до указанного значения)</li>
-	 *                                          <li>string       $lang              Локализация офиса. По уолчанию "rus".</li>
-	 *                                          <li>bool|null    $take_only         Является ли офис только пункто выдачи, ожет приниать значения: «1», «true» - да;  «0», «false» - нет.</li>
-	 *                                          <li>bool|null    $is_handout        Является пункто выдачи, ожет приниать значения: «1», «true» - да; «0», «false» - нет.</li>
-	 *                                          <li>bool|null    $is_reception      Есть ли в офисе при заказов, ожет приниать значения: «1», «true» - да; «0», «false» - нет.</li>
-	 *                                          <li>string|null  $fias_guid         Код города ФАС. Тип UUID.</li>
-	 *                                          </ul>
+	 * @param   array{
+	 *             postal_code?: int|string,
+	 *             city_code?: int|string,
+	 *             type?: 'PVZ'|'POSTAMAT'|'ALL',
+	 *             country_code?: string,
+	 *             region_code?: int|string,
+	 *             have_cashless?: bool|int|string,
+	 *             have_cash?: bool|int|string,
+	 *             allowed_cod?: bool|int|string,
+	 *             is_dressing_room?: bool|int|string,
+	 *             weight_max?: int|float|string,
+	 *             weight_min?: int|float|string,
+	 *             lang?: string,
+	 *             take_only?: bool|int|string,
+	 *             is_handout?: bool|int|string,
+	 *             is_reception?: bool|int|string,
+	 *             fias_guid?: string
+	 *         }  $request_options  Delivery points filter options.
 	 *
-	 * @return array|object
-	 * @see       https://api-docs.cdek.ru/36982648.html
-	 * @since     1.0.0
+	 * @return  array  API response.
+	 *
+	 * @see    https://apidoc.cdek.ru/#tag/delivery_point/operation/search
+	 * @since  1.0.0
 	 */
 	public function getDeliveryPoints(array $request_options = []): array
 	{
