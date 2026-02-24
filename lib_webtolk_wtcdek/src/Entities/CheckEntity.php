@@ -1,6 +1,6 @@
 <?php
 /**
- * CheckEntity API entity.
+ * Сущность API СДЭК: чеки.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -22,15 +22,15 @@ final class CheckEntity extends AbstractEntity
 	 * **Описание:**
 	 * Метод используется для получения информации о чеке по заказу или за выбранный день.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/receipt/operation/get_7
+	 * Источник: https://apidoc.cdek.ru/#tag/receipt/operation/get_7
 	 *
 	 * @param   array{
 	 *             order_uuid?: string,
 	 *             cdek_number?: string|int,
 	 *             date?: string
-	 *         }  $request_options  Request options.
+	 *         }  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */

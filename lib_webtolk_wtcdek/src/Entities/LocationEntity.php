@@ -1,6 +1,6 @@
 <?php
 /**
- * LocationEntity API entity.
+ * Сущность API СДЭК: локации.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -29,11 +29,11 @@ final class LocationEntity extends AbstractEntity
 	 *
 	 * Список регионов может быть ограничен характеристиками, задаваемыми пользователем.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/location/operation/regions
+	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/regions
 	 *
-	 * @param   array  $request_options  Request data.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -65,11 +65,11 @@ final class LocationEntity extends AbstractEntity
 	 *
 	 * Список населенных пунктов может быть ограничен характеристиками, задаваемыми пользователем.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/location/operation/cities
+	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/cities
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -99,11 +99,11 @@ final class LocationEntity extends AbstractEntity
 	 * **Описание:**
 	 * Метод предназначен для получения списка почтовых индексов.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/location/operation/postalcodes
+	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/postalcodes
 	 *
-	 * @param   int  $city_code  Request data.
+	 * @param   int  $city_code  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -128,12 +128,12 @@ final class LocationEntity extends AbstractEntity
 	 * **Описание:**
 	 * Метод позволяет определить локацию по переданным в запросе координатам
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/location/operation/getCityByCoordinates
+	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/getCityByCoordinates
 	 *
-	 * @param   array  $request_options  Request options. Supported coordinate keys:
+	 * @param   array  $request_options  Параметры запроса. Supported coordinate keys:
 	 *                        `latitude` (or `lat`) and `longitude` (or `lng`/`lon`).
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -176,11 +176,11 @@ final class LocationEntity extends AbstractEntity
 	 *
 	 * Список населенных пунктов может быть ограничен характеристиками, задаваемыми пользователем.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/location/operation/suggestCities
+	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/suggestCities
 	 *
 	 * @param   string  $city_name  City name to use for suggestions.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */

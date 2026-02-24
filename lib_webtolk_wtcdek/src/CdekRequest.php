@@ -1,6 +1,6 @@
 <?php
 /**
- * Request helper for CDEK API client.
+ * Транспортный помощник для клиента API СДЭК.
  *
  * @package    WT Cdek library package
  * @author     Sergey Tolkachyov
@@ -44,14 +44,14 @@ use function strtoupper;
 use function trim;
 
 /**
- * Handles CDEK API transport/auth/token lifecycle.
+ * Управляет транспортом API СДЭК, авторизацией и жизненным циклом токена.
  *
  * @since  1.2.1
  */
 final class CdekRequest
 {
 	/**
-	 * Production API base URL.
+	 * Базовый URL API боевой среды.
 	 *
 	 * @var    string
 	 * @since  1.2.1
@@ -59,7 +59,7 @@ final class CdekRequest
 	private const CDEK_API_URL = 'https://api.cdek.ru/v2';
 
 	/**
-	 * Test API base URL.
+	 * Базовый URL API тестовой среды.
 	 *
 	 * @var    string
 	 * @since  1.2.1
@@ -67,7 +67,7 @@ final class CdekRequest
 	private const CDEK_API_URL_TEST = 'https://api.edu.cdek.ru/v2';
 
 	/**
-	 * Public test account id from CDEK local API documentation.
+	 * Публичный идентификатор тестового аккаунта из локальной документации API СДЭК.
 	 *
 	 * @var    string
 	 * @since  1.3.1
@@ -75,7 +75,7 @@ final class CdekRequest
 	private const CDEK_TEST_CLIENT_ID = 'wqGwiQx0gg8mLtiEKsUinjVSICCjtTEP';
 
 	/**
-	 * Public test account secret from CDEK local API documentation.
+	 * Публичный секрет тестового аккаунта из локальной документации API СДЭК.
 	 *
 	 * @var    string
 	 * @since  1.3.1
@@ -83,7 +83,7 @@ final class CdekRequest
 	private const CDEK_TEST_CLIENT_SECRET = 'RmAmgvSgSl1yirlz9QupbzOJVqhCxcP5';
 
 	/**
-	 * Cached plugin params.
+	 * Кэшированные параметры плагина.
 	 *
 	 * @var    array<string, mixed>
 	 * @since  1.2.1
@@ -91,7 +91,7 @@ final class CdekRequest
 	private static array $pluginParams = [];
 
 	/**
-	 * Access token.
+	 * Токен доступа.
 	 *
 	 * @var    string
 	 * @since  1.2.1
@@ -99,7 +99,7 @@ final class CdekRequest
 	private string $token = '';
 
 	/**
-	 * Token type.
+	 * Тип токена.
 	 *
 	 * @var    string
 	 * @since  1.2.1
@@ -107,7 +107,7 @@ final class CdekRequest
 	private string $tokenType = 'Bearer';
 
 	/**
-	 * Token expires in seconds.
+	 * Срок действия токена в секундах.
 	 *
 	 * @var    int
 	 * @since  1.2.1
@@ -115,7 +115,7 @@ final class CdekRequest
 	private int $expiresIn = 0;
 
 	/**
-	 * Test mode flag.
+	 * Флаг тестового режима.
 	 *
 	 * @var    bool
 	 * @since  1.2.1
@@ -123,7 +123,7 @@ final class CdekRequest
 	private bool $testMode = false;
 
 	/**
-	 * Client account id.
+	 * Идентификатор аккаунта клиента.
 	 *
 	 * @var    string
 	 * @since  1.2.1
@@ -131,7 +131,7 @@ final class CdekRequest
 	private string $clientId = '';
 
 	/**
-	 * Client secret.
+	 * Секрет клиента.
 	 *
 	 * @var    string
 	 * @since  1.2.1
@@ -139,9 +139,9 @@ final class CdekRequest
 	private string $clientSecret = '';
 
 	/**
-	 * @param   bool|null    $test_mode      Test mode flag.
-	 * @param   string|null  $client_id      Account ID.
-	 * @param   string|null  $client_secret  Secret key.
+	 * @param   bool|null    $test_mode      Флаг тестового режима.
+	 * @param   string|null  $client_id      Идентификатор аккаунта.
+	 * @param   string|null  $client_secret  Секретный ключ.
 	 */
 	public function __construct(?bool $test_mode = false, ?string $client_id = '', ?string $client_secret = '')
 	{
@@ -152,12 +152,12 @@ final class CdekRequest
 	}
 
 	/**
-	 * Executes a CDEK API request.
+	 * Выполняет запрос к API СДЭК.
 	 *
-	 * @param   string  $method          API method path.
-	 * @param   array   $data            Request data.
-	 * @param   string  $request_method  HTTP method.
-	 * @param   array   $curl_options    Additional curl options.
+	 * @param   string  $method          Путь метода API.
+	 * @param   array   $data            Параметры запроса.
+	 * @param   string  $request_method  HTTP-метод.
+	 * @param   array   $curl_options    Дополнительные параметры curl.
 	 *
 	 * @return  array
 	 *
@@ -255,7 +255,7 @@ final class CdekRequest
 	}
 
 	/**
-	 * Checks whether API request can be performed.
+	 * Проверяет возможность выполнения запроса к API.
 	 *
 	 * @return  bool
 	 *
@@ -286,8 +286,8 @@ final class CdekRequest
 	}
 
 	/**
-	 * Applies documented public CDEK test credentials when test mode is enabled
-	 * and credentials are missing.
+	 * Применяет публичные тестовые учетные данные СДЭК из документации, если включен тестовый режим
+	 * и пользовательские учетные данные не заданы.
 	 *
 	 * @return  void
 	 *
@@ -310,7 +310,7 @@ final class CdekRequest
 	}
 
 	/**
-	 * Returns plugin params registry or false when plugin is disabled.
+	 * Возвращает параметры плагина или `false`, если плагин отключен.
 	 *
 	 * @return  Registry|false
 	 *
@@ -333,7 +333,7 @@ final class CdekRequest
 	}
 
 	/**
-	 * Returns API base URI by environment.
+	 * Возвращает базовый URI API для выбранного окружения.
 	 *
 	 * @return  Uri
 	 *
@@ -345,7 +345,7 @@ final class CdekRequest
 	}
 
 	/**
-	 * Loads token data from cache and refreshes when needed.
+	 * Загружает данные токена из кэша и при необходимости обновляет их.
 	 *
 	 * @return  bool
 	 *
@@ -397,7 +397,7 @@ final class CdekRequest
 	}
 
 	/**
-	 * Returns configured cache controller.
+	 * Возвращает настроенный контроллер кэша.
 	 *
 	 * @param   array  $cache_options
 	 *
@@ -422,7 +422,7 @@ final class CdekRequest
 	}
 
 	/**
-	 * Authorizes in CDEK API and stores token data.
+	 * Авторизуется в API СДЭК и сохраняет данные токена.
 	 *
 	 * @return  array
 	 *
@@ -463,10 +463,10 @@ final class CdekRequest
 	}
 
 	/**
-	 * Writes a message to the library log.
+	 * Записывает сообщение в лог библиотеки.
 	 *
-	 * @param   string  $data      Message text.
-	 * @param   string  $priority  Joomla priority.
+	 * @param   string  $data      Текст сообщения.
+	 * @param   string  $priority  Уровень приоритета Joomla.
 	 *
 	 * @return  void
 	 *
@@ -491,7 +491,7 @@ final class CdekRequest
 	}
 
 	/**
-	 * Stores token data to Joomla cache.
+	 * Сохраняет данные токена в кэш Joomla.
 	 *
 	 * @param   array  $tokenData
 	 *
@@ -510,10 +510,10 @@ final class CdekRequest
 	}
 
 	/**
-	 * Handles response and maps errors.
+	 * Обрабатывает ответ и приводит ошибки к единому формату.
 	 *
-	 * @param   Response  $response    HTTP response.
-	 * @param   string    $methodName  API method name.
+	 * @param   Response  $response    HTTP-ответ.
+	 * @param   string    $methodName  Имя метода API.
 	 *
 	 * @return  array
 	 *
@@ -575,7 +575,7 @@ final class CdekRequest
 		if ($response->code >= 500)
 		{
 			$this->saveToLog(
-				'Error while trying to calculate delivery cost via Cdek. Cdek API response: ' . print_r($body, true),
+				'Error while trying to calculate delivery cost via Cdek. Cdek Ответ API: ' . print_r($body, true),
 				'ERROR'
 			);
 			$errorArray['error_code']    = (int) $response->code;
@@ -588,9 +588,9 @@ final class CdekRequest
 	}
 
 	/**
-	 * Converts API error payload to readable string.
+	 * Преобразует структуру ошибок API в читаемую строку.
 	 *
-	 * @param   mixed  $errors  Error payload.
+	 * @param   mixed  $errors  Данные ошибки.
 	 *
 	 * @return  string
 	 *
@@ -621,7 +621,7 @@ final class CdekRequest
 	}
 
 	/**
-	 * Returns account id.
+	 * Возвращает идентификатор аккаунта.
 	 *
 	 * @return  string
 	 *
@@ -633,7 +633,7 @@ final class CdekRequest
 	}
 
 	/**
-	 * Returns account secret.
+	 * Возвращает секрет аккаунта.
 	 *
 	 * @return  string
 	 *
@@ -645,9 +645,9 @@ final class CdekRequest
 	}
 
 	/**
-	 * Sets access token value.
+	 * Устанавливает значение токена доступа.
 	 *
-	 * @param   string  $token  Access token.
+	 * @param   string  $token  Токен доступа.
 	 *
 	 * @return  void
 	 *
@@ -659,9 +659,9 @@ final class CdekRequest
 	}
 
 	/**
-	 * Sets token type value.
+	 * Устанавливает тип токена.
 	 *
-	 * @param   string  $tokenType  Token type.
+	 * @param   string  $tokenType  Тип токена.
 	 *
 	 * @return  void
 	 *
@@ -673,9 +673,9 @@ final class CdekRequest
 	}
 
 	/**
-	 * Sets token lifetime in seconds.
+	 * Устанавливает срок жизни токена в секундах.
 	 *
-	 * @param   int  $expiresIn  Token lifetime in seconds.
+	 * @param   int  $expiresIn  Срок жизни токена в секундах.
 	 *
 	 * @return  void
 	 *
@@ -687,7 +687,7 @@ final class CdekRequest
 	}
 
 	/**
-	 * Returns test mode flag.
+	 * Возвращает флаг тестового режима.
 	 *
 	 * @return  bool
 	 *
@@ -699,10 +699,10 @@ final class CdekRequest
 	}
 
 	/**
-	 * Handles response and maps errors.
+	 * Обрабатывает ответ и приводит ошибки к единому формату.
 	 *
-	 * @param   Response  $response    HTTP response.
-	 * @param   string    $methodName  API method name.
+	 * @param   Response  $response    HTTP-ответ.
+	 * @param   string    $methodName  Имя метода API.
 	 *
 	 * @return  array
 	 *

@@ -1,6 +1,6 @@
 <?php
 /**
- * IntakesEntity API entity.
+ * Сущность API СДЭК: заявки на вызов курьера.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -28,11 +28,11 @@ final class IntakesEntity extends AbstractEntity
 	 * Перейти в статус "Требует обработки" могут заявки, которые имеют текущий статус Требует обработки/Готова
 	 * к назначению/Назначен курьер.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/intake/operation/changeStatus
+	 * Источник: https://apidoc.cdek.ru/#tag/intake/operation/changeStatus
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -42,7 +42,7 @@ final class IntakesEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 
@@ -68,11 +68,11 @@ final class IntakesEntity extends AbstractEntity
 	 * сущность успешно создана в системе, статус "INVALID" - при создании возникла ошибка, необходимо её
 	 * исправить и повторно отправить запрос на регистрацию заявки на вызов курьера.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/intake/operation/create
+	 * Источник: https://apidoc.cdek.ru/#tag/intake/operation/create
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -82,7 +82,7 @@ final class IntakesEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 
@@ -98,11 +98,11 @@ final class IntakesEntity extends AbstractEntity
 	 * Метод позволяет получить доступные даты для забора груза курьером со склада интернет-магазина для
 	 * населенного пункта, в котором находится склад.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/intake/operation/getAvailableDays
+	 * Источник: https://apidoc.cdek.ru/#tag/intake/operation/getAvailableDays
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -112,7 +112,7 @@ final class IntakesEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 
@@ -129,11 +129,11 @@ final class IntakesEntity extends AbstractEntity
 	 *
 	 * Заявку через интеграцию можно удалить в любом статусе, отличном от финального.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/intake/operation/deleteByUuid
+	 * Источник: https://apidoc.cdek.ru/#tag/intake/operation/deleteByUuid
 	 *
-	 * @param   string  $uuid  Intake UUID.
+	 * @param   string  $uuid  UUID заявки на вызов курьера.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -158,11 +158,11 @@ final class IntakesEntity extends AbstractEntity
 	 * **Описание:**
 	 * Метод предназначен для получения информации по UUID заявки.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/intake/operation/getByUuid
+	 * Источник: https://apidoc.cdek.ru/#tag/intake/operation/getByUuid
 	 *
-	 * @param   string  $uuid  Intake UUID.
+	 * @param   string  $uuid  UUID заявки на вызов курьера.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */

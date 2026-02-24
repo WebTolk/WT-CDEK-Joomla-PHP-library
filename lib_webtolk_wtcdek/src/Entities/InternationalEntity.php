@@ -1,6 +1,6 @@
 <?php
 /**
- * InternationalEntity API entity.
+ * Сущность API СДЭК: международные ограничения.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -22,11 +22,11 @@ final class InternationalEntity extends AbstractEntity
 	 * **Описание:**
 	 * Метод предназначен для получения ограничений по направлению и тарифу для международного заказа.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/restriction_hints/operation/checkPackagesRestrictions
+	 * Источник: https://apidoc.cdek.ru/#tag/restriction_hints/operation/checkPackagesRestrictions
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -36,7 +36,7 @@ final class InternationalEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * PrealertEntity API entity.
+ * Сущность API СДЭК: преалерты.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -33,11 +33,11 @@ final class PrealertEntity extends AbstractEntity
 	 *
 	 * Преалерт не связан с заявкой на вызов курьера.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/prealert/operation/register
+	 * Источник: https://apidoc.cdek.ru/#tag/prealert/operation/register
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -47,7 +47,7 @@ final class PrealertEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 
@@ -62,11 +62,11 @@ final class PrealertEntity extends AbstractEntity
 	 * **Описание:**
 	 * Метод предназначен для получения информации по заданному преалерту
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/prealert/operation/get_1
+	 * Источник: https://apidoc.cdek.ru/#tag/prealert/operation/get_1
 	 *
-	 * @param   string  $uuid  Prealert UUID.
+	 * @param   string  $uuid  UUID преалерта.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */

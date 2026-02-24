@@ -1,6 +1,6 @@
 <?php
 /**
- * PassportEntity API entity.
+ * Сущность API СДЭК: паспортные данные.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -23,11 +23,11 @@ final class PassportEntity extends AbstractEntity
 	 * Метод используется для получения информации о паспортных данных (сообщает о готовности передавать заказы
 	 * на таможню) по международным заказу/заказам.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/passport/operation/get_6
+	 * Источник: https://apidoc.cdek.ru/#tag/passport/operation/get_6
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */

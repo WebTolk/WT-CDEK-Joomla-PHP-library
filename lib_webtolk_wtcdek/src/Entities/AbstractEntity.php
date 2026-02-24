@@ -1,6 +1,6 @@
 <?php
 /**
- * Base abstract class for CDEK API entities.
+ * Базовый абстрактный класс для сущностей API СДЭК.
  *
  * @package    WT Cdek library package
  * @since      1.2.1

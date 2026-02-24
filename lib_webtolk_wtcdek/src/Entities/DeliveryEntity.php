@@ -1,6 +1,6 @@
 <?php
 /**
- * DeliveryEntity API entity.
+ * Сущность API СДЭК: договоренности о доставке.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -33,7 +33,7 @@ final class DeliveryEntity extends AbstractEntity
 	 * "SUCCESSFUL" - сущность успешно создана в системе, статус "INVALID" - при создании возникла ошибка,
 	 * необходимо её исправить и повторно отправить запрос на регистрацию договоренности о доставке.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/schedule/operation/register_2
+	 * Источник: https://apidoc.cdek.ru/#tag/schedule/operation/register_2
 	 *
 	 * @param   array{
 	 *             date?: string,
@@ -44,11 +44,11 @@ final class DeliveryEntity extends AbstractEntity
 	 *             comment?: string,
 	 *             delivery_point?: string,
 	 *             to_location?: array<string, mixed>
-	 *         }  $request_options  Schedule create payload.
-	 *                               Required by schema: `date`.
+	 *         }  $request_options  Параметры создания договоренности о доставке.
+	 *                               Обязательно по схеме: `date`.
 	 *                               One of `cdek_number` or `order_uuid` is required by API description.
 	 *
-	 * @return  array  API response or structured validation error.
+	 * @return  array  Ответ API or structured validation error.
 	 *
 	 * @since  1.3.0
 	 */
@@ -58,7 +58,7 @@ final class DeliveryEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 
@@ -94,7 +94,7 @@ final class DeliveryEntity extends AbstractEntity
 	 * осталось два доступных слота для регистрации договоренности о доставке. После того как все доступные
 	 * слоты будут заняты, данный интервал станет недоступен для регистрации договоренности.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/schedule/operation/getEstimatedIntervals
+	 * Источник: https://apidoc.cdek.ru/#tag/schedule/operation/getEstimatedIntervals
 	 *
 	 * @param   array{
 	 *             date_time?: string,
@@ -102,11 +102,11 @@ final class DeliveryEntity extends AbstractEntity
 	 *             from_location?: array{address?: string},
 	 *             shipment_point?: string,
 	 *             to_location?: array{address?: string}
-	 *         }  $request_options  Estimated intervals request payload.
-	 *                               Required by schema: `date_time`, `tariff_code`, `to_location`.
+	 *         }  $request_options  Параметры запроса интервалов до создания заказа.
+	 *                               Обязательно по схеме: `date_time`, `tariff_code`, `to_location`.
 	 *                               Nested required by schema: `to_location.address`.
 	 *
-	 * @return  array  API response or structured validation error.
+	 * @return  array  Ответ API or structured validation error.
 	 *
 	 * @since  1.3.0
 	 */
@@ -116,7 +116,7 @@ final class DeliveryEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 
@@ -160,14 +160,14 @@ final class DeliveryEntity extends AbstractEntity
 	 * заказа. Позволяет узнать о свободных датах и временных интервалах, определенных в ИС СДЭК, для
 	 * регистрации договоренности о доставке заказа покупателю.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/schedule/operation/getIntervals
+	 * Источник: https://apidoc.cdek.ru/#tag/schedule/operation/getIntervals
 	 *
 	 * @param   array{
 	 *             cdek_number?: string|int,
 	 *             order_uuid?: string
 	 *         }  $request_options  Intervals request options.
 	 *
-	 * @return  array  API response or structured validation error.
+	 * @return  array  Ответ API or structured validation error.
 	 *
 	 * @since  1.3.0
 	 */
@@ -193,11 +193,11 @@ final class DeliveryEntity extends AbstractEntity
 	 * Метод используется для получения информации об оговоренных с клиентом дате и времени доставки (приезда
 	 * курьера), а так же возможном новом адресе доставки.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/schedule/operation/get_3
+	 * Источник: https://apidoc.cdek.ru/#tag/schedule/operation/get_3
 	 *
-	 * @param   string  $uuid  Delivery agreement UUID.
+	 * @param   string  $uuid  UUID договоренности о доставке.
 	 *
-	 * @return  array  API response or structured validation error.
+	 * @return  array  Ответ API or structured validation error.
 	 *
 	 * @since  1.3.0
 	 */

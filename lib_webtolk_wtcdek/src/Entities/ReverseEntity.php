@@ -1,6 +1,6 @@
 <?php
 /**
- * ReverseEntity API entity.
+ * Сущность API СДЭК: реверс.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -26,11 +26,11 @@ final class ReverseEntity extends AbstractEntity
 	 * Если реверс доступен, API вернёт пустой ответ с кодом 200. В случае недоступности услуги или при наличии
 	 * ошибок в запросе, в ответе будет возвращено сообщение об ошибке с соответствующим описанием.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/reverse/operation/checkAvailability
+	 * Источник: https://apidoc.cdek.ru/#tag/reverse/operation/checkAvailability
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -40,7 +40,7 @@ final class ReverseEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 

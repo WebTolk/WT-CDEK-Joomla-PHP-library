@@ -1,6 +1,6 @@
 <?php
 /**
- * DeliverypointsEntity API entity.
+ * Сущность API СДЭК: офисы.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -28,7 +28,7 @@ final class DeliverypointsEntity extends AbstractEntity
 	 * Мы не рекомендуем использовать статичный список офисов, так как офисы могут быть неактуальны.
 	 * Рекомендуется обновлять список офисов не реже одного раза в сутки.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/delivery_point/operation/search
+	 * Источник: https://apidoc.cdek.ru/#tag/delivery_point/operation/search
 	 *
 	 * @param   array{
 	 *             postal_code?: int|string,
@@ -47,7 +47,7 @@ final class DeliverypointsEntity extends AbstractEntity
 	 *             is_handout?: bool|int|string,
 	 *             is_reception?: bool|int|string,
 	 *             fias_guid?: string
-	 *         }  $request_options  Delivery points filter options.
+	 *         }  $request_options  Параметры фильтрации офисов.
 	 *
 	 * @return  array
 	 *

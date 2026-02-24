@@ -1,6 +1,6 @@
 <?php
 /**
- * PrintEntity API entity.
+ * Сущность API СДЭК: печатные формы.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -26,11 +26,11 @@ final class PrintEntity extends AbstractEntity
 	 *
 	 * Во избежание перегрузки платформы нельзя передавать более 100 номеров заказов в одном запросе.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/print/operation/barcodePrint
+	 * Источник: https://apidoc.cdek.ru/#tag/print/operation/barcodePrint
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -40,7 +40,7 @@ final class PrintEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 
@@ -65,11 +65,11 @@ final class PrintEntity extends AbstractEntity
 	 * | READY     | Сформирован         | Файл с квитанцией и ссылка на скачивание файла сформированы|
 	 * | REMOVED   | Удален                 | Истекло время жизни ссылки на скачивание файла с квитанцией|
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/print/operation/barcodeGet
+	 * Источник: https://apidoc.cdek.ru/#tag/print/operation/barcodeGet
 	 *
-	 * @param   string  $uuid  Print request UUID.
+	 * @param   string  $uuid  UUID запроса на печать.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -94,11 +94,11 @@ final class PrintEntity extends AbstractEntity
 	 * **Описание:**
 	 * Скачивание ШК места в формате pdf к заказу/заказам
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/print/operation/barcodeDownload
+	 * Источник: https://apidoc.cdek.ru/#tag/print/operation/barcodeDownload
 	 *
-	 * @param   string  $uuid  Print request UUID.
+	 * @param   string  $uuid  UUID запроса на печать.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -125,11 +125,11 @@ final class PrintEntity extends AbstractEntity
 	 *
 	 * Во избежание перегрузки платформы нельзя передавать более 100 номеров заказов в одном запросе.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/print/operation/waybillPrint
+	 * Источник: https://apidoc.cdek.ru/#tag/print/operation/waybillPrint
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -139,7 +139,7 @@ final class PrintEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 
@@ -165,11 +165,11 @@ final class PrintEntity extends AbstractEntity
 	 * | READY     | Сформирован         | Файл с квитанцией и ссылка на скачивание файла сформированы|
 	 * | REMOVED   | Удален              | Истекло время жизни ссылки на скачивание файла с квитанцией|
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/print/operation/waybillGet
+	 * Источник: https://apidoc.cdek.ru/#tag/print/operation/waybillGet
 	 *
-	 * @param   string  $uuid  Print request UUID.
+	 * @param   string  $uuid  UUID запроса на печать.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -194,11 +194,11 @@ final class PrintEntity extends AbstractEntity
 	 * **Описание:**
 	 * Скачивание квитанции в формате pdf к заказу/заказам.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/print/operation/waybillDownload
+	 * Источник: https://apidoc.cdek.ru/#tag/print/operation/waybillDownload
 	 *
-	 * @param   string  $uuid  Print request UUID.
+	 * @param   string  $uuid  UUID запроса на печать.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */

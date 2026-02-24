@@ -1,6 +1,6 @@
 <?php
 /**
- * PhotoDocumentEntity API entity.
+ * Сущность API СДЭК: фото документов.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -27,11 +27,11 @@ final class PhotoDocumentEntity extends AbstractEntity
 	 * Для корректной работы метода, для договора должна быть подключена фотоуслуга, а также настроен
 	 * фотопроект.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/photo/operation/getReadyOrders
+	 * Источник: https://apidoc.cdek.ru/#tag/photo/operation/getReadyOrders
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -41,7 +41,7 @@ final class PhotoDocumentEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 

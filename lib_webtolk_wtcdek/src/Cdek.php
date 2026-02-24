@@ -45,36 +45,36 @@ use function strtolower;
 use function trim;
 
 /**
- * Main CDEK API facade with magic accessors to entity handlers.
+ * Основной фасад API СДЭК с магическими аксессорами к сущностям.
  *
- * @method  CalculatorEntity     calculator()     Returns calculator entity handler.
- * @method  CheckEntity          check()          Returns check entity handler.
- * @method  DeliveryEntity       delivery()       Returns delivery entity handler.
- * @method  DeliverypointsEntity deliverypoints() Returns delivery points entity handler.
- * @method  IntakesEntity        intakes()        Returns intakes entity handler.
- * @method  InternationalEntity  international()  Returns international entity handler.
- * @method  LocationEntity       location()       Returns location entity handler.
- * @method  OauthEntity          oauth()          Returns oauth entity handler.
- * @method  OrdersEntity         orders()         Returns orders entity handler.
- * @method  PassportEntity       passport()       Returns passport entity handler.
- * @method  PaymentEntity        payment()        Returns payment entity handler.
- * @method  PhotoDocumentEntity  photoDocument()  Returns photo document entity handler.
- * @method  PrealertEntity       prealert()       Returns prealert entity handler.
- * @method  PrintEntity          print()          Returns print entity handler.
- * @method  ReverseEntity        reverse()        Returns reverse entity handler.
- * @method  WebhooksEntity       webhooks()       Returns webhooks entity handler.
+ * @method  CalculatorEntity     calculator()     Возвращает обработчик сущности калькулятора.
+ * @method  CheckEntity          check()          Возвращает обработчик сущности чеков.
+ * @method  DeliveryEntity       delivery()       Возвращает обработчик сущности договоренностей о доставке.
+ * @method  DeliverypointsEntity deliverypoints() Возвращает обработчик сущности офисов.
+ * @method  IntakesEntity        intakes()        Возвращает обработчик сущности заявок на вызов курьера.
+ * @method  InternationalEntity  international()  Возвращает обработчик сущности международных ограничений.
+ * @method  LocationEntity       location()       Возвращает обработчик сущности локаций.
+ * @method  OauthEntity          oauth()          Возвращает обработчик сущности авторизации.
+ * @method  OrdersEntity         orders()         Возвращает обработчик сущности заказов.
+ * @method  PassportEntity       passport()       Возвращает обработчик сущности паспортных данных.
+ * @method  PaymentEntity        payment()        Возвращает обработчик сущности наложенных платежей.
+ * @method  PhotoDocumentEntity  photoDocument()  Возвращает обработчик сущности фото документов.
+ * @method  PrealertEntity       prealert()       Возвращает обработчик сущности преалертов.
+ * @method  PrintEntity          print()          Возвращает обработчик сущности печатных форм.
+ * @method  ReverseEntity        reverse()        Возвращает обработчик сущности реверса.
+ * @method  WebhooksEntity       webhooks()       Возвращает обработчик сущности вебхуков.
  *
  * @since   1.3.0
  */
 final class Cdek
 {
 	/**
-	 * @var string $token_type Token type. Default 'Bearer'
+	 * @var string $token_type Тип токена. Default 'Bearer'
 	 * @since 1.0.0
 	 */
 	public static string $token_type = 'Bearer';
 	/**
-	 * @var int $expires_in Token expires time
+	 * @var int $expires_in Срок действия токена
 	 * @since 1.0.0
 	 */
 	public static int $expires_in;
@@ -122,7 +122,7 @@ final class Cdek
 	 */
 	protected static bool $test_mode = false;
 	/**
-	 * Request helper for API calls.
+	 * Транспортный помощник для API-запросов.
 	 *
 	 * @var    CdekRequest
 	 * @since  1.2.1
@@ -138,7 +138,7 @@ final class Cdek
 	private array $entityMap = [];
 
 	/**
-	 * Created entity instances cache.
+	 * Кэш созданных экземпляров сущностей.
 	 *
 	 * @var    array<string, EntityInterface>
 	 * @since  1.2.1
@@ -177,7 +177,7 @@ final class Cdek
 	}
 
 	/**
-	 * Check if CDEK library can do a request to CDEK via REST API
+	 * Проверяет, может ли библиотека выполнить REST-запрос к API СДЭК
 	 * @return bool
 	 *
 	 * @since 1.0.0
@@ -232,7 +232,7 @@ final class Cdek
 	}
 
 	/**
-	 * Returns request transport object.
+	 * Возвращает объект транспортного слоя запросов.
 	 *
 	 * @return  CdekRequest
 	 *
@@ -244,7 +244,7 @@ final class Cdek
 	}
 
 	/**
-	 * Proxy for entity access, e.g. $cdek->orders().
+	 * Прокси-доступ к сущностям, например `$cdek->orders()`.
 	 *
 	 * @param   string  $name       Called method name.
 	 * @param   array   $arguments  Method arguments.
@@ -259,7 +259,7 @@ final class Cdek
 	}
 
 	/**
-	 * Returns entity instance by name.
+	 * Возвращает экземпляр сущности по имени.
 	 *
 	 * @param   string  $name  Entity key from registry.
 	 *
@@ -286,7 +286,7 @@ final class Cdek
 	}
 
 	/**
-	 * Resolves requested entity name to registry key.
+	 * Преобразует запрошенное имя сущности в ключ реестра.
 	 *
 	 * @param   string  $name  Requested name.
 	 *
@@ -310,7 +310,7 @@ final class Cdek
 	}
 
 	/**
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
 	 * @return  array
 	 *
@@ -323,7 +323,7 @@ final class Cdek
 	}
 
 	/**
-	 * Return the library pre-configured cache object
+	 * Возвращает преднастроенный объект кэша библиотеки
 	 * @return OutputController
 	 *
 	 * @since 1.0.0
@@ -343,7 +343,7 @@ final class Cdek
 	}
 
 	/**
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
 	 * @return  array
 	 *
@@ -356,7 +356,7 @@ final class Cdek
 	}
 
 	/**
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
 	 * @return  array
 	 *
@@ -369,7 +369,7 @@ final class Cdek
 	}
 
 	/**
-	 * @param   int  $city_code  CDEK city code.
+	 * @param   int  $city_code  Код города СДЭК.
 	 *
 	 * @return  array
 	 *
@@ -382,7 +382,7 @@ final class Cdek
 	}
 
 	/**
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
 	 * @return  array
 	 *
@@ -395,7 +395,7 @@ final class Cdek
 	}
 
 	/**
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
 	 * @return  array
 	 *
@@ -408,8 +408,8 @@ final class Cdek
 	}
 
 	/**
-	 * @param   string  $url   Webhook URL.
-	 * @param   string  $type  Webhook event type.
+	 * @param   string  $url   URL для вебхуков.
+	 * @param   string  $type  Тип события вебхука.
 	 *
 	 * @return  array
 	 *
@@ -422,7 +422,7 @@ final class Cdek
 	}
 
 	/**
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
 	 * @return  array
 	 *
@@ -436,7 +436,7 @@ final class Cdek
 
 	/**
 	 * Массив с тарифаи CDEK для типа "интернет-агазин"
-	 * @return array[] Tariff list array
+	 * @return array[] Массив тарифов
 	 *
 	 * @since 1.0.0
 	 */
@@ -525,7 +525,7 @@ final class Cdek
 
 	/**
 	 * Массив с тарифаи CDEK для типа "доставка"
-	 * @return array tariff list array
+	 * @return array массив тарифов
 	 *
 	 * @since 1.0.0
 	 */
@@ -1109,9 +1109,9 @@ final class Cdek
 	}
 
 	/**
-	 * @param   string|null  $uuid         CDEK order UUID.
-	 * @param   string|null  $cdek_number  CDEK order number.
-	 * @param   string|null  $im_number    Client order number.
+	 * @param   string|null  $uuid         UUID заказа в СДЭК.
+	 * @param   string|null  $cdek_number  Номер заказа СДЭК.
+	 * @param   string|null  $im_number    Номер заказа в системе клиента.
 	 *
 	 * @return  array
 	 *
@@ -1136,10 +1136,10 @@ final class Cdek
 
 	/**
 	 *
-	 * @param   string  $method          CDEK REST API method
-	 * @param   array   $data            array of data for Moodle REST API
-	 * @param   string  $request_method  HTTP method: GET or POST
-	 * @param   array   $curl_options    Additional options for CURL
+	 * @param   string  $method          Метод REST API СДЭК
+	 * @param   array   $data            массив данных запроса
+	 * @param   string  $request_method  HTTP-метод: GET или POST
+	 * @param   array   $curl_options    Дополнительные параметры CURL
 	 *
 	 * @return mixed
 	 *

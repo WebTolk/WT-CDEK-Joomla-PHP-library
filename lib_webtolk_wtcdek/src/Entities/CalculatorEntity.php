@@ -1,6 +1,6 @@
 <?php
 /**
- * CalculatorEntity API entity.
+ * Сущность API СДЭК: калькулятор.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -15,13 +15,13 @@ defined('_JEXEC') or die;
 final class CalculatorEntity extends AbstractEntity
 {
 	/**
-	 * Returns tariff codes available by the current contract.
+	 * Возвращает коды тарифов, доступных по текущему договору.
 	 *
-	 * Endpoint: `GET /v2/calculator/alltariffs`
+	 * Эндпоинт: `GET /v2/calculator/alltariffs`
 	 *
-	 * The API response contains `tariff_codes`; this method returns that field only.
+	 * The Ответ API contains `tariff_codes`; this method returns that field only.
 	 *
-	 * @return  array<int, array<string, mixed>>  List of tariff codes metadata.
+	 * @return  array<int, array<string, mixed>>  Список метаданных кодов тарифов.
 	 *
 	 * @since  1.3.0
 	 */
@@ -33,11 +33,11 @@ final class CalculatorEntity extends AbstractEntity
 	}
 
 	/**
-	 * Calculates delivery by a specific tariff code.
+	 * Выполняет расчет доставки по конкретному коду тарифа.
 	 *
-	 * Endpoint: `POST /v2/calculator/tariff`
+	 * Эндпоинт: `POST /v2/calculator/tariff`
 	 *
-	 * Required keys:
+	 * Обязательные ключи:
 	 * - `tariff_code`
 	 * - `from_location`
 	 * - `to_location`
@@ -67,9 +67,9 @@ final class CalculatorEntity extends AbstractEntity
 	 *                 width?: int|float|string,
 	 *                 height?: int|float|string
 	 *             }>
-	 *         }  $request_options  Calculator request payload.
+	 *         }  $request_options  Параметры запроса калькулятора.
 	 *
-	 * @return  array  API response or structured validation error.
+	 * @return  array  Ответ API or structured validation error.
 	 *
 	 * @since  1.3.0
 	 */
@@ -79,11 +79,11 @@ final class CalculatorEntity extends AbstractEntity
 	}
 
 	/**
-	 * Calculates delivery for all available tariffs.
+	 * Выполняет расчет доставки по всем доступным тарифам.
 	 *
-	 * Endpoint: `POST /v2/calculator/tarifflist`
+	 * Эндпоинт: `POST /v2/calculator/tarifflist`
 	 *
-	 * Required keys:
+	 * Обязательные ключи:
 	 * - `from_location`
 	 * - `to_location`
 	 * - `packages` (each package must contain `weight`)
@@ -111,9 +111,9 @@ final class CalculatorEntity extends AbstractEntity
 	 *                 width?: int|float|string,
 	 *                 height?: int|float|string
 	 *             }>
-	 *         }  $request_options  Calculator request payload.
+	 *         }  $request_options  Параметры запроса калькулятора.
 	 *
-	 * @return  array  API response or structured validation error.
+	 * @return  array  Ответ API or structured validation error.
 	 *
 	 * @since  1.3.0
 	 */
@@ -123,11 +123,11 @@ final class CalculatorEntity extends AbstractEntity
 	}
 
 	/**
-	 * Calculates delivery by available tariffs with additional services.
+	 * Выполняет расчет по доступным тарифам и дополнительным услугам.
 	 *
-	 * Endpoint: `POST /v2/calculator/tariffAndService`
+	 * Эндпоинт: `POST /v2/calculator/tariffAndService`
 	 *
-	 * Required keys:
+	 * Обязательные ключи:
 	 * - `from_location`
 	 * - `to_location`
 	 * - `packages` (each package must contain `weight`)
@@ -169,9 +169,9 @@ final class CalculatorEntity extends AbstractEntity
 	 *                 width?: int|float|string,
 	 *                 height?: int|float|string
 	 *             }>
-	 *         }  $request_options  Calculator request payload.
+	 *         }  $request_options  Параметры запроса калькулятора.
 	 *
-	 * @return  array  API response or structured validation error.
+	 * @return  array  Ответ API or structured validation error.
 	 *
 	 * @since  1.3.1
 	 */
@@ -183,7 +183,7 @@ final class CalculatorEntity extends AbstractEntity
 	/**
 	 * Validates required calculator request options.
 	 *
-	 * @param   array  $request_options   Request options.
+	 * @param   array  $request_options   Параметры запроса.
 	 * @param   bool   $requireTariffCode Whether tariff code is required.
 	 *
 	 * @return  array|null  Validation error or `null` when valid.
@@ -226,10 +226,10 @@ final class CalculatorEntity extends AbstractEntity
 	 * Executes calculator tariff-like request with common validation.
 	 *
 	 * @param   string  $endpoint          Calculator endpoint.
-	 * @param   array   $request_options   Request options.
+	 * @param   array   $request_options   Параметры запроса.
 	 * @param   bool    $requireTariffCode Whether tariff code is required.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */

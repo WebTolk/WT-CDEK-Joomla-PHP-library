@@ -1,6 +1,6 @@
 <?php
 /**
- * OauthEntity API entity.
+ * Сущность API СДЭК: авторизация.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -23,15 +23,15 @@ final class OauthEntity extends AbstractEntity
 	 * Взаимодействие с сервисом требует клиентской авторизации. Авторизация обеспечивается с применением
 	 * протокола OAuth 2.0. Метод предназначен для получения токена авторизации.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/auth/operation/getOAuthToken
+	 * Источник: https://apidoc.cdek.ru/#tag/auth/operation/getOAuthToken
 	 *
 	 * @param   array{
 	 *             grant_type?: string,
 	 *             client_id?: string,
 	 *             client_secret?: string
-	 *         }  $request_options  Request options.
+	 *         }  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */

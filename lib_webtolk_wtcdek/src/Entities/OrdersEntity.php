@@ -1,6 +1,6 @@
 <?php
 /**
- * OrdersEntity API entity.
+ * Сущность API СДЭК: заказы.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -41,12 +41,12 @@ final class OrdersEntity extends AbstractEntity
 	 *                 number?: string|int,
 	 *                 weight?: int|float|string
 	 *             }>
-	 *         }  $request_options  Order create payload.
-	 *                               Required by local API schema:
+	 *         }  $request_options  Параметры создания заказа.
+	 *                               Обязательно по локальной схеме API:
 	 *                               `tariff_code`, `recipient`, `packages`,
 	 *                               `recipient.name`, `packages[].number`, `packages[].weight`.
 	 *
-	 * @return  array  API response or structured validation error.
+	 * @return  array  Ответ API or structured validation error.
 	 *
 	 * @since  1.3.0
 	 */
@@ -115,9 +115,9 @@ final class OrdersEntity extends AbstractEntity
 	 * но только по тем, которые были созданы после первой авторизации по ключам интеграции.
 	 *
 	 *
-	 * @param   string|null  $uuid         CDEK order UUID.
-	 * @param   string|null  $cdek_number  CDEK order number.
-	 * @param   string|null  $im_number    Order number from Joomla e-commerce component.
+	 * @param   string|null  $uuid         UUID заказа в СДЭК.
+	 * @param   string|null  $cdek_number  Номер заказа СДЭК.
+	 * @param   string|null  $im_number    Номер заказа в интернет-магазине.
 	 *
 	 * @return  array
 	 *
@@ -157,16 +157,16 @@ final class OrdersEntity extends AbstractEntity
 	 * Условием возможности изменения заказа является отсутствие движения груза на складе СДЭК (т.е. статус
 	 * заказа «Создан»).
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/order/operation/update
+	 * Источник: https://apidoc.cdek.ru/#tag/order/operation/update
 	 *
 	 * @param   array{
 	 *             uuid?: string,
 	 *             cdek_number?: string|int,
 	 *             type?: int|string,
 	 *             recipient?: array<string, mixed>
-	 *         }  $request_options  Order update payload. Required keys by schema: `type`, `recipient`.
+	 *         }  $request_options  Параметры обновления заказа. Обязательные ключи по схеме: `type`, `recipient`.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -176,7 +176,7 @@ final class OrdersEntity extends AbstractEntity
 		{
 			return [
 				'error_code'    => '500',
-				'error_message' => 'Request data is required',
+				'error_message' => 'Параметры запроса is required',
 			];
 		}
 
@@ -211,11 +211,11 @@ final class OrdersEntity extends AbstractEntity
 	 * Метод предназначен для получения информации о всех созданных заявках на вызов курьера по идентификатору
 	 * заказа.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/order/operation/getIntakes
+	 * Источник: https://apidoc.cdek.ru/#tag/order/operation/getIntakes
 	 *
-	 * @param   string  $order_uuid  Order UUID.
+	 * @param   string  $order_uuid  UUID заказа.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -245,11 +245,11 @@ final class OrdersEntity extends AbstractEntity
 	 * **Условием возможности удаления заказа является отсутствие движения груза на складе СДЭК (статус заказа
 	 * «Создан»).**
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/order/operation/delete
+	 * Источник: https://apidoc.cdek.ru/#tag/order/operation/delete
 	 *
-	 * @param   string  $uuid  CDEK order UUID.
+	 * @param   string  $uuid  UUID заказа в СДЭК.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -285,14 +285,14 @@ final class OrdersEntity extends AbstractEntity
 	 * создания обратного заказа необходимо использовать метод "Регистрация заказа" - если заказ оформляется
 	 * как клиентский возврат, необходимо в запросе на регистрацию передать поле is_client_return = true.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/order/operation/clientReturn
+	 * Источник: https://apidoc.cdek.ru/#tag/order/operation/clientReturn
 	 *
-	 * @param   string  $uuid             Order UUID.
+	 * @param   string  $uuid             UUID заказа.
 	 * @param   array{
 	 *             tariff_code?: int|string
-	 *         }  $request_options  Client return payload. Required key: `tariff_code`.
+	 *         }  $request_options  Параметры клиентского возврата. Required key: `tariff_code`.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -334,11 +334,11 @@ final class OrdersEntity extends AbstractEntity
 	 * "Создан", по ним будут начислены операции и заказы будут включены в Акт оказанных услуг. Для отмены
 	 * заказа в статусе "Создан" воспользуйтесь методом "Удаление заказа".
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/order/operation/refuse
+	 * Источник: https://apidoc.cdek.ru/#tag/order/operation/refuse
 	 *
-	 * @param   string  $uuid  Order UUID.
+	 * @param   string  $uuid  UUID заказа.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */

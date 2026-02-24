@@ -1,6 +1,6 @@
 <?php
 /**
- * WebhooksEntity API entity.
+ * Сущность API СДЭК: вебхуки.
  *
  * @package    WT Cdek library package
  * @since      1.2.1
@@ -17,10 +17,10 @@ defined('_JEXEC') or die;
 final class WebhooksEntity extends AbstractEntity
 {
 	/**
-	 * Legacy-compatible webhook subscription method.
+	 * Совместимый фасадный метод подписки на вебхуки.
 	 *
-	 * @param   string  $url   Webhook URL.
-	 * @param   string  $type  Webhook type.
+	 * @param   string  $url   URL для вебхуков.
+	 * @param   string  $type  Тип вебхука.
 	 *
 	 * @return  array
 	 *
@@ -48,11 +48,11 @@ final class WebhooksEntity extends AbstractEntity
 	 * Метод предназначен для получения информации о всех активных подписках интернет-магазина на получение
 	 * вебхуков.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/webhook/operation/getAll
+	 * Источник: https://apidoc.cdek.ru/#tag/webhook/operation/getAll
 	 *
-	 * @param   array  $request_options  Request options.
+	 * @param   array  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -80,14 +80,14 @@ final class WebhooksEntity extends AbstractEntity
 	 * - получение информации о курьере
 	 * Если у клиента уже есть подписка с указанным типом, то будет создана еще одна подписка с таким же типом.
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/webhook/operation/create
+	 * Источник: https://apidoc.cdek.ru/#tag/webhook/operation/create
 	 *
 	 * @param   array{
 	 *             url?: string,
 	 *             type?: string
-	 *         }  $request_options  Request options.
+	 *         }  $request_options  Параметры запроса.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -112,11 +112,11 @@ final class WebhooksEntity extends AbstractEntity
 	 * **Описание:**
 	 * Метод предназначен для удаления подписки на получение вебхуков
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/webhook/operation/deleteById
+	 * Источник: https://apidoc.cdek.ru/#tag/webhook/operation/deleteById
 	 *
-	 * @param   string  $uuid  Webhook UUID.
+	 * @param   string  $uuid  UUID подписки на вебхуки.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
@@ -141,11 +141,11 @@ final class WebhooksEntity extends AbstractEntity
 	 * **Описание:**
 	 * Метод предназначен для получения информации о подписке клиента на вебхуки по UUID
 	 *
-	 * Source: https://apidoc.cdek.ru/#tag/webhook/operation/getById
+	 * Источник: https://apidoc.cdek.ru/#tag/webhook/operation/getById
 	 *
-	 * @param   string  $uuid  Webhook UUID.
+	 * @param   string  $uuid  UUID подписки на вебхуки.
 	 *
-	 * @return  array  API response.
+	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
