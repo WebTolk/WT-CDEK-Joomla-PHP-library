@@ -25,15 +25,17 @@ final class PaymentEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/payment/operation/get_5
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array{
+	 *             date?: string
+	 *         }  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function get(array $data = []): array
+	public function get(array $request_options = []): array
 	{
-		if (empty($data['date']))
+		if (empty($request_options['date']))
 		{
 			return [
 				'error_code'    => '500',
@@ -41,7 +43,7 @@ final class PaymentEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/payment', $data, 'GET');
+		return $this->request->getResponse('/payment', $request_options, 'GET');
 	}
 
 }

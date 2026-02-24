@@ -17,12 +17,25 @@ defined('_JEXEC') or die;
 use InvalidArgumentException;
 use Joomla\CMS\Cache\CacheControllerFactoryInterface;
 use Joomla\CMS\Cache\Controller\OutputController;
-use Joomla\CMS\Date\Date;
 use Joomla\CMS\Factory;
-use Joomla\CMS\Language\Text;
 use Joomla\CMS\Log\Log;
-use Joomla\Http\Response;
 use Joomla\Registry\Registry;
+use Webtolk\Cdekapi\Entities\CalculatorEntity;
+use Webtolk\Cdekapi\Entities\CheckEntity;
+use Webtolk\Cdekapi\Entities\DeliveryEntity;
+use Webtolk\Cdekapi\Entities\DeliverypointsEntity;
+use Webtolk\Cdekapi\Entities\IntakesEntity;
+use Webtolk\Cdekapi\Entities\InternationalEntity;
+use Webtolk\Cdekapi\Entities\LocationEntity;
+use Webtolk\Cdekapi\Entities\OauthEntity;
+use Webtolk\Cdekapi\Entities\OrdersEntity;
+use Webtolk\Cdekapi\Entities\PassportEntity;
+use Webtolk\Cdekapi\Entities\PaymentEntity;
+use Webtolk\Cdekapi\Entities\PhotoDocumentEntity;
+use Webtolk\Cdekapi\Entities\PrealertEntity;
+use Webtolk\Cdekapi\Entities\PrintEntity;
+use Webtolk\Cdekapi\Entities\ReverseEntity;
+use Webtolk\Cdekapi\Entities\WebhooksEntity;
 use Webtolk\Cdekapi\Interfaces\EntityInterface;
 use function is_array;
 use function is_file;
@@ -34,24 +47,24 @@ use function trim;
 /**
  * Main CDEK API facade with magic accessors to entity handlers.
  *
- * @method  \Webtolk\Cdekapi\Entities\CalculatorEntity     calculator()     Returns calculator entity handler.
- * @method  \Webtolk\Cdekapi\Entities\CheckEntity          check()          Returns check entity handler.
- * @method  \Webtolk\Cdekapi\Entities\DeliveryEntity       delivery()       Returns delivery entity handler.
- * @method  \Webtolk\Cdekapi\Entities\DeliverypointsEntity deliverypoints() Returns delivery points entity handler.
- * @method  \Webtolk\Cdekapi\Entities\IntakesEntity        intakes()        Returns intakes entity handler.
- * @method  \Webtolk\Cdekapi\Entities\InternationalEntity  international()  Returns international entity handler.
- * @method  \Webtolk\Cdekapi\Entities\LocationEntity       location()       Returns location entity handler.
- * @method  \Webtolk\Cdekapi\Entities\OauthEntity          oauth()          Returns oauth entity handler.
- * @method  \Webtolk\Cdekapi\Entities\OrdersEntity         orders()         Returns orders entity handler.
- * @method  \Webtolk\Cdekapi\Entities\PassportEntity       passport()       Returns passport entity handler.
- * @method  \Webtolk\Cdekapi\Entities\PaymentEntity        payment()        Returns payment entity handler.
- * @method  \Webtolk\Cdekapi\Entities\PhotoDocumentEntity  photoDocument()  Returns photo document entity handler.
- * @method  \Webtolk\Cdekapi\Entities\PrealertEntity       prealert()       Returns prealert entity handler.
- * @method  \Webtolk\Cdekapi\Entities\PrintEntity          print()          Returns print entity handler.
- * @method  \Webtolk\Cdekapi\Entities\ReverseEntity        reverse()        Returns reverse entity handler.
- * @method  \Webtolk\Cdekapi\Entities\WebhooksEntity       webhooks()       Returns webhooks entity handler.
+ * @method  CalculatorEntity     calculator()     Returns calculator entity handler.
+ * @method  CheckEntity          check()          Returns check entity handler.
+ * @method  DeliveryEntity       delivery()       Returns delivery entity handler.
+ * @method  DeliverypointsEntity deliverypoints() Returns delivery points entity handler.
+ * @method  IntakesEntity        intakes()        Returns intakes entity handler.
+ * @method  InternationalEntity  international()  Returns international entity handler.
+ * @method  LocationEntity       location()       Returns location entity handler.
+ * @method  OauthEntity          oauth()          Returns oauth entity handler.
+ * @method  OrdersEntity         orders()         Returns orders entity handler.
+ * @method  PassportEntity       passport()       Returns passport entity handler.
+ * @method  PaymentEntity        payment()        Returns payment entity handler.
+ * @method  PhotoDocumentEntity  photoDocument()  Returns photo document entity handler.
+ * @method  PrealertEntity       prealert()       Returns prealert entity handler.
+ * @method  PrintEntity          print()          Returns print entity handler.
+ * @method  ReverseEntity        reverse()        Returns reverse entity handler.
+ * @method  WebhooksEntity       webhooks()       Returns webhooks entity handler.
  *
- * @since   1.3.1
+ * @since   1.3.0
  */
 final class Cdek
 {
@@ -297,31 +310,12 @@ final class Cdek
 	}
 
 	/**
-	 * Returns list of active CDEK delivery points.
+	 * @param   array  $request_options  Request options.
 	 *
-	 * @param   array{
-	 *             postal_code?: int|string,
-	 *             city_code?: int|string,
-	 *             type?: 'PVZ'|'POSTAMAT'|'ALL',
-	 *             country_code?: string,
-	 *             region_code?: int|string,
-	 *             have_cashless?: bool|int|string,
-	 *             have_cash?: bool|int|string,
-	 *             allowed_cod?: bool|int|string,
-	 *             is_dressing_room?: bool|int|string,
-	 *             weight_max?: int|float|string,
-	 *             weight_min?: int|float|string,
-	 *             lang?: string,
-	 *             take_only?: bool|int|string,
-	 *             is_handout?: bool|int|string,
-	 *             is_reception?: bool|int|string,
-	 *             fias_guid?: string
-	 *         }  $request_options  Delivery points filter options.
+	 * @return  array
 	 *
-	 * @return  array  API response.
-	 *
-	 * @see    https://apidoc.cdek.ru/#tag/delivery_point/operation/search
-	 * @since  1.0.0
+	 * @since   1.0.0
+	 * @deprecated  Будет удалено в 2.0.0, используйте deliverypoints()->getDeliveryPoints() вместо него.
 	 */
 	public function getDeliveryPoints(array $request_options = []): array
 	{
@@ -349,40 +343,12 @@ final class Cdek
 	}
 
 	/**
-	 * Список регионов
-	 * Метод предназначен для получения детальной инфорации о регионах.
-	 * Список регионов ожет быть ограничен характеристикаи, задаваеыи пользователе.
-	 * В список параетров запроса не добавлены параетры, поеченные устаревшии.
-	 * Приер ответа:
+	 * @param   array  $request_options  Request options.
 	 *
-	 * [
-	 * {
-	 * "country_code": "TR",
-	 * "region": "Ыгдыр",
-	 * "country": "Турция"
-	 * },
-	 * {
-	 * "country_code": "CN",
-	 * "region": "айак Алашань",
-	 * "country": "Китай (КНР)"
-	 * },
-	 * {
-	 * "country_code": "RU",
-	 * "region": "Тверская",
-	 * "region_code": 50,
-	 * "country": "Россия"
-	 * }
-	 * ]
+	 * @return  array
 	 *
-	 * @param   array  $request_options  Массив с описанныи ниже опцияи. Все необязтальные.
-	 *                                   - array|null   $country_codes    Массив кодов стран в форате  ISO_3166-1_alpha-2
-	 *                                   - int|null     $size             Ограничение выборки результата. По уолчанию 1000. Обязателен, если указан page!
-	 *                                   - int|null     $page             Ноер страницы выборки результата. По уолчанию 0
-	 *                                   - string|null  $lang             Локализация. По уолчанию "rus"
-	 *
-	 * @return array|object
-	 * @see       https://api-docs.cdek.ru/33829418.html
-	 * @since     1.0.0
+	 * @since   1.0.0
+	 * @deprecated  Будет удалено в 2.0.0, используйте location()->getRegions() вместо него.
 	 */
 	public function getLocationRegions(array $request_options = []): array
 	{
@@ -390,28 +356,12 @@ final class Cdek
 	}
 
 	/**
-	 * Список населенных пунктов
-	 * Метод предназначен для получения детальной инфорации о населенных пунктах.
-	 * Список населенных пунктов ожет быть ограничен характеристикаи, задаваеыи пользователе.
-	 * В список параетров запроса не добавлены параетры, поеченные устаревшии.
+	 * @param   array  $request_options  Request options.
 	 *
+	 * @return  array
 	 *
-	 * @param   array  $request_options  Массив с описанныи ниже опцияи. Все необязтальные.
-	 *                                   <ul>
-	 *                                   <li>array|null   $country_codes    Массив кодов стран в форате  ISO_3166-1_alpha-2</li>
-	 *                                   <li>int|null     $region_code      Код региона СДЭК</li>
-	 *                                   <li>string|null  $fias_guid        Уникальный идентификатор ФАС населенного пункта</li>
-	 *                                   <li>string|null  $postal_code      Почтовый индекс</li>
-	 *                                   <li>int|null     $code             Код населенного пункта СДЭК</li>
-	 *                                   <li>string|null  $city             Название населенного пункта. Должно соответствовать полностью</li>
-	 *                                   <li>int|null     $size             Ограничение выборки результата. По уолчанию 500. Обязателен, если указан page!</li>
-	 *                                   <li>int|null     $page             Ноер страницы выборки результата. По уолчанию 0</li>
-	 *                                   <li>string|null  $lang             Локализация. По уолчанию "rus"</li>
-	 *                                   </ul>
-	 *
-	 * @return array
-	 * @see       https://api-docs.cdek.ru/33829437.html
-	 * @since     1.0.0
+	 * @since   1.0.0
+	 * @deprecated  Будет удалено в 2.0.0, используйте location()->getCities() вместо него.
 	 */
 	public function getLocationCities(array $request_options = []): array
 	{
@@ -419,17 +369,12 @@ final class Cdek
 	}
 
 	/**
-	 * Метод предназначен для получения списка почтовых индексов.
-	 * (используется весто етода "Список населнных пунктов")
+	 * @param   int  $city_code  CDEK city code.
 	 *
-	 * Запрос на получение списка населенных пунктов
+	 * @return  array
 	 *
-	 * @param   int  $city_code  Код города CDEK
-	 *
-	 * @return array|string[]
-	 *
-	 * @since 1.1.0
-	 * @see   https://api-docs.cdek.ru/133171036.html
+	 * @since   1.1.0
+	 * @deprecated  Будет удалено в 2.0.0, используйте location()->getPostalCodes() вместо него.
 	 */
 	public function getLocationPostalCodes(int $city_code): array
 	{
@@ -437,99 +382,12 @@ final class Cdek
 	}
 
 	/**
-	 * Калькулятор. Расчет по коду тарифа.
-	 * Метод используется для расчета стоиости и сроков доставки по коду тарифа.
+	 * @param   array  $request_options  Request options.
 	 *
-	 * Приер запроса:
-	 * {
-	 * "type": "2",
-	 * "date": "2020-11-03T11:49:32+0700",
-	 * "currency": "1",
-	 * "tariff_code": "11",
-	 * "from_location": {
-	 * "code": 270
-	 * },
-	 * "to_location": {
-	 * "code": 44
-	 * },
-	 * "services": [
-	 * {
-	 * "code": "CARTON_BOX_XS",
-	 * "parameter": "2"
-	 * }
-	 * ],
-	 * "packages": [
-	 * {
-	 * "height": 10,
-	 * "length": 10,
-	 * "weight": 4000,
-	 * "width": 10
-	 * }
-	 * ]
-	 * }
+	 * @return  array
 	 *
-	 * Приер ответа:
-	 *
-	 *{
-	 * "period_min": 2,
-	 * "currency": "RUB",
-	 * "delivery_sum": 1040.0,
-	 * "weight_calc": 4000,
-	 * "services": [
-	 * {
-	 * "code": "CARTON_BOX_XS",
-	 * "sum": 100.0
-	 * }
-	 * ],
-	 * "period_max": 2,
-	 * "total_sum": 1140.0
-	 * }
-	 *
-	 * @param   array  $request_options                                 Массив с описанныи ниже опцияи.
-	 *                                                                  - array|null   $date                          Дата и врея планируеой передачи заказа вида 2020-11-03T11:49:32+0700. По уолчанию - текущая
-	 *                                                                  - int|null     $type                          Тип заказа (для проверки доступности тарифа и дополнительных услуг по типу заказа):
-	 *                                                                  1 - "интернет-агазин"
-	 *                                                                  2 - "доставка"
-	 *                                                                  По уолчанию - 1
-	 *                                                                  - int|null     $currency                      Валюта, в которой необходио произвести расчет (подробнее с. приложение 1)
-	 *                                                                  По уолчанию - валюта договора. https://api-docs.cdek.ru/63345430.html#id-%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80.%D0%A0%D0%B0%D1%81%D1%87%D0%B5%D1%82%D0%BF%D0%BE%D0%BA%D0%BE%D0%B4%D1%83%D1%82%D0%B0%D1%80%D0%B8%D1%84%D0%B0-calc_currency1
-	 *                                                                  - string       $tariff_code                   Обязательный параетр. Код тарифа (подробнее с. приложение 2) https://api-docs.cdek.ru/63345430.html#id-%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80.%D0%A0%D0%B0%D1%81%D1%87%D0%B5%D1%82%D0%BF%D0%BE%D0%BA%D0%BE%D0%B4%D1%83%D1%82%D0%B0%D1%80%D0%B8%D1%84%D0%B0-calc_tariff1
-	 *                                                                  - array        $from_location                 Обязательный паратер. Адрес отправления.
-	 *                                                                  дентификация города производится по следующеу алгориту в порядке приоритетности:
-	 *                                                                  1. По уникальноу коду города СДЭК. Значения передаются в атрибутах from_location.code и to_location.code.
-	 *                                                                  2. По почтовоу индексу города. Значения передаются в атрибутах from_location.postal_code и to_location.postal_code. В качестве уточняющих параетров огут быть переданы код страны и наиенование города.
-	 *                                                                  3. По строке адреса. Значения передаются в атрибутах from_location.address и to_location.address.
-	 *                                                                  - int          $from_location['code']          Код населенного пункта СДЭК (етод "Список населенных пунктов")
-	 *                                                                  - string       $from_location['postal_code']  Почтовый индекс
-	 *                                                                  - string       $from_location['country_code'] Код страны в форате  ISO_3166-1_alpha-2
-	 *                                                                  - string       $from_location['city']         Название города
-	 *                                                                  - string       $from_location['address']      Полная строка адреса
-	 *                                                                  - array        $to_location                   Обязательный паратер. Адрес отправления.
-	 *                                                                  дентификация города производится по следующеу алгориту в порядке приоритетности:
-	 *                                                                  1. По уникальноу коду города СДЭК. Значения передаются в атрибутах from_location.code и to_location.code.
-	 *                                                                  2. По почтовоу индексу города. Значения передаются в атрибутах from_location.postal_code и to_location.postal_code. В качестве уточняющих параетров огут быть переданы код страны и наиенование города.
-	 *                                                                  3. По строке адреса. Значения передаются в атрибутах from_location.address и to_location.address.
-	 *                                                                  - int          $to_location['code']          Код населенного пункта СДЭК (етод "Список населенных пунктов")
-	 *                                                                  - string       $to_location['postal_code']   Почтовый индекс
-	 *                                                                  - string       $to_location['country_code']  Код страны в форате  ISO_3166-1_alpha-2
-	 *                                                                  - string       $to_location['city']          Название города
-	 *                                                                  - string       $to_location['address']       Полная строка адреса
-	 *                                                                  - array        $services                     Дополнительные услуги
-	 *                                                                  - string       $services['code']             Обязательный параетр, если передаются доп.услуги. Тип дополнительной услуги, код из справочника доп. услуг (подробнее с. приложение 3). https://api-docs.cdek.ru/63345430.html#id-%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80.%D0%A0%D0%B0%D1%81%D1%87%D0%B5%D1%82%D0%BF%D0%BE%D0%BA%D0%BE%D0%B4%D1%83%D1%82%D0%B0%D1%80%D0%B8%D1%84%D0%B0-calc_service1
-	 *                                                                  - string       $services['parameter']        Параетр дополнительной услуги:
-	 *                                                                  1. количество для услуг PACKAGE_1, COURIER_PACKAGE_A2, SECURE_PACKAGE_A2, SECURE_PACKAGE_A3, SECURE_PACKAGE_A4, SECURE_PACKAGE_A5, CARTON_BOX_XS, CARTON_BOX_S, CARTON_BOX_M, CARTON_BOX_L, CARTON_BOX_500GR, CARTON_BOX_1KG, Фото докуентовCARTON_BOX_2KG, CARTON_BOX_3KG, CARTON_BOX_5KG, CARTON_BOX_10KG, CARTON_BOX_15KG, CARTON_BOX_20KG, CARTON_BOX_30KG, CARTON_FILLER (для всех типов заказа)
-	 *                                                                  2. объявленная стоиость заказа для услуги INSURANCE (только для заказов с типо "доставка")
-	 *                                                                  3. длина для услуг BUBBLE_WRAP, WASTE_PAPER
-	 *                                                                  4. количество фотографий для услуги PHOTO_DOCUMENT
-	 *                                                                  - array         $packages                   Обязательный параетр. Список инфорации по еста (упаковка)
-	 *                                                                  - int           $packages['weight']         Обязательный параетр. Общий вес (в граах)
-	 *                                                                  - int           $packages['length']         Габариты упаковки. Длина (в сантиетрах)
-	 *                                                                  - int           $packages['width']          Габариты упаковки. Ширина (в сантиетрах)
-	 *                                                                  - int           $packages['height']         Габариты упаковки. Высота (в сантиетрах)
-	 *
-	 * @return array
-	 * @see      https://api-docs.cdek.ru/63345430.html
-	 * @since    1.0.0
+	 * @since   1.0.0
+	 * @deprecated  Будет удалено в 2.0.0, используйте calculator()->calculateTariff() вместо него.
 	 */
 	public function getCalculatorTariff(array $request_options = []): array
 	{
@@ -537,99 +395,12 @@ final class Cdek
 	}
 
 	/**
-	 * Калькулятор. Расчет по все доступны тарифа.
-	 * Метод используется клиентаи для расчета стоиости и сроков доставки по все доступны тарифа.
+	 * @param   array  $request_options  Request options.
 	 *
-	 * Приер запроса:
-	 * {
-	 * "type": "2",
-	 * "date": "2020-11-03T11:49:32+0700",
-	 * "currency": "1",
-	 * "tariff_code": "11",
-	 * "from_location": {
-	 * "code": 270
-	 * },
-	 * "to_location": {
-	 * "code": 44
-	 * },
-	 * "services": [
-	 * {
-	 * "code": "CARTON_BOX_XS",
-	 * "parameter": "2"
-	 * }
-	 * ],
-	 * "packages": [
-	 * {
-	 * "height": 10,
-	 * "length": 10,
-	 * "weight": 4000,
-	 * "width": 10
-	 * }
-	 * ]
-	 * }
+	 * @return  array
 	 *
-	 * Приер ответа:
-	 *
-	 *{
-	 * "period_min": 2,
-	 * "currency": "RUB",
-	 * "delivery_sum": 1040.0,
-	 * "weight_calc": 4000,
-	 * "services": [
-	 * {
-	 * "code": "CARTON_BOX_XS",
-	 * "sum": 100.0
-	 * }
-	 * ],
-	 * "period_max": 2,
-	 * "total_sum": 1140.0
-	 * }
-	 *
-	 * @param   array  $request_options                                 Массив с описанныи ниже опцияи.
-	 *                                                                  - array|null   $date                          Дата и врея планируеой передачи заказа вида 2020-11-03T11:49:32+0700. По уолчанию - текущая
-	 *                                                                  - int|null     $type                          Тип заказа (для проверки доступности тарифа и дополнительных услуг по типу заказа):
-	 *                                                                  1 - "интернет-агазин"
-	 *                                                                  2 - "доставка"
-	 *                                                                  По уолчанию - 1
-	 *                                                                  - int|null     $currency                      Валюта, в которой необходио произвести расчет (подробнее с. приложение 1)
-	 *                                                                  По уолчанию - валюта договора. https://api-docs.cdek.ru/63345430.html#id-%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80.%D0%A0%D0%B0%D1%81%D1%87%D0%B5%D1%82%D0%BF%D0%BE%D0%BA%D0%BE%D0%B4%D1%83%D1%82%D0%B0%D1%80%D0%B8%D1%84%D0%B0-calc_currency1
-	 *                                                                  - string       $tariff_code                   Обязательный параетр. Код тарифа (подробнее с. приложение 2) https://api-docs.cdek.ru/63345430.html#id-%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80.%D0%A0%D0%B0%D1%81%D1%87%D0%B5%D1%82%D0%BF%D0%BE%D0%BA%D0%BE%D0%B4%D1%83%D1%82%D0%B0%D1%80%D0%B8%D1%84%D0%B0-calc_tariff1
-	 *                                                                  - array        $from_location                 Обязательный паратер. Адрес отправления.
-	 *                                                                  дентификация города производится по следующеу алгориту в порядке приоритетности:
-	 *                                                                  1. По уникальноу коду города СДЭК. Значения передаются в атрибутах from_location.code и to_location.code.
-	 *                                                                  2. По почтовоу индексу города. Значения передаются в атрибутах from_location.postal_code и to_location.postal_code. В качестве уточняющих параетров огут быть переданы код страны и наиенование города.
-	 *                                                                  3. По строке адреса. Значения передаются в атрибутах from_location.address и to_location.address.
-	 *                                                                  - int          $from_location['code']          Код населенного пункта СДЭК (етод "Список населенных пунктов")
-	 *                                                                  - string       $from_location['postal_code']  Почтовый индекс
-	 *                                                                  - string       $from_location['country_code'] Код страны в форате  ISO_3166-1_alpha-2
-	 *                                                                  - string       $from_location['city']         Название города
-	 *                                                                  - string       $from_location['address']      Полная строка адреса
-	 *                                                                  - array        $to_location                   Обязательный паратер. Адрес отправления.
-	 *                                                                  дентификация города производится по следующеу алгориту в порядке приоритетности:
-	 *                                                                  1. По уникальноу коду города СДЭК. Значения передаются в атрибутах from_location.code и to_location.code.
-	 *                                                                  2. По почтовоу индексу города. Значения передаются в атрибутах from_location.postal_code и to_location.postal_code. В качестве уточняющих параетров огут быть переданы код страны и наиенование города.
-	 *                                                                  3. По строке адреса. Значения передаются в атрибутах from_location.address и to_location.address.
-	 *                                                                  - int          $to_location['code']          Код населенного пункта СДЭК (етод "Список населенных пунктов")
-	 *                                                                  - string       $to_location['postal_code']   Почтовый индекс
-	 *                                                                  - string       $to_location['country_code']  Код страны в форате  ISO_3166-1_alpha-2
-	 *                                                                  - string       $to_location['city']          Название города
-	 *                                                                  - string       $to_location['address']       Полная строка адреса
-	 *                                                                  - array        $services                     Дополнительные услуги
-	 *                                                                  - string       $services['code']             Обязательный параетр, если передаются доп.услуги. Тип дополнительной услуги, код из справочника доп. услуг (подробнее с. приложение 3). https://api-docs.cdek.ru/63345430.html#id-%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80.%D0%A0%D0%B0%D1%81%D1%87%D0%B5%D1%82%D0%BF%D0%BE%D0%BA%D0%BE%D0%B4%D1%83%D1%82%D0%B0%D1%80%D0%B8%D1%84%D0%B0-calc_service1
-	 *                                                                  - string       $services['parameter']        Параетр дополнительной услуги:
-	 *                                                                  1. количество для услуг PACKAGE_1, COURIER_PACKAGE_A2, SECURE_PACKAGE_A2, SECURE_PACKAGE_A3, SECURE_PACKAGE_A4, SECURE_PACKAGE_A5, CARTON_BOX_XS, CARTON_BOX_S, CARTON_BOX_M, CARTON_BOX_L, CARTON_BOX_500GR, CARTON_BOX_1KG, Фото докуентовCARTON_BOX_2KG, CARTON_BOX_3KG, CARTON_BOX_5KG, CARTON_BOX_10KG, CARTON_BOX_15KG, CARTON_BOX_20KG, CARTON_BOX_30KG, CARTON_FILLER (для всех типов заказа)
-	 *                                                                  2. объявленная стоиость заказа для услуги INSURANCE (только для заказов с типо "доставка")
-	 *                                                                  3. длина для услуг BUBBLE_WRAP, WASTE_PAPER
-	 *                                                                  4. количество фотографий для услуги PHOTO_DOCUMENT
-	 *                                                                  - array         $packages                   Обязательный параетр. Список инфорации по еста (упаковка)
-	 *                                                                  - int           $packages['weight']         Обязательный параетр. Общий вес (в граах)
-	 *                                                                  - int           $packages['length']         Габариты упаковки. Длина (в сантиетрах)
-	 *                                                                  - int           $packages['width']          Габариты упаковки. Ширина (в сантиетрах)
-	 *                                                                  - int           $packages['height']         Габариты упаковки. Высота (в сантиетрах)
-	 *
-	 * @return array|object
-	 * @see       https://api-docs.cdek.ru/63345519.html
-	 * @since     1.0.0
+	 * @since   1.0.0
+	 * @deprecated  Будет удалено в 2.0.0, используйте calculator()->calculateTariffList() вместо него.
 	 */
 	public function getCalculatorTarifflist(array $request_options = []): array
 	{
@@ -637,44 +408,13 @@ final class Cdek
 	}
 
 	/**
-	 * Подписка на вебхуки (Webhooks).
-	 * Методы предназначены для управления подпиской на получение вебхуков на URL клиента.
-	 * Так как тестовый аккаунт СДЭК является общи для всех клиентов, для тестирования вебхуков необходио использовать только боевой URL СДЭК.
-	 * В запросе на добавление подписки укажите свой тестовый URL, куда будут приходить вебхуки. После завершения тестирования поеняйте его на свой боевой URL.
-	 * Если у клиента уже есть подписка с указанны типо, то старый url перезатирается на новый.
-	 * Приер запроса:
-	 * {
-	 *      "url":"https://webhook.site",
-	 *      "type":"ORDER_STATUS"
-	 * }
+	 * @param   string  $url   Webhook URL.
+	 * @param   string  $type  Webhook event type.
 	 *
-	 * Приер ответа:
+	 * @return  array
 	 *
-	 *{
-	 *  "entity": {
-	 *          "uuid": "73c65d02-51a9-4423-8ee8-cc662ec3eb85"
-	 *      },
-	 *  "requests": [
-	 *      {
-	 *          "request_uuid": "72753031-0e1b-4f1d-abcc-b0bb0bd6ab2f",
-	 *          "type": "CREATE",
-	 *          "state": "SUCCESSFUL",
-	 *          "date_time": "2020-02-10T12:14:57+0700",
-	 *          "errors": [],
-	 *          "warnings": []
-	 *      }
-	 *  ]
-	 * }
-	 *
-	 * @param   string  $url   URL, на который клиент хочет получать вебхуки
-	 * @param   string  $type  Тип события:
-	 *                         - ORDER_STATUS - событие по статуса
-	 *                         - PRINT_FORM - готовность печатной форы
-	 *                         - DOWNLOAD_PHOTO  - получение фото докуентов по заказа
-	 *
-	 * @return array|object
-	 * @see       https://api-docs.cdek.ru/29934408.html
-	 * @since     1.0.0
+	 * @since   1.0.0
+	 * @deprecated  Будет удалено в 2.0.0, используйте webhooks()->subscribe() вместо него.
 	 */
 	public function subscribeToWebhook(string $url, string $type): array
 	{
@@ -682,134 +422,12 @@ final class Cdek
 	}
 
 	/**
-	 * Запрос на регистрацию заказа.
+	 * @param   array  $request_options  Request options.
 	 *
-	 * Приер запроса ("интернет-агазин"):
-	 * {
-	 *      "number" : "ddOererre7450813980068",
-	 *      "comment" : "Новый заказ",
-	 *      "delivery_recipient_cost" : {
-	 *      "value" : 50
-	 * },
-	 * "delivery_recipient_cost_adv" :
-	 *  [
-	 *      {
-	 *          "sum" : 3000,
-	 *          "threshold" : 200
-	 *      }
-	 *  ],
-	 * "from_location" : {
-	 *       "code" : "44",
-	 *      "fias_guid" : "",
-	 *      "postal_code" : "",
-	 *      "longitude" : "",
-	 *      "latitude" : "",
-	 *       "country_code" : "",
-	 *      "region" : "",
-	 *      "sub_region" : "",
-	 *      "city" : "Москва",
-	 *      "kladr_code" : "",
-	 *      "address" : "пр. Ленинградский, д.4"
-	 * },
-	 * "to_location" : {
-	 *      "code" : "270",
-	 *       "fias_guid" : "",
-	 *      "postal_code" : "",
-	 *       "longitude" : "",
-	 *      "latitude" : "",
-	 *      "country_code" : "",
-	 *      "region" : "",
-	 *      "sub_region" : "",
-	 *      "city" : "Новосибирск",
-	 *      "kladr_code" : "",
-	 *      "address" : "ул. люхера, 32"
-	 * },
-	 * "packages" :
-	 * [
-	 *  {
-	 *    "number" : "bar-001",
-	 *    "comment" : "Упаковка",
-	 *    "height" : 10,
-	 *    "items" :
-	 *      [
-	 *          {
-	 *            "ware_key" : "00055",
-	 *           "payment" : {
-	 *                  "value" : 3000
-	 *               },
-	 *           "name" : "Товар",
-	 *           "cost" : 300,
-	 *           "amount" : 2,
-	 *           "weight" : 700,
-	 *           "url" : "www.item.ru"
-	 *          }
-	 *      ],
-	 *   "length" : 10,
-	 *   "weight" : 4000,
-	 *   "width" : 10
-	 *   }
-	 *  ],
-	 * "recipient" : {
-	 *      "name" : "ванов ван",
-	 *      "phones" :
-	 *      [
-	 *              {
-	 *              "number" : "+79134637228"
-	 *          }
-	 *      ]
-	 *  },
-	 * "sender" : {
-	 *      "name" : "Петров Петр"
-	 *  },
-	 * "services" : [
-	 *      {
-	 *          "code" : "SECURE_PACKAGE_A2"
-	 *      }
-	 *  ],
-	 * "tariff_code" : 139
-	 * }
+	 * @return  array
 	 *
-	 * Приер ответа ("интернет-агазин"):
-	 *
-	 *{
-	 *  "entity": {
-	 *          "uuid": "73c65d02-51a9-4423-8ee8-cc662ec3eb85"
-	 *      },
-	 *  "requests": [
-	 *      {
-	 *          "request_uuid": "72753031-0e1b-4f1d-abcc-b0bb0bd6ab2f",
-	 *          "type": "CREATE",
-	 *          "state": "SUCCESSFUL",
-	 *          "date_time": "2020-02-10T12:14:57+0700",
-	 *          "errors": [],
-	 *          "warnings": []
-	 *      }
-	 *  ]
-	 * }
-	 *
-	 * Приер ответа
-	 *
-	 * {
-	 *      "entity": {
-	 *          "uuid": "72753031-4b5f-4084-9b09-c50b84a23da6"
-	 *          },
-	 *      "requests": [
-	 *          {
-	 *              "request_uuid": "72753031-5148-4a19-b233-e1eea7b10882",
-	 *              "type": "CREATE",
-	 *              "state": "ACCEPTED",
-	 *              "date_time": "2020-02-10T11:10:34+0700",
-	 *              "errors": [],
-	 *              "warnings": []
-	 *          }
-	 *      ]
-	 * }
-	 *
-	 * @param   array  $request_options  Массив параетров, описанных ниже
-	 *
-	 * @return array|object
-	 * @see       https://api-docs.cdek.ru/29923926.html
-	 * @since     1.0.0
+	 * @since   1.0.0
+	 * @deprecated  Будет удалено в 2.0.0, используйте orders()->createOrder() вместо него.
 	 */
 	public function createOrder(array $request_options): array
 	{
@@ -1491,182 +1109,29 @@ final class Cdek
 	}
 
 	/**
-	 * @param   string  $uuid         идентификатор заказа в С СДЭК, по котороу необходиа инфорация
-	 * @param   string  $cdek_number  ноер заказа СДЭК, по котороу необходиа инфорация
-	 * @param   string  $im_number    ноер заказа в С Клиента, по котороу необходиа инфорация
+	 * @param   string|null  $uuid         CDEK order UUID.
+	 * @param   string|null  $cdek_number  CDEK order number.
+	 * @param   string|null  $im_number    Client order number.
 	 *
-	 * @return mixed|object
+	 * @return  array
 	 *
-	 * @since     1.0.0
-	 * @see       https://api-docs.cdek.ru/29923975.html
+	 * @since   1.0.0
+	 * @deprecated  Будет удалено в 2.0.0, используйте orders()->getOrderInfo() вместо него.
 	 */
 	public function getOrderInfo(?string $uuid = '', ?string $cdek_number = '', ?string $im_number = ''): array
 	{
 		return $this->orders()->getOrderInfo($uuid, $cdek_number, $im_number);
 	}
 
+	/**
+	 * @return  array
+	 *
+	 * @since   1.0.0
+	 * @deprecated  Будет удалено в 2.0.0, используйте calculator()->getAllTariffs() вместо него.
+	 */
 	public function getAlltariffs(): array
 	{
 		return $this->calculator()->getAllTariffs();
-	}
-
-	/**
-	 * @param $response_data Response object
-	 *
-	 * @return array
-	 *
-	 * @since      1.0.0
-	 * @link       https://web-tolk.ru
-	 */
-	private function responseHandler(Response $response, $method_name = ''): array
-	{
-		return $this->request->responseHandler($response, (string) $method_name);
-	}
-
-	/**
-	 * Грузи $token_data из кэша. Если просрочен - вызывае авторизацию заново.
-	 * @return void
-	 *
-	 * @since 1.0.0
-	 */
-	private function loadTokenData(): void
-	{
-		if (!empty(self::$token) && !empty(self::$token_type) && !empty(self::$expires_in))
-		{
-			return;
-		}
-
-		$cache      = $this->getCache();
-		$token_data = $cache->get('wt_cdek');
-
-		/**
-		 * Если есть файл кэша с данныи токена, иначе авторизация
-		 */
-
-		if ($token_data)
-		{
-			$token_data = json_decode($token_data);
-		}
-		else
-		{
-			/** @var array $response */
-			$response = $this->authorize();
-			if (isset($response['error_code']))
-			{
-				$this->saveToLog($response['error_code'] . ' - ' . $response['error_message'], 'ERROR');
-
-				return;
-
-			}
-			else
-			{
-				$this->loadTokenData();
-			}
-		}
-
-		$date = Date::getInstance('now')->toUnix();
-		/**
-		 * Если текущая дата больше или равна вреени окончания действия токена - получае новый.
-		 */
-
-		if ($token_data->token_end_time <= $date)
-		{
-			$cache->remove('wt_cdek');
-			$this->authorize();
-			$this->loadTokenData();
-		}
-		else
-		{
-
-			$this->setToken($token_data->token);
-			$this->setTokenType($token_data->token_type);
-		}
-	}
-
-	/**
-	 * Получение токена
-	 * Форат ответа JSON
-	 * {
-	 *    "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJvcmRlcjphbGw...",
-	 *    "token_type": "bearer",
-	 *    "expires_in": 3599,
-	 *    "scope": "order:all payment:all",
-	 *    "jti": "9adca50a-..."
-	 *    }
-	 *
-	 * По истечении этого вреени или при получении HTTP ошибки с кодо 401,
-	 * ва нужно повторить процедуру получения access_token.
-	 * В ино случае API будет отвечать с HTTP кодо 401 (unauthorized).
-	 *
-	 * @return mixed
-	 * @since      1.0.0
-	 * @link       https://web-tolk.ru
-	 *
-	 */
-	private function authorize(): array
-	{
-		$authorize_data = [
-			'grant_type'    => 'client_credentials',
-			'client_id'     => self::$client_id,
-			'client_secret' => self::$client_secret,
-		];
-
-		try
-		{
-			$response = $this->getResponse('/oauth/token', $authorize_data, 'POST');
-			if (!array_key_exists('access_token', $response))
-			{
-				$this->saveToLog(Text::_('PKG_LIB_WTCDEK_ERROR_AUTHORIZE_NO_TOKEN'), 'ERROR');
-
-				$error_array = [
-					'error_code'    => 401,
-					'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_AUTHORIZE_NO_TOKEN')
-				];
-
-				return $error_array;
-			}
-			$this->setToken($response['access_token']);
-
-			if (array_key_exists('token_type', $response) && !empty($response['token_type']))
-			{
-				$this->setTokenType($response['token_type']);
-			}
-			else
-			{
-				$this->setTokenType('Bearer');
-			}
-
-			/**
-			 * Set token expires period. 3600 by default
-			 * @see https://api-docs.cdek.ru/29923918.html
-			 */
-			if (!$response['expires_in'])
-			{
-				$this->setTokenExpiresIn(3600);
-			}
-			else
-			{
-				$this->setTokenExpiresIn($response['expires_in']);
-			}
-
-			/**
-			 * Сохраняе токен в кэше. Жизнь кэша - 3600 секунд по уолчанию
-			 * или же значение, равное $response_body->expires_in
-			 */
-			$this->storeTokenData([
-				'token'      => $response['access_token'],
-				'token_type' => $response['token_type'],
-				'expires_in' => $response['expires_in'],
-			]);
-
-			return $response;
-
-		}
-		catch (CdekClientException $e)
-		{
-			throw new CdekClientException(Text::_('PKG_LIB_WTCDEK_ERROR_AUTHORIZE'), 500, $e);
-		}
-
 	}
 
 	/**
@@ -1675,7 +1140,6 @@ final class Cdek
 	 * @param   array   $data            array of data for Moodle REST API
 	 * @param   string  $request_method  HTTP method: GET or POST
 	 * @param   array   $curl_options    Additional options for CURL
-	 * @param   string  $environment     test or production
 	 *
 	 * @return mixed
 	 *
@@ -1685,81 +1149,4 @@ final class Cdek
 	{
 		return $this->request->getResponse($method, $data, $request_method, $curl_options);
 	}
-
-	/**
-	 * Set token from Cdek API response to self::$token
-	 *
-	 * @param   string  $token  token from Cdek API reponse
-	 *
-	 *
-	 * @since 1.0.0
-	 * @retun void
-	 */
-	public function setToken(string $token): void
-	{
-		self::$token = $token;
-	}
-
-	/**
-	 * Set token type from Cdek API response to self::$token_type
-	 *
-	 * @param   string  $token_type  Token type from Cdek API response
-	 *
-	 *
-	 * @since 1.0.0
-	 * @retun void
-	 */
-	public function setTokenType(string $token_type): void
-	{
-		self::$token_type = $token_type;
-	}
-
-	/**
-	 * Set token expires period (in seconds) from Cdek API response to self::$token_expires_in
-	 *
-	 * @param   int  $token_expires_in
-	 *
-	 *
-	 * @since 1.0.0
-	 * @retun void
-	 */
-	public function setTokenExpiresIn(int $token_expires_in): void
-	{
-		self::$expires_in = $token_expires_in;
-	}
-
-	/**
-	 * Stores token data to Joomla Cache
-	 *
-	 * @param   array  $tokenData  Access token, token type, token expires in (seconds), token start time in Unix format
-	 *
-	 *
-	 * @since 1.0.0
-	 * @retun void
-	 */
-	public function storeTokenData(array $tokenData): void
-	{
-		$options = [];
-
-		// 3600 seconds token lifetime by default - 6 minutes
-		if ($tokenData['expires_in'])
-		{
-			$options['lifetime'] = (int) $tokenData['expires_in'] / 60;
-		}
-		else
-		{
-			$options['lifetime'] = 1;
-		}
-
-		/**
-		 * Указывае врея окончания действия токена.
-		 *
-		 */
-		$date                        = Date::getInstance('now +' . $options['lifetime'] . ' minutes')->toUnix();
-		$tokenData['token_end_time'] = $date;
-		$cache                       = $this->getCache($options);
-		$cache->store(json_encode($tokenData), 'wt_cdek');
-
-	}
-
 }

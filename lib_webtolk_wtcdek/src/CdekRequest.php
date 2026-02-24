@@ -67,6 +67,22 @@ final class CdekRequest
 	private const CDEK_API_URL_TEST = 'https://api.edu.cdek.ru/v2';
 
 	/**
+	 * Public test account id from CDEK local API documentation.
+	 *
+	 * @var    string
+	 * @since  1.3.1
+	 */
+	private const CDEK_TEST_CLIENT_ID = 'wqGwiQx0gg8mLtiEKsUinjVSICCjtTEP';
+
+	/**
+	 * Public test account secret from CDEK local API documentation.
+	 *
+	 * @var    string
+	 * @since  1.3.1
+	 */
+	private const CDEK_TEST_CLIENT_SECRET = 'RmAmgvSgSl1yirlz9QupbzOJVqhCxcP5';
+
+	/**
 	 * Cached plugin params.
 	 *
 	 * @var    array<string, mixed>
@@ -132,6 +148,7 @@ final class CdekRequest
 		$this->testMode     = (bool) ($test_mode ?? false);
 		$this->clientId     = (string) ($client_id ?? '');
 		$this->clientSecret = (string) ($client_secret ?? '');
+		$this->applyDefaultTestCredentials();
 	}
 
 	/**
@@ -246,6 +263,8 @@ final class CdekRequest
 	 */
 	public function canDoRequest(): bool
 	{
+		$this->applyDefaultTestCredentials();
+
 		if ($this->clientId !== '' && $this->clientSecret !== '')
 		{
 			return true;
@@ -261,8 +280,33 @@ final class CdekRequest
 		$this->clientId     = trim((string) $pluginParams->get('client_id', ''));
 		$this->clientSecret = trim((string) $pluginParams->get('client_secret', ''));
 		$this->testMode     = (bool) $pluginParams->get('test_mode', $this->testMode);
+		$this->applyDefaultTestCredentials();
 
 		return $this->clientId !== '' && $this->clientSecret !== '';
+	}
+
+	/**
+	 * Applies documented public CDEK test credentials when test mode is enabled
+	 * and credentials are missing.
+	 *
+	 * @return  void
+	 *
+	 * @since   1.3.1
+	 */
+	private function applyDefaultTestCredentials(): void
+	{
+		if (!$this->testMode)
+		{
+			return;
+		}
+
+		if ($this->clientId !== '' && $this->clientSecret !== '')
+		{
+			return;
+		}
+
+		$this->clientId     = self::CDEK_TEST_CLIENT_ID;
+		$this->clientSecret = self::CDEK_TEST_CLIENT_SECRET;
 	}
 
 	/**
@@ -307,7 +351,7 @@ final class CdekRequest
 	 *
 	 * @since   1.2.1
 	 */
-	private function loadTokenData(): bool
+	public function loadTokenData(): bool
 	{
 		if ($this->token !== '' && $this->tokenType !== '' && $this->expiresIn > 0)
 		{
@@ -384,7 +428,7 @@ final class CdekRequest
 	 *
 	 * @since   1.2.1
 	 */
-	private function authorize(): array
+	public function authorize(): array
 	{
 		$authorizeData = [
 			'grant_type'    => 'client_credentials',
@@ -455,7 +499,7 @@ final class CdekRequest
 	 *
 	 * @since   1.2.1
 	 */
-	private function storeTokenData(array $tokenData): void
+	public function storeTokenData(array $tokenData): void
 	{
 		$lifetime                    = !empty($tokenData['expires_in']) ? (int) $tokenData['expires_in'] / 60 : 1;
 		$date                        = Date::getInstance('now +' . $lifetime . ' minutes')->toUnix();
@@ -598,6 +642,48 @@ final class CdekRequest
 	public function getClientSecret(): string
 	{
 		return $this->clientSecret;
+	}
+
+	/**
+	 * Sets access token value.
+	 *
+	 * @param   string  $token  Access token.
+	 *
+	 * @return  void
+	 *
+	 * @since   1.3.1
+	 */
+	public function setToken(string $token): void
+	{
+		$this->token = $token;
+	}
+
+	/**
+	 * Sets token type value.
+	 *
+	 * @param   string  $tokenType  Token type.
+	 *
+	 * @return  void
+	 *
+	 * @since   1.3.1
+	 */
+	public function setTokenType(string $tokenType): void
+	{
+		$this->tokenType = $tokenType;
+	}
+
+	/**
+	 * Sets token lifetime in seconds.
+	 *
+	 * @param   int  $expiresIn  Token lifetime in seconds.
+	 *
+	 * @return  void
+	 *
+	 * @since   1.3.1
+	 */
+	public function setTokenExpiresIn(int $expiresIn): void
+	{
+		$this->expiresIn = $expiresIn;
 	}
 
 	/**

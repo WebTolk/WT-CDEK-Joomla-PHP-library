@@ -164,15 +164,15 @@ final class OrdersEntity extends AbstractEntity
 	 *             cdek_number?: string|int,
 	 *             type?: int|string,
 	 *             recipient?: array<string, mixed>
-	 *         }  $data  Order update payload. Required keys by schema: `type`, `recipient`.
+	 *         }  $request_options  Order update payload. Required keys by schema: `type`, `recipient`.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function updateOrder(array $data = []): array
+	public function updateOrder(array $request_options = []): array
 	{
-		if (empty($data))
+		if (empty($request_options))
 		{
 			return [
 				'error_code'    => '500',
@@ -182,7 +182,7 @@ final class OrdersEntity extends AbstractEntity
 
 		foreach (['type', 'recipient'] as $requiredField)
 		{
-			if (empty($data[$requiredField]))
+			if (empty($request_options[$requiredField]))
 			{
 				return [
 					'error_code'    => '500',
@@ -191,7 +191,7 @@ final class OrdersEntity extends AbstractEntity
 			}
 		}
 
-		if (empty($data['uuid']) && empty($data['cdek_number']))
+		if (empty($request_options['uuid']) && empty($request_options['cdek_number']))
 		{
 			return [
 				'error_code'    => '500',
@@ -199,7 +199,7 @@ final class OrdersEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/orders', $data, 'PATCH');
+		return $this->request->getResponse('/orders', $request_options, 'PATCH');
 	}
 
 	/**

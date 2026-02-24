@@ -24,15 +24,19 @@ final class CheckEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/receipt/operation/get_7
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array{
+	 *             order_uuid?: string,
+	 *             cdek_number?: string|int,
+	 *             date?: string
+	 *         }  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function get(array $data = []): array
+	public function get(array $request_options = []): array
 	{
-		if (empty($data['order_uuid']) && empty($data['cdek_number']) && empty($data['date']))
+		if (empty($request_options['order_uuid']) && empty($request_options['cdek_number']) && empty($request_options['date']))
 		{
 			return [
 				'error_code'    => '500',
@@ -40,7 +44,7 @@ final class CheckEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/check', $data, 'GET');
+		return $this->request->getResponse('/check', $request_options, 'GET');
 	}
 
 }

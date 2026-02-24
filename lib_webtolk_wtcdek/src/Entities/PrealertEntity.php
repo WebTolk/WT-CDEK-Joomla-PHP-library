@@ -35,15 +35,15 @@ final class PrealertEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/prealert/operation/register
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function register(array $data = []): array
+	public function register(array $request_options = []): array
 	{
-		if (empty($data))
+		if (empty($request_options))
 		{
 			return [
 				'error_code'    => '500',
@@ -51,7 +51,7 @@ final class PrealertEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/prealert', $data, 'POST');
+		return $this->request->getResponse('/prealert', $request_options, 'POST');
 	}
 
 	/**
@@ -64,15 +64,23 @@ final class PrealertEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/prealert/operation/get_1
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   string  $uuid  Prealert UUID.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function getByUuid(string $uuid, array $request_options = []): array
+	public function getByUuid(string $uuid): array
 	{
-		return $this->request->getResponse('/prealert/' . rawurlencode($uuid), $request_options, 'GET');
+		if (empty($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/prealert/' . rawurlencode($uuid), [], 'GET');
 	}
 
 }

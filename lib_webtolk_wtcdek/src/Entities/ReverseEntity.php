@@ -28,15 +28,15 @@ final class ReverseEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/reverse/operation/checkAvailability
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function checkAvailability(array $data = []): array
+	public function checkAvailability(array $request_options = []): array
 	{
-		if (empty($data))
+		if (empty($request_options))
 		{
 			return [
 				'error_code'    => '500',
@@ -44,7 +44,7 @@ final class ReverseEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/reverse/availability', $data, 'POST');
+		return $this->request->getResponse('/reverse/availability', $request_options, 'POST');
 	}
 
 }

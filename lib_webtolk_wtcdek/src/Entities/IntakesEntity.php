@@ -30,15 +30,15 @@ final class IntakesEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/intake/operation/changeStatus
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function changeStatus(array $data = []): array
+	public function changeStatus(array $request_options = []): array
 	{
-		if (empty($data))
+		if (empty($request_options))
 		{
 			return [
 				'error_code'    => '500',
@@ -46,7 +46,7 @@ final class IntakesEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/intakes', $data, 'PATCH');
+		return $this->request->getResponse('/intakes', $request_options, 'PATCH');
 	}
 
 	/**
@@ -70,15 +70,15 @@ final class IntakesEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/intake/operation/create
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function create(array $data = []): array
+	public function create(array $request_options = []): array
 	{
-		if (empty($data))
+		if (empty($request_options))
 		{
 			return [
 				'error_code'    => '500',
@@ -86,7 +86,7 @@ final class IntakesEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/intakes', $data, 'POST');
+		return $this->request->getResponse('/intakes', $request_options, 'POST');
 	}
 
 	/**
@@ -100,15 +100,15 @@ final class IntakesEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/intake/operation/getAvailableDays
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function getAvailableDays(array $data = []): array
+	public function getAvailableDays(array $request_options = []): array
 	{
-		if (empty($data))
+		if (empty($request_options))
 		{
 			return [
 				'error_code'    => '500',
@@ -116,7 +116,7 @@ final class IntakesEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/intakes/availableDays', $data, 'POST');
+		return $this->request->getResponse('/intakes/availableDays', $request_options, 'POST');
 	}
 
 	/**
@@ -131,15 +131,23 @@ final class IntakesEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/intake/operation/deleteByUuid
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   string  $uuid  Intake UUID.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function deleteByUuid(string $uuid, array $request_options = []): array
+	public function deleteByUuid(string $uuid): array
 	{
-		return $this->request->getResponse('/intakes/' . rawurlencode($uuid), $request_options, 'DELETE');
+		if (empty($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/intakes/' . rawurlencode($uuid), [], 'DELETE');
 	}
 
 	/**
@@ -152,15 +160,23 @@ final class IntakesEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/intake/operation/getByUuid
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   string  $uuid  Intake UUID.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function getByUuid(string $uuid, array $request_options = []): array
+	public function getByUuid(string $uuid): array
 	{
-		return $this->request->getResponse('/intakes/' . rawurlencode($uuid), $request_options, 'GET');
+		if (empty($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/intakes/' . rawurlencode($uuid), [], 'GET');
 	}
 
 }

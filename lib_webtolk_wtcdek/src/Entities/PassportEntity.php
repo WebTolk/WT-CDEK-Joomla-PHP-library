@@ -25,15 +25,15 @@ final class PassportEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/passport/operation/get_6
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function get(array $data = []): array
+	public function get(array $request_options = []): array
 	{
-		return $this->request->getResponse('/passport', $data, 'GET');
+		return $this->request->getResponse('/passport', $request_options, 'GET');
 	}
 
 }

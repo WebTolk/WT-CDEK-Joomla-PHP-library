@@ -67,7 +67,7 @@ final class LocationEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/location/operation/cities
 	 *
-	 * @param   string  $city_name  City name to use for suggestions.
+	 * @param   array  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
@@ -130,31 +130,31 @@ final class LocationEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/location/operation/getCityByCoordinates
 	 *
-	 * @param   array  $data  Request data. Supported coordinate keys:
+	 * @param   array  $request_options  Request options. Supported coordinate keys:
 	 *                        `latitude` (or `lat`) and `longitude` (or `lng`/`lon`).
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function getCityByCoordinates(array $data = []): array
+	public function getCityByCoordinates(array $request_options = []): array
 	{
-		if (!isset($data['latitude']) && isset($data['lat']))
+		if (!isset($request_options['latitude']) && isset($request_options['lat']))
 		{
-			$data['latitude'] = $data['lat'];
+			$request_options['latitude'] = $request_options['lat'];
 		}
 
-		if (!isset($data['longitude']) && isset($data['lng']))
+		if (!isset($request_options['longitude']) && isset($request_options['lng']))
 		{
-			$data['longitude'] = $data['lng'];
+			$request_options['longitude'] = $request_options['lng'];
 		}
 
-		if (!isset($data['longitude']) && isset($data['lon']))
+		if (!isset($request_options['longitude']) && isset($request_options['lon']))
 		{
-			$data['longitude'] = $data['lon'];
+			$request_options['longitude'] = $request_options['lon'];
 		}
 
-		if (!isset($data['latitude']) || !isset($data['longitude']))
+		if (!isset($request_options['latitude']) || !isset($request_options['longitude']))
 		{
 			return [
 				'error_code'    => '500',
@@ -162,7 +162,7 @@ final class LocationEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/location/coordinates', $data, 'GET');
+		return $this->request->getResponse('/location/coordinates', $request_options, 'GET');
 	}
 
 

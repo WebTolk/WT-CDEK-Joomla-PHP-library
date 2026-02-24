@@ -50,15 +50,15 @@ final class WebhooksEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/webhook/operation/getAll
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function getAll(array $data = []): array
+	public function getAll(array $request_options = []): array
 	{
-		return $this->request->getResponse('/webhooks', $data, 'GET');
+		return $this->request->getResponse('/webhooks', $request_options, 'GET');
 	}
 
 	/**
@@ -82,15 +82,18 @@ final class WebhooksEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/webhook/operation/create
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array{
+	 *             url?: string,
+	 *             type?: string
+	 *         }  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function create(array $data = []): array
+	public function create(array $request_options = []): array
 	{
-		if (empty($data['url']) || empty($data['type']))
+		if (empty($request_options['url']) || empty($request_options['type']))
 		{
 			return [
 				'error_code'    => '500',
@@ -98,7 +101,7 @@ final class WebhooksEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/webhooks', $data, 'POST');
+		return $this->request->getResponse('/webhooks', $request_options, 'POST');
 	}
 
 	/**
@@ -111,15 +114,23 @@ final class WebhooksEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/webhook/operation/deleteById
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   string  $uuid  Webhook UUID.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function deleteById(string $uuid, array $request_options = []): array
+	public function deleteByUuid(string $uuid): array
 	{
-		return $this->request->getResponse('/webhooks/' . rawurlencode($uuid), $request_options, 'DELETE');
+		if (empty($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/webhooks/' . rawurlencode($uuid), [], 'DELETE');
 	}
 
 	/**
@@ -132,15 +143,23 @@ final class WebhooksEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/webhook/operation/getById
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   string  $uuid  Webhook UUID.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function getById(string $uuid, array $request_options = []): array
+	public function getByUuid(string $uuid): array
 	{
-		return $this->request->getResponse('/webhooks/' . rawurlencode($uuid), $request_options, 'GET');
+		if (empty($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/webhooks/' . rawurlencode($uuid), [], 'GET');
 	}
 
 }

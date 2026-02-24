@@ -28,15 +28,15 @@ final class PrintEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/print/operation/barcodePrint
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function barcodePrint(array $data = []): array
+	public function barcodePrint(array $request_options = []): array
 	{
-		if (empty($data))
+		if (empty($request_options))
 		{
 			return [
 				'error_code'    => '500',
@@ -44,7 +44,7 @@ final class PrintEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/print/barcodes', $data, 'POST');
+		return $this->request->getResponse('/print/barcodes', $request_options, 'POST');
 	}
 
 	/**
@@ -67,15 +67,23 @@ final class PrintEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/print/operation/barcodeGet
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   string  $uuid  Print request UUID.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function barcodeGet(string $uuid, array $request_options = []): array
+	public function barcodeGet(string $uuid): array
 	{
-		return $this->request->getResponse('/print/barcodes/' . rawurlencode($uuid), $request_options, 'GET');
+		if (empty($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/print/barcodes/' . rawurlencode($uuid), [], 'GET');
 	}
 
 	/**
@@ -88,15 +96,23 @@ final class PrintEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/print/operation/barcodeDownload
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   string  $uuid  Print request UUID.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function barcodeDownload(string $uuid, array $request_options = []): array
+	public function barcodeDownload(string $uuid): array
 	{
-		return $this->request->getResponse('/print/barcodes/' . rawurlencode($uuid) . '.pdf', $request_options, 'GET');
+		if (empty($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/print/barcodes/' . rawurlencode($uuid) . '.pdf', [], 'GET');
 	}
 
 	/**
@@ -111,15 +127,15 @@ final class PrintEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/print/operation/waybillPrint
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function waybillPrint(array $data = []): array
+	public function waybillPrint(array $request_options = []): array
 	{
-		if (empty($data))
+		if (empty($request_options))
 		{
 			return [
 				'error_code'    => '500',
@@ -127,7 +143,7 @@ final class PrintEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/print/orders', $data, 'POST');
+		return $this->request->getResponse('/print/orders', $request_options, 'POST');
 	}
 
 	/**
@@ -151,16 +167,23 @@ final class PrintEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/print/operation/waybillGet
 	 *
-	 * @param   string  $uuid
-	 * @param   array   $request_options
+	 * @param   string  $uuid  Print request UUID.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function waybillGet(string $uuid, array $request_options = []): array
+	public function waybillGet(string $uuid): array
 	{
-		return $this->request->getResponse('/print/orders/' . rawurlencode($uuid), $request_options, 'GET');
+		if (empty($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/print/orders/' . rawurlencode($uuid), [], 'GET');
 	}
 
 	/**
@@ -173,15 +196,23 @@ final class PrintEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/print/operation/waybillDownload
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   string  $uuid  Print request UUID.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function waybillDownload(string $uuid, array $request_options = []): array
+	public function waybillDownload(string $uuid): array
 	{
-		return $this->request->getResponse('/print/orders/' . rawurlencode($uuid) . '.pdf', $request_options, 'GET');
+		if (empty($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/print/orders/' . rawurlencode($uuid) . '.pdf', [], 'GET');
 	}
 
 }

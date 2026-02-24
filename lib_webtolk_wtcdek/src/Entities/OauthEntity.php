@@ -25,15 +25,19 @@ final class OauthEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/auth/operation/getOAuthToken
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array{
+	 *             grant_type?: string,
+	 *             client_id?: string,
+	 *             client_secret?: string
+	 *         }  $request_options  Request options.
 	 *
 	 * @return  array  API response.
 	 *
 	 * @since  1.3.0
 	 */
-	public function getOAuthToken(array $data = []): array
+	public function getOAuthToken(array $request_options = []): array
 	{
-		if (empty($data['grant_type']) || empty($data['client_id']) || empty($data['client_secret']))
+		if (empty($request_options['grant_type']) || empty($request_options['client_id']) || empty($request_options['client_secret']))
 		{
 			return [
 				'error_code'    => '500',
@@ -41,7 +45,7 @@ final class OauthEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/oauth/token', $data, 'POST');
+		return $this->request->getResponse('/oauth/token', $request_options, 'POST');
 	}
 
 }
