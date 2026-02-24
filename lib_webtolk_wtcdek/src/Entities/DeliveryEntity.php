@@ -35,15 +35,26 @@ final class DeliveryEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/schedule/operation/register_2
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array{
+	 *             date?: string,
+	 *             cdek_number?: string|int,
+	 *             order_uuid?: string,
+	 *             time_from?: string,
+	 *             time_to?: string,
+	 *             comment?: string,
+	 *             delivery_point?: string,
+	 *             to_location?: array<string, mixed>
+	 *         }  $request_options  Schedule create payload.
+	 *                               Required by schema: `date`.
+	 *                               One of `cdek_number` or `order_uuid` is required by API description.
 	 *
-	 * @return  array  API response.
+	 * @return  array  API response or structured validation error.
 	 *
 	 * @since  1.3.0
 	 */
-	public function create(array $data = []): array
+	public function create(array $request_options = []): array
 	{
-		if (empty($data))
+		if (empty($request_options))
 		{
 			return [
 				'error_code'    => '500',
@@ -51,7 +62,23 @@ final class DeliveryEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/delivery', $data, 'POST');
+		if (empty($request_options['date']))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: date',
+			];
+		}
+
+		if (empty($request_options['cdek_number']) && empty($request_options['order_uuid']))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: one of cdek_number, order_uuid',
+			];
+		}
+
+		return $this->request->getResponse('/delivery', $request_options, 'POST');
 	}
 
 	/**
@@ -69,15 +96,23 @@ final class DeliveryEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/schedule/operation/getEstimatedIntervals
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array{
+	 *             date_time?: string,
+	 *             tariff_code?: int|string,
+	 *             from_location?: array{address?: string},
+	 *             shipment_point?: string,
+	 *             to_location?: array{address?: string}
+	 *         }  $request_options  Estimated intervals request payload.
+	 *                               Required by schema: `date_time`, `tariff_code`, `to_location`.
+	 *                               Nested required by schema: `to_location.address`.
 	 *
-	 * @return  array  API response.
+	 * @return  array  API response or structured validation error.
 	 *
 	 * @since  1.3.0
 	 */
-	public function getEstimatedIntervals(array $data = []): array
+	public function getEstimatedIntervals(array $request_options = []): array
 	{
-		if (empty($data))
+		if (empty($request_options))
 		{
 			return [
 				'error_code'    => '500',
@@ -85,7 +120,34 @@ final class DeliveryEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/delivery/estimatedIntervals', $data, 'POST');
+		foreach (['date_time', 'tariff_code', 'to_location'] as $requiredField)
+		{
+			if (empty($request_options[$requiredField]))
+			{
+				return [
+					'error_code'    => '500',
+					'error_message' => 'Required option: ' . $requiredField,
+				];
+			}
+		}
+
+		if (empty($request_options['to_location']['address']))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: to_location.address',
+			];
+		}
+
+		if (!empty($request_options['from_location']) && empty($request_options['from_location']['address']))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: from_location.address',
+			];
+		}
+
+		return $this->request->getResponse('/delivery/estimatedIntervals', $request_options, 'POST');
 	}
 
 	/**
@@ -100,15 +162,18 @@ final class DeliveryEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/schedule/operation/getIntervals
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   array{
+	 *             cdek_number?: string|int,
+	 *             order_uuid?: string
+	 *         }  $request_options  Intervals request options.
 	 *
-	 * @return  array  API response.
+	 * @return  array  API response or structured validation error.
 	 *
 	 * @since  1.3.0
 	 */
-	public function getIntervals(array $data = []): array
+	public function getIntervals(array $request_options = []): array
 	{
-		if (empty($data['cdek_number']) && empty($data['order_uuid']))
+		if (empty($request_options['cdek_number']) && empty($request_options['order_uuid']))
 		{
 			return [
 				'error_code'    => '500',
@@ -116,7 +181,7 @@ final class DeliveryEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/delivery/intervals', $data, 'GET');
+		return $this->request->getResponse('/delivery/intervals', $request_options, 'GET');
 	}
 
 	/**
@@ -130,15 +195,23 @@ final class DeliveryEntity extends AbstractEntity
 	 *
 	 * Source: https://apidoc.cdek.ru/#tag/schedule/operation/get_3
 	 *
-	 * @param   array  $data  Request data.
+	 * @param   string  $uuid  Delivery agreement UUID.
 	 *
-	 * @return  array  API response.
+	 * @return  array  API response or structured validation error.
 	 *
 	 * @since  1.3.0
 	 */
-	public function getByUuid(string $uuid, array $request_options = []): array
+	public function getByUuid(string $uuid): array
 	{
-		return $this->request->getResponse('/delivery/' . rawurlencode($uuid), $request_options, 'GET');
+		if (empty($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/delivery/' . rawurlencode($uuid), [], 'GET');
 	}
 
 }
