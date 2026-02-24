@@ -46,9 +46,9 @@ final class DeliveryEntity extends AbstractEntity
 	 *             to_location?: array<string, mixed>
 	 *         }  $request_options  Параметры создания договоренности о доставке.
 	 *                               Обязательно по схеме: `date`.
-	 *                               One of `cdek_number` or `order_uuid` is required by API description.
+	 *                               По описанию API обязательно передать одно из полей: `cdek_number` или `order_uuid`.
 	 *
-	 * @return  array  Ответ API or structured validation error.
+	 * @return  array  Ответ API или структурированная ошибка валидации.
 	 *
 	 * @since  1.3.0
 	 */
@@ -104,9 +104,9 @@ final class DeliveryEntity extends AbstractEntity
 	 *             to_location?: array{address?: string}
 	 *         }  $request_options  Параметры запроса интервалов до создания заказа.
 	 *                               Обязательно по схеме: `date_time`, `tariff_code`, `to_location`.
-	 *                               Nested required by schema: `to_location.address`.
+	 *                               Вложенное обязательное поле по схеме: `to_location.address`.
 	 *
-	 * @return  array  Ответ API or structured validation error.
+	 * @return  array  Ответ API или структурированная ошибка валидации.
 	 *
 	 * @since  1.3.0
 	 */
@@ -165,9 +165,9 @@ final class DeliveryEntity extends AbstractEntity
 	 * @param   array{
 	 *             cdek_number?: string|int,
 	 *             order_uuid?: string
-	 *         }  $request_options  Intervals request options.
+	 *         }  $request_options  Параметры запроса интервалов.
 	 *
-	 * @return  array  Ответ API or structured validation error.
+	 * @return  array  Ответ API или структурированная ошибка валидации.
 	 *
 	 * @since  1.3.0
 	 */
@@ -197,7 +197,7 @@ final class DeliveryEntity extends AbstractEntity
 	 *
 	 * @param   string  $uuid  UUID договоренности о доставке.
 	 *
-	 * @return  array  Ответ API or structured validation error.
+	 * @return  array  Ответ API или структурированная ошибка валидации.
 	 *
 	 * @since  1.3.0
 	 */

@@ -130,8 +130,8 @@ final class LocationEntity extends AbstractEntity
 	 *
 	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/getCityByCoordinates
 	 *
-	 * @param   array  $request_options  Параметры запроса. Supported coordinate keys:
-	 *                        `latitude` (or `lat`) and `longitude` (or `lng`/`lon`).
+	 * @param   array  $request_options  Параметры запроса. Допустимые ключи координат:
+	 *                        `latitude` (или `lat`) и `longitude` (или `lng`/`lon`).
 	 *
 	 * @return  array  Ответ API.
 	 *
@@ -178,7 +178,7 @@ final class LocationEntity extends AbstractEntity
 	 *
 	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/suggestCities
 	 *
-	 * @param   string  $city_name  City name to use for suggestions.
+	 * @param   string  $city_name  Наименование города для подбора подсказок.
 	 *
 	 * @return  array  Ответ API.
 	 *

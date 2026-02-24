@@ -46,7 +46,7 @@ final class OrdersEntity extends AbstractEntity
 	 *                               `tariff_code`, `recipient`, `packages`,
 	 *                               `recipient.name`, `packages[].number`, `packages[].weight`.
 	 *
-	 * @return  array  Ответ API or structured validation error.
+	 * @return  array  Ответ API или структурированная ошибка валидации.
 	 *
 	 * @since  1.3.0
 	 */
@@ -238,7 +238,7 @@ final class OrdersEntity extends AbstractEntity
 	 * Удаление заказа
 	 *
 	 * **Описание:**
-	 * С помощью этого метода можно удалить ранее созданный заказ из системы CDEK. В запросе указывается
+	 * С помощью этого метода можно удалить ранее созданный заказ из системы СДЭК. В запросе указывается
 	 * идентификатор заказа, который необходимо удалить. В ответе возвращается подтверждение успешного удаления
 	 * или информация об ошибке, если удаление невозможно.
 	 *
@@ -290,7 +290,7 @@ final class OrdersEntity extends AbstractEntity
 	 * @param   string  $uuid             UUID заказа.
 	 * @param   array{
 	 *             tariff_code?: int|string
-	 *         }  $request_options  Параметры клиентского возврата. Required key: `tariff_code`.
+	 *         }  $request_options  Параметры клиентского возврата. Обязательный ключ: `tariff_code`.
 	 *
 	 * @return  array  Ответ API.
 	 *

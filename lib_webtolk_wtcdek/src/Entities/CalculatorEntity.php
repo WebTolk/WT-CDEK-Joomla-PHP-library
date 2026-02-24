@@ -19,7 +19,7 @@ final class CalculatorEntity extends AbstractEntity
 	 *
 	 * Эндпоинт: `GET /v2/calculator/alltariffs`
 	 *
-	 * The Ответ API contains `tariff_codes`; this method returns that field only.
+	 * Ответ API содержит поле `tariff_codes`; метод возвращает только это поле.
 	 *
 	 * @return  array<int, array<string, mixed>>  Список метаданных кодов тарифов.
 	 *
@@ -41,7 +41,7 @@ final class CalculatorEntity extends AbstractEntity
 	 * - `tariff_code`
 	 * - `from_location`
 	 * - `to_location`
-	 * - `packages` (each package must contain `weight`)
+	 * - `packages` (каждое место должно содержать `weight`)
 	 *
 	 * @param   array{
 	 *             tariff_code?: int|string,
@@ -69,7 +69,7 @@ final class CalculatorEntity extends AbstractEntity
 	 *             }>
 	 *         }  $request_options  Параметры запроса калькулятора.
 	 *
-	 * @return  array  Ответ API or structured validation error.
+	 * @return  array  Ответ API или структурированная ошибка валидации.
 	 *
 	 * @since  1.3.0
 	 */
@@ -86,7 +86,7 @@ final class CalculatorEntity extends AbstractEntity
 	 * Обязательные ключи:
 	 * - `from_location`
 	 * - `to_location`
-	 * - `packages` (each package must contain `weight`)
+	 * - `packages` (каждое место должно содержать `weight`)
 	 *
 	 * @param   array{
 	 *             type?: int|string,
@@ -113,7 +113,7 @@ final class CalculatorEntity extends AbstractEntity
 	 *             }>
 	 *         }  $request_options  Параметры запроса калькулятора.
 	 *
-	 * @return  array  Ответ API or structured validation error.
+	 * @return  array  Ответ API или структурированная ошибка валидации.
 	 *
 	 * @since  1.3.0
 	 */
@@ -130,21 +130,21 @@ final class CalculatorEntity extends AbstractEntity
 	 * Обязательные ключи:
 	 * - `from_location`
 	 * - `to_location`
-	 * - `packages` (each package must contain `weight`)
+	 * - `packages` (каждое место должно содержать `weight`)
 	 *
-	 * Services (`services[]`) details copied from facade docs:
-	 * - `code`: service code from additional services dictionary.
-	 * - `parameter`: service parameter meaning depends on `code`.
-	 *   1) quantity for: `PACKAGE_1`, `COURIER_PACKAGE_A2`, `SECURE_PACKAGE_A2`,
+	 * Описание услуг в `services[]` (перенесено из фасадного метода):
+	 * - `code`: код услуги из справочника дополнительных услуг.
+	 * - `parameter`: значение параметра услуги зависит от `code`.
+	 *   1) количество для: `PACKAGE_1`, `COURIER_PACKAGE_A2`, `SECURE_PACKAGE_A2`,
 	 *      `SECURE_PACKAGE_A3`, `SECURE_PACKAGE_A4`, `SECURE_PACKAGE_A5`,
 	 *      `CARTON_BOX_XS`, `CARTON_BOX_S`, `CARTON_BOX_M`, `CARTON_BOX_L`,
 	 *      `CARTON_BOX_500GR`, `CARTON_BOX_1KG`, `CARTON_BOX_2KG`,
 	 *      `CARTON_BOX_3KG`, `CARTON_BOX_5KG`, `CARTON_BOX_10KG`,
 	 *      `CARTON_BOX_15KG`, `CARTON_BOX_20KG`, `CARTON_BOX_30KG`,
 	 *      `CARTON_FILLER`.
-	 *   2) declared order value for `INSURANCE` (for "delivery" type orders only).
-	 *   3) length for `BUBBLE_WRAP`, `WASTE_PAPER`.
-	 *   4) number of photos for `PHOTO_DOCUMENT`.
+	 *   2) объявленная стоимость заказа для `INSURANCE` (только для заказов типа "доставка").
+	 *   3) длина для `BUBBLE_WRAP`, `WASTE_PAPER`.
+	 *   4) количество фотографий для `PHOTO_DOCUMENT`.
 	 *
 	 * @param   array{
 	 *             type?: int|string,
@@ -171,7 +171,7 @@ final class CalculatorEntity extends AbstractEntity
 	 *             }>
 	 *         }  $request_options  Параметры запроса калькулятора.
 	 *
-	 * @return  array  Ответ API or structured validation error.
+	 * @return  array  Ответ API или структурированная ошибка валидации.
 	 *
 	 * @since  1.3.1
 	 */
@@ -181,12 +181,12 @@ final class CalculatorEntity extends AbstractEntity
 	}
 
 	/**
-	 * Validates required calculator request options.
+	 * Проверяет обязательные параметры запроса калькулятора.
 	 *
 	 * @param   array  $request_options   Параметры запроса.
-	 * @param   bool   $requireTariffCode Whether tariff code is required.
+	 * @param   bool   $requireTariffCode  Требуется ли обязательная передача кода тарифа.
 	 *
-	 * @return  array|null  Validation error or `null` when valid.
+	 * @return  array|null  Ошибка валидации или `null`, если данные корректны.
 	 *
 	 * @since  1.3.0
 	 */
@@ -223,11 +223,11 @@ final class CalculatorEntity extends AbstractEntity
 	}
 
 	/**
-	 * Executes calculator tariff-like request with common validation.
+	 * Выполняет запрос калькулятора с общей валидацией.
 	 *
-	 * @param   string  $endpoint          Calculator endpoint.
+	 * @param   string  $endpoint          Эндпоинт калькулятора.
 	 * @param   array   $request_options   Параметры запроса.
-	 * @param   bool    $requireTariffCode Whether tariff code is required.
+	 * @param   bool    $requireTariffCode Требуется ли обязательная передача кода тарифа.
 	 *
 	 * @return  array  Ответ API.
 	 *

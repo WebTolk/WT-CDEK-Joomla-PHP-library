@@ -157,7 +157,7 @@ final class CdekRequest
 	 * @param   string  $method          Путь метода API.
 	 * @param   array   $data            Параметры запроса.
 	 * @param   string  $request_method  HTTP-метод.
-	 * @param   array   $curl_options    Дополнительные параметры curl.
+	 * @param   array   $curl_options    Дополнительные параметры CURL.
 	 *
 	 * @return  array
 	 *

@@ -69,7 +69,7 @@ use function trim;
 final class Cdek
 {
 	/**
-	 * @var string $token_type Тип токена. Default 'Bearer'
+	 * @var string $token_type Тип токена. По умолчанию `Bearer`
 	 * @since 1.0.0
 	 */
 	public static string $token_type = 'Bearer';
@@ -80,19 +80,19 @@ final class Cdek
 	public static int $expires_in;
 
 	/**
-	 * Production host
+	 * Хост боевой среды
 	 * @var string $cdek_api_url
 	 * @since 1.0.0
 	 */
 	public static string $cdek_api_url = 'https://api.cdek.ru/v2';
 	/**
-	 * Testing host
+	 * Хост тестовой среды
 	 * @var string $cdek_api_url_test
 	 * @since 1.0.0
 	 */
 	public static string $cdek_api_url_test = 'https://api.edu.cdek.ru/v2';
 	/**
-	 * System - WT Cdek plugin params
+	 * Параметры системного плагина WT Cdek
 	 *
 	 * @var array $plugin_params
 	 * @since 1.0.0
@@ -104,7 +104,7 @@ final class Cdek
 	 */
 	protected static string $token;
 	/**
-	 * Account id
+	 * Идентификатор аккаунта
 	 * @var string $client_id
 	 * @since 1.0.0
 	 */
@@ -116,7 +116,7 @@ final class Cdek
 	 */
 	protected static string $client_secret;
 	/**
-	 * Test mode
+	 * Тестовый режим
 	 * @var bool $test_mode
 	 * @since 1.0.0
 	 */
@@ -130,7 +130,7 @@ final class Cdek
 	private CdekRequest $request;
 
 	/**
-	 * Entity class map loaded from registry.
+	 * Карта классов сущностей, загруженная из реестра.
 	 *
 	 * @var    array<string, string>
 	 * @since  1.2.1
@@ -147,9 +147,9 @@ final class Cdek
 
 
 	/**
-	 * @param   bool|null    $test_mode      Flag for test or production CDEK enviroment
-	 * @param   string|null  $client_id      Account
-	 * @param   string|null  $client_secret  Secret
+	 * @param   bool|null    $test_mode      Флаг тестового или боевого окружения СДЭК
+	 * @param   string|null  $client_id      Аккаунт
+	 * @param   string|null  $client_secret  Секрет
 	 *
 	 * @since 1.3.0
 	 */
@@ -188,11 +188,11 @@ final class Cdek
 	}
 
 	/**
-	 * Function for to log library errors in lib_webtolk_cdekapi_cdek.log.php in
-	 * Joomla log path. Default Log category lib_webtolk_cdekapi_cdek
+	 * Метод для записи ошибок библиотеки в `lib_webtolk_cdekapi_cdek.log.php` в
+	 * директории логов Joomla. Категория лога по умолчанию: `lib_webtolk_cdekapi_cdek`
 	 *
-	 * @param   string  $data      error message
-	 * @param   string  $priority  Joomla Log priority
+	 * @param   string  $data      текст ошибки
+	 * @param   string  $priority  приоритет лога Joomla
 	 *
 	 * @return void
 	 * @throws \Exception
@@ -220,7 +220,7 @@ final class Cdek
 	}
 
 	/**
-	 * Get plugin System - WT Cdek params
+	 * Возвращает параметры системного плагина WT Cdek
 	 *
 	 * @return  Registry|false
 	 *
@@ -246,8 +246,8 @@ final class Cdek
 	/**
 	 * Прокси-доступ к сущностям, например `$cdek->orders()`.
 	 *
-	 * @param   string  $name       Called method name.
-	 * @param   array   $arguments  Method arguments.
+	 * @param   string  $name       Имя вызываемого метода.
+	 * @param   array   $arguments  Аргументы метода.
 	 *
 	 * @return  EntityInterface
 	 *
@@ -261,7 +261,7 @@ final class Cdek
 	/**
 	 * Возвращает экземпляр сущности по имени.
 	 *
-	 * @param   string  $name  Entity key from registry.
+	 * @param   string  $name  Ключ сущности из реестра.
 	 *
 	 * @return  EntityInterface
 	 *
@@ -288,7 +288,7 @@ final class Cdek
 	/**
 	 * Преобразует запрошенное имя сущности в ключ реестра.
 	 *
-	 * @param   string  $name  Requested name.
+	 * @param   string  $name  Запрошенное имя.
 	 *
 	 * @return  string
 	 *
