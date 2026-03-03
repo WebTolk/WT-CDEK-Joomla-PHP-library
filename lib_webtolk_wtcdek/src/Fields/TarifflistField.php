@@ -9,59 +9,73 @@
  * @link       https://web-tolk.ru
  */
 
+declare(strict_types=1);
+
 namespace Webtolk\Cdekapi\Fields;
 
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Form\Field\ListField;
+use Joomla\CMS\Form\Field\GroupedlistField;
 use Webtolk\Cdekapi\Cdek;
+use function is_array;
+use function sprintf;
 
-class TarifflistField extends ListField
+class TarifflistField extends GroupedlistField
 {
 
 	protected $type = 'Tarifflist';
 
-	protected function getInput()
+	/**
+	 * Возвращает сгруппированный список тарифов:
+	 * группа = `tariff_name`, опция = элемент `delivery_modes`.
+	 *
+	 * @return  array<string, array<int, object>>
+	 */
+	protected function getGroups()
 	{
-		$tariff_shop_options = [];
-		$tariff_dostavka_options = [];
+		$groups = [];
 		$cdek = new Cdek();
-		$tariff_shop = $cdek->getTariffListShop();
-		foreach ($tariff_shop as $tariff)
-		{
-			$tariff_shop_options[] = HTMLHelper::_('select.option', $tariff['code'], $tariff['name'] . ' (code: ' . $tariff['code'] . ')');
-		}
-		$tariff_dostavka = $cdek->getTariffListDostavka();
+		$tariffs = $cdek->calculator()->getAllTariffs();
 
-		foreach ($tariff_dostavka as $tariff)
+		if (!is_array($tariffs) || empty($tariffs))
 		{
-			$tariff_dostavka_options[] = HTMLHelper::_('select.option', $tariff['code'],     $tariff['name'] . ' (code: ' . $tariff['code'] . ')');
+			return $groups;
 		}
 
-		$groups = [
-			'shop' => [
-				'id' => 'shop',
-				'text' => 'Интернет-магазин',
-				'items' => $tariff_shop_options
-			],
-			'dostavka' => [
-				'id' => 'dostavka',
-				'text' => 'Доставка',
-				'items' => $tariff_dostavka_options
-			]
-		];
-		$selected = $this->value ?? '';
-		return HTMLHelper::_('select.groupedlist',
-			$groups,
-			$this->name,
-			[
-				'id' => $this->id,
-				'group.id' => 'id',
-				'list.attr' => ['class' => 'form-select '.($this->class ? $this->class : '' )],
+		foreach ($tariffs as $tariff)
+		{
+			if (!is_array($tariff))
+			{
+				continue;
+			}
 
-				'list.select' => $selected
-			]
-		);
+			$groupName = (string) ($tariff['tariff_name'] ?? '');
+			$modes = $tariff['delivery_modes'] ?? [];
+
+			if ($groupName === '' || !is_array($modes) || empty($modes))
+			{
+				continue;
+			}
+
+			foreach ($modes as $mode)
+			{
+				if (!is_array($mode) || !isset($mode['tariff_code']))
+				{
+					continue;
+				}
+
+				$tariffCode = (string) $mode['tariff_code'];
+				$modeName = (string) ($mode['delivery_mode_name'] ?? '');
+				$modeCode = (string) ($mode['delivery_mode'] ?? '');
+				$optionText = $modeName !== ''
+					? sprintf('%s [%s] (code: %s)', $modeName, $modeCode, $tariffCode)
+					: sprintf('mode %s (code: %s)', $modeCode, $tariffCode);
+
+				$groups[$groupName][] = HTMLHelper::_('select.option', $tariffCode, $optionText);
+			}
+		}
+
+		return $groups;
 	}
 }

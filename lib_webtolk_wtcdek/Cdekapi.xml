@@ -21,6 +21,7 @@
 	</media>
 	<files>
 		<folder>src</folder>
+		<folder>layouts</folder>
 		<filename>Cdekapi.xml</filename>
 	</files>
 </extension>

@@ -27,9 +27,30 @@ final class CalculatorEntity extends AbstractEntity
 	 */
 	public function getAllTariffs(): array
 	{
+		$cache = $this->request->getCache();
+		$cacheKey = 'calculator_alltariffs';
+		$cachedData = $cache->get($cacheKey);
+
+		if (!empty($cachedData))
+		{
+			$decoded = json_decode((string) $cachedData, true);
+
+			if (is_array($decoded))
+			{
+				return $decoded;
+			}
+		}
+
 		$result = $this->request->getResponse('/calculator/alltariffs', [], 'GET');
 
-		return $result['tariff_codes'] ?? [];
+		$tariffs = $result['tariff_codes'] ?? [];
+
+		if (!isset($result['error_code']) && is_array($tariffs))
+		{
+			$cache->store((string) json_encode($tariffs, JSON_UNESCAPED_UNICODE), $cacheKey);
+		}
+
+		return is_array($tariffs) ? $tariffs : [];
 	}
 
 	/**

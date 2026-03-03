@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Webtolk\Cdekapi\Entities;
 
+use Joomla\CMS\Uri\Uri;
 use Symfony\Component\Uid\Uuid;
 use function rawurlencode;
 
@@ -35,6 +36,18 @@ final class WebhooksEntity extends AbstractEntity
 		'DELIV_AGREEMENT',
 		'COURIER_INFO',
 	];
+
+	/**
+	 * Возвращает список поддерживаемых типов подписок.
+	 *
+	 * @return  array<int, string>
+	 *
+	 * @since  1.3.1
+	 */
+	public function getAllowedTypes(): array
+	{
+		return self::ALLOWED_TYPES;
+	}
 
 	/**
 	 * GET /v2/webhooks
@@ -198,6 +211,48 @@ final class WebhooksEntity extends AbstractEntity
 		}
 
 		return $this->request->getResponse('/webhooks/' . rawurlencode($uuid), [], 'GET');
+	}
+
+	/**
+	 * Возвращает URL Joomla для приема входящих вебхуков CDEK.
+	 *
+	 * В URL добавляется токен из параметров системного плагина `wtcdek`,
+	 * если параметр `webhook_token` задан.
+	 *
+	 * @return  string
+	 *
+	 * @since  1.3.1
+	 */
+	public function getJoomlaWebhookUrl(): string
+	{
+		$url = '';
+		$pluginParams = $this->request->getPluginParams();
+
+		if ($pluginParams === false)
+		{
+			return $url;
+		}
+
+		$webhookToken = (string) $pluginParams->get('webhook_token', '');
+
+		if (!empty($webhookToken))
+		{
+			$uri = new Uri(Uri::root());
+			$uri->setPath('/index.php');
+			$uri->setQuery([
+				'option'      => 'com_ajax',
+				'plugin'      => 'wtcdek',
+				'group'       => 'system',
+				'format'      => 'raw',
+				'action'      => 'webhook',
+				'action_type' => 'external',
+				'token'       => $webhookToken,
+			]);
+
+			$url = $uri->toString();
+		}
+
+		return $url;
 	}
 
 }

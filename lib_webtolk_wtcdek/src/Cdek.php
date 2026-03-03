@@ -396,6 +396,7 @@ final class Cdek
 	 * @return array[] Массив тарифов
 	 *
 	 * @since 1.0.0
+	 * @depreacted Не обновляется. Будет удалено в 2.0.0, используйте calculator()->getAllTariffs() вместо него.
 	 */
 	public function getTariffListShop(): array
 	{
@@ -485,6 +486,7 @@ final class Cdek
 	 * @return array массив тарифов
 	 *
 	 * @since 1.0.0
+	 * @depreacted Будет удалено в 2.0.0, используйте calculator()->getAllTariffs() вместо него.
 	 */
 	public function getTariffListDostavka(): array
 	{
