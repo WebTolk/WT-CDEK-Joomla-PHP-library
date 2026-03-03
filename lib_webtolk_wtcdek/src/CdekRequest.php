@@ -22,12 +22,12 @@ use Joomla\CMS\Date\Date;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Http\HttpFactory;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Log\Log;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\Registry\Registry;
 use Joomla\Uri\Uri;
 use Psr\Http\Message\ResponseInterface;
 use Throwable;
+use Webtolk\Cdekapi\Traits\LogTrait;
 use function array_filter;
 use function array_key_exists;
 use function array_merge;
@@ -50,13 +50,15 @@ use function trim;
  */
 final class CdekRequest
 {
+	use LogTrait;
+
 	/**
 	 * Базовый URL API боевой среды.
 	 *
 	 * @var    string
 	 * @since  1.2.1
 	 */
-	private const string CDEK_API_URL = 'https://api.cdek.ru/v2';
+	private const CDEK_API_URL = 'https://api.cdek.ru/v2';
 
 	/**
 	 * Базовый URL API тестовой среды.
@@ -64,7 +66,7 @@ final class CdekRequest
 	 * @var    string
 	 * @since  1.2.1
 	 */
-	private const string CDEK_API_URL_TEST = 'https://api.edu.cdek.ru/v2';
+	private const CDEK_API_URL_TEST = 'https://api.edu.cdek.ru/v2';
 
 	/**
 	 * Публичный идентификатор тестового аккаунта из локальной документации API СДЭК.
@@ -72,7 +74,7 @@ final class CdekRequest
 	 * @var    string
 	 * @since  1.3.1
 	 */
-	private const string CDEK_TEST_CLIENT_ID = 'wqGwiQx0gg8mLtiEKsUinjVSICCjtTEP';
+	private const CDEK_TEST_CLIENT_ID = 'wqGwiQx0gg8mLtiEKsUinjVSICCjtTEP';
 
 	/**
 	 * Публичный секрет тестового аккаунта из локальной документации API СДЭК.
@@ -80,7 +82,7 @@ final class CdekRequest
 	 * @var    string
 	 * @since  1.3.1
 	 */
-	private const string CDEK_TEST_CLIENT_SECRET = 'RmAmgvSgSl1yirlz9QupbzOJVqhCxcP5';
+	private const CDEK_TEST_CLIENT_SECRET = 'RmAmgvSgSl1yirlz9QupbzOJVqhCxcP5';
 
 	/**
 	 * Кэшированные параметры плагина.
@@ -280,6 +282,7 @@ final class CdekRequest
 		$this->clientId     = trim((string) $pluginParams->get('client_id', ''));
 		$this->clientSecret = trim((string) $pluginParams->get('client_secret', ''));
 		$this->testMode     = (bool) $pluginParams->get('test_mode', $this->testMode);
+		$this->applyDefaultTestCredentials();
 
 		return !empty($this->clientId) && !empty($this->clientSecret);
 	}
@@ -464,34 +467,6 @@ final class CdekRequest
 		]);
 
 		return $response;
-	}
-
-	/**
-	 * Записывает сообщение в лог библиотеки.
-	 *
-	 * @param   string  $data      Текст сообщения.
-	 * @param   string  $priority  Уровень приоритета Joomla.
-	 *
-	 * @return  void
-	 *
-	 * @since   1.2.1
-	 */
-	public function saveToLog(string $data, string $priority = 'NOTICE'): void
-	{
-		Log::addLogger(
-			['text_file' => 'lib_webtolk_cdekapi_cdek.log.php'],
-			Log::ALL & ~Log::DEBUG,
-			['lib_webtolk_cdekapi_cdek']
-		);
-
-		$params = self::getPluginParams();
-
-		if ($params instanceof Registry && (int) $params->get('show_library_errors', 0) === 1)
-		{
-			Factory::getApplication()->enqueueMessage($data, $priority);
-		}
-
-		Log::add($data, 'Log::' . $priority, 'lib_webtolk_cdekapi_cdek');
 	}
 
 	/**

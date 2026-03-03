@@ -200,7 +200,14 @@ final class CalculatorEntity extends AbstractEntity
 			];
 		}
 
-		if (empty($request_options['from_location']) || empty($request_options['to_location']) || empty($request_options['packages']))
+		if (
+			empty($request_options['from_location'])
+			|| !is_array($request_options['from_location'])
+			|| empty($request_options['to_location'])
+			|| !is_array($request_options['to_location'])
+			|| empty($request_options['packages'])
+			|| !is_array($request_options['packages'])
+		)
 		{
 			return [
 				'error_code'    => '500',
@@ -210,7 +217,7 @@ final class CalculatorEntity extends AbstractEntity
 
 		foreach ($request_options['packages'] as $package)
 		{
-			if (empty($package['weight']))
+			if (!is_array($package) || empty($package['weight']))
 			{
 				return [
 					'error_code'    => '500',

@@ -18,8 +18,6 @@ use InvalidArgumentException;
 use Joomla\CMS\Cache\CacheControllerFactoryInterface;
 use Joomla\CMS\Cache\Controller\OutputController;
 use Joomla\CMS\Factory;
-use Joomla\CMS\Log\Log;
-use Joomla\Registry\Registry;
 use Webtolk\Cdekapi\Entities\CalculatorEntity;
 use Webtolk\Cdekapi\Entities\CheckEntity;
 use Webtolk\Cdekapi\Entities\DeliveryEntity;
@@ -37,6 +35,7 @@ use Webtolk\Cdekapi\Entities\PrintEntity;
 use Webtolk\Cdekapi\Entities\ReverseEntity;
 use Webtolk\Cdekapi\Entities\WebhooksEntity;
 use Webtolk\Cdekapi\Interfaces\EntityInterface;
+use Webtolk\Cdekapi\Traits\LogTrait;
 use function is_array;
 use function is_file;
 use function preg_replace;
@@ -68,6 +67,8 @@ use function trim;
  */
 final class Cdek
 {
+	use LogTrait;
+
 	/**
 	 * @var string $token_type Тип токена. По умолчанию `Bearer`
 	 * @since 1.0.0
@@ -185,50 +186,6 @@ final class Cdek
 	public function canDoRequest(): bool
 	{
 		return $this->request->canDoRequest();
-	}
-
-	/**
-	 * Метод для записи ошибок библиотеки в `lib_webtolk_cdekapi_cdek.log.php` в
-	 * директории логов Joomla. Категория лога по умолчанию: `lib_webtolk_cdekapi_cdek`
-	 *
-	 * @param   string  $data      текст ошибки
-	 * @param   string  $priority  приоритет лога Joomla
-	 *
-	 * @return void
-	 * @throws \Exception
-	 * @since 1.0.0
-	 */
-	public function saveToLog(string $data, string $priority = 'NOTICE'): void
-	{
-		Log::addLogger(
-			[
-				// Sets file name
-				'text_file' => 'lib_webtolk_cdekapi_cdek.log.php',
-			],
-			// Sets all but DEBUG log level messages to be sent to the file
-			Log::ALL & ~Log::DEBUG,
-			['lib_webtolk_cdekapi_cdek']
-		);
-		$plugin_params = $this->getPluginParams();
-		if ($plugin_params instanceof Registry && $plugin_params->get('show_library_errors', 0) == 1)
-		{
-			Factory::getApplication()->enqueueMessage($data, $priority);
-		}
-		$priority = 'Log::' . $priority;
-		Log::add($data, $priority, 'lib_webtolk_cdekapi_cdek');
-
-	}
-
-	/**
-	 * Возвращает параметры системного плагина WT Cdek
-	 *
-	 * @return  Registry|false
-	 *
-	 * @since 1.0.0
-	 */
-	private function getPluginParams()
-	{
-		return CdekRequest::getPluginParams();
 	}
 
 	/**
