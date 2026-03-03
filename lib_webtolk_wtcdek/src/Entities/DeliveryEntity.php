@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Webtolk\Cdekapi\Entities;
 
+use Symfony\Component\Uid\Uuid;
 use function rawurlencode;
 
 defined('_JEXEC') or die;
@@ -75,6 +76,14 @@ final class DeliveryEntity extends AbstractEntity
 			return [
 				'error_code'    => '500',
 				'error_message' => 'Required option: one of cdek_number, order_uuid',
+			];
+		}
+
+		if (!empty($request_options['order_uuid']) && !Uuid::isValid(\trim((string) $request_options['order_uuid'])))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: order_uuid',
 			];
 		}
 
@@ -181,6 +190,14 @@ final class DeliveryEntity extends AbstractEntity
 			];
 		}
 
+		if (!empty($request_options['order_uuid']) && !Uuid::isValid(\trim((string) $request_options['order_uuid'])))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: order_uuid',
+			];
+		}
+
 		return $this->request->getResponse('/delivery/intervals', $request_options, 'GET');
 	}
 
@@ -203,11 +220,21 @@ final class DeliveryEntity extends AbstractEntity
 	 */
 	public function getByUuid(string $uuid): array
 	{
+		$uuid = \trim($uuid);
+
 		if (empty($uuid))
 		{
 			return [
 				'error_code'    => '500',
 				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		if (!Uuid::isValid($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: uuid',
 			];
 		}
 

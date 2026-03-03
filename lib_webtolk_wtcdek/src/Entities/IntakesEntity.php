@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Webtolk\Cdekapi\Entities;
 
+use Symfony\Component\Uid\Uuid;
 use function rawurlencode;
 
 defined('_JEXEC') or die;
@@ -139,11 +140,21 @@ final class IntakesEntity extends AbstractEntity
 	 */
 	public function deleteByUuid(string $uuid): array
 	{
+		$uuid = \trim($uuid);
+
 		if (empty($uuid))
 		{
 			return [
 				'error_code'    => '500',
 				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		if (!Uuid::isValid($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: uuid',
 			];
 		}
 
@@ -168,11 +179,21 @@ final class IntakesEntity extends AbstractEntity
 	 */
 	public function getByUuid(string $uuid): array
 	{
+		$uuid = \trim($uuid);
+
 		if (empty($uuid))
 		{
 			return [
 				'error_code'    => '500',
 				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		if (!Uuid::isValid($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: uuid',
 			];
 		}
 

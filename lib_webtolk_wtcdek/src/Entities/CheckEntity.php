@@ -10,6 +10,8 @@ declare(strict_types=1);
 
 namespace Webtolk\Cdekapi\Entities;
 
+use Symfony\Component\Uid\Uuid;
+
 defined('_JEXEC') or die;
 
 final class CheckEntity extends AbstractEntity
@@ -41,6 +43,14 @@ final class CheckEntity extends AbstractEntity
 			return [
 				'error_code'    => '500',
 				'error_message' => 'Required options: one of order_uuid, cdek_number, date',
+			];
+		}
+
+		if (!empty($request_options['order_uuid']) && !Uuid::isValid(\trim((string) $request_options['order_uuid'])))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: order_uuid',
 			];
 		}
 

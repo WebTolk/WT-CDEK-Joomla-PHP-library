@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Webtolk\Cdekapi\Entities;
 
+use Symfony\Component\Uid\Uuid;
 use function rawurlencode;
 
 defined('_JEXEC') or die;
@@ -17,27 +18,23 @@ defined('_JEXEC') or die;
 final class WebhooksEntity extends AbstractEntity
 {
 	/**
-	 * Совместимый фасадный метод подписки на вебхуки.
+	 * Допустимые типы подписок на вебхуки.
 	 *
-	 * @param   string  $url   URL для вебхуков.
-	 * @param   string  $type  Тип вебхука.
-	 *
-	 * @return  array
-	 *
-	 * @since  1.3.0
+	 * @var    array<int, string>
+	 * @since  1.3.1
 	 */
-	public function subscribe(string $url, string $type): array
-	{
-		if (empty($url) || empty($type))
-		{
-			return [
-				'error_code'    => '500',
-				'error_message' => 'There is no $url or $type. Specify it, please.',
-			];
-		}
-
-		return $this->request->getResponse('/webhooks', ['url' => $url, 'type' => $type], 'POST');
-	}
+	private const ALLOWED_TYPES = [
+		'ORDER_STATUS',
+		'ORDER_MODIFIED',
+		'PRINT_FORM',
+		'RECEIPT',
+		'PREALERT_CLOSED',
+		'ACCOMPANYING_WAYBILL',
+		'OFFICE_AVAILABILITY',
+		'DELIV_PROBLEM',
+		'DELIV_AGREEMENT',
+		'COURIER_INFO',
+	];
 
 	/**
 	 * GET /v2/webhooks
@@ -50,15 +47,13 @@ final class WebhooksEntity extends AbstractEntity
 	 *
 	 * Источник: https://apidoc.cdek.ru/#tag/webhook/operation/getAll
 	 *
-	 * @param   array  $request_options  Параметры запроса.
-	 *
 	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
-	public function getAll(array $request_options = []): array
+	public function getAll(): array
 	{
-		return $this->request->getResponse('/webhooks', $request_options, 'GET');
+		return $this->request->getResponse('/webhooks', [], 'GET');
 	}
 
 	/**
@@ -69,31 +64,38 @@ final class WebhooksEntity extends AbstractEntity
 	 * **Описание:**
 	 * Метод предназначен для подключения подписки на отправку на URL клиента событий, связанных с заказом.
 	 * Существуют следующие типы подписок:
-	 * - об изменении статуса заказа
-	 * - о готовности печатной формы
-	 * - получение информации о закрытии преалерта
-	 * - получение информации об изменении доступности офиса
-	 * - получение информации об изменении заказа
-	 * - получение информации о транспорте для СНТ
-	 * - получение информации об изменении договоренности о доставке
-	 * - получение информации о проблемах доставки по заказу
-	 * - получение информации о курьере
+	 * - ORDER_STATUS - об изменении статуса заказа
+	 * - ORDER_MODIFIED - получение информации об изменении заказа
+	 * - PRINT_FORM - о готовности печатной формы
+	 * - RECEIPT - получение информации о чеке
+	 * - PREALERT_CLOSED - получение информации о закрытии преалерта
+	 * - ACCOMPANYING_WAYBILL - получение информации о транспорте для СНТ
+	 * - OFFICE_AVAILABILITY - получение информации об изменении доступности офиса
+	 * - DELIV_PROBLEM - получение информации о проблемах доставки по заказу
+	 * - DELIV_AGREEMENT - получение информации об изменении договоренности о доставке
+	 * - COURIER_INFO - получение информации о курьере
 	 * Если у клиента уже есть подписка с указанным типом, то будет создана еще одна подписка с таким же типом.
+	 *
+	 * В ответе метода возвращается информация о запросе со статусом выполнения:
+	 * - ACCEPTED: запрос принят в обработку.
+	 * - SUCCESSFUL: подписка успешно создана.
+	 * - INVALID: запрос отклонен из-за ошибок в данных.
 	 *
 	 * Источник: https://apidoc.cdek.ru/#tag/webhook/operation/create
 	 *
-	 * @param   array{
-	 *             url?: string,
-	 *             type?: string
-	 *         }  $request_options  Параметры запроса.
+	 * @param   string  $url   URL, на который отправляется событие.
+	 * @param   string  $type  Тип вебхука.
 	 *
 	 * @return  array  Ответ API.
 	 *
 	 * @since  1.3.0
 	 */
-	public function create(array $request_options = []): array
+	public function create(string $url, string $type): array
 	{
-		if (empty($request_options['url']) || empty($request_options['type']))
+		$url  = \trim($url);
+		$type = \trim($type);
+
+		if (empty($url) || empty($type))
 		{
 			return [
 				'error_code'    => '500',
@@ -101,7 +103,23 @@ final class WebhooksEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/webhooks', $request_options, 'POST');
+		if (!\filter_var($url, \FILTER_VALIDATE_URL))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: url',
+			];
+		}
+
+		if (!\in_array($type, self::ALLOWED_TYPES, true))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: type',
+			];
+		}
+
+		return $this->request->getResponse('/webhooks', ['url' => $url, 'type' => $type], 'POST');
 	}
 
 	/**
@@ -122,11 +140,21 @@ final class WebhooksEntity extends AbstractEntity
 	 */
 	public function deleteByUuid(string $uuid): array
 	{
+		$uuid = \trim($uuid);
+
 		if (empty($uuid))
 		{
 			return [
 				'error_code'    => '500',
 				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		if (!Uuid::isValid($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: uuid',
 			];
 		}
 
@@ -151,6 +179,8 @@ final class WebhooksEntity extends AbstractEntity
 	 */
 	public function getByUuid(string $uuid): array
 	{
+		$uuid = \trim($uuid);
+
 		if (empty($uuid))
 		{
 			return [
@@ -159,8 +189,15 @@ final class WebhooksEntity extends AbstractEntity
 			];
 		}
 
+		if (!Uuid::isValid($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: uuid',
+			];
+		}
+
 		return $this->request->getResponse('/webhooks/' . rawurlencode($uuid), [], 'GET');
 	}
 
 }
-

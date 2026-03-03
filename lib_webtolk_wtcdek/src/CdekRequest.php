@@ -24,9 +24,9 @@ use Joomla\CMS\Http\HttpFactory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Log\Log;
 use Joomla\CMS\Plugin\PluginHelper;
-use Joomla\Http\Response;
 use Joomla\Registry\Registry;
 use Joomla\Uri\Uri;
+use Psr\Http\Message\ResponseInterface;
 use Throwable;
 use function array_filter;
 use function array_key_exists;
@@ -56,7 +56,7 @@ final class CdekRequest
 	 * @var    string
 	 * @since  1.2.1
 	 */
-	private const CDEK_API_URL = 'https://api.cdek.ru/v2';
+	private const string CDEK_API_URL = 'https://api.cdek.ru/v2';
 
 	/**
 	 * Базовый URL API тестовой среды.
@@ -64,7 +64,7 @@ final class CdekRequest
 	 * @var    string
 	 * @since  1.2.1
 	 */
-	private const CDEK_API_URL_TEST = 'https://api.edu.cdek.ru/v2';
+	private const string CDEK_API_URL_TEST = 'https://api.edu.cdek.ru/v2';
 
 	/**
 	 * Публичный идентификатор тестового аккаунта из локальной документации API СДЭК.
@@ -72,7 +72,7 @@ final class CdekRequest
 	 * @var    string
 	 * @since  1.3.1
 	 */
-	private const CDEK_TEST_CLIENT_ID = 'wqGwiQx0gg8mLtiEKsUinjVSICCjtTEP';
+	private const string CDEK_TEST_CLIENT_ID = 'wqGwiQx0gg8mLtiEKsUinjVSICCjtTEP';
 
 	/**
 	 * Публичный секрет тестового аккаунта из локальной документации API СДЭК.
@@ -80,7 +80,7 @@ final class CdekRequest
 	 * @var    string
 	 * @since  1.3.1
 	 */
-	private const CDEK_TEST_CLIENT_SECRET = 'RmAmgvSgSl1yirlz9QupbzOJVqhCxcP5';
+	private const string CDEK_TEST_CLIENT_SECRET = 'RmAmgvSgSl1yirlz9QupbzOJVqhCxcP5';
 
 	/**
 	 * Кэшированные параметры плагина.
@@ -265,7 +265,7 @@ final class CdekRequest
 	{
 		$this->applyDefaultTestCredentials();
 
-		if ($this->clientId !== '' && $this->clientSecret !== '')
+		if (!empty($this->clientId) && !empty($this->clientSecret))
 		{
 			return true;
 		}
@@ -280,9 +280,8 @@ final class CdekRequest
 		$this->clientId     = trim((string) $pluginParams->get('client_id', ''));
 		$this->clientSecret = trim((string) $pluginParams->get('client_secret', ''));
 		$this->testMode     = (bool) $pluginParams->get('test_mode', $this->testMode);
-		$this->applyDefaultTestCredentials();
 
-		return $this->clientId !== '' && $this->clientSecret !== '';
+		return !empty($this->clientId) && !empty($this->clientSecret);
 	}
 
 	/**
@@ -300,7 +299,7 @@ final class CdekRequest
 			return;
 		}
 
-		if ($this->clientId !== '' && $this->clientSecret !== '')
+		if (!empty($this->clientId) && !empty($this->clientSecret))
 		{
 			return;
 		}
@@ -353,7 +352,7 @@ final class CdekRequest
 	 */
 	public function loadTokenData(): bool
 	{
-		if ($this->token !== '' && $this->tokenType !== '' && $this->expiresIn > 0)
+		if (!empty($this->token) && !empty($this->tokenType) && $this->expiresIn > 0)
 		{
 			return true;
 		}
@@ -393,7 +392,7 @@ final class CdekRequest
 		$this->tokenType = (string) ($tokenData->token_type ?? 'Bearer');
 		$this->expiresIn = (int) ($tokenData->expires_in ?? 3600);
 
-		return $this->token !== '';
+		return !empty($this->token);
 	}
 
 	/**
@@ -437,6 +436,11 @@ final class CdekRequest
 		];
 
 		$response = $this->getResponse('/oauth/token', $authorizeData, 'POST');
+
+		if (array_key_exists('error_code', $response))
+		{
+			return $response;
+		}
 
 		if (!array_key_exists('access_token', $response))
 		{
@@ -512,23 +516,30 @@ final class CdekRequest
 	/**
 	 * Обрабатывает ответ и приводит ошибки к единому формату.
 	 *
-	 * @param   Response  $response    HTTP-ответ.
-	 * @param   string    $methodName  Имя метода API.
+	 * @param   ResponseInterface  $response    HTTP-ответ.
+	 * @param   string             $methodName  Имя метода API.
 	 *
 	 * @return  array
 	 *
 	 * @since   1.2.1
 	 */
-	private function mapResponse(Response $response, string $methodName = ''): array
+	private function mapResponse(ResponseInterface $response, string $methodName = ''): array
 	{
 		$errorArray   = [
 			'error_code'    => Text::_('PKG_LIB_WTCDEK_ERROR_RESPONSEHANDLER_NO_CODE'),
 			'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_RESPONSEHANDLER_NO_ERROR_DESC'),
 		];
 		$errorMessage = '';
-		$body         = (new Registry($response->body))->toArray();
+		$statusCode   = $response->getStatusCode();
+		$responseBody = (string)$response->getBody();
+		$body = json_decode($responseBody, true);
 
-		if ($response->code >= 400 && $response->code < 500)
+		if (!is_array($body))
+		{
+			$body = (new Registry($responseBody))->toArray();
+		}
+
+		if ($statusCode >= 400 && $statusCode < 500)
 		{
 			if (
 				(array_key_exists('errors', $body) && !empty($body['errors']))
@@ -556,29 +567,29 @@ final class CdekRequest
 			}
 			else
 			{
-				$errorMessage = (string) $response->body;
+				$errorMessage = $responseBody;
 			}
 
 			$errorMessage = Text::sprintf(
 				Text::_('PKG_LIB_WTCDEK_ERROR_RESPONSEHANDLER_ERROR_400'),
-				($methodName !== '' ? 'REST API method: ' . $methodName . ':' : ''),
+				(!empty($methodName) ? 'REST API method: ' . $methodName . ':' : ''),
 				$errorMessage
 			);
 			$this->saveToLog($errorMessage, 'ERROR');
 
 			return [
-				'error_code'    => (int) $response->code,
+				'error_code'    => (int) $statusCode,
 				'error_message' => $errorMessage,
 			];
 		}
 
-		if ($response->code >= 500)
+		if ($statusCode >= 500)
 		{
 			$this->saveToLog(
 				'Error while trying to calculate delivery cost via Cdek. Cdek Ответ API: ' . print_r($body, true),
 				'ERROR'
 			);
-			$errorArray['error_code']    = (int) $response->code;
+			$errorArray['error_code']    = (int) $statusCode;
 			$errorArray['error_message'] = Text::_('PKG_LIB_WTCDEK_ERROR_RESPONSEHANDLER_ERROR_500', print_r($body, true));
 
 			return $errorArray;
@@ -617,7 +628,7 @@ final class CdekRequest
 			}
 		}
 
-		return implode(', ', array_filter($parts, static fn($part) => $part !== ''));
+		return implode(', ', array_filter($parts, static fn($part) => !empty($part)));
 	}
 
 	/**
@@ -701,14 +712,14 @@ final class CdekRequest
 	/**
 	 * Обрабатывает ответ и приводит ошибки к единому формату.
 	 *
-	 * @param   Response  $response    HTTP-ответ.
+	 * @param   ResponseInterface  $response    HTTP-ответ.
 	 * @param   string    $methodName  Имя метода API.
 	 *
 	 * @return  array
 	 *
 	 * @since   1.2.1
 	 */
-	public function responseHandler(Response $response, string $methodName = ''): array
+	public function responseHandler(ResponseInterface $response, string $methodName = ''): array
 	{
 		return $this->mapResponse($response, $methodName);
 	}

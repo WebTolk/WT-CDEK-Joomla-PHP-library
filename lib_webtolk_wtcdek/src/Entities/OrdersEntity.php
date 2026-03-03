@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Webtolk\Cdekapi\Entities;
 
+use Symfony\Component\Uid\Uuid;
 use function rawurlencode;
 
 defined('_JEXEC') or die;
@@ -135,7 +136,17 @@ final class OrdersEntity extends AbstractEntity
 
 		if (!empty($uuid))
 		{
-			return $this->request->getResponse('/orders/' . rawurlencode(trim($uuid)), [], 'GET');
+			$uuid = \trim($uuid);
+
+			if (!Uuid::isValid($uuid))
+			{
+				return [
+					'error_code'    => '500',
+					'error_message' => 'Invalid option value: uuid',
+				];
+			}
+
+			return $this->request->getResponse('/orders/' . rawurlencode($uuid), [], 'GET');
 		}
 
 		if (!empty($cdek_number))
@@ -199,6 +210,14 @@ final class OrdersEntity extends AbstractEntity
 			];
 		}
 
+		if (!empty($request_options['uuid']) && !Uuid::isValid(\trim((string) $request_options['uuid'])))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: uuid',
+			];
+		}
+
 		return $this->request->getResponse('/orders', $request_options, 'PATCH');
 	}
 
@@ -221,11 +240,21 @@ final class OrdersEntity extends AbstractEntity
 	 */
 	public function getIntakes(string $order_uuid): array
 	{
+		$order_uuid = \trim($order_uuid);
+
 		if (empty($order_uuid))
 		{
 			return [
 				'error_code'    => '500',
 				'error_message' => 'Required option: order_uuid',
+			];
+		}
+
+		if (!Uuid::isValid($order_uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: order_uuid',
 			];
 		}
 
@@ -255,6 +284,8 @@ final class OrdersEntity extends AbstractEntity
 	 */
 	public function deleteOrder(string $uuid): array
 	{
+		$uuid = \trim($uuid);
+
 		if (empty($uuid))
 		{
 			return [
@@ -263,7 +294,15 @@ final class OrdersEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/orders/' . rawurlencode(trim($uuid)), [], 'DELETE');
+		if (!Uuid::isValid($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/orders/' . rawurlencode($uuid), [], 'DELETE');
 	}
 
 	/**
@@ -298,11 +337,21 @@ final class OrdersEntity extends AbstractEntity
 	 */
 	public function clientReturn(string $uuid, array $request_options = []): array
 	{
+		$uuid = \trim($uuid);
+
 		if (empty($uuid))
 		{
 			return [
 				'error_code'    => '500',
 				'error_message' => 'Required option: uuid',
+			];
+		}
+
+		if (!Uuid::isValid($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: uuid',
 			];
 		}
 
@@ -314,7 +363,7 @@ final class OrdersEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/orders/' . rawurlencode(trim($uuid)) . '/clientReturn', $request_options, 'POST');
+		return $this->request->getResponse('/orders/' . rawurlencode($uuid) . '/clientReturn', $request_options, 'POST');
 	}
 
 	/**
@@ -344,6 +393,8 @@ final class OrdersEntity extends AbstractEntity
 	 */
 	public function refuse(string $uuid): array
 	{
+		$uuid = \trim($uuid);
+
 		if (empty($uuid))
 		{
 			return [
@@ -352,7 +403,15 @@ final class OrdersEntity extends AbstractEntity
 			];
 		}
 
-		return $this->request->getResponse('/orders/' . rawurlencode(trim($uuid)) . '/refusal', [], 'POST');
+		if (!Uuid::isValid($uuid))
+		{
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Invalid option value: uuid',
+			];
+		}
+
+		return $this->request->getResponse('/orders/' . rawurlencode($uuid) . '/refusal', [], 'POST');
 	}
 
 }
