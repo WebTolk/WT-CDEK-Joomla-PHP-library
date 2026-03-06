@@ -1,9 +1,12 @@
 <?php
 /**
- * Сущность API СДЭК: заявки на вызов курьера.
- *
- * @package    WT Cdek library package
- * @since      1.2.1
+ * @package       WT Cdek library package
+ * @version       1.3.0
+ * @Author        Sergey Tolkachyov
+ * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov. All rights reserved.
+ * @license       GNU/GPL3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link          https://web-tolk.ru
+ * @since         1.3.0
  */
 
 declare(strict_types=1);
@@ -35,7 +38,7 @@ final class IntakesEntity extends AbstractEntity
 	 *
 	 * @return  array  Ответ API.
 	 *
-	 * @since  1.3.0
+	 * @since 1.3.0
 	 */
 	public function changeStatus(array $request_options = []): array
 	{
@@ -75,7 +78,7 @@ final class IntakesEntity extends AbstractEntity
 	 *
 	 * @return  array  Ответ API.
 	 *
-	 * @since  1.3.0
+	 * @since 1.3.0
 	 */
 	public function create(array $request_options = []): array
 	{
@@ -105,7 +108,7 @@ final class IntakesEntity extends AbstractEntity
 	 *
 	 * @return  array  Ответ API.
 	 *
-	 * @since  1.3.0
+	 * @since 1.3.0
 	 */
 	public function getAvailableDays(array $request_options = []): array
 	{
@@ -136,7 +139,7 @@ final class IntakesEntity extends AbstractEntity
 	 *
 	 * @return  array  Ответ API.
 	 *
-	 * @since  1.3.0
+	 * @since 1.3.0
 	 */
 	public function deleteByUuid(string $uuid): array
 	{
@@ -175,7 +178,7 @@ final class IntakesEntity extends AbstractEntity
 	 *
 	 * @return  array  Ответ API.
 	 *
-	 * @since  1.3.0
+	 * @since 1.3.0
 	 */
 	public function getByUuid(string $uuid): array
 	{

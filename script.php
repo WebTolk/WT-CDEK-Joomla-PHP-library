@@ -1,10 +1,11 @@
 <?php
 /**
- * @package    WT Cdek library package
+ * @package       WT Cdek library package
  * @version       1.3.0
- * @Author        Sergey Tolkachyov, https://web-tolk.ru
- * @сopyright  Copyright (c) 2022 - 2026 Sergey Tolkachyov. All rights reserved.
+ * @Author        Sergey Tolkachyov
+ * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov. All rights reserved.
  * @license       GNU/GPL3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link          https://web-tolk.ru
  * @since         1.0.0
  */
 \defined('_JEXEC') or die;
@@ -22,6 +23,9 @@ use Joomla\DI\ServiceProviderInterface;
 use Joomla\CMS\Version;
 
 return new class () implements ServiceProviderInterface {
+	/**
+	 * @since 1.3.0
+	 */
 	public function register(Container $container)
 	{
 		$container->set(InstallerScriptInterface::class, new class ($container->get(AdministratorApplication::class)) implements InstallerScriptInterface {
@@ -31,7 +35,7 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @var  AdministratorApplication
 			 *
-			 * @since  1.0.0
+			 * @since 1.0.0
 			 */
 			protected AdministratorApplication $app;
 
@@ -40,7 +44,7 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @var   DatabaseDriver
 			 *
-			 * @since  1.0.0
+			 * @since 1.0.0
 			 */
 			protected DatabaseDriver $db;
 
@@ -49,7 +53,7 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @var  string
 			 *
-			 * @since  1.0.0
+			 * @since 1.0.0
 			 */
 			protected string $minimumJoomla = '4.2.7';
 
@@ -58,7 +62,7 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @var  string
 			 *
-			 * @since  1.0.0
+			 * @since 1.0.0
 			 */
 			protected string $minimumPhp = '7.4';
 
@@ -81,6 +85,7 @@ return new class () implements ServiceProviderInterface {
 			 * @param   \stdClass  $installer  - Parent object calling this method.
 			 *
 			 * @return void
+			 * @since 1.3.0
 			 */
 			public function install(InstallerAdapter $adapter): bool
 			{
@@ -96,7 +101,7 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @return  boolean  True on success
 			 *
-			 * @since   1.0.0
+			 * @since 1.0.0
 			 */
 			public function uninstall(InstallerAdapter $adapter): bool
 			{
@@ -111,7 +116,7 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @return  boolean  True on success
 			 *
-			 * @since   1.0.0
+			 * @since 1.0.0
 			 */
 			public function update(InstallerAdapter $adapter): bool
 			{
@@ -128,7 +133,7 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @return  boolean  True on success
 			 *
-			 * @since   1.0.0
+			 * @since 1.0.0
 			 */
 			public function preflight(string $type, InstallerAdapter $adapter): bool
 			{
@@ -152,7 +157,7 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @return  boolean  True on success
 			 *
-			 * @since   1.0.0
+			 * @since 1.0.0
 			 */
 			public function postflight(string $type, InstallerAdapter $adapter): bool
 			{
@@ -201,7 +206,7 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @param   InstallerAdapter  $adapter  Parent object calling object.
 			 *
-			 * @since  1.0.0
+			 * @since 1.0.0
 			 */
 			protected function enablePlugin(InstallerAdapter $adapter)
 			{
@@ -223,7 +228,7 @@ return new class () implements ServiceProviderInterface {
              *
              * @return  boolean True on success, False on failure.
              *
-             * @since  1.0.0
+             * @since 1.0.0
              */
             protected function checkCompatible(string $element): bool
             {

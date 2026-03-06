@@ -1,12 +1,12 @@
 <?php
 /**
- * Library to connect to CDEK service.
- * @package    WT Cdek library package
- * @author     Sergey Tolkachyov
- * @copyright   Copyright (C) Sergey Tolkachyov, 2024. All rights reserved.
- * @version     1.2.0
- * @license     GNU General Public License version 3 or later. Only for *.php files!
- * @link       https://web-tolk.ru
+ * @package       WT Cdek library package
+ * @version       1.3.0
+ * @Author        Sergey Tolkachyov
+ * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov. All rights reserved.
+ * @license       GNU/GPL3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link          https://web-tolk.ru
+ * @since         1.0.0
  */
 
 namespace Joomla\Plugin\System\Wtcdek\Extension;
@@ -29,7 +29,7 @@ use Webtolk\Cdekapi\Cdek;
 /**
  *
  *
- * @since  2.5
+ * @since 1.3.0
  */
 class Wtcdek extends CMSPlugin implements SubscriberInterface
 {
@@ -37,7 +37,7 @@ class Wtcdek extends CMSPlugin implements SubscriberInterface
 	 * Load the language file on instantiation.
 	 *
 	 * @var    boolean
-	 * @since  3.1
+	 * @since 1.3.0
 	 */
 	protected $autoloadLanguage = true;
 
@@ -45,7 +45,7 @@ class Wtcdek extends CMSPlugin implements SubscriberInterface
 	 * Application object.
 	 *
 	 * @var    \Joomla\CMS\Application\CMSApplication
-	 * @since  3.7.0
+	 * @since 1.3.0
 	 */
 	protected $app;
 
@@ -54,7 +54,7 @@ class Wtcdek extends CMSPlugin implements SubscriberInterface
 	 *
 	 * @var Document
 	 *
-	 * @since  4.0.0
+	 * @since 1.3.0
 	 */
 	private $document;
 
@@ -63,7 +63,7 @@ class Wtcdek extends CMSPlugin implements SubscriberInterface
 	 *
 	 * @return  array
 	 *
-	 * @since   4.0.0
+	 * @since 1.3.0
 	 */
 	public static function getSubscribedEvents(): array
 	{
@@ -73,6 +73,9 @@ class Wtcdek extends CMSPlugin implements SubscriberInterface
 		];
 	}
 
+	/**
+	 * @since 1.3.0
+	 */
 	public function addCdekWidgetAsset(): void
 	{
 		// Only trigger in frontend

@@ -1,9 +1,12 @@
 <?php
 /**
- * Сущность API СДЭК: калькулятор.
- *
- * @package    WT Cdek library package
- * @since      1.2.1
+ * @package       WT Cdek library package
+ * @version       1.3.0
+ * @Author        Sergey Tolkachyov
+ * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov. All rights reserved.
+ * @license       GNU/GPL3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link          https://web-tolk.ru
+ * @since         1.3.0
  */
 
 declare(strict_types=1);
@@ -23,7 +26,7 @@ final class CalculatorEntity extends AbstractEntity
 	 *
 	 * @return  array<int, array<string, mixed>>  Список метаданных кодов тарифов.
 	 *
-	 * @since  1.3.0
+	 * @since 1.3.0
 	 */
 	public function getAllTariffs(): array
 	{
@@ -92,7 +95,7 @@ final class CalculatorEntity extends AbstractEntity
 	 *
 	 * @return  array  Ответ API или структурированная ошибка валидации.
 	 *
-	 * @since  1.3.0
+	 * @since 1.3.0
 	 */
 	public function calculateTariff(array $request_options = []): array
 	{
@@ -136,7 +139,7 @@ final class CalculatorEntity extends AbstractEntity
 	 *
 	 * @return  array  Ответ API или структурированная ошибка валидации.
 	 *
-	 * @since  1.3.0
+	 * @since 1.3.0
 	 */
 	public function calculateTariffList(array $request_options = []): array
 	{
@@ -194,7 +197,7 @@ final class CalculatorEntity extends AbstractEntity
 	 *
 	 * @return  array  Ответ API или структурированная ошибка валидации.
 	 *
-	 * @since  1.3.1
+	 * @since 1.3.0
 	 */
 	public function tariffAndService(array $request_options = []): array
 	{
@@ -209,7 +212,7 @@ final class CalculatorEntity extends AbstractEntity
 	 *
 	 * @return  array|null  Ошибка валидации или `null`, если данные корректны.
 	 *
-	 * @since  1.3.0
+	 * @since 1.3.0
 	 */
 	private function validatePackagesRequest(array $request_options, bool $requireTariffCode = false): ?array
 	{
@@ -259,7 +262,7 @@ final class CalculatorEntity extends AbstractEntity
 	 *
 	 * @return  array  Ответ API.
 	 *
-	 * @since  1.3.0
+	 * @since 1.3.0
 	 */
 	private function requestTariff(string $endpoint, array $request_options = [], bool $requireTariffCode = false): array
 	{

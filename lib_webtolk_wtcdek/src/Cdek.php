@@ -1,12 +1,12 @@
 <?php
 /**
- * Library to connect to CDEK service.
- * @package    WT Cdek library package
- * @author     Sergey Tolkachyov
- * @copyright   Copyright (C) Sergey Tolkachyov, 2024. All rights reserved.
- * @version     1.3.0
- * @license     GNU General Public License version 3 or later. Only for *.php files!
- * @link        https://web-tolk.ru
+ * @package       WT Cdek library package
+ * @version       1.3.0
+ * @Author        Sergey Tolkachyov
+ * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov. All rights reserved.
+ * @license       GNU/GPL3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link          https://web-tolk.ru
+ * @since         1.0.0
  */
 
 declare(strict_types=1);
@@ -15,7 +15,6 @@ namespace Webtolk\Cdekapi;
 defined('_JEXEC') or die;
 
 use InvalidArgumentException;
-use Joomla\CMS\Cache\CacheControllerFactoryInterface;
 use Joomla\CMS\Cache\Controller\OutputController;
 use Joomla\CMS\Factory;
 use Webtolk\Cdekapi\Entities\CalculatorEntity;
@@ -63,7 +62,7 @@ use function trim;
  * @method  ReverseEntity        reverse()        Возвращает обработчик сущности реверса.
  * @method  WebhooksEntity       webhooks()       Возвращает обработчик сущности вебхуков.
  *
- * @since   1.3.0
+ * @since 1.3.0
  */
 final class Cdek
 {
@@ -126,7 +125,7 @@ final class Cdek
 	 * Транспортный помощник для API-запросов.
 	 *
 	 * @var    CdekRequest
-	 * @since  1.2.1
+	 * @since 1.3.0
 	 */
 	private CdekRequest $request;
 
@@ -134,7 +133,7 @@ final class Cdek
 	 * Карта классов сущностей, загруженная из реестра.
 	 *
 	 * @var    array<string, string>
-	 * @since  1.2.1
+	 * @since 1.3.0
 	 */
 	private array $entityMap = [];
 
@@ -142,7 +141,7 @@ final class Cdek
 	 * Кэш созданных экземпляров сущностей.
 	 *
 	 * @var    array<string, EntityInterface>
-	 * @since  1.2.1
+	 * @since 1.3.0
 	 */
 	private array $entities = [];
 
@@ -193,7 +192,7 @@ final class Cdek
 	 *
 	 * @return  CdekRequest
 	 *
-	 * @since   1.2.1
+	 * @since 1.3.0
 	 */
 	public function getRequest(): CdekRequest
 	{
@@ -208,7 +207,7 @@ final class Cdek
 	 *
 	 * @return  EntityInterface
 	 *
-	 * @since   1.2.1
+	 * @since 1.3.0
 	 */
 	public function __call(string $name, array $arguments): EntityInterface
 	{
@@ -222,7 +221,7 @@ final class Cdek
 	 *
 	 * @return  EntityInterface
 	 *
-	 * @since   1.2.1
+	 * @since 1.3.0
 	 */
 	public function entity(string $name): EntityInterface
 	{
@@ -249,7 +248,7 @@ final class Cdek
 	 *
 	 * @return  string
 	 *
-	 * @since   1.2.1
+	 * @since 1.3.0
 	 */
 	private function resolveEntityKey(string $name): string
 	{
@@ -271,7 +270,7 @@ final class Cdek
 	 *
 	 * @return  array
 	 *
-	 * @since   1.0.0
+	 * @since 1.0.0
 	 * @deprecated  Будет удалено в 2.0.0, используйте deliverypoints()->getDeliveryPoints() вместо него.
 	 */
 	public function getDeliveryPoints(array $request_options = []): array
@@ -281,22 +280,16 @@ final class Cdek
 
 	/**
 	 * Возвращает преднастроенный объект кэша библиотеки
+	 *
+	 * @param   array  $cache_options
+	 *
 	 * @return OutputController
 	 *
 	 * @since 1.0.0
 	 */
 	public function getCache(array $cache_options = []): OutputController
 	{
-		$jconfig = Factory::getContainer()->get('config');
-		$options = [
-			'defaultgroup' => 'wt_cdek',
-			'caching'      => true,
-			'cachebase'    => $jconfig->get('cache_path'),
-			'storage'      => $jconfig->get('cache_handler'),
-		];
-		$options = array_merge($options, $cache_options);
-
-		return Factory::getContainer()->get(CacheControllerFactoryInterface::class)->createCacheController('output', $options);
+		return $this->request->getCache($cache_options);
 	}
 
 	/**
@@ -304,7 +297,7 @@ final class Cdek
 	 *
 	 * @return  array
 	 *
-	 * @since   1.0.0
+	 * @since 1.0.0
 	 * @deprecated  Будет удалено в 2.0.0, используйте location()->getRegions() вместо него.
 	 */
 	public function getLocationRegions(array $request_options = []): array
@@ -317,7 +310,7 @@ final class Cdek
 	 *
 	 * @return  array
 	 *
-	 * @since   1.0.0
+	 * @since 1.0.0
 	 * @deprecated  Будет удалено в 2.0.0, используйте location()->getCities() вместо него.
 	 */
 	public function getLocationCities(array $request_options = []): array
@@ -330,7 +323,7 @@ final class Cdek
 	 *
 	 * @return  array
 	 *
-	 * @since   1.1.0
+	 * @since 1.1.0
 	 * @deprecated  Будет удалено в 2.0.0, используйте location()->getPostalCodes() вместо него.
 	 */
 	public function getLocationPostalCodes(int $city_code): array
@@ -343,7 +336,7 @@ final class Cdek
 	 *
 	 * @return  array
 	 *
-	 * @since   1.0.0
+	 * @since 1.0.0
 	 * @deprecated  Будет удалено в 2.0.0, используйте calculator()->calculateTariff() вместо него.
 	 */
 	public function getCalculatorTariff(array $request_options = []): array
@@ -356,7 +349,7 @@ final class Cdek
 	 *
 	 * @return  array
 	 *
-	 * @since   1.0.0
+	 * @since 1.0.0
 	 * @deprecated  Будет удалено в 2.0.0, используйте calculator()->calculateTariffList() вместо него.
 	 */
 	public function getCalculatorTarifflist(array $request_options = []): array
@@ -370,12 +363,22 @@ final class Cdek
 	 *
 	 * @return  array
 	 *
-	 * @since   1.0.0
-	 * @deprecated  Будет удалено в 2.0.0, используйте webhooks()->subscribe() вместо него.
+	 * @since 1.0.0
+	 * @deprecated  Будет удалено в 2.0.0, используйте webhooks()->create() вместо него.
 	 */
 	public function subscribeToWebhook(string $url, string $type): array
 	{
-		return $this->webhooks()->subscribe($url, $type);
+		if (empty($url) || empty($type))
+		{
+			$this->saveToLog('Cdek::' . __FUNCTION__ . ': There is no $url or $type. Specify it, please.', 'ERROR');
+
+			return [
+				'error_code'    => '500',
+				'error_message' => 'Cdek::' . __FUNCTION__ . ': There is no $url or $type. Specify it, please.',
+			];
+		}
+
+		return $this->getResponse('/webhooks', ['url' => $url, 'type' => $type], 'POST');
 	}
 
 	/**
@@ -383,7 +386,7 @@ final class Cdek
 	 *
 	 * @return  array
 	 *
-	 * @since   1.0.0
+	 * @since 1.0.0
 	 * @deprecated  Будет удалено в 2.0.0, используйте orders()->createOrder() вместо него.
 	 */
 	public function createOrder(array $request_options): array
@@ -1074,7 +1077,7 @@ final class Cdek
 	 *
 	 * @return  array
 	 *
-	 * @since   1.0.0
+	 * @since 1.0.0
 	 * @deprecated  Будет удалено в 2.0.0, используйте orders()->getOrderInfo() вместо него.
 	 */
 	public function getOrderInfo(?string $uuid = '', ?string $cdek_number = '', ?string $im_number = ''): array
@@ -1085,7 +1088,7 @@ final class Cdek
 	/**
 	 * @return  array
 	 *
-	 * @since   1.0.0
+	 * @since 1.0.0
 	 * @deprecated  Будет удалено в 2.0.0, используйте calculator()->getAllTariffs() вместо него.
 	 */
 	public function getAlltariffs(): array

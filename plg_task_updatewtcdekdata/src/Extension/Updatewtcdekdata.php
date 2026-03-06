@@ -1,10 +1,12 @@
 <?php
 /**
- * @package    WT Cdek library package
- * @subpackage      Task.deleteactionlogs
- *
- * @copyright   (C) 2023 Open Source Matters, Inc. <https://www.joomla.org>
- * @license         GNU General Public License version 2 or later; see LICENSE.txt
+ * @package       WT Cdek library package
+ * @version       1.3.0
+ * @Author        Sergey Tolkachyov
+ * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov. All rights reserved.
+ * @license       GNU/GPL3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link          https://web-tolk.ru
+ * @since         1.0.0
  */
 
 namespace Joomla\Plugin\Task\Updatewtcdekdata\Extension;
@@ -28,7 +30,7 @@ use Webtolk\Cdekapi\Cdek;
  * A task plugin. For Delete Action Logs after x days
  * {@see ExecuteTaskEvent}.
  *
- * @since 5.0.0
+ * @since 1.3.0
  */
 final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 {
@@ -37,7 +39,7 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 
 	/**
 	 * @var string[]
-	 * @since 5.0.0
+	 * @since 1.3.0
 	 */
 	private const TASKS_MAP = [
 		'plg_task_updatewtcdekdata' => [
@@ -49,7 +51,7 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 
 	/**
 	 * @var boolean
-	 * @since 5.0.0
+	 * @since 1.3.0
 	 */
 	protected $autoloadLanguage = true;
 
@@ -58,7 +60,7 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 	 *
 	 * @return string[]
 	 *
-	 * @since 5.0.0
+	 * @since 1.3.0
 	 */
 	public static function getSubscribedEvents(): array
 	{
@@ -75,7 +77,7 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 	 * @return integer  The routine exit code.
 	 *
 	 * @throws \Exception
-	 * @since  5.0.0
+	 * @since 1.3.0
 	 */
 	private function UpdateWtCdekData(ExecuteTaskEvent $event): int
 	{
@@ -160,6 +162,11 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 
 			foreach ($regions as $region)
 			{
+				if (!\is_array($region))
+				{
+					continue;
+				}
+
 				$regionData = [
 					'country_code'  => ((array_key_exists(
 							'country_code',
@@ -183,7 +190,7 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 				$values[] = '(' . implode(',', $db->quote($regionData)) . ')';
 			}
 
-			$query = 'INSERT INTO ' . $db->quoteName('#__lib_wtcdek_location_regions') . ' (' . implode(
+			$query = 'INSERT IGNORE INTO ' . $db->quoteName('#__lib_wtcdek_location_regions') . ' (' . implode(
 					', ',
 					$columns
 				) . ') VALUES ' . implode(',', $values);
@@ -264,7 +271,6 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 				$db->quoteName('country'),
 				$db->quoteName('region'),
 				$db->quoteName('region_code'),
-				$db->quoteName('postal_codes'),
 				$db->quoteName('sub_region'),
 				$db->quoteName('longitude'),
 				$db->quoteName('latitude'),
@@ -274,7 +280,6 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 			$values = [];
 			foreach ($cities as $city)
 			{
-
 				$cityData = [
 					'code'          => ((array_key_exists('code', $city) && !empty($city['code'])) ? $city['code'] : null),
 					'city_uuid'     => ((array_key_exists('city_uuid', $city) && !empty($city['city_uuid'])) ? $city['city_uuid'] : null),
@@ -283,7 +288,6 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 					'country'       => ((array_key_exists('country', $city) && !empty($city['country'])) ? $city['country'] : null),
 					'region'        => ((array_key_exists('region', $city) && !empty($city['region'])) ? $city['region'] : null),
 					'region_code'   => ((array_key_exists('region_code', $city) && !empty($city['region_code'])) ? $city['region_code'] : null),
-					'postal_codes'  => null, // очень медленно работает получение индексов для каждого города
 					'sub_region'    => ((array_key_exists('sub_region', $city) && !empty($city['sub_region'])) ? $city['sub_region'] : null),
 					'longitude'     => ((array_key_exists('longitude', $city) && !empty($city['longitude'])) ? $city['longitude'] : null),
 					'latitude'      => ((array_key_exists('latitude', $city) && !empty($city['latitude'])) ? $city['latitude'] : null),
@@ -293,7 +297,7 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 
 			}
 
-			$query = 'INSERT INTO ' . $db->quoteName('#__lib_wtcdek_location_cities') . ' (' . implode(
+			$query = 'INSERT IGNORE INTO ' . $db->quoteName('#__lib_wtcdek_location_cities') . ' (' . implode(
 					', ',
 					$columns
 				) . ') VALUES ' . implode(',', $values);
@@ -357,6 +361,9 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 	}
 
 
+	/**
+	 * @since 1.3.0
+	 */
 	private function getDeliveryPoints($cdek, $task_params, $country_code = '')
 	{
 		$size = $task_params->get('request_data_size', 1000);
@@ -417,7 +424,6 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 				$values = [];
 				foreach ($deliveryPoints as $deliveryPoint)
 				{
-
 					$deliveryPointData = [
 						'code'                     => ((array_key_exists('code', $deliveryPoint) && !empty($deliveryPoint['code'])) ? $deliveryPoint['code'] : null),
 						'name'                     => ((array_key_exists('name', $deliveryPoint) && !empty($deliveryPoint['name'])) ? $deliveryPoint['name'] : null),
@@ -455,7 +461,7 @@ final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface
 
 				}
 
-				$query = 'INSERT INTO ' . $db->quoteName('#__lib_wtcdek_delivery_points') . ' (' . implode(
+				$query = 'INSERT IGNORE INTO ' . $db->quoteName('#__lib_wtcdek_delivery_points') . ' (' . implode(
 						', ',
 						$columns
 					) . ') VALUES ' . implode(',', $values);

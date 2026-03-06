@@ -1,13 +1,12 @@
 <?php
 /**
- * Поле Joomla Form для отображения информации о выбранном тарифе СДЭК.
- *
- * @package    WT Cdek library package
- * @author     Sergey Tolkachyov
- * @copyright  Copyright (C) Sergey Tolkachyov, 2024. All rights reserved.
- * @version    1.3.0
- * @license    GNU General Public License version 3 or later. Only for *.php files!
- * @link       https://web-tolk.ru
+ * @package       WT Cdek library package
+ * @version       1.3.0
+ * @Author        Sergey Tolkachyov
+ * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov. All rights reserved.
+ * @license       GNU/GPL3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link          https://web-tolk.ru
+ * @since         1.0.0
  */
 
 declare(strict_types=1);
@@ -26,7 +25,7 @@ use function is_array;
 /**
  * Поле формы Joomla для отображения информации о выбранном тарифе СДЭК.
  *
- * @since  1.3.1
+ * @since 1.3.0
  */
 class TariffinfoField extends FormField
 {
@@ -34,7 +33,7 @@ class TariffinfoField extends FormField
 	 * Тип поля Joomla.
 	 *
 	 * @var    string
-	 * @since  1.3.1
+	 * @since 1.3.0
 	 */
 	protected $type = 'Tariffinfo';
 
@@ -42,7 +41,7 @@ class TariffinfoField extends FormField
 	 * Идентификатор layout для рендера поля.
 	 *
 	 * @var    string
-	 * @since  1.3.1
+	 * @since 1.3.0
 	 */
 	protected $layout = 'libraries.webtolk.wtcdek.fields.tariffinfo';
 
@@ -51,7 +50,7 @@ class TariffinfoField extends FormField
 	 *
 	 * @return  string
 	 *
-	 * @since   1.3.1
+	 * @since 1.3.0
 	 */
 	protected function getInput(): string
 	{
@@ -70,7 +69,7 @@ class TariffinfoField extends FormField
 	 *
 	 * @return  array
 	 *
-	 * @since   1.3.1
+	 * @since 1.3.0
 	 */
 	protected function getLayoutData(): array
 	{
@@ -87,7 +86,7 @@ class TariffinfoField extends FormField
 	 *
 	 * @return  array<string, array<string, string>>
 	 *
-	 * @since   1.3.1
+	 * @since 1.3.0
 	 */
 	private function getTariffsByCode(): array
 	{
@@ -142,7 +141,7 @@ class TariffinfoField extends FormField
 	 *
 	 * @return  string
 	 *
-	 * @since   1.3.1
+	 * @since 1.3.0
 	 */
 	private function formatRange($min, $max): string
 	{
@@ -156,7 +155,7 @@ class TariffinfoField extends FormField
 	 *
 	 * @return  string
 	 *
-	 * @since   1.3.1
+	 * @since 1.3.0
 	 */
 	private function formatArray($value): string
 	{
@@ -173,7 +172,7 @@ class TariffinfoField extends FormField
 	 *
 	 * @return  void
 	 *
-	 * @since   1.3.1
+	 * @since 1.3.0
 	 */
 	private function addInlineScript(): void
 	{
