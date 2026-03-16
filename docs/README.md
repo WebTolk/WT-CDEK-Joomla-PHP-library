@@ -7,6 +7,7 @@ This folder contains only real public methods from `lib_webtolk_wtcdek/src/Entit
 ## Contents
 
 - [Quick Start](./quick-start.md)
+- [Joomla Form fields](./joomla-form-fields.md)
 - [Entity calculator](./entity-calculator.md)
 - [Entity check](./entity-check.md)
 - [Entity delivery](./entity-delivery.md)

@@ -82,9 +82,9 @@ return new class () implements ServiceProviderInterface {
 			/**
 			 * This method is called after a component is installed.
 			 *
-			 * @param   \stdClass  $installer  - Parent object calling this method.
+			 * @param   InstallerAdapter  $adapter  - Parent object calling this method.
 			 *
-			 * @return void
+			 * @return bool
 			 * @since 1.3.0
 			 */
 			public function install(InstallerAdapter $adapter): bool
@@ -99,7 +99,7 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @param   InstallerAdapter  $adapter  The adapter calling this method
 			 *
-			 * @return  boolean  True on success
+			 * @return  bool  True on success
 			 *
 			 * @since 1.0.0
 			 */
@@ -114,7 +114,7 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @param   InstallerAdapter  $adapter  The adapter calling this method
 			 *
-			 * @return  boolean  True on success
+			 * @return  bool  True on success
 			 *
 			 * @since 1.0.0
 			 */
@@ -131,7 +131,7 @@ return new class () implements ServiceProviderInterface {
 			 * @param   string            $type     The type of change (install or discover_install, update, uninstall)
 			 * @param   InstallerAdapter  $adapter  The adapter calling this method
 			 *
-			 * @return  boolean  True on success
+			 * @return  bool  True on success
 			 *
 			 * @since 1.0.0
 			 */
@@ -155,7 +155,7 @@ return new class () implements ServiceProviderInterface {
 			 * @param   string            $type     The type of change (install or discover_install, update, uninstall)
 			 * @param   InstallerAdapter  $adapter  The adapter calling this method
 			 *
-			 * @return  boolean  True on success
+			 * @return  bool  True on success
 			 *
 			 * @since 1.0.0
 			 */
@@ -206,9 +206,11 @@ return new class () implements ServiceProviderInterface {
 			 *
 			 * @param   InstallerAdapter  $adapter  Parent object calling object.
 			 *
+			 * @return void
+			 *
 			 * @since 1.0.0
 			 */
-			protected function enablePlugin(InstallerAdapter $adapter)
+			protected function enablePlugin(InstallerAdapter $adapter):void
 			{
 				// Prepare plugin object
 				$plugin          = new \stdClass();
@@ -226,7 +228,7 @@ return new class () implements ServiceProviderInterface {
              *
              * @throws  Exception
              *
-             * @return  boolean True on success, False on failure.
+             * @return  bool True on success, False on failure.
              *
              * @since 1.0.0
              */
