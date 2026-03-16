@@ -11,9 +11,10 @@
 	<authorEmail>info@web-tolk.ru</authorEmail>
 	<authorUrl>https://web-tolk.ru</authorUrl>
 	<namespace path="src">Webtolk\Cdekapi</namespace>
-	<languages>
-		<language tag="ru-RU">language/ru-RU/lib_webtolk_cdekapi.ini</language>
-		<language tag="en-GB">language/en-GB/lib_webtolk_cdekapi.ini</language>
+	<scriptfile>script.php</scriptfile>
+	<languages folder="language">
+		<language tag="ru-RU">ru-RU/lib_webtolk_cdekapi.ini</language>
+		<language tag="en-GB">en-GB/lib_webtolk_cdekapi.ini</language>
 	</languages>
 	<media folder="media" destination="lib_wtcdek">
 		<folder>js</folder>
@@ -21,7 +22,10 @@
 	</media>
 	<files>
 		<folder>src</folder>
-		<folder>layouts</folder>
 		<filename>Cdekapi.xml</filename>
+		<filename>script.php</filename>
 	</files>
+	<layouts folder="layouts" destination="libraries/webtolk/cdekapi">
+		<folder>fields</folder>
+	</layouts>
 </extension>

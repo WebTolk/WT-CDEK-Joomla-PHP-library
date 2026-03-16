@@ -1,53 +1,69 @@
-[![Version](https://img.shields.io/github/release/WebTolk/WT-CDEK-Joomla-PHP-library.svg)]() [![PHP](https://img.shields.io/badge/PHP-7.4+-green.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-4.2.7+-orange.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-5.x-orange.svg)]() [![Version](https://img.shields.io/badge/Documentation-blue.svg)](https://web-tolk.ru/dev/biblioteki/wt-cdek-library-for-joomla-developers?utm_source=github)
+[![Version](https://img.shields.io/github/release/WebTolk/WT-CDEK-Joomla-PHP-library.svg)]() [![PHP](https://img.shields.io/badge/PHP-7.4+-green.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-4.2.7+-orange.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-5.x-orange.svg)]() [![Documentation](https://img.shields.io/badge/Documentation-blue.svg)](https://web-tolk.ru/dev/biblioteki/wt-cdek-library-for-joomla-developers?utm_source=github)
+
 # WT CDEK Joomla PHP library
-Небольшая нативная PHP Joomla библиотека для работы с API службы доставки CDEK. Пакет состоит из плагина для хранения настроек, PHP-библиотеки и виджета карты для выбора пунктов выдачи заказа. Библиотека представляет собой клиент для авторизации в CDEK API по OAuth, работы с некоторыми методами API: получения ряда данных и расчета стоимости доставки. Поддерживается Joomla 4.2.7 и выше.
+
+Нативная библиотека для Joomla 4.2.7+ и Joomla 5, которая упрощает работу с REST API СДЭК. Пакет включает:
+
+- библиотеку `Webtolk/Cdekapi`
+- системный плагин `System - WT Cdek` для хранения настроек и AJAX-интеграций
+- task-плагин `Task - Update WT Cdek data` для обновления справочников по расписанию
+- web asset с официальным JavaScript-виджетом СДЭК
+
+Начиная с `1.3.0`, библиотека использует entity-based API: основной класс `Cdek` выступает фасадом, а логика запросов распределена по сущностям `calculator`, `orders`, `location`, `webhooks` и другим.
+
 ![image](https://github.com/WebTolk/WT-CDEK-Joomla-PHP-library/assets/6236403/ff2d142d-c602-41fc-afa8-dc3490fc929f)
-# Описание
-В составе пакета
-- библиотека WT CDEK library
-- плагин настроек для подключения к API CDEK System - WT Cdek
-- [официальный виджет выбора типа доставки от CDEK]([url](https://widget.cdek.ru/))
 
-> Библиотека представляет собой клиент для подключения к API CDEK и несколько методов для работы с ним с предварительной проверкой структуры данных, а также обработку ошибок при запросе. Для работы с библиотекой под рукой необходимо иметь официальную документацию CDEK API.
->
-> [https://api-docs.cdek.ru/]([url](https://api-docs.cdek.ru/))
+## Установка
 
-# Подключение библиотеки в своё расширение для Joomla
+Установите пакет `pkg_lib_wtcdek` как обычное расширение Joomla. Вместе с ним будут установлены:
+
+- библиотека `lib_webtolk_wtcdek`
+- плагин `plg_system_wtcdek`
+- плагин `plg_task_updatewtcdekdata`
+
+После установки:
+
+1. включите плагин `System - WT Cdek`
+2. заполните `Account` (`client_id`) и `Secure` (`client_secret`)
+3. при использовании планировщика задач Joomla настройте запуск команды `scheduler:run` через CRON для создания локальной копии справочников CDEK по регионам, городам и пунктов выдачи
+
+## Быстрый старт
+
 ```php
 <?php
+
 use Webtolk\Cdekapi\Cdek;
 
-defined('_JEXEC') or die('Restricted access');
+\defined('_JEXEC') or die;
 
-// Значения из настроек плагина
+// Вариант 1: брать credentials из настроек плагина
 $cdek = new Cdek();
-// или 
-$test_mode = true;
-$client_id = 'adkjhakjaukajds';
-$client_secret = 'adkjhakjaukajds';
-$cdek = new Cdek($test_mode, $client_id, $client_secret);
 
-// Индекс получателя
-$index_to = 410012;
-
-// Название населенного пункта
-$city = 'Саратов';
-
-// Массив параметров запроса к CDEK API
-$cdek_city_options = ['size' => 1];
-
-if (!empty($index_to))
-{
-	$cdek_city_options['postal_code'] = trim((string) $index_to);
-}
-if (!empty($city))
-{
-	$cdek_city_options['city'] = trim((string) $city);
-}
-$cdek_city = $cdek->getLocationCities($cdek_city_options);
+// Вариант 2: передать credentials явно
+$cdek = new Cdek(test_mode: true, client_id: 'your_client_id', client_secret: 'your_client_secret');
 ```
-## Пример ответа
+
+Авторизация происходит автоматически. Токен кэшируется средствами Joomla.
+
+### Пример: поиск города
+
+```php
+<?php
+
+use Webtolk\Cdekapi\Cdek;
+
+defined('_JEXEC') or die;
+
+$cdek = new Cdek();
+
+$result = $cdek->location()->getCities([
+    'postal_code' => '410012',
+    'city'        => 'Саратов',
+    'size'        => 1,
+]);
 ```
+Результат запроса:
+```text
 Array
 (
     [0] => Array
@@ -70,85 +86,284 @@ Array
 
 )
 ```
-# Список методов библиотеки
-### getDeliveryPoints
-Метод предназначен для получения списка действующих офисов СДЭК. Если одновременно указаны параметры city_code, postal_code, fias_guid, то для определения города всех стран присутствия СДЭК приоритет отдается city_code, затем fias_guid.
-### getLocationRegions
-Список регионов. Метод предназначен для получения детальной информации о регионах. Список регионов может быть ограничен характеристиками, задаваемыми пользователем. В список параметров запроса не добавлены параметры, помеченные устаревшими.
-### getLocationCities
-Список населенных пунктов. Метод предназначен для получения детальной информации о населенных пунктах. Список населенных пунктов может быть ограничен характеристиками, задаваемыми пользователем. В список параметров запроса не добавлены параметры, помеченные устаревшими.
-### getCalculatorTariff
-Калькулятор. Расчет по коду тарифа. Метод используется для расчета стоимости и сроков доставки по коду тарифа.
-### getCalculatorTarifflist
-Калькулятор. Расчет по всем доступным тарифам. Метод используется клиентами для расчета стоимости и сроков доставки по всем доступным тарифам.
-### subscribeToWebhook
-Подписка на вебхуки (Webhooks). Методы предназначены для управления подпиской на получение вебхуков на URL клиента. Так как тестовый аккаунт СДЭК является общим для всех клиентов, для тестирования вебхуков необходимо использовать только боевой URL СДЭК. В запросе на добавление подписки укажите свой тестовый URL, куда будут приходить вебхуки. После завершения тестирования поменяйте его на свой боевой URL. Если у клиента уже есть подписка с указанным типом, то старый url перезаписывается новым.
-### createOrder
-Запрос на регистрацию заказа.
-### getTariffListShop
-Массив с тарифами CDEK для типа "интернет-магазин", актуальный на момент выхода версии библиотеки.
-### getTariffListDostavka
-Массив с тарифами CDEK для типа "доставка", актуальный на момент выхода версии библиотеки.
-### getLocationPostalCodes
-Метод получает список почтовых индексов для населенного пункта по его коду.
 
-> Все методы принимают в качестве аргумента массив параметров запроса `$request_options`, структура которого должна соответствовать параметрам запроса документации CDEK API.
+### Пример: подсказки по городам
 
-# Официальный виджет выбора типа доставки от CDEK (выбор пунктов выдачи заказа на карте)
-![image](https://github.com/WebTolk/WT-CDEK-Joomla-PHP-library/assets/6236403/d7b4dec1-1984-484f-8014-73a2d329af88)
-![image](https://github.com/WebTolk/WT-CDEK-Joomla-PHP-library/assets/6236403/4714470e-a7ce-4a3a-82a2-04992ae1bdb6)
-## Подключение JavaScript виджета CDEK в Joomla
-Javascript виджета оформлен как Joomla Web Asset. В своём коде подключаем его с помощью WebAssetManager следующим образом:
 ```php
 <?php
+
+$result = $cdek->location()->suggestCities('Саратов', 'RU');
+```
+Результат запроса:
+```text
+Array
+(
+    [0] => Array
+        (
+            [city_uuid] => 7e54a0b3-76f0-41e2-92e0-f1e600ad84fd
+            [code] => 428
+            [full_name] => Саратов, городской округ Саратов, Саратовская область, Россия
+            [country_code] => RU
+        )
+
+    [1] => Array
+        (
+            [city_uuid] => 869dc183-090d-459e-b4fe-43b7ba98f969
+            [code] => 31730
+            [full_name] => Саратовская, городской округ Горячий Ключ, Краснодарский край, Россия
+            [country_code] => RU
+        )
+
+    [2] => Array
+        (
+            [city_uuid] => a85bc703-265f-49df-9fe3-948823442e1b
+            [code] => 1859734
+            [full_name] => Саратовка, Табунский район, Алтайский край, Россия
+            [country_code] => RU
+        )
+
+    [3] => Array
+        (
+            [city_uuid] => 22e364f4-bd36-4d74-ab07-646c21360c8c
+            [code] => 1933700
+            [full_name] => Саратовка, Воловский район, Тульская область, Россия
+            [country_code] => RU
+        )
+
+    [4] => Array
+        (
+            [city_uuid] => 4a2797bc-0edf-406e-aec5-830fafe3bcb6
+            [code] => 1859735
+            [full_name] => Саратовский, Кочубеевский муниципальный округ, Ставропольский край, Россия
+            [country_code] => RU
+        )
+
+)
+```
+
+### Пример: расчёт тарифа по коду тарифа
+
+```php
+<?php
+
+$result = $cdek->calculator()->calculateTariff([
+    'tariff_code'   => 136,
+    'from_location' => ['code' => 44], // Москва
+    'to_location'   => ['code' => 270], // Новосибирск
+    'packages'      => [
+        [
+            'weight' => 1000,
+            'length' => 10,
+            'width'  => 10,
+            'height' => 10,
+        ],
+    ],
+]);
+```
+Результат запроса:
+```text
+Array
+(
+    [delivery_sum] => 457.14
+    [period_min] => 4
+    [period_max] => 5
+    [calendar_min] => 4
+    [calendar_max] => 5
+    [weight_calc] => 1000
+    [services] => Array
+        (
+            [0] => Array
+                (
+                    [code] => INSURANCE
+                    [sum] => 0
+                    [total_sum] => 0
+                    [discount_percent] => 0
+                    [discount_sum] => 0
+                    [vat_rate] => 5
+                    [vat_sum] => 0
+                )
+
+        )
+
+    [total_sum] => 480
+    [currency] => RUB
+    [delivery_date_range] => Array
+        (
+            [min] => 2026-03-20
+            [max] => 2026-03-21
+        )
+
+)
+```
+
+### Пример: создание заказа
+
+```php
+<?php
+
+$orderData = [
+    'type' => 1,
+    'number' => 'ORDER-10001',
+    'tariff_code' => 136,
+    'recipient' => [
+        'name' => 'Иван Иванов',
+        'phones' => [
+            ['number' => '+79990000000'],
+        ],
+    ],
+    'from_location' => ['code' => 44],
+    'to_location' => ['code' => 270],
+    'packages' => [
+        [
+            'number' => '1',
+            'weight' => 1000,
+            'items' => [
+                [
+                    'name' => 'Товар',
+                    'ware_key' => 'sku-1',
+                    'payment' => ['value' => 1000],
+                    'cost' => 1000,
+                    'weight' => 1000,
+                    'amount' => 1,
+                ],
+            ],
+        ],
+    ],
+];
+
+$result = $cdek->orders()->createOrder($orderData);
+```
+
+## Доступные сущности
+
+В `1.3.0` библиотека поддерживает следующие сущности:
+
+- `calculator()`
+- `check()`
+- `delivery()`
+- `deliverypoints()`
+- `intakes()`
+- `international()`
+- `location()`
+- `oauth()`
+- `orders()`
+- `passport()`
+- `payment()`
+- `photoDocument()`
+- `prealert()`
+- `print()`
+- `reverse()`
+- `webhooks()`
+
+У каждой сущности свой набор методов. Подробные примеры вынесены в каталог `docs/`.
+
+## Обратная совместимость с v.1.2.0
+
+Класс `Cdek` сохранён как фасад и содержит часть старых публичных методов для совместимости. Но новое использование библиотеки должно строиться через сущности:
+
+```php
+<?php
+
+$cdek->orders()->getOrderInfo($uuid);
+$cdek->deliverypoints()->getDeliveryPoints(['city_code' => 44]);
+$cdek->webhooks()->subscribe($url, $type);
+```
+
+Старые вызовы из ветки `1.2.0` переведены в deprecated-обёртки и будут удалены в следующих мажорных версиях.
+
+## Что изменилось в 1.3.0
+
+- монолитный класс `Cdek` переработан в фасад + transport layer `CdekRequest`
+- логика API вынесена в отдельные entity-классы
+- добавлены новые сущности: `webhooks`, `prealert`, `photoDocument`, `reverse`, `international`, `passport`, `payment`, `print`, `check`, `intakes`, `oauth`
+- добавлен installer script для корректной установки и удаления layouts библиотеки
+- обновлены языковые файлы и UI-поля для выбора тарифов
+- `TarifflistField` переведён на сгруппированный список тарифов
+- добавлен `TariffinfoField` и layout `layouts/fields/tariffinfo.php`
+- обновлён JavaScript widget asset
+- в `location()->suggestCities()` добавлен необязательный параметр `country_code`
+
+## Виджет СДЭК
+
+JavaScript-виджет оформлен как Joomla Web Asset. Для подключения:
+
+```php
+<?php
+
 use Joomla\CMS\Factory;
 
-defined('_JEXEC') or die('Restricted access');
+\defined('_JEXEC') or die;
 
-$doc  = Factory::getApplication()->getDocument();
+$doc = Factory::getApplication()->getDocument();
+$wa  = $doc->getWebAssetManager();
 
-/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
-$wa = $doc->getWebAssetManager();
 $wa->useScript('cdek-widget-umd');
 ```
-В остальном при настройке следуем документации виджета.
-## Service.php виджета
-Виджет представляет собой Яндекс.карту, которая по ajax получает список пунктов выдачи заказа. Для работы с данной библиотекой нужно при инициализации виджета указать параметр `servicePath` - url для ajax-запроса. По умолчанию в комплекте с виджетом идёт файл **service.php**, который является точкой входа для ajax-запроса. В данной библиотеке функционал этого файла (получение списка ПВЗ и калькуляции тарифов) перенесён в системный плагин Joomla.
+
+Доступные asset names:
+
+- `cdek-widget-umd`
+- `cdek-widget-es`
+- `cdek-widget-ts`
+
+Если виджету нужен `servicePath` для AJAX-запросов, используйте endpoint системного плагина через `com_ajax`.
+
 ```php
 <?php
-use Joomla\CMS\Uri\Uri;
+
 use Joomla\CMS\Session\Session;
+use Joomla\CMS\Uri\Uri;
 
-defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die;
 
-$service_url = new Uri(Uri::base());
-$service_url->setPath('/index.php');
-$service_url->setQuery([
+$serviceUrl = new Uri(Uri::base());
+$serviceUrl->setPath('/index.php');
+$serviceUrl->setQuery([
     'option'                => 'com_ajax',
     'plugin'                => 'wtcdek',
     'group'                 => 'system',
-    'format'               => 'raw',
-    'city_code'          => $city_code, // CDEK код города для получения списка ПВЗ только для выбранного города
-    Session::getFormToken() => 1
+    'format'                => 'raw',
+    'city_code'             => $cityCode,
+    Session::getFormToken() => 1,
 ]);
-// URL string
-$service_url->toString();
-```
-Для javascript используем либо Joomla Script options, либо php echo, в зависимости от структуры вашего расширения.
 
-## Копирование и обновление данных CDEK в локальную базу данных
-Добавлен плагин стандартного планировщика задач Joomla (появился в Joomla 4.1), который позволяет копировать и обновлять по расписанию списки стран и регионов доставки, населенных пунктов, а так же пунктов выдачи заказа. Эти данные вы можете использовать затем в своих расширениях. 
-Рекомендуется настроить выполнение задач планировщика Joomla с помощью серверного CRON, так как некоторые справочники довольно большого объёма и их обновление может занимать продолжительное время.
-Чтобы запустить выполнение задач планировщика с помощью CLI Вам нужно подключиться к своему серверу по SSH и выполнить команду:
+echo $serviceUrl->toString();
+
 ```
+
+## Обновление локальных справочников
+
+Плагин `Task - Update WT Cdek data` позволяет по расписанию загружать в вашу базу данных и обновлять:
+
+- страны и регионы
+- населённые пункты
+- пункты выдачи
+
+В дальнейшем вы можете использовать в своих расширениях локальные справочники, без ожидания результатов запросов со стороннего API. 
+Пока что не через методы библиотеки, а напрямую. 
+
+Для запуска планировщика Joomla через CLI:
+
+```bash
 php /path/to/site/public_html/cli/joomla.php scheduler:run
 ```
-Если требуется запустить конкретную задачу, то посмотреть список можно с помощью команды
+
+Посмотреть список задач:
+
+```bash
+php /path/to/site/public_html/cli/joomla.php scheduler:list
 ```
-php /path/to/site/public_html/cli/joomla.php scheduler:list 
-```
-а затем запустить задачу по её `id`
-```
+
+Запустить конкретную задачу:
+
+```bash
 php /path/to/site/public_html/cli/joomla.php scheduler:run --id=XXX
 ```
-Также будьте внимательны, на некоторых хостингах существует ограничение на занимаемый объём базы данных. 
+
+Для больших справочников лучше использовать серверный CRON, а не веб-запуск.
+
+## Документация
+
+- локальная документация по сущностям: `docs/`
+- официальный API СДЭК: https://api-docs.cdek.ru/
+- страница проекта: https://web-tolk.ru/

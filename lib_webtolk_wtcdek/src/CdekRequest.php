@@ -41,7 +41,7 @@ use function strtoupper;
 use function trim;
 
 /**
- * РЈРїСЂР°РІР»СЏРµС‚ С‚СЂР°РЅСЃРїРѕСЂС‚РѕРј API РЎР”Р­Рљ, Р°РІС‚РѕСЂРёР·Р°С†РёРµР№ Рё Р¶РёР·РЅРµРЅРЅС‹Рј С†РёРєР»РѕРј С‚РѕРєРµРЅР°.
+ * Управляет транспортом API СДЭК, авторизацией и жизненным циклом токена.
  *
  * @since 1.3.0
  */
@@ -51,7 +51,7 @@ final class CdekRequest
     use LogTrait;
 
     /**
-     * Р‘Р°Р·РѕРІС‹Р№ URL API Р±РѕРµРІРѕР№ СЃСЂРµРґС‹.
+     * Базовый URL API боевой среды.
      *
      * @var    string
      * @since 1.3.0
@@ -59,7 +59,7 @@ final class CdekRequest
     private const CDEK_API_URL = 'https://api.cdek.ru/v2';
 
     /**
-     * Р‘Р°Р·РѕРІС‹Р№ URL API С‚РµСЃС‚РѕРІРѕР№ СЃСЂРµРґС‹.
+     * Базовый URL API тестовой среды.
      *
      * @var    string
      * @since 1.3.0
@@ -67,7 +67,7 @@ final class CdekRequest
     private const CDEK_API_URL_TEST = 'https://api.edu.cdek.ru/v2';
 
     /**
-     * РџСѓР±Р»РёС‡РЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С‚РµСЃС‚РѕРІРѕРіРѕ Р°РєРєР°СѓРЅС‚Р° РёР· Р»РѕРєР°Р»СЊРЅРѕР№ РґРѕРєСѓРјРµРЅС‚Р°С†РёРё API РЎР”Р­Рљ.
+     * Публичный идентификатор тестового аккаунта из локальной документации API СДЭК.
      *
      * @var    string
      * @since 1.3.0
@@ -75,7 +75,7 @@ final class CdekRequest
     private const CDEK_TEST_CLIENT_ID = 'wqGwiQx0gg8mLtiEKsUinjVSICCjtTEP';
 
     /**
-     * РџСѓР±Р»РёС‡РЅС‹Р№ СЃРµРєСЂРµС‚ С‚РµСЃС‚РѕРІРѕРіРѕ Р°РєРєР°СѓРЅС‚Р° РёР· Р»РѕРєР°Р»СЊРЅРѕР№ РґРѕРєСѓРјРµРЅС‚Р°С†РёРё API РЎР”Р­Рљ.
+     * Публичный секрет тестового аккаунта из локальной документации API СДЭК.
      *
      * @var    string
      * @since 1.3.0
@@ -83,7 +83,7 @@ final class CdekRequest
     private const CDEK_TEST_CLIENT_SECRET = 'RmAmgvSgSl1yirlz9QupbzOJVqhCxcP5';
 
     /**
-     * РљСЌС€РёСЂРѕРІР°РЅРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РїР»Р°РіРёРЅР°.
+     * Кэшированные параметры плагина.
      *
      * @var    array<string, mixed>
      * @since 1.3.0
@@ -91,7 +91,7 @@ final class CdekRequest
     private static array $pluginParams = [];
 
     /**
-     * РўРѕРєРµРЅ РґРѕСЃС‚СѓРїР°.
+     * Токен доступа.
      *
      * @var    string
      * @since 1.3.0
@@ -99,7 +99,7 @@ final class CdekRequest
     private string $token = '';
 
     /**
-     * РўРёРї С‚РѕРєРµРЅР°.
+     * Тип токена.
      *
      * @var    string
      * @since 1.3.0
@@ -107,7 +107,7 @@ final class CdekRequest
     private string $tokenType = 'Bearer';
 
     /**
-     * РЎСЂРѕРє РґРµР№СЃС‚РІРёСЏ С‚РѕРєРµРЅР° РІ СЃРµРєСѓРЅРґР°С….
+     * Срок действия токена в секундах.
      *
      * @var    int
      * @since 1.3.0
@@ -115,7 +115,7 @@ final class CdekRequest
     private int $expiresIn = 0;
 
     /**
-     * Р¤Р»Р°Рі С‚РµСЃС‚РѕРІРѕРіРѕ СЂРµР¶РёРјР°.
+     * Флаг тестового режима.
      *
      * @var    bool
      * @since 1.3.0
@@ -123,7 +123,7 @@ final class CdekRequest
     private bool $testMode = false;
 
     /**
-     * РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РєРєР°СѓРЅС‚Р° РєР»РёРµРЅС‚Р°.
+     * Идентификатор аккаунта клиента.
      *
      * @var    string
      * @since 1.3.0
@@ -131,7 +131,7 @@ final class CdekRequest
     private string $clientId = '';
 
     /**
-     * РЎРµРєСЂРµС‚ РєР»РёРµРЅС‚Р°.
+     * Секрет клиента.
      *
      * @var    string
      * @since 1.3.0
@@ -139,9 +139,9 @@ final class CdekRequest
     private string $clientSecret = '';
 
     /**
-     * @param   bool|null    $test_mode      Р¤Р»Р°Рі С‚РµСЃС‚РѕРІРѕРіРѕ СЂРµР¶РёРјР°.
-     * @param   string|null  $client_id      РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РєРєР°СѓРЅС‚Р°.
-     * @param   string|null  $client_secret  РЎРµРєСЂРµС‚РЅС‹Р№ РєР»СЋС‡.
+     * @param   bool|null    $test_mode      Флаг тестового режима.
+     * @param   string|null  $client_id      Идентификатор аккаунта.
+     * @param   string|null  $client_secret  Секретный ключ.
      * @since 1.3.0
      */
     public function __construct(?bool $test_mode = false, ?string $client_id = '', ?string $client_secret = '')
@@ -153,12 +153,12 @@ final class CdekRequest
     }
 
     /**
-     * Р’С‹РїРѕР»РЅСЏРµС‚ Р·Р°РїСЂРѕСЃ Рє API РЎР”Р­Рљ.
+     * Выполняет запрос к API СДЭК.
      *
-     * @param   string  $method          РџСѓС‚СЊ РјРµС‚РѕРґР° API.
-     * @param   array   $data            РџР°СЂР°РјРµС‚СЂС‹ Р·Р°РїСЂРѕСЃР°.
-     * @param   string  $request_method  HTTP-РјРµС‚РѕРґ.
-     * @param   array   $curl_options    Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ CURL.
+     * @param   string  $method          Путь метода API.
+     * @param   array   $data            Параметры запроса.
+     * @param   string  $request_method  HTTP-метод.
+     * @param   array   $curl_options    Дополнительные параметры CURL.
      *
      * @return  array
      *
@@ -256,7 +256,7 @@ final class CdekRequest
     }
 
     /**
-     * РџСЂРѕРІРµСЂСЏРµС‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІС‹РїРѕР»РЅРµРЅРёСЏ Р·Р°РїСЂРѕСЃР° Рє API.
+     * Проверяет возможность выполнения запроса к API.
      *
      * @return  bool
      *
@@ -287,8 +287,8 @@ final class CdekRequest
     }
 
     /**
-     * РџСЂРёРјРµРЅСЏРµС‚ РїСѓР±Р»РёС‡РЅС‹Рµ С‚РµСЃС‚РѕРІС‹Рµ СѓС‡РµС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ РЎР”Р­Рљ РёР· РґРѕРєСѓРјРµРЅС‚Р°С†РёРё, РµСЃР»Рё РІРєР»СЋС‡РµРЅ С‚РµСЃС‚РѕРІС‹Р№ СЂРµР¶РёРј
-     * Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ СѓС‡РµС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ РЅРµ Р·Р°РґР°РЅС‹.
+     * Применяет публичные тестовые учетные данные СДЭК из документации, если включен тестовый режим
+     * и пользовательские учетные данные не заданы.
      *
      * @return  void
      *
@@ -311,7 +311,7 @@ final class CdekRequest
     }
 
     /**
-     * Р’РѕР·РІСЂР°С‰Р°РµС‚ РїР°СЂР°РјРµС‚СЂС‹ РїР»Р°РіРёРЅР° РёР»Рё `false`, РµСЃР»Рё РїР»Р°РіРёРЅ РѕС‚РєР»СЋС‡РµРЅ.
+     * Возвращает параметры плагина или `false`, если плагин отключен.
      *
      * @return  Registry|false
      *
@@ -334,7 +334,7 @@ final class CdekRequest
     }
 
     /**
-     * Р’РѕР·РІСЂР°С‰Р°РµС‚ Р±Р°Р·РѕРІС‹Р№ URI API РґР»СЏ РІС‹Р±СЂР°РЅРЅРѕРіРѕ РѕРєСЂСѓР¶РµРЅРёСЏ.
+     * Возвращает базовый URI API для выбранного окружения.
      *
      * @return  Uri
      *
@@ -346,7 +346,7 @@ final class CdekRequest
     }
 
     /**
-     * Р—Р°РіСЂСѓР¶Р°РµС‚ РґР°РЅРЅС‹Рµ С‚РѕРєРµРЅР° РёР· РєСЌС€Р° Рё РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РѕР±РЅРѕРІР»СЏРµС‚ РёС….
+     * Загружает данные токена из кэша и при необходимости обновляет их.
      *
      * @return  bool
      *
@@ -399,7 +399,7 @@ final class CdekRequest
 
 
     /**
-     * РђРІС‚РѕСЂРёР·СѓРµС‚СЃСЏ РІ API РЎР”Р­Рљ Рё СЃРѕС…СЂР°РЅСЏРµС‚ РґР°РЅРЅС‹Рµ С‚РѕРєРµРЅР°.
+     * Авторизуется в API СДЭК и сохраняет данные токена.
      *
      * @return  array
      *
@@ -445,7 +445,7 @@ final class CdekRequest
     }
 
     /**
-     * РЎРѕС…СЂР°РЅСЏРµС‚ РґР°РЅРЅС‹Рµ С‚РѕРєРµРЅР° РІ РєСЌС€ Joomla.
+     * Сохраняет данные токена в кэш Joomla.
      *
      * @param   array  $tokenData
      *
@@ -464,10 +464,10 @@ final class CdekRequest
     }
 
     /**
-     * РћР±СЂР°Р±Р°С‚С‹РІР°РµС‚ РѕС‚РІРµС‚ Рё РїСЂРёРІРѕРґРёС‚ РѕС€РёР±РєРё Рє РµРґРёРЅРѕРјСѓ С„РѕСЂРјР°С‚Сѓ.
+     * Обрабатывает ответ и приводит ошибки к единому формату.
      *
-     * @param   ResponseInterface  $response    HTTP-РѕС‚РІРµС‚.
-     * @param   string             $methodName  РРјСЏ РјРµС‚РѕРґР° API.
+     * @param   ResponseInterface  $response    HTTP-ответ.
+     * @param   string             $methodName  Имя метода API.
      *
      * @return  array
      *
@@ -536,7 +536,7 @@ final class CdekRequest
         if ($statusCode >= 500)
         {
             $this->saveToLog(
-                'Error while trying to calculate delivery cost via Cdek. Cdek РћС‚РІРµС‚ API: ' . print_r($body, true),
+                'Error while trying to calculate delivery cost via Cdek. Cdek Ответ API: ' . print_r($body, true),
                 'ERROR'
             );
             $errorArray['error_code']    = (int) $statusCode;
@@ -549,9 +549,9 @@ final class CdekRequest
     }
 
     /**
-     * РџСЂРµРѕР±СЂР°Р·СѓРµС‚ СЃС‚СЂСѓРєС‚СѓСЂСѓ РѕС€РёР±РѕРє API РІ С‡РёС‚Р°РµРјСѓСЋ СЃС‚СЂРѕРєСѓ.
+     * Преобразует структуру ошибок API в читаемую строку.
      *
-     * @param   mixed  $errors  Р”Р°РЅРЅС‹Рµ РѕС€РёР±РєРё.
+     * @param   mixed  $errors  Данные ошибки.
      *
      * @return  string
      *
@@ -582,7 +582,7 @@ final class CdekRequest
     }
 
     /**
-     * Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РєРєР°СѓРЅС‚Р°.
+     * Возвращает идентификатор аккаунта.
      *
      * @return  string
      *
@@ -594,7 +594,7 @@ final class CdekRequest
     }
 
     /**
-     * Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРµРєСЂРµС‚ Р°РєРєР°СѓРЅС‚Р°.
+     * Возвращает секрет аккаунта.
      *
      * @return  string
      *
@@ -606,9 +606,9 @@ final class CdekRequest
     }
 
     /**
-     * РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р·РЅР°С‡РµРЅРёРµ С‚РѕРєРµРЅР° РґРѕСЃС‚СѓРїР°.
+     * Устанавливает значение токена доступа.
      *
-     * @param   string  $token  РўРѕРєРµРЅ РґРѕСЃС‚СѓРїР°.
+     * @param   string  $token  Токен доступа.
      *
      * @return  void
      *
@@ -620,9 +620,9 @@ final class CdekRequest
     }
 
     /**
-     * РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ С‚РёРї С‚РѕРєРµРЅР°.
+     * Устанавливает тип токена.
      *
-     * @param   string  $tokenType  РўРёРї С‚РѕРєРµРЅР°.
+     * @param   string  $tokenType  Тип токена.
      *
      * @return  void
      *
@@ -634,9 +634,9 @@ final class CdekRequest
     }
 
     /**
-     * РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃСЂРѕРє Р¶РёР·РЅРё С‚РѕРєРµРЅР° РІ СЃРµРєСѓРЅРґР°С….
+     * Устанавливает срок жизни токена в секундах.
      *
-     * @param   int  $expiresIn  РЎСЂРѕРє Р¶РёР·РЅРё С‚РѕРєРµРЅР° РІ СЃРµРєСѓРЅРґР°С….
+     * @param   int  $expiresIn  Срок жизни токена в секундах.
      *
      * @return  void
      *
@@ -648,7 +648,7 @@ final class CdekRequest
     }
 
     /**
-     * Р’РѕР·РІСЂР°С‰Р°РµС‚ С„Р»Р°Рі С‚РµСЃС‚РѕРІРѕРіРѕ СЂРµР¶РёРјР°.
+     * Возвращает флаг тестового режима.
      *
      * @return  bool
      *
@@ -660,10 +660,10 @@ final class CdekRequest
     }
 
     /**
-     * РћР±СЂР°Р±Р°С‚С‹РІР°РµС‚ РѕС‚РІРµС‚ Рё РїСЂРёРІРѕРґРёС‚ РѕС€РёР±РєРё Рє РµРґРёРЅРѕРјСѓ С„РѕСЂРјР°С‚Сѓ.
+     * Обрабатывает ответ и приводит ошибки к единому формату.
      *
-     * @param   ResponseInterface  $response    HTTP-РѕС‚РІРµС‚.
-     * @param   string    $methodName  РРјСЏ РјРµС‚РѕРґР° API.
+     * @param   ResponseInterface  $response    HTTP-ответ.
+     * @param   string    $methodName  Имя метода API.
      *
      * @return  array
      *

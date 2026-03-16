@@ -181,13 +181,14 @@ final class LocationEntity extends AbstractEntity
 	 *
 	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/suggestCities
 	 *
-	 * @param   string  $city_name  Наименование города для подбора подсказок.
+	 * @param   string  $city_name     Наименование города для подбора подсказок.
+	 * @param   string  $country_code  Код страны в формате ISO_3166-1
 	 *
 	 * @return  array  Ответ API.
 	 *
 	 * @since 1.3.0
 	 */
-	public function suggestCities(string $city_name): array
+	public function suggestCities(string $city_name, string $country_code = ''): array
 	{
 		if (empty($city_name))
 		{
@@ -196,8 +197,13 @@ final class LocationEntity extends AbstractEntity
 				'error_message' => 'Required option: city_name',
 			];
 		}
+		$request_options = ['name' => $city_name];
 
-		return $this->request->getResponse('/location/suggest/cities', ['name' => $city_name], 'GET');
+		if(!empty(trim($country_code))) {
+			$request_options['country_code'] = $country_code;
+		}
+
+		return $this->request->getResponse('/location/suggest/cities', $request_options, 'GET');
 	}
 
 }
