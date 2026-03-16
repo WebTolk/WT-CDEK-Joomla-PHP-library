@@ -2,7 +2,7 @@
 <extension version="4.0" type="plugin" group="system" method="upgrade">
     <name>System - WT CDEK</name>
     <author>Sergey Tolkachyov</author>
-    <creationDate>23.02.2026</creationDate>
+    <creationDate>16.03.2026</creationDate>
     <copyright>Copyright (c) 2022 - 2026 Sergey Tolkachyov. All rights reserved.</copyright>
     <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
     <authorEmail>info@web-tolk.ru</authorEmail>
