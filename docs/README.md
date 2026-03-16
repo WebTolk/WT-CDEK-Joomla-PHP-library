@@ -1,13 +1,11 @@
-﻿# WT CDEK: entity methods documentation
+﻿# WT CDEK: методы сущностей библиотеки CDEK. Документация PHP библиотеки.
 
-This folder contains only real public methods from `lib_webtolk_wtcdek/src/Entities/`.
+Описания методов PHP-библиотеки, которые находятся в папке `lib_webtolk_wtcdek/src/Entities/` пакета.
 
-`quick-start.md` is kept as a separate introductory file and is not regenerated here.
+## Содержание
 
-## Contents
-
-- [Quick Start](./quick-start.md)
-- [Joomla Form fields](./joomla-form-fields.md)
+- [Быстрый старт](./quick-start.md)
+- [Поля Joomla Form](./joomla-form-fields.md)
 - [Entity calculator](./entity-calculator.md)
 - [Entity check](./entity-check.md)
 - [Entity delivery](./entity-delivery.md)
@@ -25,8 +23,9 @@ This folder contains only real public methods from `lib_webtolk_wtcdek/src/Entit
 - [Entity reverse](./entity-reverse.md)
 - [Entity webhooks](./entity-webhooks.md)
 
-## Sources
 
-- Library code: `lib_webtolk_wtcdek/src/Entities/*.php`
-- Library facade: `lib_webtolk_wtcdek/src/Cdek.php`
-- Official CDEK API: `https://apidoc.cdek.ru/`
+## Источники
+
+- Код библиотеки: `lib_webtolk_wtcdek/src/Entities/*.php`
+- Фасад: `lib_webtolk_wtcdek/src/Cdek.php`
+- Официальная документация CDEK API: `https://apidoc.cdek.ru/`
