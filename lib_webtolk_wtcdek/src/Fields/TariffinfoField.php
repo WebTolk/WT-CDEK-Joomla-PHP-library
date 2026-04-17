@@ -1,7 +1,7 @@
 <?php
 /**
  * @package       WT Cdek library package
- * @version       1.3.0
+ * @version       1.3.1
  * @Author        Sergey Tolkachyov
  * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov. All rights reserved.
  * @license       GNU/GPL3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -192,7 +192,7 @@ class TariffinfoField extends FormField
 				$item = (string) $item;
 				$key = 'LIB_WTCDEK_FIELD_TARIFFINFO_CONTRAGENT_TYPE_' . strtoupper($item);
 
-				return Text::hasKey($key) ? Text::_($key) : $item;
+				return Factory::getApplication()->getLanguage()->hasKey($key) ? Text::_($key) : $item;
 			},
 			$value
 		));
