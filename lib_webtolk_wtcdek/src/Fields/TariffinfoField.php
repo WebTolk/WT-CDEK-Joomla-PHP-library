@@ -17,6 +17,7 @@ namespace Webtolk\Cdekapi\Fields;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Form\FormField;
+use Joomla\CMS\Language\Text;
 use Webtolk\Cdekapi\Cdek;
 use function array_map;
 use function implode;
@@ -43,7 +44,7 @@ class TariffinfoField extends FormField
 	 * @var    string
 	 * @since 1.3.0
 	 */
-	protected $layout = 'libraries.webtolk.wtcdek.fields.tariffinfo';
+	protected $layout = 'libraries.webtolk.cdekapi.fields.tariffinfo';
 
 	/**
 	 * Возвращает HTML-разметку поля.
@@ -123,9 +124,9 @@ class TariffinfoField extends FormField
 					'length' => $this->formatRange($tariff['length_min'] ?? '', $tariff['length_max'] ?? ''),
 					'width' => $this->formatRange($tariff['width_min'] ?? '', $tariff['width_max'] ?? ''),
 					'height' => $this->formatRange($tariff['height_min'] ?? '', $tariff['height_max'] ?? ''),
-					'payer_contragent_type' => $this->formatArray($tariff['payer_contragent_type'] ?? []),
-					'sender_contragent_type' => $this->formatArray($tariff['sender_contragent_type'] ?? []),
-					'recipient_contragent_type' => $this->formatArray($tariff['recipient_contragent_type'] ?? []),
+					'payer_contragent_type' => $this->formatContragentTypes($tariff['payer_contragent_type'] ?? []),
+					'sender_contragent_type' => $this->formatContragentTypes($tariff['sender_contragent_type'] ?? []),
+					'recipient_contragent_type' => $this->formatContragentTypes($tariff['recipient_contragent_type'] ?? []),
 				];
 			}
 		}
@@ -165,6 +166,36 @@ class TariffinfoField extends FormField
 		}
 
 		return implode(', ', array_map(static fn($item) => (string) $item, $value));
+	}
+
+	/**
+	 * Локализует список типов контрагентов тарифа.
+	 *
+	 * По документации CDEK для этих полей используются enum-значения
+	 * `LEGAL_ENTITY` и `INDIVIDUAL`. Неизвестные значения возвращаются как есть.
+	 *
+	 * @param   mixed  $value  Значение поля тарифа.
+	 *
+	 * @return  string
+	 *
+	 * @since 1.3.0
+	 */
+	private function formatContragentTypes($value): string
+	{
+		if (!is_array($value) || empty($value))
+		{
+			return Text::_('LIB_WTCDEK_FIELD_TARIFFINFO_CONTRAGENT_TYPE_ALL');
+		}
+
+		return implode(', ', array_map(
+			static function ($item): string {
+				$item = (string) $item;
+				$key = 'LIB_WTCDEK_FIELD_TARIFFINFO_CONTRAGENT_TYPE_' . strtoupper($item);
+
+				return Text::hasKey($key) ? Text::_($key) : $item;
+			},
+			$value
+		));
 	}
 
 	/**

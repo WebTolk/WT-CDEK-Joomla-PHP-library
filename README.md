@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/github/release/WebTolk/WT-CDEK-Joomla-PHP-library.svg)]() [![PHP](https://img.shields.io/badge/PHP-7.4+-green.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-4.2.7+-orange.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-5.x-orange.svg)]() [![Documentation](https://img.shields.io/badge/Documentation-blue.svg)](https://web-tolk.ru/dev/biblioteki/wt-cdek-library-for-joomla-developers?utm_source=github)
+﻿[![Version](https://img.shields.io/github/release/WebTolk/WT-CDEK-Joomla-PHP-library.svg)]() [![PHP](https://img.shields.io/badge/PHP-7.4+-green.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-4.2.7+-orange.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-5.x-orange.svg)]() [![Documentation](https://img.shields.io/badge/Documentation-blue.svg)](https://web-tolk.ru/dev/biblioteki/wt-cdek-library-for-joomla-developers?utm_source=github)
 
 # WT CDEK Joomla PHP library
 
@@ -339,8 +339,8 @@ echo $serviceUrl->toString();
 - населённые пункты
 - пункты выдачи
 
-В дальнейшем вы можете использовать в своих расширениях локальные справочники, без ожидания результатов запросов со стороннего API. 
-Пока что не через методы библиотеки, а напрямую. 
+В дальнейшем вы можете использовать в своих расширениях локальные справочники, без ожидания результатов запросов со стороннего API.
+Пока что не через методы библиотеки, а напрямую.
 
 Для запуска планировщика Joomla через CLI:
 
