@@ -2,5 +2,6 @@
 .phing
 .packages
 .apidoc.cdek.ru
+.serena
 tools
 test-results
