@@ -1,7 +1,8 @@
 .idea
-.phing
+.webtolk
 .packages
 .apidoc.cdek.ru
 .serena
 tools
 test-results
+phing.xml

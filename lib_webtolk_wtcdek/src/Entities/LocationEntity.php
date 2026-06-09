@@ -17,6 +17,7 @@ use function array_filter;
 use function array_merge;
 use function implode;
 use function is_array;
+use function urlencode;
 
 defined('_JEXEC') or die;
 
@@ -89,6 +90,11 @@ final class LocationEntity extends AbstractEntity
 		if (!empty($options['country_codes']) && is_array($options['country_codes']))
 		{
 			$options['country_codes'] = implode(',', $options['country_codes']);
+		}
+
+		if (!empty($options['city']))
+		{
+			$options['city'] = urlencode((string) $options['city']);
 		}
 
 		return $this->request->getResponse('/location/cities', $options, 'GET');
@@ -197,7 +203,7 @@ final class LocationEntity extends AbstractEntity
 				'error_message' => 'Required option: city_name',
 			];
 		}
-		$request_options = ['name' => $city_name];
+		$request_options = ['name' => urlencode($city_name)];
 
 		if(!empty(trim($country_code))) {
 			$request_options['country_code'] = $country_code;
