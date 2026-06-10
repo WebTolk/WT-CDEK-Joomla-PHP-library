@@ -26,6 +26,30 @@ Project flow status recovery after `.webtolk` migration.
 | investigation-report | `docs/reports/2026-06-09-flow-status-investigation-report.md` | populated |
 | impact-analysis | `docs/reports/2026-06-09-flow-status-impact-analysis.md` | populated |
 
+## CDEK GET Query Encoding Cycle Artifacts
+
+| Stage | Artifact | Path | Status |
+| --- | --- | --- | --- |
+| intake | brief | `docs/briefs/2026-06-09-cdek-get-query-encoding-brief.md` | populated |
+| intake | scope | `docs/briefs/2026-06-09-cdek-get-query-encoding-scope.md` | populated |
+| investigation | investigation-report | `docs/reports/2026-06-09-cdek-city-space-commit-investigation.md` | populated |
+| investigation | impact-analysis | `docs/reports/2026-06-09-cdek-get-query-encoding-impact-analysis.md` | populated |
+| domain | decision-log | `docs/reports/2026-06-09-cdek-get-query-encoding-decision-log.md` | populated |
+| architecture | architecture | `docs/reports/2026-06-09-cdek-get-query-encoding-architecture.md` | populated |
+| architecture | implementation-plan | `docs/reports/2026-06-09-cdek-get-query-encoding-implementation-plan.md` | populated |
+| implementation | changed-files | `docs/reports/2026-06-09-cdek-get-query-encoding-changed-files.md` | populated |
+| implementation | change-summary | `docs/reports/2026-06-09-cdek-get-query-encoding-change-summary.md` | populated |
+| assurance | review-findings | `docs/reports/2026-06-09-cdek-get-query-encoding-review-findings.md` | populated |
+| assurance | test-plan | `docs/reports/2026-06-09-cdek-get-query-encoding-test-plan.md` | populated |
+| assurance | test-cases | `docs/reports/2026-06-09-cdek-get-query-encoding-test-cases.md` | populated |
+| assurance | browser-verification-report | `docs/reports/2026-06-09-cdek-get-query-encoding-browser-verification-report.md` | populated; browser N/A, backend runtime verified |
+| release | release-notes | `docs/reports/2026-06-09-cdek-get-query-encoding-release-notes.md` | populated |
+| release | migration-notes | `docs/reports/2026-06-09-cdek-get-query-encoding-migration-notes.md` | populated |
+| release | patch | `docs/reports/2026-06-09-cdek-get-query-encoding-patch.md` | populated |
+| release | package-report | `docs/reports/2026-06-09-cdek-get-query-encoding-release-package-report.md` | populated |
+| evolve | evolution-report | `docs/reports/2026-06-09-cdek-get-query-encoding-evolution.md` | populated |
+| investigation | installer-delete-investigation | `docs/reports/2026-06-09-joomla-installer-file-delete-investigation.md` | populated |
+
 ## Missing Artifacts Created
 
 - `docs/briefs/`
@@ -44,4 +68,4 @@ Project flow status recovery after `.webtolk` migration.
 
 ## Handoff
 
-Next allowed skill: `domain-surface` if a feature/problem is provided, or `code-assurance` if the next task is to verify the migrated package and build/runtime behavior.
+The CDEK GET query encoding cycle is complete through implementation, assurance, release and evolve. Next allowed skill: `domain-surface` for a new feature/bug, `code-assurance` for additional verification on another stand, or cleanup for stale `.packages/install_*` directories if requested.
