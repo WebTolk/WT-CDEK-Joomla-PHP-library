@@ -1,10 +1,12 @@
 <?php
 /**
+ * Joomla Form field displaying CDEK tariff information.
  * @package       WT Cdek library package
- * @version       1.3.1
- * @Author        Sergey Tolkachyov
- * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov. All rights reserved.
- * @license       GNU/GPL3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @subpackage    Webtolk/Cdekapi
+ * @author        Sergey Tolkachyov, WebTolk
+ * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov, WebTolk. All rights reserved.
+ * @version       __DEPLOY_VERSION__
+ * @license       GNU General Public License version 3 or later.
  * @link          https://web-tolk.ru
  * @since         1.0.0
  */
@@ -19,6 +21,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Form\FormField;
 use Joomla\CMS\Language\Text;
 use Webtolk\Cdekapi\Cdek;
+use Webtolk\Cdekapi\Helper\Watchfield;
 use function array_map;
 use function implode;
 use function is_array;
@@ -55,7 +58,11 @@ class TariffinfoField extends FormField
 	 */
 	protected function getInput(): string
 	{
-		$this->addInlineScript();
+		$app = Factory::getApplication();
+		$app->getLanguage()->load('lib_webtolk_cdekapi', JPATH_SITE);
+		$wa = $app->getDocument()->getWebAssetManager();
+		$wa->getRegistry()->addRegistryFile('media/lib_wtcdek/joomla.assets.json');
+		$wa->useScript('wtcdek.tariffinfo');
 
 		if (empty($this->layout))
 		{
@@ -78,6 +85,17 @@ class TariffinfoField extends FormField
 		$layoutData['watchfield'] = (string) ($this->element['watchfield'] ?? $this->element['tariff_field'] ?? '');
 		$layoutData['container_id'] = $this->id . '_tariffinfo';
 		$layoutData['tariffs'] = $this->getTariffsByCode();
+		Factory::getApplication()->getDocument()->addScriptOptions('wtcdek.tariffs', $layoutData['tariffs']);
+		try {
+			$sources = Watchfield::resolve($this->form, $layoutData['watchfield'], (string) $this->group);
+			if ($sources === []) {
+				throw new \UnexpectedValueException('Tariffinfo requires a tariff source.');
+			}
+			$options = Watchfield::dataOptions($this->element, ['source' => 'scriptoptions', 'options' => 'wtcdek.tariffs', 'path' => '']);
+			$layoutData['watchfield_attributes'] = Watchfield::attributes($sources, $options);
+		} catch (\JsonException | \UnexpectedValueException $exception) {
+			$layoutData['watchfield_attributes'] = Watchfield::attributes([], ['source' => 'scriptoptions', 'options' => 'wtcdek.tariffs', 'error' => true]);
+		}
 
 		return $layoutData;
 	}
@@ -198,121 +216,4 @@ class TariffinfoField extends FormField
 		));
 	}
 
-	/**
-	 * Подключает inline-скрипт, обновляющий блок по изменению связанного поля.
-	 *
-	 * @return  void
-	 *
-	 * @since 1.3.0
-	 */
-	private function addInlineScript(): void
-	{
-		$document = Factory::getApplication()->getDocument();
-		$script = <<<'JS'
-(() => {
-	if (window.WtCdekTariffInfoTemplateInit) {
-		return;
-	}
-
-	window.WtCdekTariffInfoTemplateInit = true;
-
-	const findSourceField = (scope, watchField) => {
-		const form = scope.closest('form') || document;
-		const byId = form.querySelector(`#jform_${watchField}`);
-		if (byId) {
-			return byId;
-		}
-
-		const byName = form.querySelector(`[name="${watchField}"]`);
-		if (byName) {
-			return byName;
-		}
-
-		return form.querySelector(`[name$="[${watchField}]"]`);
-	};
-
-	const parseTariffs = (json) => {
-		try {
-			const parsed = JSON.parse(json || '{}');
-			return (typeof parsed === 'object' && parsed !== null) ? parsed : {};
-		} catch (e) {
-			return {};
-		}
-	};
-
-	const renderTemplate = (container, templateName, literals = {}) => {
-		const target = container.querySelector('[data-role="render-target"]');
-		const template = container.querySelector(`template[data-template="${templateName}"]`);
-
-		if (!target || !template) {
-			return;
-		}
-
-		const fragment = template.content.cloneNode(true);
-		fragment.querySelectorAll('[data-field]').forEach((node) => {
-			const key = node.dataset.field;
-			node.textContent = Object.prototype.hasOwnProperty.call(literals, key)
-				? String(literals[key] ?? '')
-				: '';
-		});
-
-		target.replaceChildren(fragment);
-	};
-
-	const render = (container, source) => {
-		const tariffs = parseTariffs(container.dataset.tariffs);
-		const selectedCode = String(source?.value || '').trim();
-
-		if (!selectedCode) {
-			renderTemplate(container, 'state-empty', { message: 'Выберите тариф в связанном поле.' });
-			return;
-		}
-
-		const info = tariffs[selectedCode] || null;
-
-		if (!info) {
-			renderTemplate(container, 'state-not-found', { tariff_code: selectedCode });
-			return;
-		}
-
-		renderTemplate(container, 'tariff-card', info);
-	};
-
-	const initContainer = (container) => {
-		if (container.dataset.initialized === '1') {
-			return;
-		}
-
-		const watchField = container.dataset.watchField || '';
-
-		if (!watchField) {
-			renderTemplate(container, 'state-error', { message: 'Не задан параметр watchfield у поля Tariffinfo.' });
-			container.dataset.initialized = '1';
-			return;
-		}
-
-		const source = findSourceField(container, watchField);
-
-		if (!source) {
-			renderTemplate(container, 'state-error', { message: `Связанное поле "${watchField}" не найдено.` });
-			container.dataset.initialized = '1';
-			return;
-		}
-
-		source.addEventListener('change', () => render(container, source));
-		render(container, source);
-		container.dataset.initialized = '1';
-	};
-
-	const boot = () => document.querySelectorAll('.wt-cdek-tariffinfo-field').forEach(initContainer);
-
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', boot, { once: true });
-	} else {
-		boot();
-	}
-})();
-JS;
-		$document->addScriptDeclaration($script);
-	}
 }

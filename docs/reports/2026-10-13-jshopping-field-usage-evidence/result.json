@@ -1,0 +1,96 @@
+{
+  "result": "passed",
+  "network": "none",
+  "database": "forbidden",
+  "installed_library": true,
+  "forms": [
+    {
+      "control": "params",
+      "classes": {
+        "city_from_zip": "Joomla\\CMS\\Form\\Field\\TextField",
+        "city_from": "Joomla\\CMS\\Form\\Field\\TextField",
+        "shipment_point": "Webtolk\\Cdekapi\\Fields\\DeliverypointsField",
+        "tariff_code": "Webtolk\\Cdekapi\\Fields\\TarifflistField",
+        "tariff_info": "Webtolk\\Cdekapi\\Fields\\TariffinfoField",
+        "cdek_status_create": "Webtolk\\Jshopping\\SmWtcdek\\Fields\\WtsmcdekorderstatusField"
+      },
+      "point_sources": {
+        "city": "params[city_from]",
+        "postal_code": "params[city_from_zip]"
+      },
+      "point_options": {
+        "source": "ajax",
+        "url": "/index.php?option=com_ajax&group=system&plugin=wtcdekdeliverypoints&format=json",
+        "path": "data.0.options",
+        "parameters": {
+          "city": "",
+          "fias_guid": "",
+          "postal_code": "",
+          "type": "PVZ",
+          "is_reception": "true",
+          "is_handout": ""
+        },
+        "requiredAny": [
+          "city",
+          "postal_code",
+          "fias_guid"
+        ]
+      },
+      "fancyselect": true,
+      "tariff_sources": {
+        "value": "params[tariff_code]"
+      }
+    },
+    {
+      "control": "sm_params",
+      "classes": {
+        "city_from_zip": "Joomla\\CMS\\Form\\Field\\TextField",
+        "city_from": "Joomla\\CMS\\Form\\Field\\TextField",
+        "shipment_point": "Webtolk\\Cdekapi\\Fields\\DeliverypointsField",
+        "tariff_code": "Webtolk\\Cdekapi\\Fields\\TarifflistField",
+        "tariff_info": "Webtolk\\Cdekapi\\Fields\\TariffinfoField",
+        "cdek_status_create": "Webtolk\\Jshopping\\SmWtcdek\\Fields\\WtsmcdekorderstatusField"
+      },
+      "point_sources": {
+        "city": "sm_params[city_from]",
+        "postal_code": "sm_params[city_from_zip]"
+      },
+      "point_options": {
+        "source": "ajax",
+        "url": "/index.php?option=com_ajax&group=system&plugin=wtcdekdeliverypoints&format=json",
+        "path": "data.0.options",
+        "parameters": {
+          "city": "",
+          "fias_guid": "",
+          "postal_code": "",
+          "type": "PVZ",
+          "is_reception": "true",
+          "is_handout": ""
+        },
+        "requiredAny": [
+          "city",
+          "postal_code",
+          "fias_guid"
+        ]
+      },
+      "fancyselect": true,
+      "tariff_sources": {
+        "value": "sm_params[tariff_code]"
+      }
+    }
+  ],
+  "assets": [
+    "wtcdek.deliverypoints",
+    "core",
+    "core",
+    "preset:choicesjs",
+    "webcomponent.field-fancy-select",
+    "wtcdek.tariffinfo",
+    "wtcdek.deliverypoints",
+    "core",
+    "core",
+    "preset:choicesjs",
+    "webcomponent.field-fancy-select",
+    "wtcdek.tariffinfo"
+  ]
+}

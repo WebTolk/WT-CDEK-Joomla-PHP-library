@@ -5,4 +5,5 @@
 .serena
 tools
 test-results
+.playwright-mcp/
 phing.xml

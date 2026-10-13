@@ -1,0 +1,83 @@
+{
+  "id": "external-joomshopping-fields-20261009",
+  "timestamp": "2026-10-09T20:21:13.664401+04:00",
+  "external_intervention": true,
+  "actor": "agent of JoomShopping-WT-CDEK-shipping-method; not receiving library agent",
+  "operator_authorized": true,
+  "donor_project": "JoomShopping-WT-CDEK-shipping-method",
+  "donor_head": "9d46ed00bed3fd09b91768d66115957a3bf03ea6",
+  "donor_worktree": "validated uncommitted field prototype",
+  "receiver_project": "WT-CDEK-Joomla-PHP-library",
+  "receiver_head_before": "887e4ff7b55ace23394f837245ed640ddcef4b03",
+  "receiving_flow_root": ".webtolk",
+  "processforge_pf_manifest_present": false,
+  "files": [
+    {
+      "source": "jshopping_sm_wtcdek/components/com_jshopping/src/Fields/Watchfield.php",
+      "target": "lib_webtolk_wtcdek/src/Fields/Watchfield.php",
+      "sha256": "ef6f7cfb551dcd1a264d202245b3ff11e214107f0a8e2ce87d9b25d3386d6cdf",
+      "bytes": 2699,
+      "copy_mode": "source-exact",
+      "acceptance": "pending-library-agent"
+    },
+    {
+      "source": "jshopping_sm_wtcdek/components/com_jshopping/src/Fields/WtsmcdekshipmentpointField.php",
+      "target": "lib_webtolk_wtcdek/src/Fields/WtsmcdekshipmentpointField.php",
+      "sha256": "cc43a06c05801f28bd2766d7f12a97773b400abfdfdd0ed35d5d165c939002eb",
+      "bytes": 4597,
+      "copy_mode": "source-exact",
+      "acceptance": "pending-library-agent"
+    },
+    {
+      "source": "jshopping_sm_wtcdek/components/com_jshopping/src/Fields/WtsmcdektariffinfoField.php",
+      "target": "lib_webtolk_wtcdek/src/Fields/WtsmcdektariffinfoField.php",
+      "sha256": "b1e9dccb07ce30534199f2e5ffc850f1b4e32fa75d9a59407e6c7bfcef6e7e51",
+      "bytes": 2762,
+      "copy_mode": "source-exact",
+      "acceptance": "pending-library-agent"
+    },
+    {
+      "source": "jshopping_sm_wtcdek/components/com_jshopping/src/Fields/WtsmcdekorderstatusField.php",
+      "target": "lib_webtolk_wtcdek/src/Fields/WtsmcdekorderstatusField.php",
+      "sha256": "c4e332a6799fdeb9d7d5f6377e175e09d4d33477a8ba78fd85a6715ba8c729db",
+      "bytes": 1643,
+      "copy_mode": "source-exact",
+      "acceptance": "pending-library-agent"
+    },
+    {
+      "source": "jshopping_sm_wtcdek/components/com_jshopping/js/wt_sm_cdek_watchfield.js",
+      "target": "lib_webtolk_wtcdek/media/js/wt_sm_cdek_watchfield.js",
+      "sha256": "31d94d551dd548e3255e932288a26642889d386303c886583cd39870168bd518",
+      "bytes": 2577,
+      "copy_mode": "source-exact",
+      "acceptance": "pending-library-agent"
+    },
+    {
+      "source": "jshopping_sm_wtcdek/components/com_jshopping/js/wt_sm_cdek_origin_point.js",
+      "target": "lib_webtolk_wtcdek/media/js/wt_sm_cdek_origin_point.js",
+      "sha256": "f443c9028f61e2395457a9f6916668df05d4cc68fbeabafade00444649b3c3a7",
+      "bytes": 5549,
+      "copy_mode": "source-exact",
+      "acceptance": "pending-library-agent"
+    },
+    {
+      "source": "jshopping_sm_wtcdek/components/com_jshopping/js/wt_sm_cdek_tariff_info.js",
+      "target": "lib_webtolk_wtcdek/media/js/wt_sm_cdek_tariff_info.js",
+      "sha256": "1a30b234218f7fd6bbbc94474ba799694cf30d21012c4081677aca297afabf09",
+      "bytes": 2309,
+      "copy_mode": "source-exact",
+      "acceptance": "pending-library-agent"
+    }
+  ],
+  "integration_status": "pending-library-agent",
+  "release_status": "deferred-to-2026-10-10",
+  "namespace_adapted": false,
+  "package_built": false,
+  "site_modified": false,
+  "commit": false,
+  "push": false,
+  "receiving_context_notice": "project.external_interventions",
+  "verification_status": "copy-and-syntax-passed; library-runtime-pending",
+  "original_context_preserved": true,
+  "append_only_history_verified": true
+}

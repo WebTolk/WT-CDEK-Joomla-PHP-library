@@ -1,0 +1,1610 @@
+{
+  "ajax": [
+    {
+      "status": 200,
+      "method": "POST",
+      "address": {
+        "city": "Саратов",
+        "postal_code": "410000"
+      },
+      "filters": {
+        "type": "PVZ",
+        "is_reception": "true",
+        "is_handout": ""
+      },
+      "success": true,
+      "message": null,
+      "count": 28,
+      "sample": [
+        {
+          "value": "SAR3",
+          "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+        },
+        {
+          "value": "SAR4",
+          "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+        },
+        {
+          "value": "SAR5",
+          "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "method": "POST",
+      "address": {
+        "city": "Москва",
+        "postal_code": "101000"
+      },
+      "filters": {
+        "type": "PVZ",
+        "is_reception": "true",
+        "is_handout": ""
+      },
+      "success": true,
+      "message": null,
+      "count": 424,
+      "sample": [
+        {
+          "value": "MSK2",
+          "text": "MSK2 — Москва, ул. Международная, 15"
+        },
+        {
+          "value": "MSK3",
+          "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+        },
+        {
+          "value": "MSK11",
+          "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+        }
+      ]
+    },
+    {
+      "status": 200,
+      "method": "POST",
+      "address": {
+        "city": "Саратов",
+        "postal_code": "410000"
+      },
+      "filters": {
+        "type": "PVZ",
+        "is_reception": "true",
+        "is_handout": ""
+      },
+      "success": true,
+      "message": null,
+      "count": 28,
+      "sample": [
+        {
+          "value": "SAR3",
+          "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+        },
+        {
+          "value": "SAR4",
+          "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+        },
+        {
+          "value": "SAR5",
+          "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [
+    {
+      "url": "http://joomla.local/administrator/",
+      "message": "The Cross-Origin-Opener-Policy header has been ignored, because the URL's origin was untrustworthy. It was defined either in the final response or a redirect. Please deliver the response using the HTTPS protocol. You can also use the 'localhost' origin instead. See https://www.w3.org/TR/powerful-features/#potentially-trustworthy-origin and https://html.spec.whatwg.org/#the-cross-origin-opener-policy-header."
+    },
+    {
+      "url": "http://joomla.local/administrator/index.php",
+      "message": "The Cross-Origin-Opener-Policy header has been ignored, because the URL's origin was untrustworthy. It was defined either in the final response or a redirect. Please deliver the response using the HTTPS protocol. You can also use the 'localhost' origin instead. See https://www.w3.org/TR/powerful-features/#potentially-trustworthy-origin and https://html.spec.whatwg.org/#the-cross-origin-opener-policy-header."
+    },
+    {
+      "url": "http://joomla.local/administrator/index.php",
+      "message": "The Cross-Origin-Opener-Policy header has been ignored, because the URL's origin was untrustworthy. It was defined either in the final response or a redirect. Please deliver the response using the HTTPS protocol. You can also use the 'localhost' origin instead. See https://www.w3.org/TR/powerful-features/#potentially-trustworthy-origin and https://html.spec.whatwg.org/#the-cross-origin-opener-policy-header."
+    },
+    {
+      "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice&task=edit&id=4",
+      "message": "The Cross-Origin-Opener-Policy header has been ignored, because the URL's origin was untrustworthy. It was defined either in the final response or a redirect. Please deliver the response using the HTTPS protocol. You can also use the 'localhost' origin instead. See https://www.w3.org/TR/powerful-features/#potentially-trustworthy-origin and https://html.spec.whatwg.org/#the-cross-origin-opener-policy-header."
+    },
+    {
+      "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice&task=edit&id=4",
+      "message": "The Cross-Origin-Opener-Policy header has been ignored, because the URL's origin was untrustworthy. It was defined either in the final response or a redirect. Please deliver the response using the HTTPS protocol. You can also use the 'localhost' origin instead. See https://www.w3.org/TR/powerful-features/#potentially-trustworthy-origin and https://html.spec.whatwg.org/#the-cross-origin-opener-policy-header."
+    },
+    {
+      "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice",
+      "message": "The Cross-Origin-Opener-Policy header has been ignored, because the URL's origin was untrustworthy. It was defined either in the final response or a redirect. Please deliver the response using the HTTPS protocol. You can also use the 'localhost' origin instead. See https://www.w3.org/TR/powerful-features/#potentially-trustworthy-origin and https://html.spec.whatwg.org/#the-cross-origin-opener-policy-header."
+    },
+    {
+      "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingsprices",
+      "message": "The Cross-Origin-Opener-Policy header has been ignored, because the URL's origin was untrustworthy. It was defined either in the final response or a redirect. Please deliver the response using the HTTPS protocol. You can also use the 'localhost' origin instead. See https://www.w3.org/TR/powerful-features/#potentially-trustworthy-origin and https://html.spec.whatwg.org/#the-cross-origin-opener-policy-header."
+    },
+    {
+      "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingsprices&task=edit&sh_pr_method_id=3&shipping_id_back=",
+      "message": "The Cross-Origin-Opener-Policy header has been ignored, because the URL's origin was untrustworthy. It was defined either in the final response or a redirect. Please deliver the response using the HTTPS protocol. You can also use the 'localhost' origin instead. See https://www.w3.org/TR/powerful-features/#potentially-trustworthy-origin and https://html.spec.whatwg.org/#the-cross-origin-opener-policy-header."
+    },
+    {
+      "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingsprices&task=edit&sh_pr_method_id=3&shipping_id_back=",
+      "message": "The Cross-Origin-Opener-Policy header has been ignored, because the URL's origin was untrustworthy. It was defined either in the final response or a redirect. Please deliver the response using the HTTPS protocol. You can also use the 'localhost' origin instead. See https://www.w3.org/TR/powerful-features/#potentially-trustworthy-origin and https://html.spec.whatwg.org/#the-cross-origin-opener-policy-header."
+    },
+    {
+      "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingsprices&shipping_id_back=0",
+      "message": "The Cross-Origin-Opener-Policy header has been ignored, because the URL's origin was untrustworthy. It was defined either in the final response or a redirect. Please deliver the response using the HTTPS protocol. You can also use the 'localhost' origin instead. See https://www.w3.org/TR/powerful-features/#potentially-trustworthy-origin and https://html.spec.whatwg.org/#the-cross-origin-opener-policy-header."
+    }
+  ],
+  "steps": [
+    {
+      "label": "initial",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice&task=edit&id=4",
+        "title": "Расширения для расчета цены - WebTolk Local Test - Панель управления",
+        "watchfield": true,
+        "csrfPresent": true,
+        "city": "Саратов",
+        "zip": "410000",
+        "point": {
+          "sources": {
+            "city": "params[city_from]",
+            "postal_code": "params[city_from_zip]"
+          },
+          "value": "",
+          "count": 29,
+          "status": "",
+          "sample": [
+            {
+              "value": "",
+              "text": "Выберите пункт СДЭК"
+            },
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ],
+          "fancyReady": true,
+          "form": "adminForm",
+          "choices": [
+            {
+              "class": "choices",
+              "text": "Выберите пункт СДЭК\nRemove item"
+            }
+          ]
+        },
+        "tariff": null,
+        "info": null
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "fancyselect-choice",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice&task=edit&id=4",
+        "title": "Расширения для расчета цены - WebTolk Local Test - Панель управления",
+        "watchfield": true,
+        "csrfPresent": true,
+        "city": "Саратов",
+        "zip": "410000",
+        "point": {
+          "sources": {
+            "city": "params[city_from]",
+            "postal_code": "params[city_from_zip]"
+          },
+          "value": "SAR3",
+          "count": 29,
+          "status": "",
+          "sample": [
+            {
+              "value": "",
+              "text": "Выберите пункт СДЭК"
+            },
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ],
+          "fancyReady": true,
+          "form": "adminForm",
+          "choices": [
+            {
+              "class": "choices is-focused",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24\nRemove item"
+            }
+          ]
+        },
+        "tariff": null,
+        "info": null
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "city-text-input",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice&task=edit&id=4",
+        "title": "Расширения для расчета цены - WebTolk Local Test - Панель управления",
+        "watchfield": true,
+        "csrfPresent": true,
+        "city": "Москва",
+        "zip": "410000",
+        "point": {
+          "sources": {
+            "city": "params[city_from]",
+            "postal_code": "params[city_from_zip]"
+          },
+          "value": "",
+          "count": 1,
+          "status": "Загрузка пунктов СДЭК…",
+          "sample": [
+            {
+              "value": "",
+              "text": "Выберите пункт СДЭК"
+            }
+          ],
+          "fancyReady": true,
+          "form": "adminForm",
+          "choices": [
+            {
+              "class": "choices",
+              "text": "Выберите пункт СДЭК\nRemove item"
+            }
+          ]
+        },
+        "tariff": null,
+        "info": null
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "zip-text-input",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice&task=edit&id=4",
+        "title": "Расширения для расчета цены - WebTolk Local Test - Панель управления",
+        "watchfield": true,
+        "csrfPresent": true,
+        "city": "Москва",
+        "zip": "101000",
+        "point": {
+          "sources": {
+            "city": "params[city_from]",
+            "postal_code": "params[city_from_zip]"
+          },
+          "value": "",
+          "count": 1,
+          "status": "Загрузка пунктов СДЭК…",
+          "sample": [
+            {
+              "value": "",
+              "text": "Выберите пункт СДЭК"
+            }
+          ],
+          "fancyReady": true,
+          "form": "adminForm",
+          "choices": [
+            {
+              "class": "choices",
+              "text": "Выберите пункт СДЭК\nRemove item"
+            }
+          ]
+        },
+        "tariff": null,
+        "info": null
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "moscow-response",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice&task=edit&id=4",
+        "title": "Расширения для расчета цены - WebTolk Local Test - Панель управления",
+        "watchfield": true,
+        "csrfPresent": true,
+        "city": "Москва",
+        "zip": "101000",
+        "point": {
+          "sources": {
+            "city": "params[city_from]",
+            "postal_code": "params[city_from_zip]"
+          },
+          "value": "",
+          "count": 425,
+          "status": "Адрес изменён. Выберите пункт для нового адреса.",
+          "sample": [
+            {
+              "value": "",
+              "text": "Выберите пункт СДЭК"
+            },
+            {
+              "value": "MSK2",
+              "text": "MSK2 — Москва, ул. Международная, 15"
+            },
+            {
+              "value": "MSK3",
+              "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+            },
+            {
+              "value": "MSK11",
+              "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+            }
+          ],
+          "fancyReady": true,
+          "form": "adminForm",
+          "choices": [
+            {
+              "class": "choices",
+              "text": "Выберите пункт СДЭК\nRemove item"
+            }
+          ]
+        },
+        "tariff": null,
+        "info": null
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Москва",
+            "postal_code": "101000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 424,
+          "sample": [
+            {
+              "value": "MSK2",
+              "text": "MSK2 — Москва, ул. Международная, 15"
+            },
+            {
+              "value": "MSK3",
+              "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+            },
+            {
+              "value": "MSK11",
+              "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "empty-city",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice&task=edit&id=4",
+        "title": "Расширения для расчета цены - WebTolk Local Test - Панель управления",
+        "watchfield": true,
+        "csrfPresent": true,
+        "city": "",
+        "zip": "101000",
+        "point": {
+          "sources": {
+            "city": "params[city_from]",
+            "postal_code": "params[city_from_zip]"
+          },
+          "value": "",
+          "count": 1,
+          "status": "Загрузка пунктов СДЭК…",
+          "sample": [
+            {
+              "value": "",
+              "text": "Выберите пункт СДЭК"
+            }
+          ],
+          "fancyReady": true,
+          "form": "adminForm",
+          "choices": [
+            {
+              "class": "choices",
+              "text": "Выберите пункт СДЭК\nRemove item"
+            }
+          ]
+        },
+        "tariff": null,
+        "info": null
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Москва",
+            "postal_code": "101000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 424,
+          "sample": [
+            {
+              "value": "MSK2",
+              "text": "MSK2 — Москва, ул. Международная, 15"
+            },
+            {
+              "value": "MSK3",
+              "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+            },
+            {
+              "value": "MSK11",
+              "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "empty-address",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice&task=edit&id=4",
+        "title": "Расширения для расчета цены - WebTolk Local Test - Панель управления",
+        "watchfield": true,
+        "csrfPresent": true,
+        "city": "",
+        "zip": "",
+        "point": {
+          "sources": {
+            "city": "params[city_from]",
+            "postal_code": "params[city_from_zip]"
+          },
+          "value": "",
+          "count": 1,
+          "status": "Укажите город, почтовый индекс или UUID населённого пункта ФИАС.",
+          "sample": [
+            {
+              "value": "",
+              "text": "Выберите пункт СДЭК"
+            }
+          ],
+          "fancyReady": true,
+          "form": "adminForm",
+          "choices": [
+            {
+              "class": "choices",
+              "text": "Выберите пункт СДЭК\nRemove item"
+            }
+          ]
+        },
+        "tariff": null,
+        "info": null
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Москва",
+            "postal_code": "101000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 424,
+          "sample": [
+            {
+              "value": "MSK2",
+              "text": "MSK2 — Москва, ул. Международная, 15"
+            },
+            {
+              "value": "MSK3",
+              "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+            },
+            {
+              "value": "MSK11",
+              "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "original-values-after-reload",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice&task=edit&id=4",
+        "title": "Расширения для расчета цены - WebTolk Local Test - Панель управления",
+        "watchfield": true,
+        "csrfPresent": true,
+        "city": "Саратов",
+        "zip": "410000",
+        "point": {
+          "sources": {
+            "city": "params[city_from]",
+            "postal_code": "params[city_from_zip]"
+          },
+          "value": "",
+          "count": 29,
+          "status": "",
+          "sample": [
+            {
+              "value": "",
+              "text": "Выберите пункт СДЭК"
+            },
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ],
+          "fancyReady": true,
+          "form": "adminForm",
+          "choices": [
+            {
+              "class": "choices",
+              "text": "Выберите пункт СДЭК\nRemove item"
+            }
+          ]
+        },
+        "tariff": null,
+        "info": null
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Москва",
+            "postal_code": "101000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 424,
+          "sample": [
+            {
+              "value": "MSK2",
+              "text": "MSK2 — Москва, ул. Международная, 15"
+            },
+            {
+              "value": "MSK3",
+              "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+            },
+            {
+              "value": "MSK11",
+              "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "cancelled-without-save",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingextprice",
+        "title": "Расширения для расчета цены - WebTolk Local Test - Панель управления",
+        "watchfield": false,
+        "csrfPresent": true,
+        "point": null,
+        "tariff": null,
+        "info": null
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Москва",
+            "postal_code": "101000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 424,
+          "sample": [
+            {
+              "value": "MSK2",
+              "text": "MSK2 — Москва, ул. Международная, 15"
+            },
+            {
+              "value": "MSK3",
+              "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+            },
+            {
+              "value": "MSK11",
+              "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "shipping-prices-list",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingsprices",
+        "title": "Список цен способов доставки - WebTolk Local Test - Панель управления",
+        "watchfield": false,
+        "csrfPresent": true,
+        "point": null,
+        "tariff": null,
+        "info": null
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Москва",
+            "postal_code": "101000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 424,
+          "sample": [
+            {
+              "value": "MSK2",
+              "text": "MSK2 — Москва, ул. Международная, 15"
+            },
+            {
+              "value": "MSK3",
+              "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+            },
+            {
+              "value": "MSK11",
+              "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "tariff-initial",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingsprices&task=edit&sh_pr_method_id=3&shipping_id_back=",
+        "title": "Изменить цены на доставку - WebTolk Local Test - Панель управления",
+        "watchfield": true,
+        "csrfPresent": true,
+        "point": null,
+        "tariff": {
+          "value": "136",
+          "count": 271,
+          "sample": [
+            {
+              "value": "333",
+              "text": "склад-склад [4] (code: 333)"
+            },
+            {
+              "value": "373",
+              "text": "склад-постамат [7] (code: 373)"
+            },
+            {
+              "value": "615",
+              "text": "постамат-склад [9] (code: 615)"
+            },
+            {
+              "value": "616",
+              "text": "постамат-постамат [10] (code: 616)"
+            },
+            {
+              "value": "2573",
+              "text": "дверь-дверь [1] (code: 2573)"
+            }
+          ]
+        },
+        "info": {
+          "sources": {
+            "value": "sm_params[tariff_code]"
+          },
+          "text": "Посылка\nКод тарифа: 136\nРежим доставки: склад-склад [4]\nВес: 0 - 50\nДлина: 0 - 500\nШирина: 0 - 500\nВысота: 0 - 500\nПлательщик: Любой тип контрагента\nОтправитель: Любой тип контрагента\nПолучатель: Любой тип контрагента"
+        }
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Москва",
+            "postal_code": "101000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 424,
+          "sample": [
+            {
+              "value": "MSK2",
+              "text": "MSK2 — Москва, ул. Международная, 15"
+            },
+            {
+              "value": "MSK3",
+              "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+            },
+            {
+              "value": "MSK11",
+              "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "tariff-changed-136-to-333",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingsprices&task=edit&sh_pr_method_id=3&shipping_id_back=",
+        "title": "Изменить цены на доставку - WebTolk Local Test - Панель управления",
+        "watchfield": true,
+        "csrfPresent": true,
+        "point": null,
+        "tariff": {
+          "value": "333",
+          "count": 271,
+          "sample": [
+            {
+              "value": "333",
+              "text": "склад-склад [4] (code: 333)"
+            },
+            {
+              "value": "373",
+              "text": "склад-постамат [7] (code: 373)"
+            },
+            {
+              "value": "615",
+              "text": "постамат-склад [9] (code: 615)"
+            },
+            {
+              "value": "616",
+              "text": "постамат-постамат [10] (code: 616)"
+            },
+            {
+              "value": "2573",
+              "text": "дверь-дверь [1] (code: 2573)"
+            }
+          ]
+        },
+        "info": {
+          "sources": {
+            "value": "sm_params[tariff_code]"
+          },
+          "text": "Посылочка\nКод тарифа: 333\nРежим доставки: склад-склад [4]\nВес: 0 - 18\nДлина: 0 - 60\nШирина: 0 - 35\nВысота: 0 - 30\nПлательщик: Физическое лицо\nОтправитель: Физическое лицо\nПолучатель: Физическое лицо"
+        }
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Москва",
+            "postal_code": "101000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 424,
+          "sample": [
+            {
+              "value": "MSK2",
+              "text": "MSK2 — Москва, ул. Международная, 15"
+            },
+            {
+              "value": "MSK3",
+              "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+            },
+            {
+              "value": "MSK11",
+              "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "tariff-original-after-reload",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingsprices&task=edit&sh_pr_method_id=3&shipping_id_back=",
+        "title": "Изменить цены на доставку - WebTolk Local Test - Панель управления",
+        "watchfield": true,
+        "csrfPresent": true,
+        "point": null,
+        "tariff": {
+          "value": "136",
+          "count": 271,
+          "sample": [
+            {
+              "value": "333",
+              "text": "склад-склад [4] (code: 333)"
+            },
+            {
+              "value": "373",
+              "text": "склад-постамат [7] (code: 373)"
+            },
+            {
+              "value": "615",
+              "text": "постамат-склад [9] (code: 615)"
+            },
+            {
+              "value": "616",
+              "text": "постамат-постамат [10] (code: 616)"
+            },
+            {
+              "value": "2573",
+              "text": "дверь-дверь [1] (code: 2573)"
+            }
+          ]
+        },
+        "info": {
+          "sources": {
+            "value": "sm_params[tariff_code]"
+          },
+          "text": "Посылка\nКод тарифа: 136\nРежим доставки: склад-склад [4]\nВес: 0 - 50\nДлина: 0 - 500\nШирина: 0 - 500\nВысота: 0 - 500\nПлательщик: Любой тип контрагента\nОтправитель: Любой тип контрагента\nПолучатель: Любой тип контрагента"
+        }
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Москва",
+            "postal_code": "101000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 424,
+          "sample": [
+            {
+              "value": "MSK2",
+              "text": "MSK2 — Москва, ул. Международная, 15"
+            },
+            {
+              "value": "MSK3",
+              "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+            },
+            {
+              "value": "MSK11",
+              "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "label": "cancelled-without-save",
+      "state": {
+        "url": "http://joomla.local/administrator/index.php?option=com_jshopping&controller=shippingsprices&shipping_id_back=0",
+        "title": "Список цен способов доставки - WebTolk Local Test - Панель управления",
+        "watchfield": false,
+        "csrfPresent": true,
+        "point": null,
+        "tariff": null,
+        "info": null
+      },
+      "ajax": [
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Москва",
+            "postal_code": "101000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 424,
+          "sample": [
+            {
+              "value": "MSK2",
+              "text": "MSK2 — Москва, ул. Международная, 15"
+            },
+            {
+              "value": "MSK3",
+              "text": "MSK3 — Москва, ул. Расковой, 10с4, 103"
+            },
+            {
+              "value": "MSK11",
+              "text": "MSK11 — Москва, ул. Римского-Корсакова, 8, под.8"
+            }
+          ]
+        },
+        {
+          "status": 200,
+          "method": "POST",
+          "address": {
+            "city": "Саратов",
+            "postal_code": "410000"
+          },
+          "filters": {
+            "type": "PVZ",
+            "is_reception": "true",
+            "is_handout": ""
+          },
+          "success": true,
+          "message": null,
+          "count": 28,
+          "sample": [
+            {
+              "value": "SAR3",
+              "text": "SAR3 — Саратов, ул. Бахметьевская, 20/24"
+            },
+            {
+              "value": "SAR4",
+              "text": "SAR4 — Саратов, ул. 3-я Дачная, 1, корп.14"
+            },
+            {
+              "value": "SAR5",
+              "text": "SAR5 — Саратов, ул. Первомайская, 47/53"
+            }
+          ]
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "saveRequests": []
+}

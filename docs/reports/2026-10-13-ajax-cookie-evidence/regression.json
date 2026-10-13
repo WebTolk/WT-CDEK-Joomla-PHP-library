@@ -1,0 +1,25 @@
+{
+  "native_cores": [
+    {
+      "core": "E:\\.agents\\docs\\joomla\\core\\Joomla-core\\4.x\\4.4.14",
+      "checks": 20,
+      "result": "passed",
+      "network": "none"
+    },
+    {
+      "core": "E:\\.agents\\docs\\joomla\\core\\Joomla-core\\5.x\\5.4.7",
+      "checks": 20,
+      "result": "passed",
+      "network": "none"
+    },
+    {
+      "core": "E:\\OSPanel\\home\\joomla.local\\public",
+      "checks": 20,
+      "result": "passed",
+      "network": "none"
+    }
+  ],
+  "before_fix": "failed: get cookie leaked",
+  "after_fix": "60 checks passed",
+  "network": "none"
+}

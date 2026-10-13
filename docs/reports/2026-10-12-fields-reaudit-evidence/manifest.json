@@ -1,0 +1,112 @@
+[
+  {
+    "path": "browser-probe.html",
+    "bytes": 4925,
+    "sha256": "81953e1fe309d87a0ad7a8f73cd421db9da9c854dc39ac983455c59e033d2ead"
+  },
+  {
+    "path": "browser-result.json",
+    "bytes": 696,
+    "sha256": "4a991c9f9c7574a7f5e62b98576f27b765548ca0e3b63df7b089e83ce8f0cba0"
+  },
+  {
+    "path": "browser.png",
+    "bytes": 32756,
+    "sha256": "118c6f5f3de7094750d590b068940b4ec9c9ccd0132594b910555ff3c00f4e9d"
+  },
+  {
+    "path": "checks.json",
+    "bytes": 559,
+    "sha256": "d3146e49e02be13caaba99ec0982289d802edb0651269d312d3f632c4c519375"
+  },
+  {
+    "path": "code/lib_webtolk_wtcdek/layouts/fields/tariffinfo.php",
+    "bytes": 2033,
+    "sha256": "0e03882ca9677bc2d738fdd393eb5ae43f82e20f87efa142cc61c8d6cb9a8312"
+  },
+  {
+    "path": "code/lib_webtolk_wtcdek/media/joomla.assets.json",
+    "bytes": 1685,
+    "sha256": "b6efec568536938a426b532bd906710ebfab2f6a14ae6c0b36b53e857a2e48b2"
+  },
+  {
+    "path": "code/lib_webtolk_wtcdek/media/js/wtcdek-deliverypoints.js",
+    "bytes": 3336,
+    "sha256": "5b9a6a2468dfbea96a56eb7ca7ca88eb3760018c898e17ba31fd98904634c9de"
+  },
+  {
+    "path": "code/lib_webtolk_wtcdek/media/js/wtcdek-tariffinfo.js",
+    "bytes": 2052,
+    "sha256": "d730f1a0e01e86cac64edbda27a673768eb41f6a909416866884403258d2b1f0"
+  },
+  {
+    "path": "code/lib_webtolk_wtcdek/media/js/wtcdek-watchfield.js",
+    "bytes": 8740,
+    "sha256": "c645485df90a98868d0afa0c59614b42623d46bba64d17e7ff750d0ed8d6870a"
+  },
+  {
+    "path": "code/lib_webtolk_wtcdek/src/Fields/DeliverypointsField.php",
+    "bytes": 5560,
+    "sha256": "72ac810125ff4d5aac73a73c4316eaf04cf1cd5dea6b0d353a791b9a40dd5003"
+  },
+  {
+    "path": "code/lib_webtolk_wtcdek/src/Fields/TariffinfoField.php",
+    "bytes": 6357,
+    "sha256": "f22e031b625098115893707a42c7c8e4c1f280335737579a57199e8ba346fcdc"
+  },
+  {
+    "path": "code/lib_webtolk_wtcdek/src/Fields/TarifflistField.php",
+    "bytes": 2031,
+    "sha256": "17db8beb1301982d76aaab1ca963a600d18f99b8f1ab3accd4c41d5cf860aef3"
+  },
+  {
+    "path": "code/lib_webtolk_wtcdek/src/Fields/Watchfield.php",
+    "bytes": 4474,
+    "sha256": "6630499f1d1917d7598eb123bcaf8b635701c634b1768129b94aaea000d2fa64"
+  },
+  {
+    "path": "code/lib_webtolk_wtcdek/src/Service/DeliverypointsService.php",
+    "bytes": 6628,
+    "sha256": "de12415249092b11d412f211355f34c9184ed61ae8772b9ce78a9d2e15e94db1"
+  },
+  {
+    "path": "code/lib_webtolk_wtcdek/src/WebAsset/AssetItem/WatchfieldAssetItem.php",
+    "bytes": 1203,
+    "sha256": "092116aff2634e57709235492db0493b4f3d261b2ad55436b7354bca411b85db"
+  },
+  {
+    "path": "code/plg_system_wtcdek/src/Extension/Wtcdek.php",
+    "bytes": 5879,
+    "sha256": "d13caf3c3e0b91e6b0816a2fe719d94542064253b9cfd62587a8946307be1f4f"
+  },
+  {
+    "path": "context-at-pause.yaml",
+    "bytes": 4462,
+    "sha256": "16e44c41b7f8d034e28fcd44f0bf95c3d839318d4fb47e481aedb3674bfc7f60"
+  },
+  {
+    "path": "pf-save-status.json",
+    "bytes": 351,
+    "sha256": "884231df8f681b52634bcf822eef62c02d2733c0af1a3ef8fd556a62ddff8743"
+  },
+  {
+    "path": "php-probe.php",
+    "bytes": 2186,
+    "sha256": "7156375129edf124dd3686b19b04bf7ee2d062cc802831b30df114e009d32501"
+  },
+  {
+    "path": "php-result.json",
+    "bytes": 457,
+    "sha256": "921dddc02839142a15c6c69ac8b5d27433f5895b5920fbb03f4f0b8e688c0299"
+  },
+  {
+    "path": "product-before.json",
+    "bytes": 2960,
+    "sha256": "dd011ad7d75f016b41f256c574757966b7d2d36706718bde95f072a882177522"
+  },
+  {
+    "path": "run-browser.cjs",
+    "bytes": 1833,
+    "sha256": "cc8ec234e8ac2dc8f32f49ff052b58abc402d47eaed5600d2bd24a0f2eb85adc"
+  }
+]

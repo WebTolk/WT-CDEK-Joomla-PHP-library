@@ -1,0 +1,40 @@
+{
+  "version": "1.4.0",
+  "sha256": "681653e2034431204463134f1ff41ee454a97b10ccb8125f5d7007657e6b0262",
+  "bytes": 383088,
+  "php_lint": 40,
+  "php_tokens_match_source": 40,
+  "js_syntax": 3,
+  "docblocks": 43,
+  "manifests": [
+    "pkg_lib_wtcdek.xml",
+    "lib_webtolk_wtcdek/Cdekapi.xml",
+    "plg_system_wtcdek/wtcdek.xml",
+    "plg_task_updatewtcdekdata/updatewtcdekdata.xml"
+  ],
+  "languages": [
+    {
+      "language": "ru-RU",
+      "items": 4,
+      "source_exact": true
+    },
+    {
+      "language": "en-GB",
+      "items": 4,
+      "source_exact": true
+    }
+  ],
+  "entries": 66,
+  "archive_regression": {
+    "core": "E:\\OSPanel\\home\\joomla.local\\public",
+    "checks": 20,
+    "result": "passed",
+    "network": "none"
+  },
+  "previous_packages": {
+    "WT Cdek library package_1.3.2.zip": "e36a0ec075990ce914942b47c650e14870a1802f8ff6fa71a77fa92c4bfe9d88",
+    "WT Cdek library package_1.4.0-dev.zip": "3c36a192718027de19a91c036b6a8305ec04466a2da2a7e05e1740427c903fc1"
+  },
+  "pre_fix_package_preserved": "f5849366b33d98dc96bb389957e86cec5fa1ca8a31bb73f4c3c30ad99715996d",
+  "result": "passed"
+}

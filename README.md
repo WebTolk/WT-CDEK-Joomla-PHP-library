@@ -29,6 +29,8 @@
 
 ## Быстрый старт
 
+Документация полей Joomla Form для версии `1.4.0-dev`: [Tarifflist](.docs/fields/tarifflist.md), [Tariffinfo](.docs/fields/tariffinfo.md), [Deliverypoints](.docs/fields/deliverypoints.md), [общий обработчик Watchfield](.docs/fields/watchfield.md). Доступны Script Options и AJAX, автоматическое обновление зависимых полей и repeatable subform.
+
 ```php
 <?php
 

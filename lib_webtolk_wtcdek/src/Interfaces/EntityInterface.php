@@ -1,10 +1,12 @@
 <?php
 /**
+ * Contract for CDEK API entities.
  * @package       WT Cdek library package
- * @version       1.3.1
- * @Author        Sergey Tolkachyov
- * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov. All rights reserved.
- * @license       GNU/GPL3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @subpackage    Webtolk/Cdekapi
+ * @author        Sergey Tolkachyov, WebTolk
+ * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov, WebTolk. All rights reserved.
+ * @version       __DEPLOY_VERSION__
+ * @license       GNU General Public License version 3 or later.
  * @link          https://web-tolk.ru
  * @since         1.3.0
  */

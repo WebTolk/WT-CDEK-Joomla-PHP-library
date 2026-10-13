@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Fields audit regression probes</title>
+<script>
+window.optionsStore = {'csrf.token':'audit-only-token', catalog:{136:{tariff_code:'136',tariff_name:'Catalog'}}, providerA:{tag:'A'}, providerB:{tag:'B'}, pagePoints:[{value:'KNOWN',text:'Known'}]};
+window.Joomla = {Text:{_:key=>key},getOptions:key=>optionsStore[key]};
+window.requests=[];
+window.fetch=async(url,options)=>{
+ const mode=new URL(url).searchParams.get('mode'); requests.push(mode);
+ if(mode==='retry' && requests.filter(value=>value==='retry').length===1) throw new Error('Temporary network failure');
+ return {ok:true,json:async()=>({options:[{value:'KNOWN',text:'Known point'}]})};
+};
+</script>
+<script src="file:///E:/dev/WT-CDEK-Joomla-PHP-library/lib_webtolk_wtcdek/media/js/wtcdek-watchfield.js" defer></script>
+<script src="file:///E:/dev/WT-CDEK-Joomla-PHP-library/lib_webtolk_wtcdek/media/js/wtcdek-deliverypoints.js" defer></script>
+<script src="file:///E:/dev/WT-CDEK-Joomla-PHP-library/lib_webtolk_wtcdek/media/js/wtcdek-tariffinfo.js" defer></script>
+</head><body><form id="audit">
+<input id="city" name="audit[city]" value="Old address">
+<div id="retry" class="wt-cdek-deliverypoints-field" data-watchfield='{"city":"audit[city]"}' data-watchfield-options='{"source":"ajax","url":"provider.json?mode=retry","path":"options"}'>
+<select name="audit[retry]"><option value="">Select</option><option value="SAVED" selected>Saved</option></select><div data-role="status"></div></div>
+<div id="points" class="wt-cdek-deliverypoints-field" data-watchfield='{"city":"audit[city]"}' data-watchfield-options='{"source":"ajax","url":"provider.json?mode=normal","path":"options"}'>
+<select name="audit[point]"><option value="">Select</option><option value="KNOWN" selected>Known</option></select><div data-role="status"></div></div>
+<div id="chained" data-watchfield='{"point":"audit[point]"}' data-watchfield-options='{"source":"scriptoptions","options":"providerA"}'></div>
+<input id="signal" name="audit[signal]" value="136">
+<div id="reconfigure" data-watchfield='{"value":"audit[signal]"}' data-watchfield-options='{"source":"scriptoptions","options":"providerA"}'></div>
+<div id="scriptoptions" data-watchfield='{"value":"audit[signal]"}' data-watchfield-options='{"source":"scriptoptions","options":"providerA"}'></div>
+<div id="legacy" class="wt-cdek-tariffinfo-field" data-watch-field="signal" data-tariffs='{"136":{"tariff_name":"Catalog"}}'>
+ <div data-role="render-target"></div>
+ <template data-template="tariff-card"><b data-field="tariff_name"></b></template>
+ <template data-template="state-error"><span data-field="message"></span></template>
+</div>
+</form><pre id="result">Waiting</pre>
+<script>
+window.auditEvents=[];
+document.addEventListener('watchfield:data',event=>auditEvents.push({target:event.target.id,values:event.detail.values,data:event.detail.data}));
+window.runAudit=async()=>{
+ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms)); await wait(50);
+ const result={}; const retry=document.querySelector('#retry select'); const point=document.querySelector('#points select');
+ result.retryBefore={value:retry.value,address:city.value,attempts:requests.filter(value=>value==='retry').length};
+ Joomla.Watchfield.scan(); await wait(30);
+ result.retryAfter={value:retry.value,address:city.value,attempts:requests.filter(value=>value==='retry').length};
+ result.chainBefore={value:point.value,snapshot:auditEvents.filter(e=>e.target==='chained').at(-1).values.point};
+ city.value='New address';city.dispatchEvent(new Event('input',{bubbles:true}));await wait(5);
+ result.chainAfter={value:point.value,snapshot:auditEvents.filter(e=>e.target==='chained').at(-1).values.point};
+ const dynamic=document.querySelector('#reconfigure');dynamic.dataset.watchfieldOptions=JSON.stringify({source:'scriptoptions',options:'providerB'});
+ Joomla.Watchfield.scan();await wait(30);
+ result.configAfterScan=auditEvents.filter(e=>e.target==='reconfigure').at(-1).data.tag;
+ signal.value='137';signal.dispatchEvent(new Event('change',{bubbles:true}));await wait(20);
+ result.configAfterChange=auditEvents.filter(e=>e.target==='reconfigure').at(-1).data.tag;
+ const beforeRefresh=auditEvents.filter(e=>e.target==='scriptoptions').length;
+ optionsStore.providerA={tag:'updated'};document.dispatchEvent(new CustomEvent('joomla:updated'));await wait(30);
+ result.scriptOptionsRefresh={eventsBefore:beforeRefresh,eventsAfter:auditEvents.filter(e=>e.target==='scriptoptions').length,tag:auditEvents.filter(e=>e.target==='scriptoptions').at(-1).data.tag};
+ result.legacyRender=document.querySelector('#legacy [data-role="render-target"]').textContent;
+ result.network='fetch substituted; no external requests';result.productScripts='actual working-tree JS, native Chrome DOM';
+ document.querySelector('#result').textContent=JSON.stringify(result,null,2);return result;
+};
+</script></body></html>

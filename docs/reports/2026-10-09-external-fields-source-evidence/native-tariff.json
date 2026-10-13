@@ -1,0 +1,18 @@
+{
+  "original": "136",
+  "tested": "139",
+  "restored": true,
+  "config": [
+    {
+      "id": "sm_params_tariff_info_tariffinfo",
+      "sources": {
+        "value": {
+          "id": "sm_params_tariff_code",
+          "name": "sm_params[tariff_code]",
+          "value": "136"
+        }
+      }
+    }
+  ],
+  "errors": []
+}

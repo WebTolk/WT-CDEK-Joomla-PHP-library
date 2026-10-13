@@ -1,0 +1,15 @@
+{
+  "donor_project": "JoomShopping-WT-CDEK-shipping-method",
+  "original_root": ".pf/artifacts/runs/cdek-fields-assets-20261009",
+  "original_checks": "JoomShopping runtime acceptance only; not library integration",
+  "hashes": {
+    "assurance.md": "c0f33c0ba04b5f655edfb6a211918fd68ecf247aa273acd08fe043f952e202e9",
+    "browser-fixtures.json": "e0527e3bb8abb06344e6960504927a2787b220455f638b50fe4b5a215d411a3f",
+    "handoff.md": "421bb1d3af81630a72d45e83ffe8801a85a18c3ffe3043bcda3bc7ce0bc85d13",
+    "implementation.md": "4d97d38d783f959bececc70d9c0ac64245be20dc9e0804a07f441efaaac3cdbe",
+    "native-final.json": "92630ee3c88c6a9b06a3e0f566062ed5fb8ef901f5d161a87b57aea12ef0b452",
+    "native-interactions.json": "b11cae9d4c9e2209589be96be0e57a03840f1764265fedebe3a4f96852a26f76",
+    "native-tariff.json": "e4e2fe903ccea6e3bc396de9ca793c6c006d1463d2bf156ae55887f075f3b213",
+    "scope-watchfield-addendum.md": "71ce5308f69b1cdcacfb2d3c393ffa8530998fac7c4fe0e52b9f20e89e95ebd2"
+  }
+}

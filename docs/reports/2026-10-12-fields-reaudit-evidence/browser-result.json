@@ -1,0 +1,33 @@
+{
+  "data": {
+    "retryBefore": {
+      "value": "SAVED",
+      "address": "Old address",
+      "attempts": 1
+    },
+    "retryAfter": {
+      "value": "",
+      "address": "Old address",
+      "attempts": 2
+    },
+    "chainBefore": {
+      "value": "KNOWN",
+      "snapshot": "KNOWN"
+    },
+    "chainAfter": {
+      "value": "",
+      "snapshot": "KNOWN"
+    },
+    "configAfterScan": "A",
+    "configAfterChange": "A",
+    "scriptOptionsRefresh": {
+      "eventsBefore": 2,
+      "eventsAfter": 2,
+      "tag": "A"
+    },
+    "legacyRender": "",
+    "network": "fetch substituted; no external requests",
+    "productScripts": "actual working-tree JS, native Chrome DOM"
+  },
+  "errors": []
+}

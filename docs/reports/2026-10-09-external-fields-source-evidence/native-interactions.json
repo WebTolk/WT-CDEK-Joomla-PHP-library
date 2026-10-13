@@ -1,0 +1,16 @@
+{
+  "checks": 10,
+  "requests": [
+    {
+      "city": "",
+      "zip": ""
+    },
+    {
+      "city": "Саратов",
+      "zip": "410000"
+    }
+  ],
+  "repeatLookupCount": 28,
+  "links": [],
+  "errors": []
+}

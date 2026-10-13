@@ -1,0 +1,65 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "cdekwidget",
+  "version": "3.11.1",
+  "description": "Map widget for CDEK",
+  "license": "GPL-3.0-or-later",
+  "assets": [
+    {
+      "name": "wtcdek.watchfield",
+      "type": "script",
+      "uri": "lib_wtcdek/wtcdek-watchfield.js",
+      "version": "auto",
+      "namespace": "Webtolk\\Cdekapi\\WebAsset\\AssetItem",
+      "class": "WatchfieldAssetItem",
+      "attributes": {"defer": true},
+      "dependencies": ["core"]
+    },
+    {
+      "name": "wtcdek.deliverypoints",
+      "type": "script",
+      "uri": "lib_wtcdek/wtcdek-deliverypoints.js",
+      "version": "auto",
+      "attributes": {"defer": true},
+      "dependencies": ["core", "wtcdek.watchfield"]
+    },
+    {
+      "name": "wtcdek.tariffinfo",
+      "type": "script",
+      "uri": "lib_wtcdek/wtcdek-tariffinfo.js",
+      "version": "auto",
+      "attributes": {"defer": true},
+      "dependencies": ["core", "wtcdek.watchfield"]
+    },
+    {
+      "name": "cdek-widget-ts",
+      "type": "script",
+      "uri": "lib_wtcdek/cdek-widget.es.d.ts",
+      "attributes": {
+        "defer": true
+      },
+      "package": "cdekwidget",
+      "version": "3.11.1"
+    },
+    {
+      "name": "cdek-widget-es",
+      "type": "script",
+      "uri": "lib_wtcdek/cdek-widget.es.js",
+      "attributes": {
+        "defer": true
+      },
+      "package": "cdekwidget",
+      "version": "3.11.1"
+    },
+    {
+      "name": "cdek-widget-umd",
+      "type": "script",
+      "uri": "lib_wtcdek/cdek-widget.umd.js",
+      "attributes": {
+        "defer": true
+      },
+      "package": "cdekwidget",
+      "version": "3.11.1"
+    }
+  ]
+}

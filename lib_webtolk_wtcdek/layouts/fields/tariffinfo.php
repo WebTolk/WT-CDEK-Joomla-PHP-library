@@ -1,10 +1,12 @@
 <?php
 /**
+ * Layout for the watched CDEK tariff information card.
  * @package       WT Cdek library package
- * @version       1.3.1
- * @Author        Sergey Tolkachyov
- * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov. All rights reserved.
- * @license       GNU/GPL3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @subpackage    Webtolk/Cdekapi
+ * @author        Sergey Tolkachyov, WebTolk
+ * @copyright     Copyright (c) 2024 - 2026 Sergey Tolkachyov, WebTolk. All rights reserved.
+ * @version       __DEPLOY_VERSION__
+ * @license       GNU General Public License version 3 or later.
  * @link          https://web-tolk.ru
  * @since         1.0.0
  */
@@ -17,7 +19,7 @@ extract($displayData);
 	id="<?php echo htmlspecialchars((string) ($container_id ?? ''), ENT_QUOTES, 'UTF-8'); ?>"
 	class="wt-cdek-tariffinfo-field"
 	data-watch-field="<?php echo htmlspecialchars((string) ($watchfield ?? ''), ENT_QUOTES, 'UTF-8'); ?>"
-	data-tariffs="<?php echo htmlspecialchars((string) json_encode($tariffs ?? [], JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8'); ?>"
+	<?php echo $watchfield_attributes ?? ''; ?>
 >
 	<div data-role="render-target"></div>
 
@@ -29,7 +31,7 @@ extract($displayData);
 
 	<template data-template="state-not-found">
 		<div class="alert alert-warning">
-			Информация по тарифу с кодом <strong data-field="tariff_code"></strong> не найдена.
+			<span data-field="message"></span> <strong data-field="tariff_code"></strong>
 		</div>
 	</template>
 

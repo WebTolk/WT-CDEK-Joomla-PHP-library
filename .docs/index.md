@@ -102,6 +102,16 @@ $cdek = new Cdek(
 - нормализует часть ошибок API;
 - кэширует некоторые справочные запросы, например тарифы и ПВЗ.
 
+## Поля Joomla Form
+
+В версии `1.4.0-dev` реализован общий обработчик зависимостей, два источника данных и автоматическая поддержка repeatable subform. Проверено на установленной Joomla 6.1.3 на `joomla.local`.
+
+- [Tarifflist: список тарифов](./fields/tarifflist.md)
+- [Tariffinfo: условия выбранного тарифа](./fields/tariffinfo.md)
+- [Deliverypoints: ПВЗ и постаматы](./fields/deliverypoints.md)
+
+Общее поведение полей подключается через [Watchfield WebAsset: источники и события](./fields/watchfield.md). Отдельный тип поля Watchfield не требуется.
+
 ## Entity
 
 - [CalculatorEntity](./entities/calculator.md)
