@@ -1,7 +1,0 @@
-Unable to determine minimum PHP version supported by your project from composer.json: Failed to read file "composer.json".
-If you need help while solving warnings, ask at https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/discussions/, we will help you!
-
-PHP CS Fixer 3.95.1 Adalbertus by Fabien Potencier, Dariusz Ruminski and contributors.
-PHP runtime: 8.3.30
-Loaded config default from "E:\dev\WT-CDEK-Joomla-PHP-library\docs\reports\2026-10-15-prerelease-evidence\fixer-scope.php".
-Running analysis on 1 core sequentially.

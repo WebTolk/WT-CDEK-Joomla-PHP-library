@@ -1,8 +1,8 @@
-﻿[![Version](https://img.shields.io/github/release/WebTolk/WT-CDEK-Joomla-PHP-library.svg)]() [![PHP](https://img.shields.io/badge/PHP-7.4+-green.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-4.2.7+-orange.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-5.x-orange.svg)]() [![Documentation](https://img.shields.io/badge/Documentation-blue.svg)](https://web-tolk.ru/dev/biblioteki/wt-cdek-library-for-joomla-developers?utm_source=github)
+﻿[![Version](https://img.shields.io/github/release/WebTolk/WT-CDEK-Joomla-PHP-library.svg)]() [![PHP](https://img.shields.io/badge/PHP-7.4+-green.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-4.2.7+-orange.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-5.x-orange.svg)]() [![JoomlaVersion](https://img.shields.io/badge/Joomla-6.x-orange.svg)]() [![Documentation](https://img.shields.io/badge/Documentation-blue.svg)](.docs/)
 
 # WT CDEK Joomla PHP library
 
-Нативная библиотека для Joomla 4.2.7+ и Joomla 5, которая упрощает работу с REST API СДЭК. Пакет включает:
+Нативная библиотека для Joomla 4.2.7+, Joomla 5 и Joomla 6, которая упрощает работу с REST API СДЭК. Пакет включает:
 
 - библиотеку `Webtolk/Cdekapi`
 - системный плагин `System - WT Cdek` для хранения настроек и AJAX-интеграций
@@ -29,7 +29,7 @@
 
 ## Быстрый старт
 
-Документация полей Joomla Form для версии `1.4.0-dev`: [Tarifflist](.docs/fields/tarifflist.md), [Tariffinfo](.docs/fields/tariffinfo.md), [Deliverypoints](.docs/fields/deliverypoints.md), [общий обработчик Watchfield](.docs/fields/watchfield.md). Доступны Script Options и AJAX, автоматическое обновление зависимых полей и repeatable subform.
+Документация полей Joomla Form для версии `1.4.0`: [Tarifflist](.docs/fields/tarifflist.md), [Tariffinfo](.docs/fields/tariffinfo.md), [Deliverypoints](.docs/fields/deliverypoints.md), [общий обработчик Watchfield](.docs/fields/watchfield.md). Доступны Script Options и AJAX, автоматическое обновление зависимых полей и repeatable subform.
 
 ```php
 <?php

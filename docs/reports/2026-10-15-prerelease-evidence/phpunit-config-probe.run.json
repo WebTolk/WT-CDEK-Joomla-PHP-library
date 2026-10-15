@@ -1,9 +1,0 @@
-{
-  "command": [
-    "E:/OSPanel/modules/PHP-8.3/php.exe",
-    "E:\\.agents\\tools\\php-qa\\vendor\\bin\\phpunit",
-    "--list-tests"
-  ],
-  "exit": 2,
-  "seconds": 0.32
-}
