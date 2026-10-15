@@ -1,0 +1,5238 @@
+{
+  "summary": {
+    "files": 40,
+    "timeouts": 0,
+    "counts": {
+      "WEAK_WARNING": 433,
+      "WARNING": 15
+    }
+  },
+  "results": [
+    {
+      "file": "lib_webtolk_wtcdek/layouts/fields/tariffinfo.php",
+      "filePath": "lib_webtolk_wtcdek\\layouts\\fields\\tariffinfo.php",
+      "problems": []
+    },
+    {
+      "file": "lib_webtolk_wtcdek/script.php",
+      "filePath": "lib_webtolk_wtcdek\\script.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (252 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Class can be 'readonly'",
+          "lineContent": "\t\t\tnew class ($container->get(AdministratorApplication::class)) implements InstallerScriptInterface {",
+          "line": 42,
+          "column": 8,
+          "quickFixes": [
+            {
+              "name": "Class can be 'readonly'",
+              "familyName": "Make class 'readonly'"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier is unnecessary and can be removed",
+          "lineContent": "\t\t\t\t * @param   \\SimpleXMLElement  $element    The XML node to process.",
+          "line": 136,
+          "column": 17,
+          "quickFixes": [
+            {
+              "name": "Unnecessary fully qualified name",
+              "familyName": "Remove unnecessary qualifier"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier is unnecessary and can be removed",
+          "lineContent": "\t\t\t\tprivate function parseLayouts(\\SimpleXMLElement $element, Installer $installer): bool",
+          "line": 143,
+          "column": 35,
+          "quickFixes": [
+            {
+              "name": "Unnecessary fully qualified name",
+              "familyName": "Remove unnecessary qualifier"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier is unnecessary and can be removed",
+          "lineContent": "\t\t\t\t * @param   \\SimpleXMLElement  $element  The XML node to process.",
+          "line": 191,
+          "column": 17,
+          "quickFixes": [
+            {
+              "name": "Unnecessary fully qualified name",
+              "familyName": "Remove unnecessary qualifier"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier is unnecessary and can be removed",
+          "lineContent": "\t\t\t\tprivate function removeLayouts(\\SimpleXMLElement $element): bool",
+          "line": 197,
+          "column": 36,
+          "quickFixes": [
+            {
+              "name": "Unnecessary fully qualified name",
+              "familyName": "Remove unnecessary qualifier"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Method's return value is never used",
+          "lineContent": "\t\t\t\tprivate function parseLayouts(\\SimpleXMLElement $element, Installer $installer): bool",
+          "line": 143,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Method's return value is never used",
+              "familyName": "Make method 'void'"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Method's return value is never used",
+          "lineContent": "\t\t\t\tprivate function removeLayouts(\\SimpleXMLElement $element): bool",
+          "line": 197,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Method's return value is never used",
+              "familyName": "Make method 'void'"
+            }
+          ]
+        },
+        {
+          "severity": "WARNING",
+          "description": "Property is only written but never read",
+          "lineContent": "\t\t\t\tpublic function __construct(private readonly AdministratorApplication $app)",
+          "line": 50,
+          "column": 33,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Condition is always 'false' because '\\SimpleXMLElement $element' is evaluated at this point",
+          "lineContent": "\t\t\t\t\tif (!$element || !count($element->children()))",
+          "line": 145,
+          "column": 10,
+          "quickFixes": [
+            {
+              "name": "Condition always evaluates to 'true/false'",
+              "familyName": "Delete '!$element'"
+            },
+            {
+              "name": "Condition always evaluates to 'true/false'",
+              "familyName": "Navigate to cause"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Condition is always 'false' because '\\SimpleXMLElement $element' is evaluated at this point",
+          "lineContent": "\t\t\t\t\tif (!$element || !count($element->children()))",
+          "line": 199,
+          "column": 10,
+          "quickFixes": [
+            {
+              "name": "Condition always evaluates to 'true/false'",
+              "familyName": "Delete '!$element'"
+            },
+            {
+              "name": "Condition always evaluates to 'true/false'",
+              "familyName": "Navigate to cause"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Cdek.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Cdek.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (1,117 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t */",
+          "line": 157,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t/**",
+          "line": 151,
+          "column": 2,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "\t\t$lang      = Factory::getApplication()->getLanguage();",
+          "line": 165,
+          "column": 25,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unnecessary local variable",
+          "lineContent": "\t\t$kebab = str_replace('_', '-', $kebab);",
+          "line": 265,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Unnecessary local variable",
+              "familyName": "Inline variable"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->getResponse('/webhooks', ['url' => $url, 'type' => $type], 'POST');",
+          "line": 383,
+          "column": 76,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CalculatorEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\CalculatorEntity;",
+          "line": 22,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CheckEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\CheckEntity;",
+          "line": 23,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'DeliveryEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\DeliveryEntity;",
+          "line": 24,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'DeliverypointsEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\DeliverypointsEntity;",
+          "line": 25,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'IntakesEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\IntakesEntity;",
+          "line": 26,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'InternationalEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\InternationalEntity;",
+          "line": 27,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'LocationEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\LocationEntity;",
+          "line": 28,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'OauthEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\OauthEntity;",
+          "line": 29,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'OrdersEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\OrdersEntity;",
+          "line": 30,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'PassportEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\PassportEntity;",
+          "line": 31,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'PaymentEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\PaymentEntity;",
+          "line": 32,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'PhotoDocumentEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\PhotoDocumentEntity;",
+          "line": 33,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'PrealertEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\PrealertEntity;",
+          "line": 34,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'PrintEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\PrintEntity;",
+          "line": 35,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'ReverseEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\ReverseEntity;",
+          "line": 36,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'WebhooksEntity'",
+          "lineContent": "use Webtolk\\Cdekapi\\Entities\\WebhooksEntity;",
+          "line": 37,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'EntityInterface'",
+          "lineContent": "use Webtolk\\Cdekapi\\Interfaces\\EntityInterface;",
+          "line": 38,
+          "column": 32,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'LogTrait'",
+          "lineContent": "use Webtolk\\Cdekapi\\Traits\\LogTrait;",
+          "line": 39,
+          "column": 28,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CalculatorEntity'",
+          "lineContent": " * @method  CalculatorEntity     calculator()     Возвращает обработчик сущности калькулятора.",
+          "line": 50,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CheckEntity'",
+          "lineContent": " * @method  CheckEntity          check()          Возвращает обработчик сущности чеков.",
+          "line": 51,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'DeliveryEntity'",
+          "lineContent": " * @method  DeliveryEntity       delivery()       Возвращает обработчик сущности договоренностей о доставке.",
+          "line": 52,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'DeliverypointsEntity'",
+          "lineContent": " * @method  DeliverypointsEntity deliverypoints() Возвращает обработчик сущности офисов.",
+          "line": 53,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'IntakesEntity'",
+          "lineContent": " * @method  IntakesEntity        intakes()        Возвращает обработчик сущности заявок на вызов курьера.",
+          "line": 54,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'InternationalEntity'",
+          "lineContent": " * @method  InternationalEntity  international()  Возвращает обработчик сущности международных ограничений.",
+          "line": 55,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'LocationEntity'",
+          "lineContent": " * @method  LocationEntity       location()       Возвращает обработчик сущности локаций.",
+          "line": 56,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'OauthEntity'",
+          "lineContent": " * @method  OauthEntity          oauth()          Возвращает обработчик сущности авторизации.",
+          "line": 57,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'OrdersEntity'",
+          "lineContent": " * @method  OrdersEntity         orders()         Возвращает обработчик сущности заказов.",
+          "line": 58,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'PassportEntity'",
+          "lineContent": " * @method  PassportEntity       passport()       Возвращает обработчик сущности паспортных данных.",
+          "line": 59,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'PaymentEntity'",
+          "lineContent": " * @method  PaymentEntity        payment()        Возвращает обработчик сущности наложенных платежей.",
+          "line": 60,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'PhotoDocumentEntity'",
+          "lineContent": " * @method  PhotoDocumentEntity  photoDocument()  Возвращает обработчик сущности фото документов.",
+          "line": 61,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'PrealertEntity'",
+          "lineContent": " * @method  PrealertEntity       prealert()       Возвращает обработчик сущности преалертов.",
+          "line": 62,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'PrintEntity'",
+          "lineContent": " * @method  PrintEntity          print()          Возвращает обработчик сущности печатных форм.",
+          "line": 63,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'ReverseEntity'",
+          "lineContent": " * @method  ReverseEntity        reverse()        Возвращает обработчик сущности реверса.",
+          "line": 64,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'WebhooksEntity'",
+          "lineContent": " * @method  WebhooksEntity       webhooks()       Возвращает обработчик сущности вебхуков.",
+          "line": 65,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'LogTrait'",
+          "lineContent": "\tuse LogTrait;",
+          "line": 71,
+          "column": 6,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CdekRequest'",
+          "lineContent": "\t * @var    CdekRequest",
+          "line": 129,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CdekRequest'",
+          "lineContent": "\tprivate CdekRequest $request;",
+          "line": 132,
+          "column": 10,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'EntityInterface'",
+          "lineContent": "\t * @var    array<string, EntityInterface>",
+          "line": 145,
+          "column": 27,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CdekRequest'",
+          "lineContent": "\t\t$this->request       = new CdekRequest(self::$test_mode, self::$client_id, self::$client_secret);",
+          "line": 163,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CdekRequest'",
+          "lineContent": "\t * @return  CdekRequest",
+          "line": 195,
+          "column": 14,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CdekRequest'",
+          "lineContent": "\tpublic function getRequest(): CdekRequest",
+          "line": 199,
+          "column": 32,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'EntityInterface'",
+          "lineContent": "\t * @return  EntityInterface",
+          "line": 210,
+          "column": 14,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'EntityInterface'",
+          "lineContent": "\tpublic function __call(string $name, array $arguments): EntityInterface",
+          "line": 214,
+          "column": 58,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'EntityInterface'",
+          "lineContent": "\t * @return  EntityInterface",
+          "line": 224,
+          "column": 14,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'EntityInterface'",
+          "lineContent": "\tpublic function entity(string $name): EntityInterface",
+          "line": 228,
+          "column": 40,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'Cdek' exist at tmp\\install-1.3.2\\lib_webtolk_wtcdek\\…\\Cdek.php, package-140-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\Cdek.php, .packages\\install_6a28433376bd7\\lib_webtolk_wtcdek\\…\\Cdek.php, watchfield-140-dev\\archive-audit\\lib_webtolk_wtcdek\\…\\Cdek.php, deliverypoints-test.before.php and 13 other",
+          "lineContent": "final class Cdek",
+          "line": 69,
+          "column": 13,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/CdekClientException.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\CdekClientException.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'CdekClientException' exist at tmp\\install-1.3.2\\lib_webtolk_wtcdek\\…\\CdekClientException.php, file-docblocks-20261013\\metadata-stage\\lib_webtolk_wtcdek\\…\\CdekClientException.php, Webtolk\\Cdekapi\\…\\CdekClientException.php, ajax-routing-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\CdekClientException.php, package-140-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\CdekClientException.php and 8 other",
+          "lineContent": "class CdekClientException extends Exception",
+          "line": 20,
+          "column": 7,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/CdekRequest.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\CdekRequest.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Class constant type is missing",
+          "lineContent": "    private const CDEK_API_URL = 'https://api.cdek.ru/v2';",
+          "line": 61,
+          "column": 19,
+          "quickFixes": [
+            {
+              "name": "Class constant type is missing",
+              "familyName": "Add 'string' as the class constant type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Class constant type is missing",
+          "lineContent": "    private const CDEK_API_URL_TEST = 'https://api.edu.cdek.ru/v2';",
+          "line": 69,
+          "column": 19,
+          "quickFixes": [
+            {
+              "name": "Class constant type is missing",
+              "familyName": "Add 'string' as the class constant type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Class constant type is missing",
+          "lineContent": "    private const CDEK_TEST_CLIENT_ID = 'wqGwiQx0gg8mLtiEKsUinjVSICCjtTEP';",
+          "line": 77,
+          "column": 19,
+          "quickFixes": [
+            {
+              "name": "Class constant type is missing",
+              "familyName": "Add 'string' as the class constant type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Class constant type is missing",
+          "lineContent": "    private const CDEK_TEST_CLIENT_SECRET = 'RmAmgvSgSl1yirlz9QupbzOJVqhCxcP5';",
+          "line": 85,
+          "column": 19,
+          "quickFixes": [
+            {
+              "name": "Class constant type is missing",
+              "familyName": "Add 'string' as the class constant type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (679 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Type cast is redundant",
+          "lineContent": "        $this->testMode     = (bool) ($test_mode ?? false);",
+          "line": 151,
+          "column": 31,
+          "quickFixes": [
+            {
+              "name": "Type cast is unnecessary",
+              "familyName": "Unwrap cast"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Type cast is redundant",
+          "lineContent": "        $this->clientId     = (string) ($client_id ?? '');",
+          "line": 152,
+          "column": 31,
+          "quickFixes": [
+            {
+              "name": "Type cast is unnecessary",
+              "familyName": "Unwrap cast"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Type cast is redundant",
+          "lineContent": "        $this->clientSecret = (string) ($client_secret ?? '');",
+          "line": 153,
+          "column": 31,
+          "quickFixes": [
+            {
+              "name": "Type cast is unnecessary",
+              "familyName": "Unwrap cast"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Type cast is redundant",
+          "lineContent": "                'error_code'    => (int) $statusCode,",
+          "line": 533,
+          "column": 36,
+          "quickFixes": [
+            {
+              "name": "Type cast is unnecessary",
+              "familyName": "Unwrap cast"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Type cast is redundant",
+          "lineContent": "            $errorArray['error_code']    = (int) $statusCode;",
+          "line": 544,
+          "column": 44,
+          "quickFixes": [
+            {
+              "name": "Type cast is unnecessary",
+              "familyName": "Unwrap cast"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\CMS\\Factory' is never used",
+          "lineContent": "use Joomla\\CMS\\Factory;",
+          "line": 21,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing parameter's type declaration",
+          "lineContent": "    private function normalizeErrors($errors): string",
+          "line": 562,
+          "column": 38,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "        $response = $this->getResponse('/oauth/token', $authorizeData, 'POST');",
+          "line": 418,
+          "column": 72,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Class 'HttpFactory' is deprecated",
+          "lineContent": "use Joomla\\CMS\\Http\\HttpFactory;",
+          "line": 22,
+          "column": 21,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Class 'HttpFactory' is deprecated",
+          "lineContent": "        $http = (new HttpFactory())->getHttp($options, ['curl', 'stream']);",
+          "line": 217,
+          "column": 22,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Method 'getHttp' is deprecated",
+          "lineContent": "        $http = (new HttpFactory())->getHttp($options, ['curl', 'stream']);",
+          "line": 217,
+          "column": 38,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Property initializer is redundant",
+          "lineContent": "    private bool $testMode = false;",
+          "line": 125,
+          "column": 27,
+          "quickFixes": [
+            {
+              "name": "Redundant property initializer",
+              "familyName": "Remove redundant initializer"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Property initializer is redundant",
+          "lineContent": "    private string $clientId = '';",
+          "line": 133,
+          "column": 29,
+          "quickFixes": [
+            {
+              "name": "Redundant property initializer",
+              "familyName": "Remove redundant initializer"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Property initializer is redundant",
+          "lineContent": "    private string $clientSecret = '';",
+          "line": 141,
+          "column": 33,
+          "quickFixes": [
+            {
+              "name": "Redundant property initializer",
+              "familyName": "Remove redundant initializer"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unnecessary cast to '(string) $value'",
+          "lineContent": "                $parts[] = is_string($key) ? $key . ': ' . (string) $value : (string) $value;",
+          "line": 579,
+          "column": 60,
+          "quickFixes": [
+            {
+              "name": "Redundant cast to string",
+              "familyName": "Unwrap cast"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing function's return type declaration",
+          "lineContent": "    public static function getPluginParams()",
+          "line": 322,
+          "column": 28,
+          "quickFixes": [
+            {
+              "name": "Missing return type declaration",
+              "familyName": "Add 'false|Registry' as the function's return type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Uri'",
+          "lineContent": "use Joomla\\Uri\\Uri;",
+          "line": 26,
+          "column": 16,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'ResponseInterface'",
+          "lineContent": "use Psr\\Http\\Message\\ResponseInterface;",
+          "line": 27,
+          "column": 22,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CacheTrait'",
+          "lineContent": "use Webtolk\\Cdekapi\\Traits\\CacheTrait;",
+          "line": 29,
+          "column": 28,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'LogTrait'",
+          "lineContent": "use Webtolk\\Cdekapi\\Traits\\LogTrait;",
+          "line": 30,
+          "column": 28,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CacheTrait'",
+          "lineContent": "    use CacheTrait;",
+          "line": 52,
+          "column": 9,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'LogTrait'",
+          "lineContent": "    use LogTrait;",
+          "line": 53,
+          "column": 9,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Uri'",
+          "lineContent": "     * @return  Uri",
+          "line": 341,
+          "column": 17,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Uri'",
+          "lineContent": "    private function getCdekHost(): Uri",
+          "line": 345,
+          "column": 37,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Uri'",
+          "lineContent": "        return new Uri($this->testMode ? self::CDEK_API_URL_TEST : self::CDEK_API_URL);",
+          "line": 347,
+          "column": 20,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'ResponseInterface'",
+          "lineContent": "     * @param   ResponseInterface  $response    HTTP-ответ.",
+          "line": 471,
+          "column": 17,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'ResponseInterface'",
+          "lineContent": "    private function mapResponse(ResponseInterface $response, string $methodName = ''): array",
+          "line": 478,
+          "column": 34,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'ResponseInterface'",
+          "lineContent": "     * @param   ResponseInterface  $response    HTTP-ответ.",
+          "line": 667,
+          "column": 17,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'ResponseInterface'",
+          "lineContent": "    public function responseHandler(ResponseInterface $response, string $methodName = ''): array",
+          "line": 674,
+          "column": 37,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'CdekRequest' exist at tmp\\install-1.3.2\\lib_webtolk_wtcdek\\…\\CdekRequest.php, ajax-cookie-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\CdekRequest.php, file-docblocks-20261013\\before\\lib_webtolk_wtcdek\\…\\CdekRequest.php, Webtolk\\Cdekapi\\…\\CdekRequest.php, watchfield-140-dev\\archive-audit\\lib_webtolk_wtcdek\\…\\CdekRequest.php and 7 other",
+          "lineContent": "final class CdekRequest",
+          "line": 50,
+          "column": 13,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/AbstractEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\AbstractEntity.php",
+      "problems": []
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/CalculatorEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\CalculatorEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (282 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse($endpoint, $request_options, 'POST');",
+          "line": 278,
+          "column": 67,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/CheckEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\CheckEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (67 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\tif (!empty($request_options['order_uuid']) && !Uuid::isValid(\\trim((string) $request_options['order_uuid'])))",
+          "line": 54,
+          "column": 64,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/DeliveryEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\DeliveryEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (251 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/delivery', $request_options, 'POST');",
+          "line": 95,
+          "column": 69,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/delivery/estimatedIntervals', $request_options, 'POST');",
+          "line": 164,
+          "column": 88,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\tif (!empty($request_options['order_uuid']) && !Uuid::isValid(\\trim((string) $request_options['order_uuid'])))",
+          "line": 87,
+          "column": 64,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\tif (!empty($request_options['order_uuid']) && !Uuid::isValid(\\trim((string) $request_options['order_uuid'])))",
+          "line": 198,
+          "column": 64,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 228,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/DeliverypointsEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\DeliverypointsEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (105 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/IntakesEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\IntakesEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (210 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/intakes', $request_options, 'POST');",
+          "line": 95,
+          "column": 68,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/intakes/availableDays', $request_options, 'POST');",
+          "line": 125,
+          "column": 82,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 148,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 187,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/InternationalEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\InternationalEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/international/package/restrictions', $request_options, 'POST');",
+          "line": 48,
+          "column": 95,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/LocationEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\LocationEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (219 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/OauthEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\OauthEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/oauth/token', $request_options, 'POST');",
+          "line": 53,
+          "column": 72,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/OrdersEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\OrdersEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (424 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/orders', $request_options, 'POST');",
+          "line": 113,
+          "column": 67,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/orders/' . rawurlencode($uuid) . '/clientReturn', $request_options, 'POST');",
+          "line": 371,
+          "column": 108,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Arguments match the parameters' default values",
+          "lineContent": "\t\treturn $this->request->getResponse('/orders/' . rawurlencode($uuid) . '/refusal', [], 'POST');",
+          "line": 419,
+          "column": 85,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant arguments"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t$uuid = \\trim($uuid);",
+          "line": 144,
+          "column": 12,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\tif (!empty($request_options['uuid']) && !Uuid::isValid(\\trim((string) $request_options['uuid'])))",
+          "line": 218,
+          "column": 58,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$order_uuid = \\trim($order_uuid);",
+          "line": 248,
+          "column": 17,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 292,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 345,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 401,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/PassportEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\PassportEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (71 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\tif (!empty($request_options['order_uuid']) && !Uuid::isValid(\\trim((string) $request_options['order_uuid'])))",
+          "line": 59,
+          "column": 64,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/PaymentEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\PaymentEntity.php",
+      "problems": []
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/PhotoDocumentEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\PhotoDocumentEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/photoDocument', $request_options, 'POST');",
+          "line": 53,
+          "column": 74,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/PrealertEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\PrealertEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (104 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/prealert', $request_options, 'POST');",
+          "line": 60,
+          "column": 69,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 81,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/PrintEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\PrintEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 84,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 123,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 204,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 243,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (266 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/print/barcodes', $request_options, 'POST');",
+          "line": 53,
+          "column": 75,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/print/orders', $request_options, 'POST');",
+          "line": 172,
+          "column": 73,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/registry.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\registry.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'calculator'     => \\Webtolk\\Cdekapi\\Entities\\CalculatorEntity::class,",
+          "line": 14,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'check'          => \\Webtolk\\Cdekapi\\Entities\\CheckEntity::class,",
+          "line": 15,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'delivery'       => \\Webtolk\\Cdekapi\\Entities\\DeliveryEntity::class,",
+          "line": 16,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'deliverypoints' => \\Webtolk\\Cdekapi\\Entities\\DeliverypointsEntity::class,",
+          "line": 17,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'intakes'        => \\Webtolk\\Cdekapi\\Entities\\IntakesEntity::class,",
+          "line": 18,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'international'  => \\Webtolk\\Cdekapi\\Entities\\InternationalEntity::class,",
+          "line": 19,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'location'       => \\Webtolk\\Cdekapi\\Entities\\LocationEntity::class,",
+          "line": 20,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'oauth'          => \\Webtolk\\Cdekapi\\Entities\\OauthEntity::class,",
+          "line": 21,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'orders'         => \\Webtolk\\Cdekapi\\Entities\\OrdersEntity::class,",
+          "line": 22,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'passport'       => \\Webtolk\\Cdekapi\\Entities\\PassportEntity::class,",
+          "line": 23,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'payment'        => \\Webtolk\\Cdekapi\\Entities\\PaymentEntity::class,",
+          "line": 24,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'photoDocument'  => \\Webtolk\\Cdekapi\\Entities\\PhotoDocumentEntity::class,",
+          "line": 25,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'prealert'       => \\Webtolk\\Cdekapi\\Entities\\PrealertEntity::class,",
+          "line": 26,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'print'          => \\Webtolk\\Cdekapi\\Entities\\PrintEntity::class,",
+          "line": 27,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'reverse'        => \\Webtolk\\Cdekapi\\Entities\\ReverseEntity::class,",
+          "line": 28,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t'webhooks'       => \\Webtolk\\Cdekapi\\Entities\\WebhooksEntity::class,",
+          "line": 29,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/ReverseEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\ReverseEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/reverse/availability', $request_options, 'POST');",
+          "line": 52,
+          "column": 81,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Entities/WebhooksEntity.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Entities\\WebhooksEntity.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Class constant type is missing",
+          "lineContent": "\tprivate const ALLOWED_TYPES = [",
+          "line": 32,
+          "column": 16,
+          "quickFixes": [
+            {
+              "name": "Class constant type is missing",
+              "familyName": "Add 'string[]' as the class constant type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (264 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\treturn $this->request->getResponse('/webhooks', ['url' => $url, 'type' => $type], 'POST');",
+          "line": 140,
+          "column": 85,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$url  = \\trim($url);",
+          "line": 113,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$type = \\trim($type);",
+          "line": 114,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\tif (!\\filter_var($url, \\FILTER_VALIDATE_URL))",
+          "line": 124,
+          "column": 26,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\tif (!\\filter_var($url, \\FILTER_VALIDATE_URL))",
+          "line": 124,
+          "column": 8,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\tif (!\\in_array($type, self::ALLOWED_TYPES, true))",
+          "line": 132,
+          "column": 8,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 161,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t$uuid = \\trim($uuid);",
+          "line": 200,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Download grammar and spelling checker for Russian?",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Fields/DeliverypointsField.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Fields\\DeliverypointsField.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (137 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "        $app = Factory::getApplication();",
+          "line": 69,
+          "column": 25,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\JsonException",
+          "lineContent": "        return '<div class=\"wt-cdek-deliverypoints-field\" ' . Watchfield::attributes($sources, $options) . '>'",
+          "line": 132,
+          "column": 75,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "     */",
+          "line": 66,
+          "column": 6,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "    /**",
+          "line": 59,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\\defined('_JEXEC') or die;",
+          "line": 16,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "        } catch (\\InvalidArgumentException $exception) {",
+          "line": 81,
+          "column": 18,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "            } catch (\\InvalidArgumentException $exception) {",
+          "line": 93,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "                    throw new \\UnexpectedValueException('Pickup-point watchfield must map zip, city and/or fias_guid.');",
+          "line": 101,
+          "column": 31,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "            } catch (\\JsonException | \\UnexpectedValueException $exception) {",
+          "line": 103,
+          "column": 22,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Potentially polymorphic call. ConsoleApplication does not have members in its hierarchy",
+          "lineContent": "        $document = $app->getDocument();",
+          "line": 71,
+          "column": 27,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "            } catch (\\JsonException | \\UnexpectedValueException $exception) {",
+          "line": 103,
+          "column": 39,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "        } catch (\\UnexpectedValueException $exception) {",
+          "line": 125,
+          "column": 18,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'exception'. The value of the variable is not used anywhere.",
+          "lineContent": "        } catch (\\InvalidArgumentException $exception) {",
+          "line": 81,
+          "column": 44,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'exception'. The value of the variable is not used anywhere.",
+          "lineContent": "            } catch (\\InvalidArgumentException $exception) {",
+          "line": 93,
+          "column": 48,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'exception'. The value of the variable is not used anywhere.",
+          "lineContent": "            } catch (\\JsonException | \\UnexpectedValueException $exception) {",
+          "line": 103,
+          "column": 65,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'exception'. The value of the variable is not used anywhere.",
+          "lineContent": "        } catch (\\UnexpectedValueException $exception) {",
+          "line": 125,
+          "column": 44,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Watchfield'",
+          "lineContent": "use Webtolk\\Cdekapi\\Helper\\Watchfield;",
+          "line": 23,
+          "column": 28,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'DeliverypointsService'",
+          "lineContent": "use Webtolk\\Cdekapi\\Service\\DeliverypointsService;",
+          "line": 24,
+          "column": 29,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'DeliverypointsService'",
+          "lineContent": "            $filters = DeliverypointsService::normalizeFilters([",
+          "line": 76,
+          "column": 24,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'DeliverypointsService'",
+          "lineContent": "                    'fias_guid' => DeliverypointsService::normalizeFiasGuid((string) $this->element['fias_guid']),",
+          "line": 91,
+          "column": 36,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Watchfield'",
+          "lineContent": "                $sources = Watchfield::resolve($this->form, (string) $this->element['watchfield'], (string) $this->group);",
+          "line": 98,
+          "column": 28,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Watchfield'",
+          "lineContent": "            $options = Watchfield::dataOptions($this->element, [",
+          "line": 118,
+          "column": 24,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Watchfield'",
+          "lineContent": "        return '<div class=\"wt-cdek-deliverypoints-field\" ' . Watchfield::attributes($sources, $options) . '>'",
+          "line": 132,
+          "column": 63,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'DeliverypointsField' exist at file-docblocks-20261013\\before\\…\\DeliverypointsField.php, file-docblocks-20261013\\expected\\…\\DeliverypointsField.php, package-20261013\\archive-audit\\…\\DeliverypointsField.php, file-docblocks-20261013\\metadata-stage\\…\\DeliverypointsField.php, DeliverypointsField.before.php and 5 other",
+          "lineContent": "final class DeliverypointsField extends ListField",
+          "line": 31,
+          "column": 13,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Fields/TariffinfoField.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Fields\\TariffinfoField.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (220 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "\t\t$app = Factory::getApplication();",
+          "line": 61,
+          "column": 19,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t */",
+          "line": 58,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t/**",
+          "line": 52,
+          "column": 2,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "\t\tFactory::getApplication()->getDocument()->addScriptOptions('wtcdek.tariffs', $layoutData['tariffs']);",
+          "line": 88,
+          "column": 12,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t */",
+          "line": 81,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t/**",
+          "line": 75,
+          "column": 2,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\JsonException",
+          "lineContent": "\t\t\t$layoutData['watchfield_attributes'] = Watchfield::attributes([], ['source' => 'scriptoptions', 'options' => 'wtcdek.tariffs', 'error' => true]);",
+          "line": 97,
+          "column": 55,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add 'catch' clause(s)"
+            },
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t */",
+          "line": 200,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t/**",
+          "line": 189,
+          "column": 2,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "\t\t\t\treturn Factory::getApplication()->getLanguage()->hasKey($key) ? Text::_($key) : $item;",
+          "line": 213,
+          "column": 21,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing parameter's type declaration",
+          "lineContent": "\tprivate function formatRange($min, $max): string",
+          "line": 165,
+          "column": 31,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing parameter's type declaration",
+          "lineContent": "\tprivate function formatRange($min, $max): string",
+          "line": 165,
+          "column": 37,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing parameter's type declaration",
+          "lineContent": "\tprivate function formatArray($value): string",
+          "line": 179,
+          "column": 31,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing parameter's type declaration",
+          "lineContent": "\tprivate function formatContragentTypes($value): string",
+          "line": 201,
+          "column": 41,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unnecessary cast to '(string) $min'",
+          "lineContent": "\t\treturn (string) $min . ' - ' . (string) $max;",
+          "line": 167,
+          "column": 10,
+          "quickFixes": [
+            {
+              "name": "Redundant cast to string",
+              "familyName": "Unwrap cast"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unnecessary cast to '(string) $max'",
+          "lineContent": "\t\treturn (string) $min . ' - ' . (string) $max;",
+          "line": 167,
+          "column": 34,
+          "quickFixes": [
+            {
+              "name": "Redundant cast to string",
+              "familyName": "Unwrap cast"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused private method 'formatArray'",
+          "lineContent": "\tprivate function formatArray($value): string",
+          "line": 179,
+          "column": 19,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\\defined('_JEXEC') or die;",
+          "line": 18,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\tthrow new \\UnexpectedValueException(\\sprintf('%s has no layout assigned.', $this->name));",
+          "line": 69,
+          "column": 14,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\tthrow new \\UnexpectedValueException(\\sprintf('%s has no layout assigned.', $this->name));",
+          "line": 69,
+          "column": 40,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\tthrow new \\UnexpectedValueException('Tariffinfo requires a tariff source.');",
+          "line": 92,
+          "column": 15,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t} catch (\\JsonException | \\UnexpectedValueException $exception) {",
+          "line": 96,
+          "column": 12,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Potentially polymorphic call. ConsoleApplication does not have members in its hierarchy",
+          "lineContent": "\t\t$wa = $app->getDocument()->getWebAssetManager();",
+          "line": 63,
+          "column": 15,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t} catch (\\JsonException | \\UnexpectedValueException $exception) {",
+          "line": 96,
+          "column": 29,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Potentially polymorphic call. ConsoleApplication does not have members in its hierarchy",
+          "lineContent": "\t\tFactory::getApplication()->getDocument()->addScriptOptions('wtcdek.tariffs', $layoutData['tariffs']);",
+          "line": 88,
+          "column": 30,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'exception'. The value of the variable is not used anywhere.",
+          "lineContent": "\t\t} catch (\\JsonException | \\UnexpectedValueException $exception) {",
+          "line": 96,
+          "column": 55,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "use Webtolk\\Cdekapi\\Cdek;",
+          "line": 23,
+          "column": 21,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Watchfield'",
+          "lineContent": "use Webtolk\\Cdekapi\\Helper\\Watchfield;",
+          "line": 24,
+          "column": 28,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Watchfield'",
+          "lineContent": "\t\t\t$sources = Watchfield::resolve($this->form, $layoutData['watchfield'], (string) $this->group);",
+          "line": 90,
+          "column": 15,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Watchfield'",
+          "lineContent": "\t\t\t$options = Watchfield::dataOptions($this->element, ['source' => 'scriptoptions', 'options' => 'wtcdek.tariffs', 'path' => '']);",
+          "line": 94,
+          "column": 15,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Watchfield'",
+          "lineContent": "\t\t\t$layoutData['watchfield_attributes'] = Watchfield::attributes($sources, $options);",
+          "line": 95,
+          "column": 43,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Watchfield'",
+          "lineContent": "\t\t\t$layoutData['watchfield_attributes'] = Watchfield::attributes([], ['source' => 'scriptoptions', 'options' => 'wtcdek.tariffs', 'error' => true]);",
+          "line": 97,
+          "column": 43,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "\t\t$cdek = new Cdek();",
+          "line": 112,
+          "column": 15,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'TariffinfoField' exist at file-docblocks-20261013\\expected\\lib_webtolk_wtcdek\\…\\TariffinfoField.php, tmp\\install-1.3.2\\lib_webtolk_wtcdek\\…\\TariffinfoField.php, package-140-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\TariffinfoField.php, .packages\\install_6a2842e51e4f6\\lib_webtolk_wtcdek\\…\\TariffinfoField.php, watchfield-140-dev\\archive-audit\\lib_webtolk_wtcdek\\…\\TariffinfoField.php and 8 other",
+          "lineContent": "class TariffinfoField extends FormField",
+          "line": 34,
+          "column": 7,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Condition is always 'false' because '$tariffs' is evaluated at this point",
+          "lineContent": "\t\tif (!is_array($tariffs))",
+          "line": 116,
+          "column": 7,
+          "quickFixes": [
+            {
+              "name": "Condition always evaluates to 'true/false'",
+              "familyName": "Delete 'if'"
+            },
+            {
+              "name": "Condition always evaluates to 'true/false'",
+              "familyName": "Navigate to cause"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Fields/TarifflistField.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Fields\\TarifflistField.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (85 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\\defined('_JEXEC') or die;",
+          "line": 18,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing function's return type declaration",
+          "lineContent": "\tprotected function getGroups()",
+          "line": 38,
+          "column": 21,
+          "quickFixes": [
+            {
+              "name": "Missing return type declaration",
+              "familyName": "Add 'array' as the function's return type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "use Webtolk\\Cdekapi\\Cdek;",
+          "line": 22,
+          "column": 21,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "\t\t$cdek = new Cdek();",
+          "line": 41,
+          "column": 15,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'TarifflistField' exist at ajax-cookie-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\TarifflistField.php, file-docblocks-20261013\\before\\lib_webtolk_wtcdek\\…\\TarifflistField.php, ajax-routing-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\TarifflistField.php, package-140-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\TarifflistField.php, watchfield-140-dev\\archive-audit\\lib_webtolk_wtcdek\\…\\TarifflistField.php and 9 other",
+          "lineContent": "class TarifflistField extends GroupedlistField",
+          "line": 26,
+          "column": 7,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Condition is always 'false' because '$tariffs' is evaluated at this point",
+          "lineContent": "\t\tif (!is_array($tariffs) || empty($tariffs))",
+          "line": 44,
+          "column": 7,
+          "quickFixes": [
+            {
+              "name": "Condition always evaluates to 'true/false'",
+              "familyName": "Delete '!is_array($tariffs)'"
+            },
+            {
+              "name": "Condition always evaluates to 'true/false'",
+              "familyName": "Navigate to cause"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Helper/Watchfield.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Helper\\Watchfield.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Member has protected visibility but can be accessed via '__get' magic method",
+          "lineContent": "            $sources[$parameter] = ['id' => $field->id, 'name' => $field->name, 'value' => $field->value];",
+          "line": 79,
+          "column": 53,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Member has protected visibility but can be accessed via '__get' magic method",
+          "lineContent": "            $sources[$parameter] = ['id' => $field->id, 'name' => $field->name, 'value' => $field->value];",
+          "line": 79,
+          "column": 75,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Member has protected visibility but can be accessed via '__get' magic method",
+          "lineContent": "            $sources[$parameter] = ['id' => $field->id, 'name' => $field->name, 'value' => $field->value];",
+          "line": 79,
+          "column": 100,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (129 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "     */",
+          "line": 39,
+          "column": 6,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "    /**",
+          "line": 28,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\JsonException",
+          "lineContent": "            $map = json_decode($attribute, true, 16, JSON_THROW_ON_ERROR);",
+          "line": 49,
+          "column": 20,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\JsonException",
+          "lineContent": "        $encode = static fn($value): string => htmlspecialchars(json_encode($value, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8');",
+          "line": 124,
+          "column": 65,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing @since tag in method's PHPDoc comment",
+          "lineContent": "    /** Build the shared data-provider configuration; the options key is literal, the path is dotted. */",
+          "line": 85,
+          "column": 5,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing @since tag in method's PHPDoc comment",
+          "lineContent": "    /** Encode declarative configuration for HTML, including repeatable form rows. */",
+          "line": 115,
+          "column": 5,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Loop can be converted to an 'array_map()' call",
+          "lineContent": "        foreach ($sources as $parameter => $source) {",
+          "line": 120,
+          "column": 9,
+          "quickFixes": [
+            {
+              "name": "Loop can be converted to 'array_map()' call",
+              "familyName": "Convert loop to an 'array_map()' call"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\\defined('_JEXEC') or die;",
+          "line": 16,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "            if (!\\is_array($map) || array_values($map) === $map) {",
+          "line": 51,
+          "column": 18,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "                throw new \\UnexpectedValueException('watchfield must be a named JSON object.');",
+          "line": 52,
+          "column": 27,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "            if (!\\is_string($parameter) || $parameter === '' || !\\is_string($source) || trim($source) === '') {",
+          "line": 61,
+          "column": 18,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "            if (!\\is_string($parameter) || $parameter === '' || !\\is_string($source) || trim($source) === '') {",
+          "line": 61,
+          "column": 66,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "                throw new \\UnexpectedValueException('watchfield keys and field names must be non-empty strings.');",
+          "line": 62,
+          "column": 27,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "                throw new \\UnexpectedValueException('watchfield source is not present in the Joomla form.');",
+          "line": 76,
+          "column": 27,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "        if (!\\in_array($options['source'] ?? '', ['ajax', 'scriptoptions'], true)",
+          "line": 106,
+          "column": 14,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "            throw new \\UnexpectedValueException('Invalid watchfield data source.');",
+          "line": 109,
+          "column": 23,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'Watchfield' exist at ajax-cookie-20261013\\archive-audit\\…\\Helper\\Watchfield.php, file-docblocks-20261013\\before\\…\\Helper\\Watchfield.php, file-docblocks-20261013\\expected\\…\\Helper\\Watchfield.php, file-docblocks-20261013\\metadata-stage\\…\\Helper\\Watchfield.php, ajax-routing-20261013\\archive-audit\\…\\Helper\\Watchfield.php and 2 other",
+          "lineContent": "final class Watchfield",
+          "line": 26,
+          "column": 13,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Interfaces/EntityInterface.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Interfaces\\EntityInterface.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\\defined('_JEXEC') or die;",
+          "line": 20,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Service/DeliverypointsService.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Service\\DeliverypointsService.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (181 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing @since tag in class's PHPDoc comment",
+          "lineContent": "/**",
+          "line": 22,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\\defined('_JEXEC') or die;",
+          "line": 18,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "            throw new \\InvalidArgumentException('Invalid delivery-point type.');",
+          "line": 40,
+          "column": 23,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "                throw new \\InvalidArgumentException('Invalid delivery-point boolean filter.');",
+          "line": 54,
+          "column": 27,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "            throw new \\InvalidArgumentException('Invalid FIAS UUID.');",
+          "line": 76,
+          "column": 23,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "            throw new \\RuntimeException('CDEK delivery-point lookup failed.');",
+          "line": 177,
+          "column": 23,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "use Webtolk\\Cdekapi\\Cdek;",
+          "line": 20,
+          "column": 21,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "     * @param   Cdek    $cdek        Configured client.",
+          "line": 86,
+          "column": 17,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "    public function getOptions(Cdek $cdek, string $city, string $postalCode, array $filters = [], string $fiasGuid = ''): array",
+          "line": 94,
+          "column": 32,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'DeliverypointsService' exist at watchfield-140-dev\\archive-audit\\…\\DeliverypointsService.php, ajax-routing-20261013\\archive-audit\\…\\DeliverypointsService.php, file-docblocks-20261013\\before\\…\\DeliverypointsService.php, file-docblocks-20261013\\expected\\…\\DeliverypointsService.php, ajax-cookie-20261013\\archive-audit\\…\\DeliverypointsService.php and 4 other",
+          "lineContent": "final class DeliverypointsService",
+          "line": 25,
+          "column": 13,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Traits/CacheTrait.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Traits\\CacheTrait.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (52 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'CacheTrait' exist at .packages\\install_6a2842e51e4f6\\lib_webtolk_wtcdek\\…\\CacheTrait.php, watchfield-140-dev\\archive-audit\\lib_webtolk_wtcdek\\…\\CacheTrait.php, package-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\CacheTrait.php, ajax-routing-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\CacheTrait.php, file-docblocks-20261013\\metadata-stage\\lib_webtolk_wtcdek\\…\\CacheTrait.php and 7 other",
+          "lineContent": "trait CacheTrait",
+          "line": 25,
+          "column": 7,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/Traits/LogTrait.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\Traits\\LogTrait.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (60 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "\t\t\tFactory::getApplication()->enqueueMessage($data, $priority);",
+          "line": 54,
+          "column": 13,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t */",
+          "line": 41,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t/**",
+          "line": 32,
+          "column": 2,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CdekRequest'",
+          "lineContent": "use Webtolk\\Cdekapi\\CdekRequest;",
+          "line": 23,
+          "column": 21,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'CdekRequest'",
+          "lineContent": "\t\t$params = CdekRequest::getPluginParams();",
+          "line": 50,
+          "column": 13,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'LogTrait' exist at .packages\\install_6a2842e51e4f6\\lib_webtolk_wtcdek\\…\\LogTrait.php, package-140-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\LogTrait.php, file-docblocks-20261013\\before\\lib_webtolk_wtcdek\\…\\LogTrait.php, Webtolk\\Cdekapi\\…\\LogTrait.php, ajax-cookie-20261013\\archive-audit\\lib_webtolk_wtcdek\\…\\LogTrait.php and 7 other",
+          "lineContent": "trait LogTrait",
+          "line": 30,
+          "column": 7,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "lib_webtolk_wtcdek/src/WebAsset/AssetItem/WatchfieldAssetItem.php",
+      "filePath": "lib_webtolk_wtcdek\\src\\WebAsset\\AssetItem\\WatchfieldAssetItem.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "        Factory::getApplication()->getLanguage()->load('lib_webtolk_cdekapi', JPATH_SITE);",
+          "line": 28,
+          "column": 18,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add PHPDoc comment with @throws tags"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\\defined('_JEXEC') or die;",
+          "line": 15,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing function's return type declaration",
+          "lineContent": "    public function onAttachCallback(Document $doc)",
+          "line": 26,
+          "column": 21,
+          "quickFixes": [
+            {
+              "name": "Missing return type declaration",
+              "familyName": "Add 'void' as the function's return type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing @since tag in class's PHPDoc comment",
+          "lineContent": "/** Export translations when the common script is attached, including in administrator forms. */",
+          "line": 23,
+          "column": 1,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'WatchfieldAssetItem' exist at 2026-10-12-fields-reaudit-evidence\\code\\…\\WatchfieldAssetItem.php, watchfield-140-dev\\archive-audit\\…\\WatchfieldAssetItem.php, ajax-cookie-20261013\\archive-audit\\…\\WatchfieldAssetItem.php, file-docblocks-20261013\\before\\…\\WatchfieldAssetItem.php, package-140-20261013\\archive-audit\\…\\WatchfieldAssetItem.php and 4 other",
+          "lineContent": "final class WatchfieldAssetItem extends WebAssetItem implements WebAssetAttachBehaviorInterface",
+          "line": 24,
+          "column": 13,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "plg_system_wtcdek/services/provider.php",
+      "filePath": "plg_system_wtcdek\\services\\provider.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PSR-12: Short form of type keywords should be used",
+          "lineContent": "\t\t * @param   boolean  $shared     True to create and store a shared instance.",
+          "line": 41,
+          "column": 15,
+          "quickFixes": [
+            {
+              "name": "Short form of type keywords",
+              "familyName": "PSR-12: convert to short form"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PSR-12: Short form of type keywords should be used",
+          "lineContent": "\t\t * @param   boolean  $protected  True to protect this item from being overwritten. Useful for services.",
+          "line": 42,
+          "column": 15,
+          "quickFixes": [
+            {
+              "name": "Short form of type keywords",
+              "familyName": "PSR-12: convert to short form"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\t$plugin->setApplication(\\Joomla\\CMS\\Factory::getApplication());",
+          "line": 50,
+          "column": 29,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing function's return type declaration",
+          "lineContent": "\tpublic function register(Container $container)",
+          "line": 34,
+          "column": 18,
+          "quickFixes": [
+            {
+              "name": "Missing return type declaration",
+              "familyName": "Add 'void' as the function's return type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Wtcdek'",
+          "lineContent": "use Joomla\\Plugin\\System\\Wtcdek\\Extension\\Wtcdek;",
+          "line": 21,
+          "column": 43,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "plg_system_wtcdek/src/Extension/Wtcdek.php",
+      "filePath": "plg_system_wtcdek\\src\\Extension\\Wtcdek.php",
+      "problems": [
+        {
+          "severity": "WARNING",
+          "description": "Undefined class 'WebAssetRegistry'",
+          "lineContent": "\t\t\t/** @var Joomla\\CMS\\WebAsset\\WebAssetRegistry $wa */",
+          "line": 89,
+          "column": 33,
+          "quickFixes": []
+        },
+        {
+          "severity": "WARNING",
+          "description": "Undefined namespace 'WebAsset'",
+          "lineContent": "\t\t\t/** @var Joomla\\CMS\\WebAsset\\WebAssetRegistry $wa */",
+          "line": 89,
+          "column": 24,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PSR-12: Short form of type keywords should be used",
+          "lineContent": "\t * @var    boolean",
+          "line": 44,
+          "column": 13,
+          "quickFixes": [
+            {
+              "name": "Short form of type keywords",
+              "familyName": "PSR-12: convert to short form"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\\defined('_JEXEC') or die;",
+          "line": 16,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t * @var    \\Joomla\\CMS\\Application\\CMSApplication",
+          "line": 52,
+          "column": 13,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\t\tthrow new \\RuntimeException('POST required.', 405);",
+          "line": 141,
+          "column": 16,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\t\tthrow new \\RuntimeException(Text::_('JINVALID_TOKEN'), 403);",
+          "line": 147,
+          "column": 16,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\t\tthrow new \\InvalidArgumentException(Text::_('LIB_WTCDEK_FIELD_DELIVERYPOINTS_ERROR'), 400);",
+          "line": 156,
+          "column": 16,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "\t\tif (Factory::getApplication()->isClient('site'))",
+          "line": 87,
+          "column": 16,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\tcatch (\\InvalidArgumentException $exception)",
+          "line": 167,
+          "column": 12,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\t\tthrow new \\InvalidArgumentException(Text::_('LIB_WTCDEK_FIELD_DELIVERYPOINTS_FILTER_INVALID'), 400);",
+          "line": 169,
+          "column": 16,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\tcatch (\\InvalidArgumentException $exception)",
+          "line": 176,
+          "column": 12,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\t\tthrow new \\InvalidArgumentException(Text::_('LIB_WTCDEK_FIELD_DELIVERYPOINTS_FIAS_INVALID'), 400);",
+          "line": 178,
+          "column": 16,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\t\tcatch (\\Throwable $exception)",
+          "line": 189,
+          "column": 13,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\t\t\tthrow new \\RuntimeException(Text::_('LIB_WTCDEK_FIELD_DELIVERYPOINTS_ERROR'), 502);",
+          "line": 191,
+          "column": 17,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (214 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused private property '$document'",
+          "lineContent": "\tprivate $document;",
+          "line": 64,
+          "column": 10,
+          "quickFixes": [
+            {
+              "name": "Unused private property",
+              "familyName": "Remove unused property"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "use Webtolk\\Cdekapi\\Cdek;",
+          "line": 30,
+          "column": 21,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'DeliverypointsService'",
+          "lineContent": "use Webtolk\\Cdekapi\\Service\\DeliverypointsService;",
+          "line": 31,
+          "column": 29,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "\t\t\t\t$cdek = new Cdek();",
+          "line": 130,
+          "column": 17,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'DeliverypointsService'",
+          "lineContent": "\t\t\t\t\t$filters = DeliverypointsService::normalizeFilters([",
+          "line": 161,
+          "column": 17,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'DeliverypointsService'",
+          "lineContent": "\t\t\t\t\t$fiasGuid = DeliverypointsService::normalizeFiasGuid($input->post->getString('fias_guid', ''));",
+          "line": 174,
+          "column": 18,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'DeliverypointsService'",
+          "lineContent": "\t\t\t\t\t\t$options = (new DeliverypointsService())->getOptions(new Cdek(), $city, $postalCode, $filters, $fiasGuid);",
+          "line": 187,
+          "column": 23,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "\t\t\t\t\t\t$options = (new DeliverypointsService())->getOptions(new Cdek(), $city, $postalCode, $filters, $fiasGuid);",
+          "line": 187,
+          "column": 64,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'Wtcdek' exist at ajax-routing-20261013\\Wtcdek.before.php, file-docblocks-20261013\\metadata-stage\\plg_system_wtcdek\\…\\Wtcdek.php, package-140-20261013\\archive-audit\\plg_system_wtcdek\\…\\Wtcdek.php, watchfield-140-dev\\archive-audit\\plg_system_wtcdek\\…\\Wtcdek.php, Wtcdek.expected.php and 12 other",
+          "lineContent": "class Wtcdek extends CMSPlugin implements SubscriberInterface",
+          "line": 39,
+          "column": 7,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\t\t\tif ($input->post->getInt(Session::getFormToken(), 0) !== 1 || !Session::checkToken('post'))",
+          "line": 145,
+          "column": 88,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'exception'. The value of the variable is not used anywhere.",
+          "lineContent": "\t\t\t\tcatch (\\InvalidArgumentException $exception)",
+          "line": 167,
+          "column": 38,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'exception'. The value of the variable is not used anywhere.",
+          "lineContent": "\t\t\t\tcatch (\\InvalidArgumentException $exception)",
+          "line": 176,
+          "column": 38,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'exception'. The value of the variable is not used anywhere.",
+          "lineContent": "\t\t\t\t\tcatch (\\Throwable $exception)",
+          "line": 189,
+          "column": 24,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing property's type declaration",
+          "lineContent": "\tprivate $document;",
+          "line": 64,
+          "column": 10,
+          "quickFixes": [
+            {
+              "name": "Missing property's type declaration",
+              "familyName": "Add inferred type as the property's type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'JLoader' is never used",
+          "lineContent": "use JLoader;",
+          "line": 22,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\Event\\DispatcherInterface' is never used",
+          "lineContent": "use Joomla\\Event\\DispatcherInterface;",
+          "line": 27,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\CMS\\Application\\CMSApplicationInterface' is never used",
+          "lineContent": "use Joomla\\CMS\\Application\\CMSApplicationInterface;",
+          "line": 18,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "plg_system_wtcdek/src/Field/AccountinfoField.php",
+      "filePath": "plg_system_wtcdek\\src\\Field\\AccountinfoField.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (73 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "use Webtolk\\Cdekapi\\Cdek;",
+          "line": 20,
+          "column": 21,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "\t\t$cdek = new Cdek();",
+          "line": 42,
+          "column": 15,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'AccountinfoField' exist at .packages\\install_6a28433376bd7\\plg_system_wtcdek\\…\\AccountinfoField.php, file-docblocks-20261013\\expected\\plg_system_wtcdek\\…\\AccountinfoField.php, watchfield-140-dev\\archive-audit\\plg_system_wtcdek\\…\\AccountinfoField.php, package-20261013\\archive-audit\\plg_system_wtcdek\\…\\AccountinfoField.php, file-docblocks-20261013\\before\\plg_system_wtcdek\\…\\AccountinfoField.php and 8 other",
+          "lineContent": "class AccountinfoField extends FormField",
+          "line": 22,
+          "column": 7,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "plg_system_wtcdek/src/Field/PlugininfoField.php",
+      "filePath": "plg_system_wtcdek\\src\\Field\\PlugininfoField.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (105 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "\t\t$doc = Factory::getApplication()->getDocument();",
+          "line": 47,
+          "column": 19,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t */",
+          "line": 39,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t/**",
+          "line": 32,
+          "column": 2,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\Registry\\Registry' is never used",
+          "lineContent": "use Joomla\\Registry\\Registry;",
+          "line": 23,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\CMS\\Plugin\\PluginHelper' is never used",
+          "lineContent": "use Joomla\\CMS\\Plugin\\PluginHelper;",
+          "line": 20,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\CMS\\Form\\FormHelper' is never used",
+          "lineContent": "use Joomla\\CMS\\Form\\FormHelper;",
+          "line": 18,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\CMS\\HTML\\HTMLHelper' is never used",
+          "lineContent": "use Joomla\\CMS\\HTML\\HTMLHelper;",
+          "line": 19,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unnecessary local variable",
+          "lineContent": "\t\t$html = '",
+          "line": 61,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Unnecessary local variable",
+              "familyName": "Inline variable"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Return type in PHPDoc does not match the actual return type",
+          "lineContent": "\t * @return  string  The field label markup.",
+          "line": 84,
+          "column": 14,
+          "quickFixes": [
+            {
+              "name": "Return type in PHPDoc comment does not match the actual return type",
+              "familyName": "Replace with 'void'"
+            }
+          ]
+        },
+        {
+          "severity": "WARNING",
+          "description": "Missing 'return' statement",
+          "lineContent": "\t}",
+          "line": 92,
+          "column": 2,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Potentially polymorphic call. ConsoleApplication does not have members in its hierarchy",
+          "lineContent": "\t\t$doc = Factory::getApplication()->getDocument();",
+          "line": 47,
+          "column": 37,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing function's return type declaration",
+          "lineContent": "\tprotected function getInput()",
+          "line": 40,
+          "column": 21,
+          "quickFixes": [
+            {
+              "name": "Missing return type declaration",
+              "familyName": "Add 'string' as the function's return type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing function's return type declaration",
+          "lineContent": "\tprotected function getTitle()",
+          "line": 101,
+          "column": 21,
+          "quickFixes": [
+            {
+              "name": "Missing return type declaration",
+              "familyName": "Add 'string' as the function's return type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unnecessary leading '\\'",
+          "lineContent": "use \\Joomla\\CMS\\Factory;",
+          "line": 22,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unnecessary leading '\\' in 'use' statement",
+              "familyName": "Remove leading '\\'"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'PlugininfoField' exist at file-docblocks-20261013\\metadata-stage\\plg_system_wtcdek\\…\\PlugininfoField.php, watchfield-140-dev\\archive-audit\\plg_system_wtcdek\\…\\PlugininfoField.php, ajax-routing-20261013\\archive-audit\\plg_system_wtcdek\\…\\PlugininfoField.php, tmp\\install-1.3.2\\plg_system_wtcdek\\…\\PlugininfoField.php, file-docblocks-20261013\\expected\\plg_system_wtcdek\\…\\PlugininfoField.php and 8 other",
+          "lineContent": "class PlugininfoField extends NoteField",
+          "line": 27,
+          "column": 7,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "plg_task_updatewtcdekdata/services/provider.php",
+      "filePath": "plg_task_updatewtcdekdata\\services\\provider.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier is unnecessary and can be removed",
+          "lineContent": "\\defined('_JEXEC') or die;",
+          "line": 15,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Unnecessary fully qualified name",
+              "familyName": "Remove unnecessary qualifier"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing function's return type declaration",
+          "lineContent": "    public function register(Container $container)",
+          "line": 36,
+          "column": 21,
+          "quickFixes": [
+            {
+              "name": "Missing return type declaration",
+              "familyName": "Add 'void' as the function's return type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Updatewtcdekdata'",
+          "lineContent": "use Joomla\\Plugin\\Task\\Updatewtcdekdata\\Extension\\Updatewtcdekdata;",
+          "line": 24,
+          "column": 51,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "plg_task_updatewtcdekdata/src/Extension/Updatewtcdekdata.php",
+      "filePath": "plg_task_updatewtcdekdata\\src\\Extension\\Updatewtcdekdata.php",
+      "problems": [
+        {
+          "severity": "WARNING",
+          "description": "No data sources are configured to run this SQL and provide advanced code assistance. Disable this inspection via problem menu (Alt+Enter).",
+          "lineContent": "\t\t\t$query = 'INSERT IGNORE INTO ' . $db->quoteName('#__lib_wtcdek_location_regions') . ' (' . implode(",
+          "line": 195,
+          "column": 14,
+          "quickFixes": []
+        },
+        {
+          "severity": "WARNING",
+          "description": "No data sources are configured to run this SQL and provide advanced code assistance. Disable this inspection via problem menu (Alt+Enter).",
+          "lineContent": "\t\t\t$query = 'INSERT IGNORE INTO ' . $db->quoteName('#__lib_wtcdek_location_regions') . ' (' . implode(",
+          "line": 195,
+          "column": 89,
+          "quickFixes": []
+        },
+        {
+          "severity": "WARNING",
+          "description": "No data sources are configured to run this SQL and provide advanced code assistance. Disable this inspection via problem menu (Alt+Enter).",
+          "lineContent": "\t\t\t\t) . ') VALUES ' . implode(',', $values);",
+          "line": 198,
+          "column": 10,
+          "quickFixes": []
+        },
+        {
+          "severity": "WARNING",
+          "description": "No data sources are configured to run this SQL and provide advanced code assistance. Disable this inspection via problem menu (Alt+Enter).",
+          "lineContent": "\t\t\t$query = 'INSERT IGNORE INTO ' . $db->quoteName('#__lib_wtcdek_location_cities') . ' (' . implode(",
+          "line": 302,
+          "column": 14,
+          "quickFixes": []
+        },
+        {
+          "severity": "WARNING",
+          "description": "No data sources are configured to run this SQL and provide advanced code assistance. Disable this inspection via problem menu (Alt+Enter).",
+          "lineContent": "\t\t\t$query = 'INSERT IGNORE INTO ' . $db->quoteName('#__lib_wtcdek_location_cities') . ' (' . implode(",
+          "line": 302,
+          "column": 88,
+          "quickFixes": []
+        },
+        {
+          "severity": "WARNING",
+          "description": "No data sources are configured to run this SQL and provide advanced code assistance. Disable this inspection via problem menu (Alt+Enter).",
+          "lineContent": "\t\t\t\t) . ') VALUES ' . implode(',', $values);",
+          "line": 305,
+          "column": 10,
+          "quickFixes": []
+        },
+        {
+          "severity": "WARNING",
+          "description": "No data sources are configured to run this SQL and provide advanced code assistance. Disable this inspection via problem menu (Alt+Enter).",
+          "lineContent": "\t\t\t\t$query = 'INSERT IGNORE INTO ' . $db->quoteName('#__lib_wtcdek_delivery_points') . ' (' . implode(",
+          "line": 466,
+          "column": 15,
+          "quickFixes": []
+        },
+        {
+          "severity": "WARNING",
+          "description": "No data sources are configured to run this SQL and provide advanced code assistance. Disable this inspection via problem menu (Alt+Enter).",
+          "lineContent": "\t\t\t\t$query = 'INSERT IGNORE INTO ' . $db->quoteName('#__lib_wtcdek_delivery_points') . ' (' . implode(",
+          "line": 466,
+          "column": 89,
+          "quickFixes": []
+        },
+        {
+          "severity": "WARNING",
+          "description": "No data sources are configured to run this SQL and provide advanced code assistance. Disable this inspection via problem menu (Alt+Enter).",
+          "lineContent": "\t\t\t\t\t) . ') VALUES ' . implode(',', $values);",
+          "line": 469,
+          "column": 11,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PSR-12: Short form of type keywords should be used",
+          "lineContent": "\t * @var boolean",
+          "line": 55,
+          "column": 10,
+          "quickFixes": [
+            {
+              "name": "Short form of type keywords",
+              "familyName": "PSR-12: convert to short form"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PSR-12: Short form of type keywords should be used",
+          "lineContent": "\t * @return integer  The routine exit code.",
+          "line": 79,
+          "column": 13,
+          "quickFixes": [
+            {
+              "name": "Short form of type keywords",
+              "familyName": "PSR-12: convert to short form"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (489 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Class constant type is missing",
+          "lineContent": "\tprivate const TASKS_MAP = [",
+          "line": 46,
+          "column": 16,
+          "quickFixes": [
+            {
+              "name": "Class constant type is missing",
+              "familyName": "Add 'array[]' as the class constant type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\CMS\\Factory' is never used",
+          "lineContent": "use Joomla\\CMS\\Factory;",
+          "line": 17,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "\t\t\t\t$this->logTask($e->getMessage(), 'error');",
+          "line": 207,
+          "column": 12,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add 'catch' clause(s)"
+            },
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t */",
+          "line": 130,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t/**",
+          "line": 121,
+          "column": 2,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t */",
+          "line": 244,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t/**",
+          "line": 235,
+          "column": 2,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "\t\t\t\t$this->logTask($e->getMessage(), 'error');",
+          "line": 315,
+          "column": 12,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add 'catch' clause(s)"
+            },
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "\t\t\t\t\t$this->logTask($e->getMessage(), 'error');",
+          "line": 479,
+          "column": 13,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add 'catch' clause(s)"
+            },
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Variable '$result' is probably undefined",
+          "lineContent": "\t\treturn $result;",
+          "line": 362,
+          "column": 10,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing parameter's type declaration",
+          "lineContent": "\tprivate function updateLocationRegions($cdek, $task_params): bool",
+          "line": 131,
+          "column": 41,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing parameter's type declaration",
+          "lineContent": "\tprivate function updateLocationRegions($cdek, $task_params): bool",
+          "line": 131,
+          "column": 48,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing parameter's type declaration",
+          "lineContent": "\tprivate function updateLocationCities($cdek, $task_params): bool",
+          "line": 245,
+          "column": 40,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing parameter's type declaration",
+          "lineContent": "\tprivate function updateLocationCities($cdek, $task_params): bool",
+          "line": 245,
+          "column": 47,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing parameter's type declaration",
+          "lineContent": "\tprivate function updateDeliverypoints($cdek, $task_params): bool",
+          "line": 338,
+          "column": 40,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing parameter's type declaration",
+          "lineContent": "\tprivate function updateDeliverypoints($cdek, $task_params): bool",
+          "line": 338,
+          "column": 47,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\t\t$result = $this->getDeliveryPoints($cdek, $task_params, '');",
+          "line": 347,
+          "column": 60,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "@var tag specifies the type already inferred from source code",
+          "lineContent": "\t\t/** @var int $task_id The task id */",
+          "line": 88,
+          "column": 7,
+          "quickFixes": [
+            {
+              "name": "Redundant @var tag",
+              "familyName": "Remove @var"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "@var tag specifies the type already inferred from source code",
+          "lineContent": "\t\t/** @var bool $result Task result */",
+          "line": 90,
+          "column": 7,
+          "quickFixes": [
+            {
+              "name": "Redundant @var tag",
+              "familyName": "Remove @var"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused private method 'UpdateWtCdekData'",
+          "lineContent": "\tprivate function UpdateWtCdekData(ExecuteTaskEvent $event): int",
+          "line": 84,
+          "column": 19,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\\defined('_JEXEC') or die;",
+          "line": 28,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t * @throws \\Exception",
+          "line": 81,
+          "column": 13,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\tif (!\\in_array('--', $countries))",
+          "line": 140,
+          "column": 8,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\tif (!\\is_array($region))",
+          "line": 167,
+          "column": 10,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\tcatch (\\RuntimeException $e)",
+          "line": 205,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t} while (\\count($regions) == $size);",
+          "line": 210,
+          "column": 12,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\tif (!\\in_array('--', $countries))",
+          "line": 254,
+          "column": 8,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\tcatch (\\RuntimeException $e)",
+          "line": 313,
+          "column": 11,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t} while (\\count($cities) == $size);",
+          "line": 320,
+          "column": 12,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\tif (empty($countries) || \\in_array('--', $countries))",
+          "line": 344,
+          "column": 28,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t\t\tcatch (\\RuntimeException $e)",
+          "line": 477,
+          "column": 12,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier can be replaced with an import",
+          "lineContent": "\t\t} while (\\count($deliveryPoints) == $size);",
+          "line": 484,
+          "column": 12,
+          "quickFixes": [
+            {
+              "name": "Fully qualified name usage",
+              "familyName": "Replace qualifier with an import"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing function's return type declaration",
+          "lineContent": "\tprivate function getDeliveryPoints($cdek, $task_params, $country_code = '')",
+          "line": 369,
+          "column": 19,
+          "quickFixes": [
+            {
+              "name": "Missing return type declaration",
+              "familyName": "Add 'bool' as the function's return type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'task_id'. The value of the variable is not used anywhere.",
+          "lineContent": "\t\t$task_id = $event->getTaskId();",
+          "line": 89,
+          "column": 3,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'result'. The value of the variable is overwritten immediately.",
+          "lineContent": "\t\t$result = false;",
+          "line": 91,
+          "column": 3,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'result'. The value of the variable is overwritten immediately.",
+          "lineContent": "\t\t$result    = false;",
+          "line": 136,
+          "column": 3,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unused local variable 'result'. The value of the variable is overwritten immediately.",
+          "lineContent": "\t\t$result    = false;",
+          "line": 250,
+          "column": 3,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "use Webtolk\\Cdekapi\\Cdek;",
+          "line": 25,
+          "column": 21,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "\t\t$cdek = new Cdek();",
+          "line": 93,
+          "column": 15,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "\t * @param   Cdek      $cdek",
+          "line": 124,
+          "column": 14,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "\t * @param   Cdek      $cdek",
+          "line": 238,
+          "column": 14,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Multiple definitions exist for class 'Cdek'",
+          "lineContent": "\t * @param   Cdek      $cdek",
+          "line": 329,
+          "column": 14,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'Updatewtcdekdata' exist at file-docblocks-20261013\\before\\plg_task_updatewtcdekdata\\…\\Updatewtcdekdata.php, ajax-cookie-20261013\\archive-audit\\plg_task_updatewtcdekdata\\…\\Updatewtcdekdata.php, file-docblocks-20261013\\metadata-stage\\plg_task_updatewtcdekdata\\…\\Updatewtcdekdata.php, .packages\\install_6a28433376bd7\\plg_task_updatewtcdekdata\\…\\Updatewtcdekdata.php, package-140-20261013\\archive-audit\\plg_task_updatewtcdekdata\\…\\Updatewtcdekdata.php and 8 other",
+          "lineContent": "final class Updatewtcdekdata extends CMSPlugin implements SubscriberInterface",
+          "line": 37,
+          "column": 13,
+          "quickFixes": []
+        }
+      ]
+    },
+    {
+      "file": "plg_task_updatewtcdekdata/src/Field/PlugininfoField.php",
+      "filePath": "plg_task_updatewtcdekdata\\src\\Field\\PlugininfoField.php",
+      "problems": [
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (105 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t */",
+          "line": 39,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PHPDoc comment doesn't contain all the necessary @throws tags",
+          "lineContent": "\t/**",
+          "line": 32,
+          "column": 2,
+          "quickFixes": [
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Add @throws tag"
+            },
+            {
+              "name": "Missing @throws tag(s)",
+              "familyName": "Update PHPDoc Comment"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\CMS\\Plugin\\PluginHelper' is never used",
+          "lineContent": "use Joomla\\CMS\\Plugin\\PluginHelper;",
+          "line": 20,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\CMS\\HTML\\HTMLHelper' is never used",
+          "lineContent": "use Joomla\\CMS\\HTML\\HTMLHelper;",
+          "line": 19,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\Registry\\Registry' is never used",
+          "lineContent": "use Joomla\\Registry\\Registry;",
+          "line": 23,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\CMS\\Form\\FormHelper' is never used",
+          "lineContent": "use Joomla\\CMS\\Form\\FormHelper;",
+          "line": 18,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unhandled \\Exception",
+          "lineContent": "\t\t$doc = Factory::getApplication()->getDocument();",
+          "line": 47,
+          "column": 19,
+          "quickFixes": [
+            {
+              "name": "Unhandled exception",
+              "familyName": "Add @throws tag"
+            }
+          ]
+        },
+        {
+          "severity": "WARNING",
+          "description": "Missing 'return' statement",
+          "lineContent": "\t}",
+          "line": 92,
+          "column": 2,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unnecessary local variable",
+          "lineContent": "\t\t$html = '",
+          "line": 61,
+          "column": 3,
+          "quickFixes": [
+            {
+              "name": "Unnecessary local variable",
+              "familyName": "Inline variable"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Potentially polymorphic call. ConsoleApplication does not have members in its hierarchy",
+          "lineContent": "\t\t$doc = Factory::getApplication()->getDocument();",
+          "line": 47,
+          "column": 37,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing function's return type declaration",
+          "lineContent": "\tprotected function getInput()",
+          "line": 40,
+          "column": 21,
+          "quickFixes": [
+            {
+              "name": "Missing return type declaration",
+              "familyName": "Add 'string' as the function's return type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing function's return type declaration",
+          "lineContent": "\tprotected function getTitle()",
+          "line": 101,
+          "column": 21,
+          "quickFixes": [
+            {
+              "name": "Missing return type declaration",
+              "familyName": "Add 'string' as the function's return type"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Unnecessary leading '\\'",
+          "lineContent": "use \\Joomla\\CMS\\Factory;",
+          "line": 22,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unnecessary leading '\\' in 'use' statement",
+              "familyName": "Remove leading '\\'"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Other declarations of class 'PlugininfoField' exist at tmp\\install-1.3.2\\plg_task_updatewtcdekdata\\…\\PlugininfoField.php, .packages\\install_6a28433376bd7\\plg_task_updatewtcdekdata\\…\\PlugininfoField.php, file-docblocks-20261013\\before\\plg_task_updatewtcdekdata\\…\\PlugininfoField.php, ajax-cookie-20261013\\archive-audit\\plg_task_updatewtcdekdata\\…\\PlugininfoField.php, watchfield-140-dev\\archive-audit\\plg_task_updatewtcdekdata\\…\\PlugininfoField.php and 8 other",
+          "lineContent": "class PlugininfoField extends NoteField",
+          "line": 27,
+          "column": 7,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Return type in PHPDoc does not match the actual return type",
+          "lineContent": "\t * @return  string  The field label markup.",
+          "line": 84,
+          "column": 14,
+          "quickFixes": [
+            {
+              "name": "Return type in PHPDoc comment does not match the actual return type",
+              "familyName": "Replace with 'void'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "script.php",
+      "filePath": "script.php",
+      "problems": [
+        {
+          "severity": "WARNING",
+          "description": "Missing required 'alt' attribute",
+          "lineContent": "\t\t\t\t<img width=\"180\" src=\"https://web-tolk.ru/web_tolk_logo_wide.png\">",
+          "line": 187,
+          "column": 6,
+          "quickFixes": []
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Duplicated code fragment (268 lines long)",
+          "lineContent": "<?php",
+          "line": 1,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Duplicated code fragment",
+              "familyName": "Navigate next to duplicate"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Argument matches the parameter's default value",
+          "lineContent": "\t\t\t\t\t$smile_key = array_rand($smiles, 1);",
+          "line": 171,
+          "column": 39,
+          "quickFixes": [
+            {
+              "name": "Redundant optional argument",
+              "familyName": "Remove redundant argument"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\CMS\\Helper\\LibraryHelper' is never used",
+          "lineContent": "use Joomla\\CMS\\Helper\\LibraryHelper;",
+          "line": 18,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Import 'Joomla\\CMS\\Cache\\Cache' is never used",
+          "lineContent": "use Joomla\\CMS\\Cache\\Cache;",
+          "line": 16,
+          "column": 5,
+          "quickFixes": [
+            {
+              "name": "Unused import",
+              "familyName": "Remove use statement"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier is unnecessary and can be removed",
+          "lineContent": "\\defined('_JEXEC') or die;",
+          "line": 13,
+          "column": 1,
+          "quickFixes": [
+            {
+              "name": "Unnecessary fully qualified name",
+              "familyName": "Remove unnecessary qualifier"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Qualifier is unnecessary and can be removed",
+          "lineContent": "\t\t\t\t$plugin          = new \\stdClass();",
+          "line": 218,
+          "column": 28,
+          "quickFixes": [
+            {
+              "name": "Unnecessary fully qualified name",
+              "familyName": "Remove unnecessary qualifier"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "PSR-12: Missing parameter list",
+          "lineContent": "                if (!(new Version)->isCompatible($this->minimumJoomla))",
+          "line": 241,
+          "column": 23,
+          "quickFixes": [
+            {
+              "name": "Missing parameter list",
+              "familyName": "PSR-12: add missing parameter list"
+            }
+          ]
+        },
+        {
+          "severity": "WEAK_WARNING",
+          "description": "Missing function's return type declaration",
+          "lineContent": "\tpublic function register(Container $container)",
+          "line": 31,
+          "column": 18,
+          "quickFixes": [
+            {
+              "name": "Missing return type declaration",
+              "familyName": "Add 'void' as the function's return type"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

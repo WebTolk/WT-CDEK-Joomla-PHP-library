@@ -1,0 +1,9 @@
+{
+  "command": [
+    "E:/OSPanel/modules/PHP-8.3/php.exe",
+    "E:\\dev\\WT-CDEK-Joomla-PHP-library\\.webtolk\\tests\\ajax-routing.php",
+    "E:\\OSPanel\\home\\joomla.local\\public"
+  ],
+  "exit": 0,
+  "seconds": 0.42
+}

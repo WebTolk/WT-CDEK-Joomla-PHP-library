@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Language strings for the shared Watchfield WebAsset.
  * @package       WT Cdek library package
@@ -10,9 +11,12 @@
  * @link          https://web-tolk.ru
  * @since         __DEPLOY_VERSION__
  */
+
 namespace Webtolk\Cdekapi\WebAsset\AssetItem;
 
+// phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 use Joomla\CMS\Document\Document;
 use Joomla\CMS\Factory;
@@ -27,9 +31,11 @@ final class WatchfieldAssetItem extends WebAssetItem implements WebAssetAttachBe
     {
         Factory::getApplication()->getLanguage()->load('lib_webtolk_cdekapi', JPATH_SITE);
 
-        foreach (['WATCHFIELD_SOURCE_ERROR', 'WATCHFIELD_DATA_ERROR', 'WATCHFIELD_LOADING', 'TARIFFINFO_SELECT', 'TARIFFINFO_NOT_FOUND',
+        foreach (
+            ['WATCHFIELD_SOURCE_ERROR', 'WATCHFIELD_DATA_ERROR', 'WATCHFIELD_LOADING', 'TARIFFINFO_SELECT', 'TARIFFINFO_NOT_FOUND',
             'DELIVERYPOINTS_SELECT', 'DELIVERYPOINTS_LOADING', 'DELIVERYPOINTS_EMPTY', 'DELIVERYPOINTS_ERROR',
-            'DELIVERYPOINTS_MISSING', 'DELIVERYPOINTS_CHANGED', 'DELIVERYPOINTS_ADDRESS_REQUIRED'] as $key) {
+            'DELIVERYPOINTS_MISSING', 'DELIVERYPOINTS_CHANGED', 'DELIVERYPOINTS_ADDRESS_REQUIRED'] as $key
+        ) {
             Text::script('LIB_WTCDEK_FIELD_' . $key);
         }
     }

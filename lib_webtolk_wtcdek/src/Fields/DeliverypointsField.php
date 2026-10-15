@@ -13,7 +13,9 @@
 
 namespace Webtolk\Cdekapi\Fields;
 
+// phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Form\Field\ListField;
@@ -68,15 +70,15 @@ final class DeliverypointsField extends ListField
     {
         $app = Factory::getApplication();
         $app->getLanguage()->load('lib_webtolk_cdekapi', JPATH_SITE);
-        $document = $app->getDocument();
-        $sources = [];
+        $document   = $app->getDocument();
+        $sources    = [];
         $parameters = ['zip' => '', 'city' => '', 'fias_guid' => ''];
 
         try {
             $filters = DeliverypointsService::normalizeFilters([
-                'type' => (string) ($this->element['point_type'] ?? 'ALL'),
+                'type'         => (string) ($this->element['point_type'] ?? 'ALL'),
                 'is_reception' => (string) ($this->element['is_reception'] ?? ''),
-                'is_handout' => (string) ($this->element['is_handout'] ?? ''),
+                'is_handout'   => (string) ($this->element['is_handout'] ?? ''),
             ]);
         } catch (\InvalidArgumentException $exception) {
             return '<div class="alert alert-warning">' . htmlspecialchars(Text::_('LIB_WTCDEK_FIELD_DELIVERYPOINTS_FILTER_INVALID'), ENT_QUOTES, 'UTF-8') . '</div>';
@@ -86,8 +88,8 @@ final class DeliverypointsField extends ListField
         if (isset($this->element['zip']) || isset($this->element['city']) || isset($this->element['fias_guid'])) {
             try {
                 $parameters = [
-                    'zip' => trim((string) $this->element['zip']),
-                    'city' => trim((string) $this->element['city']),
+                    'zip'       => trim((string) $this->element['zip']),
+                    'city'      => trim((string) $this->element['city']),
                     'fias_guid' => DeliverypointsService::normalizeFiasGuid((string) $this->element['fias_guid']),
                 ];
             } catch (\InvalidArgumentException $exception) {
@@ -116,10 +118,10 @@ final class DeliverypointsField extends ListField
 
         try {
             $options = Watchfield::dataOptions($this->element, [
-                'source' => 'ajax',
-                'url' => Uri::base(true) . '/index.php?option=com_ajax&group=system&plugin=wtcdek&format=json',
-                'path' => 'data.0.options',
-                'parameters' => array_merge($parameters, $filters, ['action' => 'deliverypoints']),
+                'source'      => 'ajax',
+                'url'         => Uri::base(true) . '/index.php?option=com_ajax&group=system&plugin=wtcdek&format=json',
+                'path'        => 'data.0.options',
+                'parameters'  => array_merge($parameters, $filters, ['action' => 'deliverypoints']),
                 'requiredAny' => ['city', 'postal_code', 'fias_guid'],
             ]);
         } catch (\UnexpectedValueException $exception) {

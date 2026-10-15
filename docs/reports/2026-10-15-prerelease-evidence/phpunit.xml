@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="ReleaseContractsTest" file="E:\dev\WT-CDEK-Joomla-PHP-library\docs\reports\2026-10-15-prerelease-evidence\ReleaseContractsTest.php" tests="3" assertions="4" errors="0" warnings="0" failures="3" skipped="0" time="0.066614">
+    <testcase name="testErrorPriorityReachesJoomlaLogger" class="ReleaseContractsTest" classname="ReleaseContractsTest" file="E:\dev\WT-CDEK-Joomla-PHP-library\docs\reports\2026-10-15-prerelease-evidence\ReleaseContractsTest.php" line="51" assertions="2" time="0.030007">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">ReleaseContractsTest::testErrorPriorityReachesJoomlaLogger
+ERROR was silently downgraded by Joomla LogEntry.
+Failed asserting that 64 is identical to 8.
+
+E:\dev\WT-CDEK-Joomla-PHP-library\docs\reports\2026-10-15-prerelease-evidence\ReleaseContractsTest.php:57</failure>
+    </testcase>
+    <testcase name="testTokenCacheSeparatesAccountsAndEnvironments" class="ReleaseContractsTest" classname="ReleaseContractsTest" file="E:\dev\WT-CDEK-Joomla-PHP-library\docs\reports\2026-10-15-prerelease-evidence\ReleaseContractsTest.php" line="60" assertions="1" time="0.000437">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">ReleaseContractsTest::testTokenCacheSeparatesAccountsAndEnvironments
+Accounts and sandbox overwrite the same cache entry.
+Failed asserting that actual size 1 matches expected size 3.
+
+E:\dev\WT-CDEK-Joomla-PHP-library\docs\reports\2026-10-15-prerelease-evidence\ReleaseContractsTest.php:66</failure>
+    </testcase>
+    <testcase name="testSchedulerPreservesExistingPointsWhenProviderReturnsAnError" class="ReleaseContractsTest" classname="ReleaseContractsTest" file="E:\dev\WT-CDEK-Joomla-PHP-library\docs\reports\2026-10-15-prerelease-evidence\ReleaseContractsTest.php" line="69" assertions="1" time="0.036171">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">ReleaseContractsTest::testSchedulerPreservesExistingPointsWhenProviderReturnsAnError
+Existing points were truncated before provider success. Failure: TypeError: array_key_exists(): Argument #2 ($array) must be of type array, int given
+Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+-Array &amp;0 ()
++Array &amp;0 (
++    0 =&gt; 'TRUNCATE `#__lib_wtcdek_delivery_points`'
++)
+
+E:\dev\WT-CDEK-Joomla-PHP-library\docs\reports\2026-10-15-prerelease-evidence\ReleaseContractsTest.php:91</failure>
+      <system-out>
+Deprecated: DateTime::format(): Passing null to parameter #1 ($format) of type string is deprecated in E:\OSPanel\home\joomla.local\public\libraries\src\Date\Date.php on line 282
+</system-out>
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Authenticated HTTP transport for the CDEK REST API.
  * @package       WT Cdek library package
@@ -15,32 +16,19 @@ declare(strict_types=1);
 
 namespace Webtolk\Cdekapi;
 
-defined('_JEXEC') or die;
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 use Joomla\CMS\Date\Date;
-use Joomla\CMS\Factory;
 use Joomla\CMS\Http\HttpFactory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\Registry\Registry;
 use Joomla\Uri\Uri;
 use Psr\Http\Message\ResponseInterface;
-use Throwable;
 use Webtolk\Cdekapi\Traits\CacheTrait;
 use Webtolk\Cdekapi\Traits\LogTrait;
-use function array_filter;
-use function array_key_exists;
-use function defined;
-use function implode;
-use function is_array;
-use function is_scalar;
-use function is_string;
-use function json_decode;
-use function json_encode;
-use function print_r;
-use function strtolower;
-use function strtoupper;
-use function trim;
 
 /**
  * Управляет транспортом API СДЭК, авторизацией и жизненным циклом токена.
@@ -168,8 +156,7 @@ final class CdekRequest
      */
     public function getResponse(string $method = '', array $data = [], string $request_method = 'POST', array $curl_options = []): array
     {
-        if (!$this->canDoRequest())
-        {
+        if (!$this->canDoRequest()) {
             return [
                 'error_code'    => 400,
                 'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_GETRESPONSE_CANT_DO_REQUEST'),
@@ -181,27 +168,21 @@ final class CdekRequest
 
         $options = new Registry();
 
-        if (!empty($curl_options))
-        {
+        if (!empty($curl_options)) {
             $options->set('transport.curl', $curl_options);
         }
 
         $headers = ['charset' => 'UTF-8'];
 
-        if ($method === '/oauth/token')
-        {
+        if ($method === '/oauth/token') {
             $headers['Content-Type'] = 'application/x-www-form-urlencoded';
-        }
-        else
-        {
-            if (strtoupper($request_method) !== 'GET')
-            {
+        } else {
+            if (strtoupper($request_method) !== 'GET') {
                 $headers['Content-Type'] = 'application/json';
                 $data                    = json_encode($data);
             }
 
-            if (!$this->loadTokenData())
-            {
+            if (!$this->loadTokenData()) {
                 return [
                     'error_code'    => 401,
                     'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_AUTHORIZE'),
@@ -209,45 +190,34 @@ final class CdekRequest
             }
         }
 
-        if (!empty($this->token))
-        {
+        if (!empty($this->token)) {
             $headers['Authorization'] = $this->tokenType . ' ' . $this->token;
         }
 
         $http = (new HttpFactory())->getHttp($options, ['curl', 'stream']);
 
-        try
-        {
+        try {
             $requestMethod = strtoupper($request_method);
 
-            if ($requestMethod === 'GET')
-            {
-                if (!empty($data))
-                {
+            if ($requestMethod === 'GET') {
+                if (!empty($data)) {
                     $requestUri->setQuery($data);
                 }
 
                 $response = $http->get($requestUri, $headers, 30);
-            }
-            elseif ($requestMethod === 'DELETE')
-            {
-                if (is_array($data) && !empty($data))
-                {
+            } elseif ($requestMethod === 'DELETE') {
+                if (\is_array($data) && !empty($data)) {
                     $requestUri->setQuery($data);
                 }
 
                 $response = $http->delete($requestUri, $headers, 30);
-            }
-            else
-            {
+            } else {
                 $methodName = strtolower($requestMethod);
                 $response   = $http->$methodName($requestUri, $data, $headers, 30);
             }
 
             return $this->mapResponse($response, $method);
-        }
-        catch (Throwable $e)
-        {
+        } catch (\Throwable $e) {
             $this->saveToLog($e->getCode() . ' ' . $e->getMessage(), 'ERROR');
 
             return [
@@ -268,15 +238,13 @@ final class CdekRequest
     {
         $this->applyDefaultTestCredentials();
 
-        if (!empty($this->clientId) && !empty($this->clientSecret))
-        {
+        if (!empty($this->clientId) && !empty($this->clientSecret)) {
             return true;
         }
 
         $pluginParams = self::getPluginParams();
 
-        if ($pluginParams === false)
-        {
+        if ($pluginParams === false) {
             return false;
         }
 
@@ -298,13 +266,11 @@ final class CdekRequest
      */
     private function applyDefaultTestCredentials(): void
     {
-        if (!$this->testMode)
-        {
+        if (!$this->testMode) {
             return;
         }
 
-        if (!empty($this->clientId) && !empty($this->clientSecret))
-        {
+        if (!empty($this->clientId) && !empty($this->clientSecret)) {
             return;
         }
 
@@ -321,10 +287,8 @@ final class CdekRequest
      */
     public static function getPluginParams()
     {
-        if (!self::$pluginParams)
-        {
-            if (!PluginHelper::isEnabled('system', 'wtcdek'))
-            {
+        if (!self::$pluginParams) {
+            if (!PluginHelper::isEnabled('system', 'wtcdek')) {
                 return false;
             }
 
@@ -356,24 +320,19 @@ final class CdekRequest
      */
     public function loadTokenData(): bool
     {
-        if (!empty($this->token) && !empty($this->tokenType) && $this->expiresIn > 0)
-        {
+        if (!empty($this->token) && !empty($this->tokenType) && $this->expiresIn > 0) {
             return true;
         }
 
         $cache     = $this->getCache();
         $tokenData = $cache->get('wt_cdek');
 
-        if (!empty($tokenData))
-        {
+        if (!empty($tokenData)) {
             $tokenData = json_decode($tokenData);
-        }
-        else
-        {
+        } else {
             $response = $this->authorize();
 
-            if (isset($response['error_code']))
-            {
+            if (isset($response['error_code'])) {
                 $this->saveToLog($response['error_code'] . ' - ' . $response['error_message'], 'ERROR');
 
                 return false;
@@ -384,8 +343,7 @@ final class CdekRequest
 
         $date = (new Date())->toUnix();
 
-        if (isset($tokenData->token_end_time) && $tokenData->token_end_time <= $date)
-        {
+        if (isset($tokenData->token_end_time) && $tokenData->token_end_time <= $date) {
             $cache->remove('wt_cdek');
             $this->authorize();
 
@@ -417,13 +375,11 @@ final class CdekRequest
 
         $response = $this->getResponse('/oauth/token', $authorizeData, 'POST');
 
-        if (array_key_exists('error_code', $response))
-        {
+        if (\array_key_exists('error_code', $response)) {
             return $response;
         }
 
-        if (!array_key_exists('access_token', $response))
-        {
+        if (!\array_key_exists('access_token', $response)) {
             $error = [
                 'error_code'    => 401,
                 'error_message' => Text::_('PKG_LIB_WTCDEK_ERROR_AUTHORIZE_NO_TOKEN'),
@@ -484,41 +440,31 @@ final class CdekRequest
         $errorMessage = '';
         $statusCode   = $response->getStatusCode();
         $responseBody = (string)$response->getBody();
-        $body = json_decode($responseBody, true);
+        $body         = json_decode($responseBody, true);
 
-        if (!is_array($body))
-        {
+        if (!\is_array($body)) {
             $body = (new Registry($responseBody))->toArray();
         }
 
-        if ($statusCode >= 400 && $statusCode < 500)
-        {
+        if ($statusCode >= 400 && $statusCode < 500) {
             if (
-                (array_key_exists('errors', $body) && !empty($body['errors']))
-                || (array_key_exists('error', $body) && !empty($body['error']))
+                (\array_key_exists('errors', $body) && !empty($body['errors']))
+                || (\array_key_exists('error', $body) && !empty($body['error']))
                 || (
-                    (array_key_exists('requests', $body) && !empty($body['requests']))
-                    && (array_key_exists('errors', $body['requests'][0]) || !empty($body['requests'][0]['errors']))
+                    (\array_key_exists('requests', $body) && !empty($body['requests']))
+                    && (\array_key_exists('errors', $body['requests'][0]) || !empty($body['requests'][0]['errors']))
                 )
-            )
-            {
-                if (array_key_exists('errors', $body) && !empty($body['errors']))
-                {
+            ) {
+                if (\array_key_exists('errors', $body) && !empty($body['errors'])) {
                     $errorsArray = $body['errors'][0];
-                }
-                elseif (array_key_exists('error', $body) && !empty($body['error']))
-                {
+                } elseif (\array_key_exists('error', $body) && !empty($body['error'])) {
                     $errorsArray = $body;
-                }
-                else
-                {
+                } else {
                     $errorsArray = $body['requests'][0]['errors'];
                 }
 
                 $errorMessage .= $this->normalizeErrors($errorsArray);
-            }
-            else
-            {
+            } else {
                 $errorMessage = $responseBody;
             }
 
@@ -535,8 +481,7 @@ final class CdekRequest
             ];
         }
 
-        if ($statusCode >= 500)
-        {
+        if ($statusCode >= 500) {
             $this->saveToLog(
                 'Error while trying to calculate delivery cost via Cdek. Cdek Ответ API: ' . print_r($body, true),
                 'ERROR'
@@ -561,26 +506,21 @@ final class CdekRequest
      */
     private function normalizeErrors($errors): string
     {
-        if (!is_array($errors))
-        {
+        if (!\is_array($errors)) {
             return (string) $errors;
         }
 
         $parts = [];
 
-        foreach ($errors as $key => $value)
-        {
-            if (is_array($value))
-            {
+        foreach ($errors as $key => $value) {
+            if (\is_array($value)) {
                 $parts[] = $this->normalizeErrors($value);
-            }
-            elseif (is_scalar($value))
-            {
-                $parts[] = is_string($key) ? $key . ': ' . (string) $value : (string) $value;
+            } elseif (\is_scalar($value)) {
+                $parts[] = \is_string($key) ? $key . ': ' . (string) $value : (string) $value;
             }
         }
 
-        return implode(', ', array_filter($parts, static fn($part) => !empty($part)));
+        return implode(', ', array_filter($parts, static fn ($part) => !empty($part)));
     }
 
     /**

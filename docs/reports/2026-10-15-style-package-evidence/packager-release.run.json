@@ -1,0 +1,11 @@
+{
+  "command": [
+    "E:/OSPanel/modules/PHP-8.3/php.exe",
+    "E:/.agents/tools/phing-packager/phing-latest.phar",
+    "-f",
+    "phing.xml",
+    "3. Package release"
+  ],
+  "exit": 0,
+  "seconds": 1.75
+}

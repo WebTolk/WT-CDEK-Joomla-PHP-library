@@ -1,0 +1,197 @@
+[
+  {
+    "file": "lib_webtolk_wtcdek/layouts/fields/tariffinfo.php",
+    "filePath": "lib_webtolk_wtcdek\\layouts\\fields\\tariffinfo.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/script.php",
+    "filePath": "lib_webtolk_wtcdek\\script.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Cdek.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Cdek.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/CdekClientException.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\CdekClientException.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/CdekRequest.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\CdekRequest.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/AbstractEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\AbstractEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/CalculatorEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\CalculatorEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/CheckEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\CheckEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/DeliveryEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\DeliveryEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/DeliverypointsEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\DeliverypointsEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/IntakesEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\IntakesEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/InternationalEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\InternationalEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/LocationEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\LocationEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/OauthEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\OauthEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/OrdersEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\OrdersEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/PassportEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\PassportEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/PaymentEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\PaymentEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/PhotoDocumentEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\PhotoDocumentEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/PrealertEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\PrealertEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/PrintEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\PrintEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/registry.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\registry.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/ReverseEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\ReverseEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/WebhooksEntity.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Entities\\WebhooksEntity.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Fields/DeliverypointsField.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Fields\\DeliverypointsField.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Fields/TariffinfoField.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Fields\\TariffinfoField.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Fields/TarifflistField.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Fields\\TarifflistField.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Helper/Watchfield.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Helper\\Watchfield.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Interfaces/EntityInterface.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Interfaces\\EntityInterface.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Service/DeliverypointsService.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Service\\DeliverypointsService.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Traits/CacheTrait.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Traits\\CacheTrait.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Traits/LogTrait.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\Traits\\LogTrait.php",
+    "problems": []
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/WebAsset/AssetItem/WatchfieldAssetItem.php",
+    "filePath": "lib_webtolk_wtcdek\\src\\WebAsset\\AssetItem\\WatchfieldAssetItem.php",
+    "problems": []
+  },
+  {
+    "file": "plg_system_wtcdek/services/provider.php",
+    "filePath": "plg_system_wtcdek\\services\\provider.php",
+    "problems": []
+  },
+  {
+    "file": "plg_system_wtcdek/src/Extension/Wtcdek.php",
+    "filePath": "plg_system_wtcdek\\src\\Extension\\Wtcdek.php",
+    "problems": []
+  },
+  {
+    "file": "plg_system_wtcdek/src/Field/AccountinfoField.php",
+    "filePath": "plg_system_wtcdek\\src\\Field\\AccountinfoField.php",
+    "problems": []
+  },
+  {
+    "file": "plg_system_wtcdek/src/Field/PlugininfoField.php",
+    "filePath": "plg_system_wtcdek\\src\\Field\\PlugininfoField.php",
+    "problems": []
+  },
+  {
+    "file": "plg_task_updatewtcdekdata/src/Extension/Updatewtcdekdata.php",
+    "filePath": "plg_task_updatewtcdekdata\\src\\Extension\\Updatewtcdekdata.php",
+    "problems": []
+  },
+  {
+    "file": "plg_task_updatewtcdekdata/src/Field/PlugininfoField.php",
+    "filePath": "plg_task_updatewtcdekdata\\src\\Field\\PlugininfoField.php",
+    "problems": []
+  },
+  {
+    "file": "script.php",
+    "filePath": "script.php",
+    "problems": []
+  }
+]

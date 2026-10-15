@@ -1,0 +1,151 @@
+{
+  "filePath": "lib_webtolk_wtcdek\\script.php",
+  "problems": [
+    {
+      "severity": "WEAK_WARNING",
+      "description": "Duplicated code fragment (41 lines long)",
+      "lineContent": "\t\t\t\t\tif (!$element || !count($element->children()))",
+      "line": 154,
+      "column": 6,
+      "quickFixes": [
+        {
+          "name": "Duplicated code fragment",
+          "familyName": "Navigate next to duplicate"
+        }
+      ]
+    },
+    {
+      "severity": "WEAK_WARNING",
+      "description": "Duplicated code fragment (48 lines long)",
+      "lineContent": "\t\t\t\t\tif (!$element || !count($element->children()))",
+      "line": 208,
+      "column": 6,
+      "quickFixes": [
+        {
+          "name": "Duplicated code fragment",
+          "familyName": "Navigate to duplicate"
+        }
+      ]
+    },
+    {
+      "severity": "WEAK_WARNING",
+      "description": "Qualifier is unnecessary and can be removed",
+      "lineContent": "\t\t\t\t * @param   \\SimpleXMLElement  $element    The XML node to process.",
+      "line": 145,
+      "column": 17,
+      "quickFixes": [
+        {
+          "name": "Unnecessary fully qualified name",
+          "familyName": "Remove unnecessary qualifier"
+        }
+      ]
+    },
+    {
+      "severity": "WEAK_WARNING",
+      "description": "Qualifier is unnecessary and can be removed",
+      "lineContent": "\t\t\t\tprivate function parseLayouts(\\SimpleXMLElement $element, Installer $installer): bool",
+      "line": 152,
+      "column": 35,
+      "quickFixes": [
+        {
+          "name": "Unnecessary fully qualified name",
+          "familyName": "Remove unnecessary qualifier"
+        }
+      ]
+    },
+    {
+      "severity": "WEAK_WARNING",
+      "description": "Qualifier is unnecessary and can be removed",
+      "lineContent": "\t\t\t\t * @param   \\SimpleXMLElement  $element  The XML node to process.",
+      "line": 200,
+      "column": 17,
+      "quickFixes": [
+        {
+          "name": "Unnecessary fully qualified name",
+          "familyName": "Remove unnecessary qualifier"
+        }
+      ]
+    },
+    {
+      "severity": "WEAK_WARNING",
+      "description": "Qualifier is unnecessary and can be removed",
+      "lineContent": "\t\t\t\tprivate function removeLayouts(\\SimpleXMLElement $element): bool",
+      "line": 206,
+      "column": 36,
+      "quickFixes": [
+        {
+          "name": "Unnecessary fully qualified name",
+          "familyName": "Remove unnecessary qualifier"
+        }
+      ]
+    },
+    {
+      "severity": "WEAK_WARNING",
+      "description": "Method's return value is never used",
+      "lineContent": "\t\t\t\tprivate function parseLayouts(\\SimpleXMLElement $element, Installer $installer): bool",
+      "line": 152,
+      "column": 22,
+      "quickFixes": [
+        {
+          "name": "Method's return value is never used",
+          "familyName": "Make method 'void'"
+        }
+      ]
+    },
+    {
+      "severity": "WEAK_WARNING",
+      "description": "Method's return value is never used",
+      "lineContent": "\t\t\t\tprivate function removeLayouts(\\SimpleXMLElement $element): bool",
+      "line": 206,
+      "column": 22,
+      "quickFixes": [
+        {
+          "name": "Method's return value is never used",
+          "familyName": "Make method 'void'"
+        }
+      ]
+    },
+    {
+      "severity": "WEAK_WARNING",
+      "description": "Condition is always 'false' because '\\SimpleXMLElement $element' is evaluated at this point",
+      "lineContent": "\t\t\t\t\tif (!$element || !count($element->children()))",
+      "line": 154,
+      "column": 10,
+      "quickFixes": [
+        {
+          "name": "Condition always evaluates to 'true/false'",
+          "familyName": "Delete '!$element'"
+        },
+        {
+          "name": "Condition always evaluates to 'true/false'",
+          "familyName": "Navigate to cause"
+        }
+      ]
+    },
+    {
+      "severity": "WARNING",
+      "description": "Property is only written but never read",
+      "lineContent": "\t\t\t\tprivate AdministratorApplication $app;",
+      "line": 49,
+      "column": 38,
+      "quickFixes": []
+    },
+    {
+      "severity": "WEAK_WARNING",
+      "description": "Condition is always 'false' because '\\SimpleXMLElement $element' is evaluated at this point",
+      "lineContent": "\t\t\t\t\tif (!$element || !count($element->children()))",
+      "line": 208,
+      "column": 10,
+      "quickFixes": [
+        {
+          "name": "Condition always evaluates to 'true/false'",
+          "familyName": "Delete '!$element'"
+        },
+        {
+          "name": "Condition always evaluates to 'true/false'",
+          "familyName": "Navigate to cause"
+        }
+      ]
+    }
+  ]
+}

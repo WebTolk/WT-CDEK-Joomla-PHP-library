@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Joomla Form field displaying plugin information.
  * @package       WT Cdek library package
@@ -13,40 +14,39 @@
 
 namespace Joomla\Plugin\System\Wtcdek\Field;
 
-defined('_JEXEC') or die;
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
-use Joomla\CMS\Form\FormHelper;
-use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Plugin\PluginHelper;
-use Joomla\CMS\Language\Text;
-use \Joomla\CMS\Factory;
-use Joomla\Registry\Registry;
+use Joomla\CMS\Factory;
 use Joomla\CMS\Form\Field\NoteField;
+use Joomla\CMS\Form\FormHelper;
+use Joomla\CMS\Language\Text;
+
 //FormHelper::loadFieldClass('spacer');
 
 class PlugininfoField extends NoteField
 {
+    protected $type = 'Plugininfo';
 
-	protected $type = 'Plugininfo';
-
-	/**
-	 * Method to get the field input markup for a spacer.
-	 * The spacer does not have accept input.
-	 *
-	 * @return  string  The field input markup.
-	 *
-	 * @since 1.3.0
-	 */
-	protected function getInput()
-	{
-		$data = $this->form->getData();
-		$element = 	$data->get('element');
-		$folder = 	$data->get('folder');
+    /**
+     * Method to get the field input markup for a spacer.
+     * The spacer does not have accept input.
+     *
+     * @return  string  The field input markup.
+     *
+     * @since 1.3.0
+     */
+    protected function getInput()
+    {
+        $data    = $this->form->getData();
+        $element =  $data->get('element');
+        $folder  =  $data->get('folder');
 
 
-		$doc = Factory::getApplication()->getDocument();
-		$wa = $doc->getWebAssetManager();
-		$wa->addInlineStyle("
+        $doc = Factory::getApplication()->getDocument();
+        $wa  = $doc->getWebAssetManager();
+        $wa->addInlineStyle("
 			.plugin-info-img svg:hover * {
 				cursor:pointer;
 			}
@@ -55,10 +55,10 @@ class PlugininfoField extends NoteField
 			}
 		");
 
-		$wt_plugin_info = simplexml_load_file(JPATH_SITE."/plugins/".$folder."/".$element."/".$element.".xml");
+        $wt_plugin_info = simplexml_load_file(JPATH_SITE . "/plugins/" . $folder . "/" . $element . "/" . $element . ".xml");
 
 
-		$html = '
+        $html = '
 				<div class="row shadow py-4">
 					<div class="plugin-info-img col-2">
 						<a href="https://web-tolk.ru" target="_blank">
@@ -72,34 +72,32 @@ class PlugininfoField extends NoteField
 						</a>
 					</div>
 					<div class="col-10 p-2">
-						<span class="badge bg-success">v.'.$wt_plugin_info->version.'</span>
-						'.Text::_("PLG_".strtoupper($element)."_DESC").'
+						<span class="badge bg-success">v.' . $wt_plugin_info->version . '</span>
+						' . Text::_("PLG_" . strtoupper($element) . "_DESC") . '
 					</div>
 				</div>
 		';
-		return $html;
-	}
+        return $html;
+    }
 
-	/**
-	 * @return  string  The field label markup.
-	 *
-	 * @since 1.3.0
-	 */
-	protected function getLabel()
-	{
+    /**
+     * @return  string  The field label markup.
+     *
+     * @since 1.3.0
+     */
+    protected function getLabel()
+    {
+    }
 
-
-	}
-
-	/**
-	 * Method to get the field title.
-	 *
-	 * @return  string  The field title.
-	 *
-	 * @since 1.3.0
-	 */
-	protected function getTitle()
-	{
-		return $this->getLabel();
-	}
+    /**
+     * Method to get the field title.
+     *
+     * @return  string  The field title.
+     *
+     * @since 1.3.0
+     */
+    protected function getTitle()
+    {
+        return $this->getLabel();
+    }
 }

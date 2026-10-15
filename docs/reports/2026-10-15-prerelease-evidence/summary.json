@@ -1,0 +1,278 @@
+{
+  "product_php_files": 40,
+  "changed_product_php": [
+    "lib_webtolk_wtcdek/script.php"
+  ],
+  "other_product_php_unchanged": true,
+  "phpcs": {
+    "errors": 4915,
+    "warnings": 60,
+    "fixable": 4897,
+    "affected_files": 39,
+    "top_rules": [
+      [
+        "Generic.WhiteSpace.DisallowTabIndent.TabsUsed",
+        3465
+      ],
+      [
+        "Generic.WhiteSpace.DisallowTabIndent.NonIndentTabsUsed",
+        615
+      ],
+      [
+        "Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis",
+        200
+      ],
+      [
+        "Generic.Formatting.DisallowMultipleStatements.SameLine",
+        104
+      ],
+      [
+        "Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore",
+        104
+      ],
+      [
+        "Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace",
+        67
+      ],
+      [
+        "PSR12.Files.FileHeader.SpacingAfterBlock",
+        61
+      ],
+      [
+        "Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine",
+        36
+      ],
+      [
+        "Squiz.Functions.MultiLineFunctionDeclaration.ContentAfterBrace",
+        36
+      ],
+      [
+        "PSR1.Files.SideEffects.FoundWithSymbols",
+        33
+      ],
+      [
+        "PSR12.Operators.OperatorSpacing.NoSpaceBefore",
+        28
+      ],
+      [
+        "PSR12.Operators.OperatorSpacing.NoSpaceAfter",
+        28
+      ],
+      [
+        "Internal.LineEndings.Mixed",
+        27
+      ],
+      [
+        "Generic.Files.LineEndings.InvalidEOLChar",
+        27
+      ],
+      [
+        "Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword",
+        24
+      ]
+    ]
+  },
+  "fixer": {
+    "affected_files": 38,
+    "layout_excluded_by_shared_policy": true
+  },
+  "phpstan": {
+    "level": 5,
+    "php_version": "8.3",
+    "errors": 0,
+    "file_errors": 32
+  },
+  "phpstorm": {
+    "files": 40,
+    "timeouts": 0,
+    "counts": {
+      "WEAK_WARNING": 433,
+      "WARNING": 15
+    }
+  },
+  "native": [
+    {
+      "name": "native-j4-deliverypoints",
+      "exit": 0,
+      "core": "E:/.agents/docs/joomla/core/Joomla-core/4.x/4.4.14",
+      "checks": 84,
+      "result": "passed",
+      "network": "none"
+    },
+    {
+      "name": "native-j4-ajax-cookie",
+      "exit": 0,
+      "core": "E:/.agents/docs/joomla/core/Joomla-core/4.x/4.4.14",
+      "checks": 20,
+      "result": "passed",
+      "network": "none"
+    },
+    {
+      "name": "native-j4-ajax-routing",
+      "exit": 0,
+      "core": "E:/.agents/docs/joomla/core/Joomla-core/4.x/4.4.14",
+      "checks": 46,
+      "result": "passed",
+      "network": "none"
+    },
+    {
+      "name": "native-j5-deliverypoints",
+      "exit": 0,
+      "core": "E:/.agents/docs/joomla/core/Joomla-core/5.x/5.4.7",
+      "checks": 85,
+      "result": "passed",
+      "network": "none"
+    },
+    {
+      "name": "native-j5-ajax-cookie",
+      "exit": 0,
+      "core": "E:/.agents/docs/joomla/core/Joomla-core/5.x/5.4.7",
+      "checks": 20,
+      "result": "passed",
+      "network": "none"
+    },
+    {
+      "name": "native-j5-ajax-routing",
+      "exit": 0,
+      "core": "E:/.agents/docs/joomla/core/Joomla-core/5.x/5.4.7",
+      "checks": 90,
+      "result": "passed",
+      "network": "none"
+    },
+    {
+      "name": "native-deliverypoints-host",
+      "exit": 0,
+      "core": "E:/OSPanel/home/joomla.local/public",
+      "checks": 85,
+      "result": "passed",
+      "network": "none"
+    },
+    {
+      "name": "native-ajax-cookie",
+      "exit": 0,
+      "core": "E:\\OSPanel\\home\\joomla.local\\public",
+      "checks": 20,
+      "result": "passed",
+      "network": "none"
+    },
+    {
+      "name": "native-ajax-routing",
+      "exit": 0,
+      "core": "E:\\OSPanel\\home\\joomla.local\\public",
+      "checks": 90,
+      "result": "passed",
+      "network": "none"
+    }
+  ],
+  "native_checks": 540,
+  "installer_fix": {
+    "post_fix_lint": [
+      {
+        "php": "7.4",
+        "checked": 40,
+        "failed": 0
+      },
+      {
+        "php": "8.0",
+        "checked": 40,
+        "failed": 0
+      },
+      {
+        "php": "8.1",
+        "checked": 40,
+        "failed": 0
+      },
+      {
+        "php": "8.3",
+        "checked": 40,
+        "failed": 0
+      }
+    ],
+    "provider_smoke": [
+      {
+        "result": "passed",
+        "php": "7.4.33",
+        "core": "E:/.agents/docs/joomla/core/Joomla-core/4.x/4.4.14",
+        "provider_loaded": true,
+        "interface_resolved": true,
+        "application_preserved": true,
+        "installation_executed": false
+      },
+      {
+        "result": "passed",
+        "php": "8.3.30",
+        "core": "E:/.agents/docs/joomla/core/Joomla-core/5.x/5.4.7",
+        "provider_loaded": true,
+        "interface_resolved": true,
+        "application_preserved": true,
+        "installation_executed": false
+      },
+      {
+        "result": "passed",
+        "php": "8.3.30",
+        "core": "E:/OSPanel/home/joomla.local/public",
+        "provider_loaded": true,
+        "interface_resolved": true,
+        "application_preserved": true,
+        "installation_executed": false
+      }
+    ]
+  },
+  "phpunit": {
+    "name": "ReleaseContractsTest",
+    "file": "E:\\dev\\WT-CDEK-Joomla-PHP-library\\docs\\reports\\2026-10-15-prerelease-evidence\\ReleaseContractsTest.php",
+    "tests": "3",
+    "assertions": "4",
+    "errors": "0",
+    "warnings": "0",
+    "failures": "3",
+    "skipped": "0",
+    "time": "0.066614"
+  },
+  "baseline_main": {
+    "lib_webtolk_wtcdek/script.php": {
+      "readonly": true
+    },
+    "lib_webtolk_wtcdek/src/CdekRequest.php": {
+      "$cache->get('wt_cdek')": true,
+      "$cache->store(json_encode($tokenData), 'wt_cdek')": true
+    },
+    "lib_webtolk_wtcdek/src/Traits/LogTrait.php": {
+      "'Log::' . $priority": true
+    },
+    "plg_task_updatewtcdekdata/src/Extension/Updatewtcdekdata.php": {
+      "$this->clearTable('#__lib_wtcdek_delivery_points')": true,
+      "array_key_exists('code', $deliveryPoint)": true
+    }
+  },
+  "metadata_xml_parsed": [
+    "lib_webtolk_wtcdek\\Cdekapi.xml",
+    "plg_system_wtcdek\\wtcdek.xml",
+    "plg_task_updatewtcdekdata\\forms\\updatewtcdekdata.xml",
+    "plg_task_updatewtcdekdata\\updatewtcdekdata.xml",
+    "pkg_lib_wtcdek.xml"
+  ],
+  "packages": [
+    {
+      "name": "WT Cdek library package_1.3.2.zip",
+      "bytes": 367534,
+      "sha256": "e36a0ec075990ce914942b47c650e14870a1802f8ff6fa71a77fa92c4bfe9d88",
+      "entries": 59,
+      "bad_crc_entry": null
+    },
+    {
+      "name": "WT Cdek library package_1.4.0-dev.zip",
+      "bytes": 381977,
+      "sha256": "3c36a192718027de19a91c036b6a8305ec04466a2da2a7e05e1740427c903fc1",
+      "entries": 66,
+      "bad_crc_entry": null
+    },
+    {
+      "name": "WT Cdek library package_1.4.0.zip",
+      "bytes": 383093,
+      "sha256": "2e17b506ffa953f1f6d86d38175116bf5f3b2b9b2f19d3cd2c7dc0c16e2c2982",
+      "entries": 66,
+      "bad_crc_entry": null
+    }
+  ]
+}

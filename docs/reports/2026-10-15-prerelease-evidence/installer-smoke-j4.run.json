@@ -1,0 +1,9 @@
+{
+  "command": [
+    "E:/OSPanel/modules/PHP-7.4/php.exe",
+    "E:\\dev\\WT-CDEK-Joomla-PHP-library\\docs\\reports\\2026-10-15-prerelease-evidence\\installer-smoke.php",
+    "E:/.agents/docs/joomla/core/Joomla-core/4.x/4.4.14"
+  ],
+  "exit": 0,
+  "seconds": 0.34
+}

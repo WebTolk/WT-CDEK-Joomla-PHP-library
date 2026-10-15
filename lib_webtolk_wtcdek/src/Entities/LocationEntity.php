@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CDEK location API entity.
  * @package       WT Cdek library package
@@ -15,204 +16,189 @@ declare(strict_types=1);
 
 namespace Webtolk\Cdekapi\Entities;
 
-use function array_filter;
-use function array_merge;
-use function implode;
-use function is_array;
-use function urlencode;
-
-defined('_JEXEC') or die;
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 final class LocationEntity extends AbstractEntity
 {
-	/**
-	 * GET /v2/location/regions
-	 *
-	 * Получение списка регионов
-	 *
-	 * **Описание:**
-	 * Метод предназначен для получения детальной информации о регионах.
-	 *
-	 * Список регионов может быть ограничен характеристиками, задаваемыми пользователем.
-	 *
-	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/regions
-	 *
-	 * @param   array  $request_options  Параметры запроса.
-	 *
-	 * @return  array  Ответ API.
-	 *
-	 * @since 1.3.0
-	 */
-	public function getRegions(array $request_options = []): array
-	{
-		$options = [
-			'country_codes' => [],
-			'size'          => 1000,
-			'page'          => 0,
-			'lang'          => 'rus',
-		];
-		$options = array_filter(array_merge($options, $request_options));
+    /**
+     * GET /v2/location/regions
+     *
+     * Получение списка регионов
+     *
+     * **Описание:**
+     * Метод предназначен для получения детальной информации о регионах.
+     *
+     * Список регионов может быть ограничен характеристиками, задаваемыми пользователем.
+     *
+     * Источник: https://apidoc.cdek.ru/#tag/location/operation/regions
+     *
+     * @param   array  $request_options  Параметры запроса.
+     *
+     * @return  array  Ответ API.
+     *
+     * @since 1.3.0
+     */
+    public function getRegions(array $request_options = []): array
+    {
+        $options = [
+            'country_codes' => [],
+            'size'          => 1000,
+            'page'          => 0,
+            'lang'          => 'rus',
+        ];
+        $options = array_filter(array_merge($options, $request_options));
 
-		if (!empty($options['country_codes']) && is_array($options['country_codes']))
-		{
-			$options['country_codes'] = implode(',', $options['country_codes']);
-		}
+        if (!empty($options['country_codes']) && \is_array($options['country_codes'])) {
+            $options['country_codes'] = implode(',', $options['country_codes']);
+        }
 
-		return $this->request->getResponse('/location/regions', $options, 'GET');
-	}
+        return $this->request->getResponse('/location/regions', $options, 'GET');
+    }
 
-	/**
-	 * GET /v2/location/cities
-	 *
-	 * Получение списка населенных пунктов
-	 *
-	 * **Описание:**
-	 * Метод предназначен для получения детальной информации о населенных пунктах.
-	 *
-	 * Список населенных пунктов может быть ограничен характеристиками, задаваемыми пользователем.
-	 *
-	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/cities
-	 *
-	 * @param   array  $request_options  Параметры запроса.
-	 *
-	 * @return  array  Ответ API.
-	 *
-	 * @since 1.3.0
-	 */
-	public function getCities(array $request_options = []): array
-	{
-		$options = [
-			'country_codes' => [],
-			'size'          => 500,
-			'page'          => 0,
-			'lang'          => 'rus',
-		];
-		$options = array_filter(array_merge($options, $request_options));
+    /**
+     * GET /v2/location/cities
+     *
+     * Получение списка населенных пунктов
+     *
+     * **Описание:**
+     * Метод предназначен для получения детальной информации о населенных пунктах.
+     *
+     * Список населенных пунктов может быть ограничен характеристиками, задаваемыми пользователем.
+     *
+     * Источник: https://apidoc.cdek.ru/#tag/location/operation/cities
+     *
+     * @param   array  $request_options  Параметры запроса.
+     *
+     * @return  array  Ответ API.
+     *
+     * @since 1.3.0
+     */
+    public function getCities(array $request_options = []): array
+    {
+        $options = [
+            'country_codes' => [],
+            'size'          => 500,
+            'page'          => 0,
+            'lang'          => 'rus',
+        ];
+        $options = array_filter(array_merge($options, $request_options));
 
-		if (!empty($options['country_codes']) && is_array($options['country_codes']))
-		{
-			$options['country_codes'] = implode(',', $options['country_codes']);
-		}
+        if (!empty($options['country_codes']) && \is_array($options['country_codes'])) {
+            $options['country_codes'] = implode(',', $options['country_codes']);
+        }
 
-		if (!empty($options['city']))
-		{
-			$options['city'] = urlencode((string) $options['city']);
-		}
+        if (!empty($options['city'])) {
+            $options['city'] = urlencode((string) $options['city']);
+        }
 
-		return $this->request->getResponse('/location/cities', $options, 'GET');
-	}
+        return $this->request->getResponse('/location/cities', $options, 'GET');
+    }
 
-	/**
-	 * GET /v2/location/postalcodes
-	 *
-	 * Получение почтовых индексов города
-	 *
-	 * **Описание:**
-	 * Метод предназначен для получения списка почтовых индексов.
-	 *
-	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/postalcodes
-	 *
-	 * @param   int  $city_code  Параметры запроса.
-	 *
-	 * @return  array  Ответ API.
-	 *
-	 * @since 1.3.0
-	 */
-	public function getPostalCodes(int $city_code): array
-	{
-		if (empty($city_code))
-		{
-			return [
-				'error_code'    => '500',
-				'error_message' => 'There is no city code specified',
-			];
-		}
+    /**
+     * GET /v2/location/postalcodes
+     *
+     * Получение почтовых индексов города
+     *
+     * **Описание:**
+     * Метод предназначен для получения списка почтовых индексов.
+     *
+     * Источник: https://apidoc.cdek.ru/#tag/location/operation/postalcodes
+     *
+     * @param   int  $city_code  Параметры запроса.
+     *
+     * @return  array  Ответ API.
+     *
+     * @since 1.3.0
+     */
+    public function getPostalCodes(int $city_code): array
+    {
+        if (empty($city_code)) {
+            return [
+                'error_code'    => '500',
+                'error_message' => 'There is no city code specified',
+            ];
+        }
 
-		return $this->request->getResponse('/location/postalcodes', ['city_code' => $city_code], 'GET');
-	}
+        return $this->request->getResponse('/location/postalcodes', ['city_code' => $city_code], 'GET');
+    }
 
-	/**
-	 * GET /v2/location/coordinates
-	 *
-	 * Получение локации по координатам
-	 *
-	 * **Описание:**
-	 * Метод позволяет определить локацию по переданным в запросе координатам
-	 *
-	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/getCityByCoordinates
-	 *
-	 * @param   array  $request_options  Параметры запроса. Допустимые ключи координат:
-	 *                        `latitude` (или `lat`) и `longitude` (или `lng`/`lon`).
-	 *
-	 * @return  array  Ответ API.
-	 *
-	 * @since 1.3.0
-	 */
-	public function getCityByCoordinates(array $request_options = []): array
-	{
-		if (!isset($request_options['latitude']) && isset($request_options['lat']))
-		{
-			$request_options['latitude'] = $request_options['lat'];
-		}
+    /**
+     * GET /v2/location/coordinates
+     *
+     * Получение локации по координатам
+     *
+     * **Описание:**
+     * Метод позволяет определить локацию по переданным в запросе координатам
+     *
+     * Источник: https://apidoc.cdek.ru/#tag/location/operation/getCityByCoordinates
+     *
+     * @param   array  $request_options  Параметры запроса. Допустимые ключи координат:
+     *                        `latitude` (или `lat`) и `longitude` (или `lng`/`lon`).
+     *
+     * @return  array  Ответ API.
+     *
+     * @since 1.3.0
+     */
+    public function getCityByCoordinates(array $request_options = []): array
+    {
+        if (!isset($request_options['latitude']) && isset($request_options['lat'])) {
+            $request_options['latitude'] = $request_options['lat'];
+        }
 
-		if (!isset($request_options['longitude']) && isset($request_options['lng']))
-		{
-			$request_options['longitude'] = $request_options['lng'];
-		}
+        if (!isset($request_options['longitude']) && isset($request_options['lng'])) {
+            $request_options['longitude'] = $request_options['lng'];
+        }
 
-		if (!isset($request_options['longitude']) && isset($request_options['lon']))
-		{
-			$request_options['longitude'] = $request_options['lon'];
-		}
+        if (!isset($request_options['longitude']) && isset($request_options['lon'])) {
+            $request_options['longitude'] = $request_options['lon'];
+        }
 
-		if (!isset($request_options['latitude']) || !isset($request_options['longitude']))
-		{
-			return [
-				'error_code'    => '500',
-				'error_message' => 'Required options: latitude, longitude',
-			];
-		}
+        if (!isset($request_options['latitude']) || !isset($request_options['longitude'])) {
+            return [
+                'error_code'    => '500',
+                'error_message' => 'Required options: latitude, longitude',
+            ];
+        }
 
-		return $this->request->getResponse('/location/coordinates', $request_options, 'GET');
-	}
+        return $this->request->getResponse('/location/coordinates', $request_options, 'GET');
+    }
 
 
-	/**
-	 * GET /v2/location/suggest/cities
-	 *
-	 * Подбор локации по названию города
-	 *
-	 * **Описание:**
-	 * Метод позволяет получать подсказки по подбору населенного пункта по его наименованию.
-	 *
-	 * Список населенных пунктов может быть ограничен характеристиками, задаваемыми пользователем.
-	 *
-	 * Источник: https://apidoc.cdek.ru/#tag/location/operation/suggestCities
-	 *
-	 * @param   string  $city_name     Наименование города для подбора подсказок.
-	 * @param   string  $country_code  Код страны в формате ISO_3166-1
-	 *
-	 * @return  array  Ответ API.
-	 *
-	 * @since 1.3.0
-	 */
-	public function suggestCities(string $city_name, string $country_code = ''): array
-	{
-		if (empty($city_name))
-		{
-			return [
-				'error_code'    => '500',
-				'error_message' => 'Required option: city_name',
-			];
-		}
-		$request_options = ['name' => urlencode($city_name)];
+    /**
+     * GET /v2/location/suggest/cities
+     *
+     * Подбор локации по названию города
+     *
+     * **Описание:**
+     * Метод позволяет получать подсказки по подбору населенного пункта по его наименованию.
+     *
+     * Список населенных пунктов может быть ограничен характеристиками, задаваемыми пользователем.
+     *
+     * Источник: https://apidoc.cdek.ru/#tag/location/operation/suggestCities
+     *
+     * @param   string  $city_name     Наименование города для подбора подсказок.
+     * @param   string  $country_code  Код страны в формате ISO_3166-1
+     *
+     * @return  array  Ответ API.
+     *
+     * @since 1.3.0
+     */
+    public function suggestCities(string $city_name, string $country_code = ''): array
+    {
+        if (empty($city_name)) {
+            return [
+                'error_code'    => '500',
+                'error_message' => 'Required option: city_name',
+            ];
+        }
+        $request_options = ['name' => urlencode($city_name)];
 
-		if(!empty(trim($country_code))) {
-			$request_options['country_code'] = $country_code;
-		}
+        if (!empty(trim($country_code))) {
+            $request_options['country_code'] = $country_code;
+        }
 
-		return $this->request->getResponse('/location/suggest/cities', $request_options, 'GET');
-	}
-
+        return $this->request->getResponse('/location/suggest/cities', $request_options, 'GET');
+    }
 }
-

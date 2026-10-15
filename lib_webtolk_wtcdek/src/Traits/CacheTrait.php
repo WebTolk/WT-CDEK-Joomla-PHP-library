@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Joomla cache support for CDEK API data.
  * @package       WT Cdek library package
@@ -15,37 +16,38 @@ declare(strict_types=1);
 
 namespace Webtolk\Cdekapi\Traits;
 
-defined('_JEXEC') or die;
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 use Joomla\CMS\Cache\CacheControllerFactoryInterface;
 use Joomla\CMS\Cache\Controller\OutputController;
 use Joomla\CMS\Factory;
-use function array_merge;
 
 trait CacheTrait
 {
-	/**
-	 * Возвращает настроенный контроллер кэша.
-	 *
-	 * @param   array  $cache_options  Дополнительные параметры кэша.
-	 *
-	 * @return  OutputController
-	 *
-	 * @since 1.3.0
-	 */
-	public function getCache(array $cache_options = []): OutputController
-	{
-		$config  = Factory::getContainer()->get('config');
-		$options = [
-			'defaultgroup' => 'wt_cdek',
-			'caching'      => true,
-			'cachebase'    => $config->get('cache_path'),
-			'storage'      => $config->get('cache_handler'),
-		];
-		$options = array_merge($options, $cache_options);
+    /**
+     * Возвращает настроенный контроллер кэша.
+     *
+     * @param   array  $cache_options  Дополнительные параметры кэша.
+     *
+     * @return  OutputController
+     *
+     * @since 1.3.0
+     */
+    public function getCache(array $cache_options = []): OutputController
+    {
+        $config  = Factory::getContainer()->get('config');
+        $options = [
+            'defaultgroup' => 'wt_cdek',
+            'caching'      => true,
+            'cachebase'    => $config->get('cache_path'),
+            'storage'      => $config->get('cache_handler'),
+        ];
+        $options = array_merge($options, $cache_options);
 
-		return Factory::getContainer()
-			->get(CacheControllerFactoryInterface::class)
-			->createCacheController('output', $options);
-	}
+        return Factory::getContainer()
+            ->get(CacheControllerFactoryInterface::class)
+            ->createCacheController('output', $options);
+    }
 }

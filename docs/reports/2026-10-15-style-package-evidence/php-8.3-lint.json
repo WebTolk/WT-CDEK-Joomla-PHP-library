@@ -1,0 +1,242 @@
+[
+  {
+    "file": "lib_webtolk_wtcdek/layouts/fields/tariffinfo.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\layouts\\fields\\tariffinfo.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/script.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\script.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Cdek.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Cdek.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/CdekClientException.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\CdekClientException.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/CdekRequest.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\CdekRequest.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/AbstractEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\AbstractEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/CalculatorEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\CalculatorEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/CheckEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\CheckEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/DeliveryEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\DeliveryEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/DeliverypointsEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\DeliverypointsEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/IntakesEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\IntakesEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/InternationalEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\InternationalEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/LocationEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\LocationEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/OauthEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\OauthEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/OrdersEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\OrdersEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/PassportEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\PassportEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/PaymentEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\PaymentEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/PhotoDocumentEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\PhotoDocumentEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/PrealertEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\PrealertEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/PrintEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\PrintEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/registry.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\registry.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/ReverseEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\ReverseEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Entities/WebhooksEntity.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Entities\\WebhooksEntity.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Fields/DeliverypointsField.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Fields\\DeliverypointsField.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Fields/TariffinfoField.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Fields\\TariffinfoField.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Fields/TarifflistField.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Fields\\TarifflistField.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Helper/Watchfield.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Helper\\Watchfield.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Interfaces/EntityInterface.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Interfaces\\EntityInterface.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Service/DeliverypointsService.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Service\\DeliverypointsService.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Traits/CacheTrait.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Traits\\CacheTrait.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/Traits/LogTrait.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\Traits\\LogTrait.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "lib_webtolk_wtcdek/src/WebAsset/AssetItem/WatchfieldAssetItem.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\src\\WebAsset\\AssetItem\\WatchfieldAssetItem.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "plg_system_wtcdek/services/provider.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\plg_system_wtcdek\\services\\provider.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "plg_system_wtcdek/src/Extension/Wtcdek.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\plg_system_wtcdek\\src\\Extension\\Wtcdek.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "plg_system_wtcdek/src/Field/AccountinfoField.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\plg_system_wtcdek\\src\\Field\\AccountinfoField.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "plg_system_wtcdek/src/Field/PlugininfoField.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\plg_system_wtcdek\\src\\Field\\PlugininfoField.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "plg_task_updatewtcdekdata/services/provider.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\plg_task_updatewtcdekdata\\services\\provider.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "plg_task_updatewtcdekdata/src/Extension/Updatewtcdekdata.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\plg_task_updatewtcdekdata\\src\\Extension\\Updatewtcdekdata.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "plg_task_updatewtcdekdata/src/Field/PlugininfoField.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\plg_task_updatewtcdekdata\\src\\Field\\PlugininfoField.php\n",
+    "stderr": ""
+  },
+  {
+    "file": "script.php",
+    "exit": 0,
+    "stdout": "No syntax errors detected in E:\\dev\\WT-CDEK-Joomla-PHP-library\\script.php\n",
+    "stderr": ""
+  }
+]

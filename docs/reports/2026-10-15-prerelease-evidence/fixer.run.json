@@ -1,0 +1,14 @@
+{
+  "command": [
+    "E:/OSPanel/modules/PHP-8.3/php.exe",
+    "E:\\.agents\\tools\\php-qa\\vendor\\bin\\php-cs-fixer",
+    "fix",
+    "--dry-run",
+    "--using-cache=no",
+    "--sequential",
+    "--config=E:\\dev\\WT-CDEK-Joomla-PHP-library\\docs\\reports\\2026-10-15-prerelease-evidence\\fixer-scope.php",
+    "--format=json"
+  ],
+  "exit": 8,
+  "seconds": 5.67
+}

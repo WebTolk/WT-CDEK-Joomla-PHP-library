@@ -1,0 +1,10 @@
+{
+  "command": [
+    "E:/OSPanel/modules/PHP-7.4/php.exe",
+    "-r",
+    "$_SERVER['HTTP_HOST']='localhost'; $_SERVER['SCRIPT_NAME']='/index.php'; $_SERVER['PHP_SELF']='/index.php'; require '.webtolk/tests/ajax-cookie.php';",
+    "E:/.agents/docs/joomla/core/Joomla-core/4.x/4.4.14"
+  ],
+  "exit": 0,
+  "seconds": 0.36
+}

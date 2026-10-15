@@ -13,10 +13,11 @@
 
 namespace Webtolk\Cdekapi\Helper;
 
+// phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 use Joomla\CMS\Form\Form;
-use SimpleXMLElement;
 
 /**
  * Prepare declarative configuration for the Watchfield WebAsset through Joomla Form.
@@ -62,12 +63,12 @@ final class Watchfield
                 throw new \UnexpectedValueException('watchfield keys and field names must be non-empty strings.');
             }
 
-            $source = trim($source);
+            $source      = trim($source);
             $sourceGroup = $group;
 
             if (($separator = strrpos($source, '.')) !== false) {
                 $sourceGroup = substr($source, 0, $separator);
-                $source = substr($source, $separator + 1);
+                $source      = substr($source, $separator + 1);
             }
 
             $field = $form->getField($source, $sourceGroup ?: null);
@@ -83,7 +84,7 @@ final class Watchfield
     }
 
     /** Build the shared data-provider configuration; the options key is literal, the path is dotted. */
-    public static function dataOptions(SimpleXMLElement $element, array $defaults): array
+    public static function dataOptions(\SimpleXMLElement $element, array $defaults): array
     {
         $options = $defaults;
 
@@ -103,9 +104,11 @@ final class Watchfield
             $options['path'] = '';
         }
 
-        if (!\in_array($options['source'] ?? '', ['ajax', 'scriptoptions'], true)
+        if (
+            !\in_array($options['source'] ?? '', ['ajax', 'scriptoptions'], true)
             || ($options['source'] === 'ajax' && empty($options['url']))
-            || ($options['source'] === 'scriptoptions' && empty($options['options']))) {
+            || ($options['source'] === 'scriptoptions' && empty($options['options']))
+        ) {
             throw new \UnexpectedValueException('Invalid watchfield data source.');
         }
 
@@ -121,7 +124,7 @@ final class Watchfield
             $names[$parameter] = $source['name'];
         }
 
-        $encode = static fn($value): string => htmlspecialchars(json_encode($value, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8');
+        $encode = static fn ($value): string => htmlspecialchars(json_encode($value, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8');
 
         return 'data-watchfield="' . $encode((object) $names) . '" data-watchfield-options="' . $encode($options) . '"';
     }

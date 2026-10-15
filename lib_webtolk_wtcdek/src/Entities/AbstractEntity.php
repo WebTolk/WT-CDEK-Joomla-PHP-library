@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Base implementation for CDEK API entities.
  * @package       WT Cdek library package
@@ -15,20 +16,22 @@ declare(strict_types=1);
 
 namespace Webtolk\Cdekapi\Entities;
 
-defined('_JEXEC') or die;
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 use Webtolk\Cdekapi\CdekRequest;
 use Webtolk\Cdekapi\Interfaces\EntityInterface;
 
 abstract class AbstractEntity implements EntityInterface
 {
-	protected CdekRequest $request;
+    protected CdekRequest $request;
 
-	/**
-	 * @since 1.3.0
-	 */
-	public function __construct(CdekRequest $request)
-	{
-		$this->request = $request;
-	}
+    /**
+     * @since 1.3.0
+     */
+    public function __construct(CdekRequest $request)
+    {
+        $this->request = $request;
+    }
 }

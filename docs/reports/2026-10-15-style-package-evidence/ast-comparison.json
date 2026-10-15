@@ -1,0 +1,162 @@
+[
+    {
+        "file": "lib_webtolk_wtcdek/layouts/fields/tariffinfo.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/script.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Cdek.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/CdekClientException.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/CdekRequest.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/AbstractEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/CalculatorEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/CheckEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/DeliveryEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/DeliverypointsEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/IntakesEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/InternationalEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/LocationEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/OauthEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/OrdersEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/PassportEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/PaymentEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/PhotoDocumentEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/PrealertEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/PrintEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/registry.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/ReverseEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Entities/WebhooksEntity.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Fields/DeliverypointsField.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Fields/TariffinfoField.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Fields/TarifflistField.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Helper/Watchfield.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Interfaces/EntityInterface.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Service/DeliverypointsService.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Traits/CacheTrait.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/Traits/LogTrait.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "lib_webtolk_wtcdek/src/WebAsset/AssetItem/WatchfieldAssetItem.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "plg_system_wtcdek/services/provider.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "plg_system_wtcdek/src/Extension/Wtcdek.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "plg_system_wtcdek/src/Field/AccountinfoField.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "plg_system_wtcdek/src/Field/PlugininfoField.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "plg_task_updatewtcdekdata/services/provider.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "plg_task_updatewtcdekdata/src/Extension/Updatewtcdekdata.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "plg_task_updatewtcdekdata/src/Field/PlugininfoField.php",
+        "same_normalized_ast": true
+    },
+    {
+        "file": "script.php",
+        "same_normalized_ast": true
+    }
+]

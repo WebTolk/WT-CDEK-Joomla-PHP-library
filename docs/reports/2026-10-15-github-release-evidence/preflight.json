@@ -1,0 +1,12 @@
+{
+  "candidate_files": 284,
+  "secret_scan_findings": [],
+  "release_asset": "E:\\tmp\\wtcdek-github-release-20261015\\WT.Cdek.library.package_1.4.0.zip",
+  "asset_size": 384340,
+  "sha256": "ca4fbd9107226f0a0322bbe227b8f7586a2008ade493280157fa164556b09c08",
+  "package_php_matches_working_sources": 40,
+  "tag": "v.1.4.0",
+  "target_branch": "main",
+  "source_branch": "dev",
+  "notes_file": "docs/release/2026-10-15-github-1.4.0-notes.md"
+}

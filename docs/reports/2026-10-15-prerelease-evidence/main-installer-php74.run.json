@@ -1,0 +1,9 @@
+{
+  "command": [
+    "E:/OSPanel/modules/PHP-7.4/php.exe",
+    "-l",
+    "E:\\tmp\\wtcdek-prerelease-cleanup-20261015\\main-library-installer.php"
+  ],
+  "exit": 4294967295,
+  "seconds": 0.25
+}

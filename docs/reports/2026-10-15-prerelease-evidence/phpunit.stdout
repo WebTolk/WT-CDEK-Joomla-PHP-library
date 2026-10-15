@@ -1,0 +1,37 @@
+PHPUnit 9.6.34 by Sebastian Bergmann and contributors.
+
+FFF                                                                 3 / 3 (100%)
+Deprecated: DateTime::format(): Passing null to parameter #1 ($format) of type string is deprecated in E:\OSPanel\home\joomla.local\public\libraries\src\Date\Date.php on line 282
+
+
+Time: 00:00.131, Memory: 6.00 MB
+
+There were 3 failures:
+
+1) ReleaseContractsTest::testErrorPriorityReachesJoomlaLogger
+ERROR was silently downgraded by Joomla LogEntry.
+Failed asserting that 64 is identical to 8.
+
+E:\dev\WT-CDEK-Joomla-PHP-library\docs\reports\2026-10-15-prerelease-evidence\ReleaseContractsTest.php:57
+
+2) ReleaseContractsTest::testTokenCacheSeparatesAccountsAndEnvironments
+Accounts and sandbox overwrite the same cache entry.
+Failed asserting that actual size 1 matches expected size 3.
+
+E:\dev\WT-CDEK-Joomla-PHP-library\docs\reports\2026-10-15-prerelease-evidence\ReleaseContractsTest.php:66
+
+3) ReleaseContractsTest::testSchedulerPreservesExistingPointsWhenProviderReturnsAnError
+Existing points were truncated before provider success. Failure: TypeError: array_key_exists(): Argument #2 ($array) must be of type array, int given
+Failed asserting that two arrays are identical.
+--- Expected
++++ Actual
+@@ @@
+-Array &0 ()
++Array &0 (
++    0 => 'TRUNCATE `#__lib_wtcdek_delivery_points`'
++)
+
+E:\dev\WT-CDEK-Joomla-PHP-library\docs\reports\2026-10-15-prerelease-evidence\ReleaseContractsTest.php:91
+
+FAILURES!
+Tests: 3, Assertions: 4, Failures: 3.

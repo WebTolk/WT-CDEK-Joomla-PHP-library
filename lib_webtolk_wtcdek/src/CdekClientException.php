@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Exception raised by the CDEK API client.
  * @package       WT Cdek library package
@@ -13,10 +14,10 @@
 
 namespace Webtolk\Cdekapi;
 
-use Exception;
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
-defined('_JEXEC') or die;
-
-class CdekClientException extends Exception
+class CdekClientException extends \Exception
 {
 }

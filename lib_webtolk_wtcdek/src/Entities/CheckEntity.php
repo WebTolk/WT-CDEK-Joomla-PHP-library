@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CDEK check API entity.
  * @package       WT Cdek library package
@@ -17,50 +18,48 @@ namespace Webtolk\Cdekapi\Entities;
 
 use Symfony\Component\Uid\Uuid;
 
-defined('_JEXEC') or die;
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
 
 final class CheckEntity extends AbstractEntity
 {
-	/**
-	 * GET /check
-	 *
-	 * Получение информации о чеках
-	 *
-	 * **Описание:**
-	 * Метод используется для получения информации о чеке по заказу или за выбранный день.
-	 *
-	 * Источник: https://apidoc.cdek.ru/#tag/receipt/operation/get_7
-	 *
-	 * @param   array{
-	 *             order_uuid?: string,
-	 *             cdek_number?: string|int,
-	 *             date?: string
-	 *         }  $request_options  Параметры запроса.
-	 *
-	 * @return  array  Ответ API.
-	 *
-	 * @since 1.3.0
-	 */
-	public function get(array $request_options = []): array
-	{
-		if (empty($request_options['order_uuid']) && empty($request_options['cdek_number']) && empty($request_options['date']))
-		{
-			return [
-				'error_code'    => '500',
-				'error_message' => 'Required options: one of order_uuid, cdek_number, date',
-			];
-		}
+    /**
+     * GET /check
+     *
+     * Получение информации о чеках
+     *
+     * **Описание:**
+     * Метод используется для получения информации о чеке по заказу или за выбранный день.
+     *
+     * Источник: https://apidoc.cdek.ru/#tag/receipt/operation/get_7
+     *
+     * @param   array{
+     *             order_uuid?: string,
+     *             cdek_number?: string|int,
+     *             date?: string
+     *         }  $request_options  Параметры запроса.
+     *
+     * @return  array  Ответ API.
+     *
+     * @since 1.3.0
+     */
+    public function get(array $request_options = []): array
+    {
+        if (empty($request_options['order_uuid']) && empty($request_options['cdek_number']) && empty($request_options['date'])) {
+            return [
+                'error_code'    => '500',
+                'error_message' => 'Required options: one of order_uuid, cdek_number, date',
+            ];
+        }
 
-		if (!empty($request_options['order_uuid']) && !Uuid::isValid(\trim((string) $request_options['order_uuid'])))
-		{
-			return [
-				'error_code'    => '500',
-				'error_message' => 'Invalid option value: order_uuid',
-			];
-		}
+        if (!empty($request_options['order_uuid']) && !Uuid::isValid(trim((string) $request_options['order_uuid']))) {
+            return [
+                'error_code'    => '500',
+                'error_message' => 'Invalid option value: order_uuid',
+            ];
+        }
 
-		return $this->request->getResponse('/check', $request_options, 'GET');
-	}
-
+        return $this->request->getResponse('/check', $request_options, 'GET');
+    }
 }
-

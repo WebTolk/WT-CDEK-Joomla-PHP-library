@@ -1,0 +1,16 @@
+
+Warning: Undefined array key "HTTP_HOST" in E:\OSPanel\home\joomla.local\public\libraries\src\Uri\Uri.php on line 98
+
+Fatal error: Uncaught RuntimeException: Could not parse the requested URI http://E:\dev\WT-CDEK-Joomla-PHP-library\.webtolk\tests\deliverypoints.php in E:\OSPanel\home\joomla.local\public\libraries\vendor\joomla\uri\src\AbstractUri.php:367
+Stack trace:
+#0 E:\OSPanel\home\joomla.local\public\libraries\src\Uri\Uri.php(301): Joomla\Uri\AbstractUri->parse('http://E:\\dev\\WT-CDEK-Joomla-PHP-library\\.webtolk\\tests\\deliverypoints.php')
+#1 E:\OSPanel\home\joomla.local\public\libraries\vendor\joomla\uri\src\AbstractUri.php(111): Joomla\CMS\Uri\Uri->parse('http://E:\\dev\\WT-CDEK-Joomla-PHP-library\\.webtolk\\tests\\deliverypoints.php')
+#2 E:\OSPanel\home\joomla.local\public\libraries\src\Uri\Uri.php(113): Joomla\Uri\AbstractUri->__construct('http://E:\\dev\\WT-CDEK-Joomla-PHP-library\\.webtolk\\tests\\deliverypoints.php')
+#3 E:\OSPanel\home\joomla.local\public\libraries\src\Uri\Uri.php(133): Joomla\CMS\Uri\Uri::getInstance()
+#4 E:\dev\WT-CDEK-Joomla-PHP-library\lib_webtolk_wtcdek\src\Fields\DeliverypointsField.php(120): Joomla\CMS\Uri\Uri::base(true)
+#5 E:\OSPanel\home\joomla.local\public\libraries\src\Form\FormField.php(493): Webtolk\Cdekapi\Fields\DeliverypointsField->getInput()
+#6 E:\OSPanel\home\joomla.local\public\libraries\src\Form\Field\ListField.php(252): Joomla\CMS\Form\FormField->__get('input')
+#7 E:\dev\WT-CDEK-Joomla-PHP-library\.webtolk\tests\deliverypoints.php(108): Joomla\CMS\Form\Field\ListField->__get('input')
+#8 E:\dev\WT-CDEK-Joomla-PHP-library\.webtolk\tests\deliverypoints.php(118): renderField('watchfield="{&quot;zip&quot;:&quot;zip&quot;,&quot;city&quot;:&quot;city&quot;}"')
+#9 {main}
+  thrown in E:\OSPanel\home\joomla.local\public\libraries\vendor\joomla\uri\src\AbstractUri.php on line 367

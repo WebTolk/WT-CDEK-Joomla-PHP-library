@@ -1,0 +1,18 @@
+[
+  {
+    "source": "E:\\dev\\WT-CDEK-Joomla-PHP-library\\.webtolk\\tmp",
+    "destination": "E:\\tmp\\wtcdek-prerelease-cleanup-20261015\\.webtolk\\tmp"
+  },
+  {
+    "source": "E:\\dev\\WT-CDEK-Joomla-PHP-library\\.packages\\.stage",
+    "destination": "E:\\tmp\\wtcdek-prerelease-cleanup-20261015\\.packages\\.stage"
+  },
+  {
+    "source": "E:\\dev\\WT-CDEK-Joomla-PHP-library\\.packages\\install_6a2842e51e4f6",
+    "destination": "E:\\tmp\\wtcdek-prerelease-cleanup-20261015\\.packages\\install_6a2842e51e4f6"
+  },
+  {
+    "source": "E:\\dev\\WT-CDEK-Joomla-PHP-library\\.packages\\install_6a28433376bd7",
+    "destination": "E:\\tmp\\wtcdek-prerelease-cleanup-20261015\\.packages\\install_6a28433376bd7"
+  }
+]

@@ -1,0 +1,88 @@
+{
+  "archive": "E:\\dev\\WT-CDEK-Joomla-PHP-library\\.packages\\WT Cdek library package_1.4.0.zip",
+  "bytes": 384273,
+  "sha256": "45cd8942f90233060c89b8236c751f62259f31753c7a28d1b67ee454b85640f9",
+  "source_unchanged": true,
+  "php": [
+    "lib_webtolk_wtcdek/layouts/fields/tariffinfo.php",
+    "lib_webtolk_wtcdek/script.php",
+    "lib_webtolk_wtcdek/src/Cdek.php",
+    "lib_webtolk_wtcdek/src/CdekClientException.php",
+    "lib_webtolk_wtcdek/src/CdekRequest.php",
+    "lib_webtolk_wtcdek/src/Entities/AbstractEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/CalculatorEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/CheckEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/DeliveryEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/DeliverypointsEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/IntakesEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/InternationalEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/LocationEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/OauthEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/OrdersEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/PassportEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/PaymentEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/PhotoDocumentEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/PrealertEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/PrintEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/ReverseEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/WebhooksEntity.php",
+    "lib_webtolk_wtcdek/src/Entities/registry.php",
+    "lib_webtolk_wtcdek/src/Fields/DeliverypointsField.php",
+    "lib_webtolk_wtcdek/src/Fields/TariffinfoField.php",
+    "lib_webtolk_wtcdek/src/Fields/TarifflistField.php",
+    "lib_webtolk_wtcdek/src/Helper/Watchfield.php",
+    "lib_webtolk_wtcdek/src/Interfaces/EntityInterface.php",
+    "lib_webtolk_wtcdek/src/Service/DeliverypointsService.php",
+    "lib_webtolk_wtcdek/src/Traits/CacheTrait.php",
+    "lib_webtolk_wtcdek/src/Traits/LogTrait.php",
+    "lib_webtolk_wtcdek/src/WebAsset/AssetItem/WatchfieldAssetItem.php",
+    "plg_system_wtcdek/services/provider.php",
+    "plg_system_wtcdek/src/Extension/Wtcdek.php",
+    "plg_system_wtcdek/src/Field/AccountinfoField.php",
+    "plg_system_wtcdek/src/Field/PlugininfoField.php",
+    "plg_task_updatewtcdekdata/services/provider.php",
+    "plg_task_updatewtcdekdata/src/Extension/Updatewtcdekdata.php",
+    "plg_task_updatewtcdekdata/src/Field/PlugininfoField.php",
+    "script.php"
+  ],
+  "manifests": [
+    {
+      "file": "lib_webtolk_wtcdek/Cdekapi.xml",
+      "version": "1.4.0"
+    },
+    {
+      "file": "pkg_lib_wtcdek.xml",
+      "version": "1.4.0"
+    },
+    {
+      "file": "plg_system_wtcdek/wtcdek.xml",
+      "version": "1.4.0"
+    },
+    {
+      "file": "plg_task_updatewtcdekdata/updatewtcdekdata.xml",
+      "version": "1.4.0"
+    }
+  ],
+  "js": [
+    "lib_webtolk_wtcdek/media/js/cdek-widget.es.js",
+    "lib_webtolk_wtcdek/media/js/cdek-widget.umd.js",
+    "lib_webtolk_wtcdek/media/js/wtcdek-deliverypoints.js",
+    "lib_webtolk_wtcdek/media/js/wtcdek-tariffinfo.js",
+    "lib_webtolk_wtcdek/media/js/wtcdek-watchfield.js"
+  ],
+  "entries": 66,
+  "php_tokens_equal_source": true,
+  "previous_package_preserved": {
+    "source": "E:\\dev\\WT-CDEK-Joomla-PHP-library\\.packages\\WT Cdek library package_1.4.0.zip",
+    "backup": "E:\\tmp\\wtcdek-style-package-20261015\\WT Cdek library package_1.4.0.before-style.zip",
+    "bytes": 383093,
+    "sha256": "2e17b506ffa953f1f6d86d38175116bf5f3b2b9b2f19d3cd2c7dc0c16e2c2982"
+  },
+  "style": {
+    "errors": 0,
+    "warnings": 0,
+    "fixable": 0
+  },
+  "native_checks": 540,
+  "result": "passed"
+}
