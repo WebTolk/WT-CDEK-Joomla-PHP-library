@@ -1,0 +1,10 @@
+{
+  "release_commit": "d2f005da48c3e6f73a2249bfd4cd63abd62fb8e8",
+  "tag": "v.1.4.0",
+  "pushed": [
+    "main",
+    "dev",
+    "v.1.4.0"
+  ],
+  "atomic": true
+}
