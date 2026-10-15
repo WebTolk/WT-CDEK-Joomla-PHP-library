@@ -1,9 +1,0 @@
-{
-  "command": [
-    "E:/OSPanel/modules/PHP-8.3/php.exe",
-    "E:\\.agents\\tools\\php-qa\\vendor\\bin\\phpcs",
-    "-i"
-  ],
-  "exit": 0,
-  "seconds": 0.38
-}

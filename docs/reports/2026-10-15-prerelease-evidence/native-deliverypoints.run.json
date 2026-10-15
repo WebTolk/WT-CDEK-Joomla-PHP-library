@@ -1,9 +1,0 @@
-{
-  "command": [
-    "E:/OSPanel/modules/PHP-8.3/php.exe",
-    "E:\\dev\\WT-CDEK-Joomla-PHP-library\\.webtolk\\tests\\deliverypoints.php",
-    "E:\\OSPanel\\home\\joomla.local\\public"
-  ],
-  "exit": 255,
-  "seconds": 0.42
-}

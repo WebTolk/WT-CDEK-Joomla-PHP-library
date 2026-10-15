@@ -1,9 +1,0 @@
-{
-  "command": [
-    "E:/nodejs/node.exe",
-    "--check",
-    "E:\\dev\\WT-CDEK-Joomla-PHP-library\\lib_webtolk_wtcdek\\media\\js\\wtcdek-deliverypoints.js"
-  ],
-  "exit": 0,
-  "seconds": 0.12
-}
